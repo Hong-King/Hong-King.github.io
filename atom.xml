@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hong-king.github.io/"/>
-  <updated>2020-04-07T08:27:36.686Z</updated>
+  <updated>2020-04-07T10:47:42.482Z</updated>
   <id>https://hong-king.github.io/</id>
   
   <author>
@@ -17,13 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>my love</title>
-    <link href="https://hong-king.github.io/2020/04/06/my-love/"/>
-    <id>https://hong-king.github.io/2020/04/06/my-love/</id>
-    <published>2020-04-06T13:39:04.000Z</published>
-    <updated>2020-04-07T08:27:36.686Z</updated>
+    <title>Hello-Friends</title>
+    <link href="https://hong-king.github.io/2020/04/07/Hello-Friends/"/>
+    <id>https://hong-king.github.io/2020/04/07/Hello-Friends/</id>
+    <published>2020-04-07T09:52:00.000Z</published>
+    <updated>2020-04-07T10:47:42.482Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="你好，朋友"><a href="#你好，朋友" class="headerlink" title="你好，朋友"></a>你好，朋友</h2><h2 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h2><h2 id="祝福你，能在这一隅世界里，有所收获"><a href="#祝福你，能在这一隅世界里，有所收获" class="headerlink" title="祝福你，能在这一隅世界里，有所收获"></a>祝福你，能在这一隅世界里，有所收获</h2><p>*特别感谢 本博客所用主题：Ayer，如果你也喜欢此主题，可以点击<a href="https://shen-yu.gitee.io/" target="_blank" rel="noopener">Ayer</a>进行下载或对作者打赏</p>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;你好，朋友&quot;&gt;&lt;a href=&quot;#你好，朋友&quot; class=&quot;headerlink&quot; title=&quot;你好，朋友&quot;&gt;&lt;/a&gt;你好，朋友&lt;/h2&gt;&lt;h2 id=&quot;欢迎来到我的博客&quot;&gt;&lt;a href=&quot;#欢迎来到我的博客&quot; class=&quot;headerlink&quot; titl
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>point</title>
+    <link href="https://hong-king.github.io/2020/04/06/point/"/>
+    <id>https://hong-king.github.io/2020/04/06/point/</id>
+    <published>2020-04-06T13:39:04.000Z</published>
+    <updated>2020-04-07T10:47:36.166Z</updated>
+    
+    <content type="html"><![CDATA[<p>提示自己一下，为了更好地更新博客</p><h2 id="使用-hexo-s-进行本地预览"><a href="#使用-hexo-s-进行本地预览" class="headerlink" title="使用 hexo s 进行本地预览"></a>使用 hexo s 进行本地预览</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;提示自己一下，为了更好地更新博客&lt;/p&gt;
+&lt;h2 id=&quot;使用-hexo-s-进行本地预览&quot;&gt;&lt;a href=&quot;#使用-hexo-s-进行本地预览&quot; class=&quot;headerlink&quot; title=&quot;使用 hexo s 进行本地预览&quot;&gt;&lt;/a&gt;使用 hexo s 进行本地
+      
     
     </summary>
     
@@ -36,7 +66,7 @@
     <link href="https://hong-king.github.io/2020/04/06/hello-world/"/>
     <id>https://hong-king.github.io/2020/04/06/hello-world/</id>
     <published>2020-04-06T12:45:43.797Z</published>
-    <updated>2020-04-06T13:21:20.966Z</updated>
+    <updated>2020-04-07T10:47:38.647Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
