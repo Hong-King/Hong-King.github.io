@@ -1,10 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello-Friends</title>
-    <url>/2020/04/07/Hello-Friends/</url>
-    <content><![CDATA[<h2 id="你好，朋友"><a href="#你好，朋友" class="headerlink" title="你好，朋友"></a>你好，朋友</h2><h2 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h2><h2 id="祝福你，能在这一隅世界里，有所收获"><a href="#祝福你，能在这一隅世界里，有所收获" class="headerlink" title="祝福你，能在这一隅世界里，有所收获"></a>祝福你，能在这一隅世界里，有所收获</h2><p>*特别感谢 本博客所用主题：Ayer，如果你也喜欢此主题，可以点击<a href="https://shen-yu.gitee.io/" target="_blank" rel="noopener">Ayer</a>进行下载或对作者打赏</p>
+    <title>如何在hexo下进行本地预览</title>
+    <url>/2020/04/06/%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E4%B8%8B%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/</url>
+    <content><![CDATA[<h2 id="使用-hexo-s-进行本地预览"><a href="#使用-hexo-s-进行本地预览" class="headerlink" title="使用 hexo s 进行本地预览"></a>使用 hexo s 进行本地预览</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo如何插入本地图片</title>
+    <url>/2020/04/07/Hexo%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<p>由于某种原因安装图片插件安装不上，故使用此方法</p>
+<pre><code class="bash">% ![你想输入的替代文字](xxxx/图片名.jpg)</code></pre>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo写作语法</title>
+    <url>/2020/04/07/Hexo%E5%86%99%E4%BD%9C%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<hr>
+<p>以下是效果展示</p>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><p><del>这是横线</del><br><strong>这是加粗</strong><br><em>这是斜体</em></p>
+<ul>
+<li>无序列表1</li>
+<li>无序列表2</li>
+</ul>
+<ol>
+<li>有序排列1</li>
+<li>有序排列2<br><code>内嵌代码</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">代码块</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>引用</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<p>以下为源代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 一级标题</span></span><br><span class="line"><span class="comment">## 二级标题</span></span><br><span class="line"><span class="comment">### 三级标题	</span></span><br><span class="line"><span class="comment">#### 四级标题</span></span><br><span class="line"><span class="comment">##### 五级标题</span></span><br><span class="line">~~这是横线~~	</span><br><span class="line">**这是加粗**	</span><br><span class="line">*这是斜体*</span><br><span class="line">* 无序列表1</span><br><span class="line">* 无序列表2</span><br><span class="line">1. 有序排列1</span><br><span class="line">2. 有序排列2</span><br><span class="line">`内嵌代码`</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">代码块</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">&gt;引用</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hello World</title>
@@ -22,13 +72,6 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>point</title>
-    <url>/2020/04/06/point/</url>
-    <content><![CDATA[<p>提示自己一下，为了更好地更新博客</p>
-<h2 id="使用-hexo-s-进行本地预览"><a href="#使用-hexo-s-进行本地预览" class="headerlink" title="使用 hexo s 进行本地预览"></a>使用 hexo s 进行本地预览</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
 </search>

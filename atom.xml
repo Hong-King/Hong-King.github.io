@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hong-king.github.io/"/>
-  <updated>2020-04-07T10:47:42.482Z</updated>
+  <updated>2020-04-07T14:30:17.215Z</updated>
   <id>https://hong-king.github.io/</id>
   
   <author>
@@ -17,47 +17,90 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello-Friends</title>
-    <link href="https://hong-king.github.io/2020/04/07/Hello-Friends/"/>
-    <id>https://hong-king.github.io/2020/04/07/Hello-Friends/</id>
-    <published>2020-04-07T09:52:00.000Z</published>
-    <updated>2020-04-07T10:47:42.482Z</updated>
+    <title>Hexo如何插入本地图片</title>
+    <link href="https://hong-king.github.io/2020/04/07/Hexo%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/"/>
+    <id>https://hong-king.github.io/2020/04/07/Hexo%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</id>
+    <published>2020-04-07T14:26:55.000Z</published>
+    <updated>2020-04-07T14:30:17.215Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="你好，朋友"><a href="#你好，朋友" class="headerlink" title="你好，朋友"></a>你好，朋友</h2><h2 id="欢迎来到我的博客"><a href="#欢迎来到我的博客" class="headerlink" title="欢迎来到我的博客"></a>欢迎来到我的博客</h2><h2 id="祝福你，能在这一隅世界里，有所收获"><a href="#祝福你，能在这一隅世界里，有所收获" class="headerlink" title="祝福你，能在这一隅世界里，有所收获"></a>祝福你，能在这一隅世界里，有所收获</h2><p>*特别感谢 本博客所用主题：Ayer，如果你也喜欢此主题，可以点击<a href="https://shen-yu.gitee.io/" target="_blank" rel="noopener">Ayer</a>进行下载或对作者打赏</p>]]></content>
+    <content type="html"><![CDATA[<p>由于某种原因安装图片插件安装不上，故使用此方法</p><pre><code class="bash">% ![你想输入的替代文字](xxxx/图片名.jpg)</code></pre>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;你好，朋友&quot;&gt;&lt;a href=&quot;#你好，朋友&quot; class=&quot;headerlink&quot; title=&quot;你好，朋友&quot;&gt;&lt;/a&gt;你好，朋友&lt;/h2&gt;&lt;h2 id=&quot;欢迎来到我的博客&quot;&gt;&lt;a href=&quot;#欢迎来到我的博客&quot; class=&quot;headerlink&quot; titl
+        &lt;p&gt;由于某种原因安装图片插件安装不上，故使用此方法&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;% ![你想输入的替代文字](xxxx/图片名.jpg)&lt;/code&gt;&lt;/pre&gt;
+
       
     
     </summary>
     
     
+      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Hexo" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://Hong-King.github.io/tags/Hexo/"/>
     
   </entry>
   
   <entry>
-    <title>point</title>
-    <link href="https://hong-king.github.io/2020/04/06/point/"/>
-    <id>https://hong-king.github.io/2020/04/06/point/</id>
-    <published>2020-04-06T13:39:04.000Z</published>
-    <updated>2020-04-07T10:47:36.166Z</updated>
+    <title>Hexo写作语法</title>
+    <link href="https://hong-king.github.io/2020/04/07/Hexo%E5%86%99%E4%BD%9C%E8%AF%AD%E6%B3%95/"/>
+    <id>https://hong-king.github.io/2020/04/07/Hexo%E5%86%99%E4%BD%9C%E8%AF%AD%E6%B3%95/</id>
+    <published>2020-04-07T09:52:00.000Z</published>
+    <updated>2020-04-07T13:50:51.546Z</updated>
     
-    <content type="html"><![CDATA[<p>提示自己一下，为了更好地更新博客</p><h2 id="使用-hexo-s-进行本地预览"><a href="#使用-hexo-s-进行本地预览" class="headerlink" title="使用 hexo s 进行本地预览"></a>使用 hexo s 进行本地预览</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<hr><p>以下是效果展示</p><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><p><del>这是横线</del><br><strong>这是加粗</strong><br><em>这是斜体</em></p><ul><li>无序列表1</li><li>无序列表2</li></ul><ol><li>有序排列1</li><li>有序排列2<br><code>内嵌代码</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">代码块</span><br></pre></td></tr></table></figure><blockquote><p>引用</p></blockquote></li></ol><hr><p>以下为源代码</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一级标题</span></span><br><span class="line"><span class="comment">## 二级标题</span></span><br><span class="line"><span class="comment">### 三级标题</span></span><br><span class="line"><span class="comment">#### 四级标题</span></span><br><span class="line"><span class="comment">##### 五级标题</span></span><br><span class="line">~~这是横线~~</span><br><span class="line">**这是加粗**</span><br><span class="line">*这是斜体*</span><br><span class="line">* 无序列表1</span><br><span class="line">* 无序列表2</span><br><span class="line">1. 有序排列1</span><br><span class="line">2. 有序排列2</span><br><span class="line">`内嵌代码`</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">代码块</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">&gt;引用</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;提示自己一下，为了更好地更新博客&lt;/p&gt;
-&lt;h2 id=&quot;使用-hexo-s-进行本地预览&quot;&gt;&lt;a href=&quot;#使用-hexo-s-进行本地预览&quot; class=&quot;headerlink&quot; title=&quot;使用 hexo s 进行本地预览&quot;&gt;&lt;/a&gt;使用 hexo s 进行本地
+        &lt;hr&gt;
+&lt;p&gt;以下是效果展示&lt;/p&gt;
+&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a href=&quot;#一级标题&quot; class=&quot;headerlink&quot; title=&quot;一级标题&quot;&gt;&lt;/a&gt;一级标题&lt;/h1&gt;&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a href=&quot;#二级标题&quot; class=&quot;headerli
       
     
     </summary>
     
     
+      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Hexo" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://Hong-King.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何在hexo下进行本地预览</title>
+    <link href="https://hong-king.github.io/2020/04/06/%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E4%B8%8B%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/"/>
+    <id>https://hong-king.github.io/2020/04/06/%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E4%B8%8B%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/</id>
+    <published>2020-04-06T13:39:04.000Z</published>
+    <updated>2020-04-07T13:28:14.811Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="使用-hexo-s-进行本地预览"><a href="#使用-hexo-s-进行本地预览" class="headerlink" title="使用 hexo s 进行本地预览"></a>使用 hexo s 进行本地预览</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;使用-hexo-s-进行本地预览&quot;&gt;&lt;a href=&quot;#使用-hexo-s-进行本地预览&quot; class=&quot;headerlink&quot; title=&quot;使用 hexo s 进行本地预览&quot;&gt;&lt;/a&gt;使用 hexo s 进行本地预览&lt;/h2&gt;&lt;figure class=&quot;hi
+      
+    
+    </summary>
+    
+    
+      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Hexo" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://Hong-King.github.io/tags/Hexo/"/>
     
   </entry>
   
