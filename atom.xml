@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hong-king.github.io/"/>
-  <updated>2020-04-08T02:54:05.951Z</updated>
+  <updated>2020-04-08T08:13:35.195Z</updated>
   <id>https://hong-king.github.io/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>非负矩阵分解（NMF）的Matlab实现</title>
+    <link href="https://hong-king.github.io/2020/04/08/%E9%9D%9E%E8%B4%9F%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%EF%BC%88NMF%EF%BC%89%E7%9A%84Matlab%E5%AE%9E%E7%8E%B0/"/>
+    <id>https://hong-king.github.io/2020/04/08/%E9%9D%9E%E8%B4%9F%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%EF%BC%88NMF%EF%BC%89%E7%9A%84Matlab%E5%AE%9E%E7%8E%B0/</id>
+    <published>2020-04-08T08:01:00.000Z</published>
+    <updated>2020-04-08T08:13:35.195Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">V=double(imread(<span class="string">'图片名或路径'</span>));      </span><br><span class="line">imshow(mat2gray(V));</span><br><span class="line">V1=V(:,:,1);<span class="comment"># 将图片的第一通道数值赋值给V1</span></span><br><span class="line">V2=V(:,:,2);<span class="comment"># 将图片的第二通道数值赋值给V2</span></span><br><span class="line">V3=V(:,:,3);<span class="comment"># 将图片的第三通道数值赋值给V3</span></span><br><span class="line"></span><br><span class="line">[i,u]=size(V1);<span class="comment"># 将V1的行数赋值给i，列数赋值给u</span></span><br><span class="line">r=100;<span class="comment"># 设置分解矩阵的秩</span></span><br><span class="line">W=rand(i,r);<span class="comment"># 初始化WH，为非负数</span></span><br><span class="line">H=rand(r,u);<span class="comment"># 初始化WH，为非负数</span></span><br><span class="line">maviter=600;<span class="comment"># 最大迭代次数</span></span><br><span class="line">-----------------------------------------------------------------------------------</span><br><span class="line"><span class="comment"># 以下为非负矩阵算法公式，V2，V3同上处理，就不重复展示,以'...'代替</span></span><br><span class="line"><span class="keyword">for</span> iter=1:maviter</span><br><span class="line">    W=W.*((V1./(W*H))*H<span class="string">');           </span></span><br><span class="line"><span class="string">    W=W./(ones(i,1)*sum(W));    </span></span><br><span class="line"><span class="string">    H=H.*(W'</span>*(V1./(W*H)));</span><br><span class="line">end</span><br><span class="line">V1=W*H;</span><br><span class="line">...</span><br><span class="line">-----------------------------------------------------------------------------------</span><br><span class="line"><span class="comment"># 以下程序用于重新拼接图形</span></span><br><span class="line">img_V(:,:,1)=V1(:,:);</span><br><span class="line">img_V(:,:,2)=V2(:,:);</span><br><span class="line">img_V(:,:,3)=V3(:,:);</span><br><span class="line">figure;</span><br><span class="line">imshow(mat2gray(img_V));</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=
+      
+    
+    </summary>
+    
+    
+      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Matlab" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Matlab/"/>
+    
+      <category term="算法实现" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Matlab/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/"/>
+    
+    
+      <category term="Matlab" scheme="https://Hong-King.github.io/tags/Matlab/"/>
+    
+      <category term="机器学习" scheme="https://Hong-King.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>如何利用Python将数组长度标准化</title>
     <link href="https://hong-king.github.io/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%A0%87%E5%87%86%E5%8C%96/"/>
     <id>https://hong-king.github.io/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%A0%87%E5%87%86%E5%8C%96/</id>
     <published>2020-04-08T02:53:00.000Z</published>
-    <updated>2020-04-08T02:54:05.951Z</updated>
+    <updated>2020-04-08T02:57:46.214Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>本方法需要使用tensorflow包，请确认你已安装</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf  </span><br><span class="line">from tensorflow import keras</span><br><span class="line"></span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------- 将蛋白质语句长度标准化</span></span><br><span class="line">protein_dictionary_matrix = np.load(<span class="string">'文件路径'</span>) <span class="comment"># 载入数组</span></span><br><span class="line"></span><br><span class="line">protein_dictionary_matrix = tf.contrib.keras.preprocessing.sequence.pad_sequences</span><br><span class="line">(protein_dictionary_matrix,maxlen=None,padding=<span class="string">'post'</span>,truncating=<span class="string">'post'</span>,value = 0)</span><br><span class="line"><span class="comment"># protein_dictionary_matrix: 所要标准化的变量</span></span><br><span class="line"><span class="comment"># maxlen=None: 标准化长度:，None表示以数组最大长度为准</span></span><br><span class="line"><span class="comment"># padding='post': 'pre'或'post'，确定当需要补0时，从起始还是结尾补</span></span><br><span class="line"><span class="comment"># truncating: 'pre'或'post'，确定当需要截断序列时，从起始还是结尾截断</span></span><br><span class="line"><span class="comment"># value: 浮点数，将在填充时嵌入此值,默认的填充值0</span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -180,19 +212,26 @@
     <link href="https://hong-king.github.io/2020/04/07/Hexo%E5%86%99%E4%BD%9C%E8%AF%AD%E6%B3%95/"/>
     <id>https://hong-king.github.io/2020/04/07/Hexo%E5%86%99%E4%BD%9C%E8%AF%AD%E6%B3%95/</id>
     <published>2020-04-07T09:52:00.000Z</published>
-    <updated>2020-04-08T00:58:27.130Z</updated>
+    <updated>2020-04-08T07:59:26.233Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>以下是效果展示:</p></blockquote><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><p><del>这是横线</del><br><strong>这是加粗</strong><br><em>这是斜体</em></p><ul><li>无序列表1</li><li>无序列表2</li></ul><ol><li>有序排列1</li><li>有序排列2<br><code>内嵌代码</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">代码块</span><br></pre></td></tr></table></figure><blockquote><p>引用</p></blockquote></li></ol><hr><blockquote><p>以下为源代码:</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一级标题</span></span><br><span class="line"><span class="comment">## 二级标题</span></span><br><span class="line"><span class="comment">### 三级标题</span></span><br><span class="line"><span class="comment">#### 四级标题</span></span><br><span class="line"><span class="comment">##### 五级标题</span></span><br><span class="line">~~这是横线~~</span><br><span class="line">**这是加粗**</span><br><span class="line">*这是斜体*</span><br><span class="line">* 无序列表1</span><br><span class="line">* 无序列表2</span><br><span class="line">1. 有序排列1</span><br><span class="line">2. 有序排列2</span><br><span class="line">`内嵌代码`</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">代码块</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">&gt;引用</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>以下是效果展示:</p></blockquote><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><p><del>这是横线</del><br><strong>这是加粗</strong><br><em>这是斜体</em></p><ul><li>无序列表1</li><li>无序列表2</li></ul><ol><li>有序排列1</li><li>有序排列2<br><code>内嵌代码</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">代码块</span><br></pre></td></tr></table></figure><blockquote><p>引用</p></blockquote><a id="more"></a></li></ol><hr><blockquote><p>以下为源代码:</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一级标题</span></span><br><span class="line"><span class="comment">## 二级标题</span></span><br><span class="line"><span class="comment">### 三级标题</span></span><br><span class="line"><span class="comment">#### 四级标题</span></span><br><span class="line"><span class="comment">##### 五级标题</span></span><br><span class="line">~~这是横线~~</span><br><span class="line">**这是加粗**</span><br><span class="line">*这是斜体*</span><br><span class="line">* 无序列表1</span><br><span class="line">* 无序列表2</span><br><span class="line">1. 有序排列1</span><br><span class="line">2. 有序排列2</span><br><span class="line">`内嵌代码`</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">代码块</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">&gt;引用</span><br><span class="line">文章太长，截断按钮文字(在需要截断的行增加此标记：&lt;!--more--&gt;)</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;blockquote&gt;
+      &lt;blockquote&gt;
 &lt;p&gt;以下是效果展示:&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a href=&quot;#一级标题&quot; class=&quot;headerlink&quot; title=&quot;一级标题&quot;&gt;&lt;/a&gt;一级标题&lt;/h1&gt;&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a href=
-      
+&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a href=&quot;#一级标题&quot; class=&quot;headerlink&quot; title=&quot;一级标题&quot;&gt;&lt;/a&gt;一级标题&lt;/h1&gt;&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a href=&quot;#二级标题&quot; class=&quot;headerlink&quot; title=&quot;二级标题&quot;&gt;&lt;/a&gt;二级标题&lt;/h2&gt;&lt;h3 id=&quot;三级标题&quot;&gt;&lt;a href=&quot;#三级标题&quot; class=&quot;headerlink&quot; title=&quot;三级标题&quot;&gt;&lt;/a&gt;三级标题&lt;/h3&gt;&lt;h4 id=&quot;四级标题&quot;&gt;&lt;a href=&quot;#四级标题&quot; class=&quot;headerlink&quot; title=&quot;四级标题&quot;&gt;&lt;/a&gt;四级标题&lt;/h4&gt;&lt;h5 id=&quot;五级标题&quot;&gt;&lt;a href=&quot;#五级标题&quot; class=&quot;headerlink&quot; title=&quot;五级标题&quot;&gt;&lt;/a&gt;五级标题&lt;/h5&gt;&lt;p&gt;&lt;del&gt;这是横线&lt;/del&gt;&lt;br&gt;&lt;strong&gt;这是加粗&lt;/strong&gt;&lt;br&gt;&lt;em&gt;这是斜体&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无序列表1&lt;/li&gt;
+&lt;li&gt;无序列表2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;有序排列1&lt;/li&gt;
+&lt;li&gt;有序排列2&lt;br&gt;&lt;code&gt;内嵌代码&lt;/code&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;代码块&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;引用&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;&lt;/ol&gt;
     
     </summary>
     

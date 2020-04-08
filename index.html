@@ -80,6 +80,75 @@
     
     
     
+    <article id="post-非负矩阵分解（NMF）的Matlab实现" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/08/%E9%9D%9E%E8%B4%9F%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%EF%BC%88NMF%EF%BC%89%E7%9A%84Matlab%E5%AE%9E%E7%8E%B0/"
+    >非负矩阵分解（NMF）的Matlab实现</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/08/%E9%9D%9E%E8%B4%9F%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%EF%BC%88NMF%EF%BC%89%E7%9A%84Matlab%E5%AE%9E%E7%8E%B0/" class="article-date">
+  <time datetime="2020-04-08T08:01:00.000Z" itemprop="datePublished">2020-04-08</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Matlab/">Matlab</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Matlab/%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/">算法实现</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">V=double(imread(<span class="string">'图片名或路径'</span>));      </span><br><span class="line">imshow(mat2gray(V));</span><br><span class="line">V1=V(:,:,1);						<span class="comment"># 将图片的第一通道数值赋值给V1</span></span><br><span class="line">V2=V(:,:,2);						<span class="comment"># 将图片的第二通道数值赋值给V2</span></span><br><span class="line">V3=V(:,:,3);						<span class="comment"># 将图片的第三通道数值赋值给V3</span></span><br><span class="line"></span><br><span class="line">[i,u]=size(V1);						<span class="comment"># 将V1的行数赋值给i，列数赋值给u</span></span><br><span class="line">r=100;								<span class="comment"># 设置分解矩阵的秩</span></span><br><span class="line">W=rand(i,r);						<span class="comment"># 初始化WH，为非负数</span></span><br><span class="line">H=rand(r,u);						<span class="comment"># 初始化WH，为非负数</span></span><br><span class="line">maviter=600;						<span class="comment"># 最大迭代次数</span></span><br><span class="line">-----------------------------------------------------------------------------------</span><br><span class="line"><span class="comment"># 以下为非负矩阵算法公式，V2，V3同上处理，就不重复展示,以'...'代替</span></span><br><span class="line"><span class="keyword">for</span> iter=1:maviter</span><br><span class="line">    W=W.*((V1./(W*H))*H<span class="string">');           	</span></span><br><span class="line"><span class="string">    W=W./(ones(i,1)*sum(W));    </span></span><br><span class="line"><span class="string">    H=H.*(W'</span>*(V1./(W*H)));</span><br><span class="line">end</span><br><span class="line">V1=W*H;</span><br><span class="line">...</span><br><span class="line">-----------------------------------------------------------------------------------</span><br><span class="line"><span class="comment"># 以下程序用于重新拼接图形</span></span><br><span class="line">img_V(:,:,1)=V1(:,:);</span><br><span class="line">img_V(:,:,2)=V2(:,:);</span><br><span class="line">img_V(:,:,3)=V3(:,:);</span><br><span class="line">figure;</span><br><span class="line">imshow(mat2gray(img_V));</span><br></pre></td></tr></table></figure>
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Matlab/" rel="tag">Matlab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-如何利用Python将数组长度标准化" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -123,7 +192,7 @@
       <blockquote>
 <p>本方法需要使用tensorflow包，请确认你已安装</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf  </span><br><span class="line">from tensorflow import keras</span><br><span class="line"></span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------- 将蛋白质语句长度标准化</span></span><br><span class="line">protein_dictionary_matrix = np.load(<span class="string">'文件路径'</span>) <span class="comment"># 载入数组</span></span><br><span class="line"></span><br><span class="line">protein_dictionary_matrix = tf.contrib.keras.preprocessing.sequence.pad_sequences</span><br><span class="line">							(protein_dictionary_matrix,maxlen=None,padding=<span class="string">'post'</span>,truncating=<span class="string">'post'</span>,value = 0)</span><br><span class="line"><span class="comment"># protein_dictionary_matrix: 	所要标准化的变量</span></span><br><span class="line"><span class="comment"># maxlen=None: 					标准化长度:，None表示以数组最大长度为准</span></span><br><span class="line"><span class="comment"># padding='post': 				'pre'或'post'，确定当需要补0时，从起始还是结尾补</span></span><br><span class="line"><span class="comment"># truncating: 					'pre'或'post'，确定当需要截断序列时，从起始还是结尾截断</span></span><br><span class="line"><span class="comment"># value: 						浮点数，将在填充时嵌入此值,默认的填充值0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf  </span><br><span class="line">from tensorflow import keras</span><br><span class="line"></span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------- 将蛋白质语句长度标准化</span></span><br><span class="line">protein_dictionary_matrix = np.load(<span class="string">'文件路径'</span>) <span class="comment"># 载入数组</span></span><br><span class="line"></span><br><span class="line">protein_dictionary_matrix = tf.contrib.keras.preprocessing.sequence.pad_sequences</span><br><span class="line">(protein_dictionary_matrix,maxlen=None,padding=<span class="string">'post'</span>,truncating=<span class="string">'post'</span>,value = 0)</span><br><span class="line"><span class="comment"># protein_dictionary_matrix: 	所要标准化的变量</span></span><br><span class="line"><span class="comment"># maxlen=None: 					标准化长度:，None表示以数组最大长度为准</span></span><br><span class="line"><span class="comment"># padding='post': 				'pre'或'post'，确定当需要补0时，从起始还是结尾补</span></span><br><span class="line"><span class="comment"># truncating: 					'pre'或'post'，确定当需要截断序列时，从起始还是结尾截断</span></span><br><span class="line"><span class="comment"># value: 						浮点数，将在填充时嵌入此值,默认的填充值0</span></span><br></pre></td></tr></table></figure>
       
       <!-- reward -->
       
@@ -499,14 +568,10 @@
 <li>有序排列2<br><code>内嵌代码</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">代码块</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>引用</p>
-</blockquote>
-</li>
-</ol>
-<hr>
-<blockquote>
-<p>以下为源代码:</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一级标题</span></span><br><span class="line"><span class="comment">## 二级标题</span></span><br><span class="line"><span class="comment">### 三级标题	</span></span><br><span class="line"><span class="comment">#### 四级标题</span></span><br><span class="line"><span class="comment">##### 五级标题</span></span><br><span class="line">~~这是横线~~	</span><br><span class="line">**这是加粗**	</span><br><span class="line">*这是斜体*</span><br><span class="line">* 无序列表1</span><br><span class="line">* 无序列表2</span><br><span class="line">1. 有序排列1</span><br><span class="line">2. 有序排列2</span><br><span class="line">`内嵌代码`</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">代码块</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">&gt;引用</span><br></pre></td></tr></table></figure>
+</blockquote></li></ol>
+      
+      <a class="article-more-link" href="/2020/04/07/Hexo%E5%86%99%E4%BD%9C%E8%AF%AD%E6%B3%95/">阅读更多...</a>
+      
       
       <!-- reward -->
       
