@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">472</span>
+            <span class="post-count">485</span>
         </span>
     </span>
 
@@ -111,7 +111,7 @@
 <ul>
 <li>由于在字典中，数据的排序是自动正序的（也可以理解为乱序），在一组关系数据列表中，<br>我们构建字典的方式往往是先提取一组数据构建字典的键，再提取另一组数据一一对应为键的值 。<br>但是由于字典的键是乱序的，那么对应的值也必然是错误的。本方法就是为了解决这个问题。</li>
 </ul>
-<p><em>如果你对问题的描述仍有疑惑，下面的示例代码将有助于你的理解以及对你遇到的问题的解决</em><br><em>关于setdefault()函数的使用，可以参考文章《Python字典中setdefault()函数的用法》</em></p>
+<p><em>如果你对问题的描述仍有疑惑，下面的示例代码将有助于你的理解以及对你遇到的问题的解决</em><br><em>关于setdefault()函数的使用，可以参考文章《Python字典中setdefault()函数的用法》</em>(可通过博客搜索功能快速查找)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 为帮助你理解程序，我们假设一组关系数据[A-a，B-b，C-c，D-d]</span></span><br><span class="line"><span class="comment"># 以上数据表明A与a之间存在关系，可以理解为A与a互为标签（事实上在本实例中也确实是这样处理的）</span></span><br><span class="line"></span><br><span class="line">proteins_interaction_relationship = &#123;&#125; </span><br><span class="line"><span class="comment"># 首先，我们创建一个空的字典proteins_interaction_relationship </span></span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------------------- 创建相互作用关系语句</span></span><br><span class="line"><span class="comment"># protein_name1表示列表[A B C D]</span></span><br><span class="line"><span class="comment"># protein_name11表示列表[a b c d]</span></span><br><span class="line"><span class="comment"># dictionaries是一个字典&#123;A:1,B:2,C:3,D:4,a:5,b:6,c:7,d:8&#125;,该变量对代码理解影响不大。</span></span><br><span class="line"><span class="comment"># 使用setdefault()，它可以使我们不用提前给字典输入键，即精简了代码，又减小了BUG发生的概率。</span></span><br><span class="line"><span class="comment"># setdefault().add中add表示向set()空集中添加元素</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name1,protein_name11):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i,<span class="built_in">set</span>()).add(dictionaries[j])</span><br><span class="line"><span class="comment"># 在for循环中使用zip可以同时提取同一行相互存在关系的两个元素，键的创建和键的赋值是同时进行的，避免了关系数据错位。</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name11,protein_name1):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i, <span class="built_in">set</span>()).add(dictionaries[j])</span><br></pre></td></tr></table></figure>
       
       <!-- reward -->
