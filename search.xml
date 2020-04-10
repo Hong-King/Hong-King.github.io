@@ -34,6 +34,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo如何插入本地图片</title>
+    <url>/2020/04/07/Hexo%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<ul>
+<li>由于某种原因安装图片插件安装不上，故使用此方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![你想输入的替代文字](xxxx&#x2F;图片名.jpg)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo如何创建草稿/私密文章</title>
     <url>/2020/04/08/Hexo%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E8%8D%89%E7%A8%BF%EF%BC%88%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0%EF%BC%89/</url>
     <content><![CDATA[<ul>
@@ -73,39 +88,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo如何插入本地图片</title>
-    <url>/2020/04/07/Hexo%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<ul>
-<li>由于某种原因安装图片插件安装不上，故使用此方法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![你想输入的替代文字](xxxx&#x2F;图片名.jpg)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/04/06/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Python字典中setdefault()函数的用法</title>
     <url>/2020/04/09/Python%E5%AD%97%E5%85%B8%E4%B8%ADsetdefault()%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/</url>
     <content><![CDATA[<blockquote>
@@ -138,6 +120,44 @@
         <tag>机器学习</tag>
         <tag>关键蛋白预测</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>利用zip解决Python中字典自动正序带来的关系数据错位问题</title>
+    <url>/2020/04/09/%E5%88%A9%E7%94%A8zip%E8%A7%A3%E5%86%B3Python%E4%B8%AD%E5%AD%97%E5%85%B8%E8%87%AA%E5%8A%A8%E6%AD%A3%E5%BA%8F%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E9%94%99%E4%BD%8D%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<blockquote>
+<p>本问题最初出现在构建蛋白质的关系字典中</p>
+</blockquote>
+<ul>
+<li>由于在字典中，数据的排序是自动正序的（也可以理解为乱序），在一组关系数据列表中，<br>我们构建字典的方式往往是先提取一组数据构建字典的键，再提取另一组数据一一对应为键的值 。但是由于字典的键是乱序的，那么对应的值也必然是错误的。本方法就是为了解决这个问题。</li>
+</ul>
+<p><em>如果你对问题的描述仍有疑惑，下面的示例代码将有助于你的理解以及对你遇到的问题的解决</em><br><em>关于setdefault()函数的使用，可以参考文章《Python字典中setdefault()函数的用法》</em>(可通过博客搜索功能快速查找)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 为帮助你理解程序，我们假设一组关系数据[A-a，B-b，C-c，D-d]</span></span><br><span class="line"><span class="comment"># 以上数据表明A与a之间存在关系，可以理解为A与a互为标签（事实上在本实例中也确实是这样处理的）</span></span><br><span class="line"></span><br><span class="line">proteins_interaction_relationship = &#123;&#125; </span><br><span class="line"><span class="comment"># 首先，我们创建一个空的字典proteins_interaction_relationship </span></span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------------------- 创建相互作用关系语句</span></span><br><span class="line"><span class="comment"># protein_name1表示列表[A B C D]</span></span><br><span class="line"><span class="comment"># protein_name11表示列表[a b c d]</span></span><br><span class="line"><span class="comment"># dictionaries是一个字典&#123;A:1,B:2,C:3,D:4,a:5,b:6,c:7,d:8&#125;,该变量对代码理解影响不大。</span></span><br><span class="line"><span class="comment"># 使用setdefault()，它可以使我们不用提前给字典输入键，即精简了代码，又减小了BUG发生的概率。</span></span><br><span class="line"><span class="comment"># setdefault().add中add表示向set()空集中添加元素</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name1,protein_name11):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i,<span class="built_in">set</span>()).add(dictionaries[j])</span><br><span class="line"><span class="comment"># 在for循环中使用zip可以同时提取同一行相互存在关系的两个元素，键的创建和键的赋值是同时进行的，避免了关系数据错位。</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name11,protein_name1):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i, <span class="built_in">set</span>()).add(dictionaries[j])</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 问题解决</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>关键蛋白预测</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2020/04/06/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>佳句收录-古诗丽词</title>
@@ -209,11 +229,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>佳句收录</category>
-        <category>古诗丽词</category>
+        <category>佳句收录 古诗丽词</category>
       </categories>
       <tags>
-        <tag>感悟佳句</tag>
+        <tag>语言之美</tag>
       </tags>
   </entry>
   <entry>
@@ -334,31 +353,10 @@
 </ul>
 ]]></content>
       <categories>
-        <category>佳句收录</category>
-        <category>新句美文</category>
+        <category>佳句收录 新句美文</category>
       </categories>
       <tags>
-        <tag>感悟佳句</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用zip解决Python中字典自动正序带来的关系数据错位问题</title>
-    <url>/2020/04/09/%E5%88%A9%E7%94%A8zip%E8%A7%A3%E5%86%B3Python%E4%B8%AD%E5%AD%97%E5%85%B8%E8%87%AA%E5%8A%A8%E6%AD%A3%E5%BA%8F%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E9%94%99%E4%BD%8D%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<blockquote>
-<p>本问题最初出现在构建蛋白质的关系字典中</p>
-</blockquote>
-<ul>
-<li>由于在字典中，数据的排序是自动正序的（也可以理解为乱序），在一组关系数据列表中，<br>我们构建字典的方式往往是先提取一组数据构建字典的键，再提取另一组数据一一对应为键的值 。但是由于字典的键是乱序的，那么对应的值也必然是错误的。本方法就是为了解决这个问题。</li>
-</ul>
-<p><em>如果你对问题的描述仍有疑惑，下面的示例代码将有助于你的理解以及对你遇到的问题的解决</em><br><em>关于setdefault()函数的使用，可以参考文章《Python字典中setdefault()函数的用法》</em>(可通过博客搜索功能快速查找)</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 为帮助你理解程序，我们假设一组关系数据[A-a，B-b，C-c，D-d]</span></span><br><span class="line"><span class="comment"># 以上数据表明A与a之间存在关系，可以理解为A与a互为标签（事实上在本实例中也确实是这样处理的）</span></span><br><span class="line"></span><br><span class="line">proteins_interaction_relationship = &#123;&#125; </span><br><span class="line"><span class="comment"># 首先，我们创建一个空的字典proteins_interaction_relationship </span></span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------------------- 创建相互作用关系语句</span></span><br><span class="line"><span class="comment"># protein_name1表示列表[A B C D]</span></span><br><span class="line"><span class="comment"># protein_name11表示列表[a b c d]</span></span><br><span class="line"><span class="comment"># dictionaries是一个字典&#123;A:1,B:2,C:3,D:4,a:5,b:6,c:7,d:8&#125;,该变量对代码理解影响不大。</span></span><br><span class="line"><span class="comment"># 使用setdefault()，它可以使我们不用提前给字典输入键，即精简了代码，又减小了BUG发生的概率。</span></span><br><span class="line"><span class="comment"># setdefault().add中add表示向set()空集中添加元素</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name1,protein_name11):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i,<span class="built_in">set</span>()).add(dictionaries[j])</span><br><span class="line"><span class="comment"># 在for循环中使用zip可以同时提取同一行相互存在关系的两个元素，键的创建和键的赋值是同时进行的，避免了关系数据错位。</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name11,protein_name1):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i, <span class="built_in">set</span>()).add(dictionaries[j])</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Python 问题解决</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>关键蛋白预测</tag>
+        <tag>语言之美</tag>
       </tags>
   </entry>
   <entry>
@@ -394,6 +392,19 @@
       </tags>
   </entry>
   <entry>
+    <title>如何在hexo下进行本地预览</title>
+    <url>/2020/04/06/%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E4%B8%8B%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/</url>
+    <content><![CDATA[<h2 id="使用-hexo-s-进行本地预览"><a href="#使用-hexo-s-进行本地预览" class="headerlink" title="使用 hexo s 进行本地预览"></a>使用 hexo s 进行本地预览</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>非负矩阵分解（NMF）的Matlab实现</title>
     <url>/2020/04/08/%E9%9D%9E%E8%B4%9F%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%EF%BC%88NMF%EF%BC%89%E7%9A%84Matlab%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<blockquote>
@@ -411,19 +422,6 @@
       <tags>
         <tag>机器学习</tag>
         <tag>Matlab</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何在hexo下进行本地预览</title>
-    <url>/2020/04/06/%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E4%B8%8B%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/</url>
-    <content><![CDATA[<h2 id="使用-hexo-s-进行本地预览"><a href="#使用-hexo-s-进行本地预览" class="headerlink" title="使用 hexo s 进行本地预览"></a>使用 hexo s 进行本地预览</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
