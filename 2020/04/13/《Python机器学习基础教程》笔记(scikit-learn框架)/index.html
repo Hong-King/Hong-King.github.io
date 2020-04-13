@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    如何利用Python将数据可视化为无向图（图论） |  Welcome to Mr.l&#39;s World
+    《Python机器学习基础教程》笔记(scikit-learn框架) |  Welcome to Mr.l&#39;s World
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -41,7 +41,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-如何利用Python将数据可视化为无向图（图论）" class="article article-type-post" itemscope
+  <article id="post-《Python机器学习基础教程》笔记(scikit-learn框架)" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -49,7 +49,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  如何利用Python将数据可视化为无向图（图论）
+  《Python机器学习基础教程》笔记(scikit-learn框架)
 </h1>
  
 
@@ -58,12 +58,12 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%BA%E6%97%A0%E5%90%91%E5%9B%BE%EF%BC%88%E5%9B%BE%E8%AE%BA%EF%BC%89/" class="article-date">
-  <time datetime="2020-04-08T01:02:00.000Z" itemprop="datePublished">2020-04-08</time>
+      <a href="/2020/04/13/%E3%80%8APython%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%E3%80%8B%E7%AC%94%E8%AE%B0(scikit-learn%E6%A1%86%E6%9E%B6)/" class="article-date">
+  <time datetime="2020-04-13T13:01:00.000Z" itemprop="datePublished">2020-04-13</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">Python 数据可视化</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E3%80%8APython%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%E3%80%8B/">《Python机器学习基础教程》</a>
   </div>
 
       
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">171</span>
+            <span class="post-count">423</span>
         </span>
     </span>
 
@@ -93,6 +93,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -105,10 +107,28 @@
       
 
       
-      <blockquote>
-<p>以下以绘制蛋白质相互作用矩阵为例</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import xlrd </span><br><span class="line"><span class="comment"># 原文件为Excel文件，故需调用xlrd包</span></span><br><span class="line"><span class="comment"># 相关使用可查阅另一篇文章《Python如何读取Excel文件》</span></span><br><span class="line">import numpy as np</span><br><span class="line">import networkx as nx</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#--------------------------- 加载数据</span></span><br><span class="line">data1 = xlrd.open_workbook(<span class="string">'（数据文件路径）'</span>)</span><br><span class="line">data2 = xlrd.open_workbook(<span class="string">'（数据文件路径）'</span>)</span><br><span class="line">table1 = data1.sheets()[0]</span><br><span class="line">table2 = data2.sheets()[0]</span><br><span class="line"></span><br><span class="line">protein_name1 = table1.col_values(0)</span><br><span class="line">protein_name2 = table2.col_values(0)</span><br><span class="line">protein_name11 = table1.col_values(1)</span><br><span class="line">protein_name22 = table2.col_values(1)</span><br><span class="line"><span class="comment">#--------------------------- 数据可视化 </span></span><br><span class="line">G = nx.Graph() <span class="comment"># 首先创建一个空的无向图</span></span><br><span class="line">G.add_edges_from(zip(protein_name1,protein_name11)) <span class="comment"># zip将两个数组合并打包为一个（个人理解）</span></span><br><span class="line">nx.draw(G, with_labels=True) <span class="comment"># with_labels，节点是否带有标签，默认为true</span></span><br><span class="line">plt.show() <span class="comment"># 绘制图形</span></span><br></pre></td></tr></table></figure>
+      <h1 id="第一章-引言"><a href="#第一章-引言" class="headerlink" title="第一章 引言"></a>第一章 引言</h1><hr>
+<h2 id="1-7-第一个应用：鸢（yuan）尾花分类"><a href="#1-7-第一个应用：鸢（yuan）尾花分类" class="headerlink" title="1.7 第一个应用：鸢（yuan）尾花分类"></a>1.7 第一个应用：鸢（yuan）尾花分类</h2><h3 id="1-7-3-要事第一：观察数据"><a href="#1-7-3-要事第一：观察数据" class="headerlink" title="1.7.3 要事第一：观察数据"></a>1.7.3 要事第一：观察数据</h3><ul>
+<li>在构建模型时，最重要的是要首先<strong>观察数据</strong>。</li>
+<li>检查数据的最佳方法就是将其<strong>可视化</strong>。</li>
+<li>当数据<strong>只有两个特征</strong>时，可以使用<strong>散点图</strong>。</li>
+<li>当数据<strong>有多个特征</strong>时，解决这个问题的一种方法就是绘制<strong>散点图矩阵</strong>(pair plot)。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下为绘制散点图矩阵的示例程序</span></span><br><span class="line"><span class="comment"># scatter_matrix为pandas绘制散点图矩阵的函数,矩阵的对角线是每个特征的直方图</span></span><br><span class="line"><span class="comment"># 利用X_train中的数据创建DataFrame</span></span><br><span class="line"><span class="comment"># 利用iris_dataset.feature_names中的字符串对数据列进行标记</span></span><br><span class="line">iris_dataframe = pd.DataFrame(X_train, columns = iris_dataset.feature_names)</span><br><span class="line"><span class="comment"># 利用DataFrame创建散点图矩阵，按y_train着色</span></span><br><span class="line">grr = pd.scatter_matrix(iris_dataframe, c = y_train, figsize = (15,15), marker = <span class="string">'o'</span> ...)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="1-7-4-构建第一个模型：k近邻算法"><a href="#1-7-4-构建第一个模型：k近邻算法" class="headerlink" title="1.7.4 构建第一个模型：k近邻算法"></a>1.7.4 构建第一个模型：k近邻算法</h3><ul>
+<li>k近邻算法：算法会在训练集中寻找与这个新数据点A最近的任意k个邻居（这也是&lt;k近邻算法&gt;中’k’的含义），然后将找到的数据点的标签赋值给这个新数据点A。</li>
+<li>scikit-learn中所有的机器学习模型都是在各自的被作为[Estimator]的类中完成的。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># k近邻算法是在neighbors模块的KNeighborsClassifier类中实现的</span></span><br><span class="line">from sklearn.neighbors import KNeighborsClassifier</span><br><span class="line">knn = KNeighborsClassifier(n_neighbors = 1)</span><br><span class="line"><span class="comment"># n_neighbors是KNeighborsClassifier最重要的参数，表示邻居的数目</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="1-7-5-做出预测"><a href="#1-7-5-做出预测" class="headerlink" title="1.7.5 做出预测"></a>1.7.5 做出预测</h3><ul>
+<li>scikit-learn的输入数据必须是二维数组。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 调用knn对象的predict方法来进行预测：</span></span><br><span class="line">prediction = knn.predict(X_new)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Prediction :"</span>.format(prediction))</span><br><span class="line"><span class="comment"># [out]:Prediction :[0](标签数据)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h1 id="第二章-监督学习"><a href="#第二章-监督学习" class="headerlink" title="第二章 监督学习"></a>第二章 监督学习</h1><hr>
+<h2 id="2-1-分类与回归"><a href="#2-1-分类与回归" class="headerlink" title="2.1 分类与回归"></a>2.1 分类与回归</h2>
       
       <!-- reward -->
       
@@ -176,14 +196,14 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hong-king.github.io/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%BA%E6%97%A0%E5%90%91%E5%9B%BE%EF%BC%88%E5%9B%BE%E8%AE%BA%EF%BC%89/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hong-king.github.io/2020/04/13/%E3%80%8APython%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%E3%80%8B%E7%AC%94%E8%AE%B0(scikit-learn%E6%A1%86%E6%9E%B6)/" alt="微信分享二维码">
     </div>
 </div>
 
 <div id="share-mask"></div>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E8%9B%8B%E7%99%BD%E9%A2%84%E6%B5%8B/" rel="tag">关键蛋白预测</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/scikit-learn/" rel="tag">scikit-learn</a></li></ul>
 
 
     </footer>
@@ -194,19 +214,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/04/08/Python%E5%A6%82%E4%BD%95%E8%AF%BB%E5%8F%96Excel%E6%96%87%E4%BB%B6/" class="article-nav-link">
+      <a href="/2020/04/13/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0(Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0)/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            Python如何读取Excel文件
+            《数据结构与算法》笔记(Python语言实现)
           
         </div>
       </a>
     
     
-      <a href="/2020/04/08/Hexo%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E8%8D%89%E7%A8%BF%EF%BC%88%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0%EF%BC%89/" class="article-nav-link">
+      <a href="/2020/04/13/python%E7%94%BB%E6%95%A3%E7%82%B9%E5%9B%BE%5Bplt.scatter()%5D%E4%BB%A5%E5%8F%8A%E7%9F%A9%E9%98%B5%E6%95%A3%E7%82%B9%E5%9B%BE%5Bpd.scatter_matrix()%5D%E8%AF%A6%E8%A7%A3/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Hexo如何创建草稿/私密文章</div>
+        <div class="article-nav-title">python画散点图[plt.scatter()]以及矩阵散点图[pd.scatter_matrix()]详解（待优化）</div>
       </a>
     
   </nav>

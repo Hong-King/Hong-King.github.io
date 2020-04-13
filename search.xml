@@ -1,13 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>你好，欢迎光临我的博客！</title>
-    <url>/2020/04/08/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/</url>
+    <title>Hexo写作语法</title>
+    <url>/2020/04/07/Hexo%E5%86%99%E4%BD%9C%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<blockquote>
+<p>以下是效果展示:</p>
+</blockquote>
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><p><del>这是横线</del><br><strong>这是加粗</strong><br><em>这是斜体</em></p>
+<ul>
+<li>无序列表1</li>
+<li>无序列表2</li>
+</ul>
+<ol>
+<li>有序排列1</li>
+<li>有序排列2<br><code>内嵌代码</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">代码块</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<a id="more"></a>
+</li>
+</ol>
+<hr>
+<blockquote>
+<p>以下为源代码:</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 一级标题</span></span><br><span class="line"><span class="comment">## 二级标题</span></span><br><span class="line"><span class="comment">### 三级标题	</span></span><br><span class="line"><span class="comment">#### 四级标题</span></span><br><span class="line"><span class="comment">##### 五级标题</span></span><br><span class="line">~~这是横线~~	</span><br><span class="line">**这是加粗**	</span><br><span class="line">*这是斜体*</span><br><span class="line">* 无序列表1</span><br><span class="line">* 无序列表2</span><br><span class="line">1. 有序排列1</span><br><span class="line">2. 有序排列2</span><br><span class="line">`内嵌代码`</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">代码块</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">&gt;引用</span><br><span class="line">文章太长，截断按钮文字(在需要截断的行增加此标记：&lt;!--more--&gt;)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo如何创建草稿/私密文章</title>
+    <url>/2020/04/08/Hexo%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E8%8D%89%E7%A8%BF%EF%BC%88%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0%EF%BC%89/</url>
+    <content><![CDATA[<ul>
+<li>输入创建草稿命令，系统会在source/_drafts目录下生成一个new-draft.md文件。但是这个文件不被显示在页面上，链接也访问不到。也就是说如果你想把某一篇文章移除显示，又不舍得删除，可以把它移动到_drafts目录之中。相当于很多博客都有的“私密文章”功能。 </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new draft <span class="string">"new draft(File Name)"</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo如何插入本地图片</title>
+    <url>/2020/04/07/Hexo%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<ul>
+<li>由于某种原因安装图片插件安装不上，故使用此方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![你想输入的替代文字](xxxx&#x2F;图片名.jpg)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pandas在Python语言下的基础使用</title>
+    <url>/2020/04/12/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<blockquote>
+</blockquote>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 框架用法</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python如何读取Excel文件</title>
+    <url>/2020/04/08/Python%E5%A6%82%E4%BD%95%E8%AF%BB%E5%8F%96Excel%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<blockquote>
+<p>首先需在Python下安装xlrd包</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install  xlrd <span class="comment"># cmd窗口</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>python操作excel主要用到xlrd和xlwt这两个库，即xlrd是读excel，xlwt是写excel的库。<br>由于xlrd使用更为频繁，这里只简单介绍xlrd读取Excel文件的用法</li>
+</ul>
+<hr>
+<blockquote>
+<p>以下为语法介绍</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import xlrd <span class="comment"># 首先在Python程序中加载xlrd包</span></span><br><span class="line"></span><br><span class="line">data1 = xlrd.open_workbook(<span class="string">'数据文件路径'</span>) <span class="comment"># 首先加载文件，并赋值给一个变量</span></span><br><span class="line">*</span><br><span class="line">table1 = data1.sheets()[0] <span class="comment"># 通过索引顺序获取。从data1变量中提取数据，并保存在变量table1中。</span></span><br><span class="line">table1 = data.sheet_by_name(sheet_name) <span class="comment"># 通过名称获取</span></span><br><span class="line"><span class="comment">#以上两个函数都会返回一个xlrd.sheet.Sheet()对象</span></span><br><span class="line">*</span><br><span class="line">protein_name1 = table1.col_values(num) <span class="comment"># table1.col_values提取*列方向的数据为列表，num=第几列（0为第一列）</span></span><br><span class="line">protein_name1 = table1.row_values(num) <span class="comment"># table1.row_values提取*行方向的数据为列表，num=第几行（0为第一行）</span></span><br><span class="line">*</span><br><span class="line">nrows = table.nrows  <span class="comment"># 获取该sheet中的有效*行数</span></span><br><span class="line">ncols = table.ncols  <span class="comment"># 获取该sheet中的有效*列数</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 基础语法</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python字典中setdefault()函数的用法</title>
+    <url>/2020/04/09/Python%E5%AD%97%E5%85%B8%E4%B8%ADsetdefault()%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<blockquote>
+<p>关于该函数实际用法，可以参考文章《利用zip解决Python中字典自动正序带来的关系数据错位问题》(可通过博客搜索功能快速查找)</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Python字典中的setdefault()函数：如果键不存在于字典中，将会添加键并将值设为默认值。</span></span><br><span class="line">dict.setdefault(key, default=None)</span><br><span class="line"><span class="comment"># dict -- 代指字典变量</span></span><br><span class="line"><span class="comment"># key -- 查找的键值。</span></span><br><span class="line"><span class="comment"># default -- 键不存在时，设置的默认键值。None为空值</span></span><br><span class="line"><span class="comment"># 对于default，可以设置set()等空列表或集合用以规定值的存储方式</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 基础语法</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TensorFlow在Python语言下的基础使用</title>
+    <url>/2020/04/10/TensorFlow%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<blockquote>
+<p>该框架原型请参见TensorFlow官方教程《<a href="https://tensorflow.google.cn/tutorials/keras/text_classification" target="_blank" rel="noopener">对预文本进行文本分类处理</a>》</p>
+</blockquote>
+<p><em>以下是我利用(访问官网请点击)<a href="https://tensorflow.google.cn/" target="_blank" rel="noopener">TensorFlow</a>构建&lt;预测关键蛋白&gt;算法框架时实际使用的源码</em></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">from tensorflow import keras</span><br><span class="line"></span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------- 加载蛋白质字典</span></span><br><span class="line">protein_dictionary_matrix = np.load(<span class="string">'&lt;文件路径&gt;'</span>) <span class="comment"># 字典数据示例:&#123;('A':1,2,3),('B':2,5)&#125;</span></span><br><span class="line"><span class="comment">#------------------------- 将蛋白质语句长度标准化</span></span><br><span class="line">protein_dictionary_matrix = tf.contrib.keras.preprocessing.sequence.pad_sequences</span><br><span class="line">(protein_dictionary_matrix,maxlen=None,padding=<span class="string">'post'</span>,truncating=<span class="string">'post'</span>,value = 0)</span><br><span class="line"><span class="comment"># 具体用法可参见文章《如何利用Python将数组长度标准化》</span></span><br><span class="line"><span class="comment">#-------------------------------加载蛋白质标签矩阵</span></span><br><span class="line">proteins_labels_num = np.load(<span class="string">'&lt;文件路径&gt;'</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment">#-------------------------------构建模型</span></span><br><span class="line">proteins_size = len(proteins_labels_num)*len(protein_dictionary_matrix[1]) <span class="comment"># 蛋白质数量*标准矩阵长度</span></span><br><span class="line"></span><br><span class="line">model = keras.Sequential()</span><br><span class="line">model.add(keras.layers.Embedding(proteins_size, 16))</span><br><span class="line"><span class="comment"># 第一层是嵌入Embedding层。该层采用整数编码的词汇表，并查找每个词索引的嵌入向量(embedding vector)</span></span><br><span class="line"><span class="comment"># 这些向量是通过模型训练学习到的。向量向输出数组增加了一个维度。得到的维度为：(batch, sequence, embedding)。</span></span><br><span class="line">model.add(keras.layers.GlobalAveragePooling1D())</span><br><span class="line"><span class="comment"># GlobalAveragePooling1D 将通过对序列维度求平均值来为每个样本返回一个定长输出向量。这允许模型以尽可能最简单的方式处理变长输入。</span></span><br><span class="line">model.add(keras.layers.Dense(16, activation=<span class="string">'relu'</span>))</span><br><span class="line"><span class="comment"># 该定长输出向量通过一个有 16 个隐层单元的全连接（Dense）层传输。</span></span><br><span class="line">model.add(keras.layers.Dense(1, activation=<span class="string">'sigmoid'</span>))</span><br><span class="line"><span class="comment"># 最后一层与单个输出结点密集连接。使用 Sigmoid 激活函数，其函数值为介于0与1之间的浮点数，表示概率或置信度。</span></span><br><span class="line"></span><br><span class="line">model.summary()</span><br><span class="line"><span class="comment">#------------------------------损失函数与优化器</span></span><br><span class="line"><span class="comment"># 一个模型需要损失函数和优化器来进行训练。由于这是一个二分类问题且模型输出概率值（一个使用 sigmoid 激活函数的单一单元层），</span></span><br><span class="line"><span class="comment"># 我们将使用 binary_crossentropy 损失函数。</span></span><br><span class="line"><span class="comment"># 这不是损失函数的唯一选择，例如，你还可以选择 mean_squared_error。</span></span><br><span class="line"><span class="comment"># 但是，一般来说binary_crossentropy更适合处理概率——它能够度量概率分布之间的“距离”，或者在我们的示例中，指的是度量 ground-truth 分布与预测值之间的“距离”。</span></span><br><span class="line">model.compile(optimizer=<span class="string">'adam'</span>,</span><br><span class="line">              loss=<span class="string">'binary_crossentropy'</span>,</span><br><span class="line">              metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#---------------------------------对数据进行切割处理</span></span><br><span class="line">x_val = protein_dictionary_matrix[:1000] <span class="comment"># 实验集</span></span><br><span class="line">partial_x_train = protein_dictionary_matrix[1000:] <span class="comment"># 验证集</span></span><br><span class="line"></span><br><span class="line">y_val = proteins_labels_num[:1000] <span class="comment"># 实验集</span></span><br><span class="line">partial_y_train = proteins_labels_num[1000:] <span class="comment"># 验证集</span></span><br><span class="line"><span class="comment">#---------------------------------训练模型</span></span><br><span class="line"><span class="built_in">history</span> = model.fit(partial_x_train,</span><br><span class="line">                    partial_y_train,</span><br><span class="line">                    epochs=10,			<span class="comment"># 迭代次数</span></span><br><span class="line">                    batch_size=300,		<span class="comment"># 每次迭代的批量大小</span></span><br><span class="line">                    validation_data=(x_val, y_val),</span><br><span class="line">                    verbose=1)</span><br><span class="line"><span class="comment">#---------------------------------------------------------------评估模型</span></span><br><span class="line"><span class="comment"># 将返回两个值。损失值&lt;loss&gt;（一个表示误差的数字，值越低越好）与准确率&lt;accuracy&gt;（值越高越好）</span></span><br><span class="line">results = model.evaluate(protein_dictionary_matrix,  proteins_labels_num, verbose=2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(results)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 框架用法</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>TensorFlow</tag>
+        <tag>关键蛋白预测</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python画散点图[plt.scatter()]以及矩阵散点图[pd.scatter_matrix()]详解（待优化）</title>
+    <url>/2020/04/13/python%E7%94%BB%E6%95%A3%E7%82%B9%E5%9B%BE%5Bplt.scatter()%5D%E4%BB%A5%E5%8F%8A%E7%9F%A9%E9%98%B5%E6%95%A3%E7%82%B9%E5%9B%BE%5Bpd.scatter_matrix()%5D%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<h1 id="plt-scatter-散点图"><a href="#plt-scatter-散点图" class="headerlink" title="plt.scatter() 散点图"></a>plt.scatter() 散点图</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">plt.scatter( x, y, s=20, c = None, marker = <span class="string">'o'</span>, cmap = none, norm = none, vmin = none, vmax = none, alpha = none, linewidths = none,</span><br><span class="line">	verts = none, edgecolors = none, hold = none,**kwargs)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>s:散点的大小</li>
+<li>c:散点的颜色，’r ‘/‘g’/‘y’/‘w’/‘k’…….</li>
+<li>marker:散点形状,  ‘.’(点)/‘o’(圆)/‘v’(倒三角形)/‘ * ‘(星星)/‘s’(正方形)………</li>
+<li>cmap：colormap，颜色版：’accent’,’blues’,’bugn’,’oranges’….</li>
+<li>vmin，vmax:亮度设置，标亮</li>
+<li>alpha ：颜色透明程度， 实数，0-1之间</li>
+<li>linewidths:线的宽度</li>
+<li>linestyle: 线的风格，’–’（虚线）/ ‘-‘ (直线) / ‘-.’(间隔虚线)/ ‘: ‘(全为点)</li>
+</ul>
+<hr>
+<h1 id="pd-scatter-matrix-散点图"><a href="#pd-scatter-matrix-散点图" class="headerlink" title="pd.scatter_matrix()散点图"></a>pd.scatter_matrix()散点图</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scatter_matrix([frame], alpha=0.5, c, figsize=None, ax=None, diagonal=<span class="string">'hist'</span>, marker=<span class="string">'.'</span>, density_kwds=None, hist_kwds=None, </span><br><span class="line">	y range_padding=0.05, **kwds)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>frame - pandas dataframe变量对象 </li>
+<li>alpha -  图像透明度，一般取(0,1] </li>
+<li>figsize - 以英寸为单位的图像大小，一般以元组 (width, height) 形式设置 </li>
+<li>ax - 可选一般为none </li>
+<li>diagonal - 必须且只能在{‘hist’, ‘kde’}中选择1个，’hist’表示直方图(Histogram plot),’kde’表示核密度估计(Kernel Density Estimation)；该参数是scatter_matrix函数的关键参数 </li>
+<li>marker - Matplotlib可用的标记类型，如’.’，’,’，’o’等 </li>
+<li>density_kwds - (other plotting keyword arguments，可选)，与kde相关的字典参数 </li>
+<li>hist_kwds - 与hist相关的字典参数 </li>
+<li>range_padding - (float, 可选)，图像在x轴、y轴原点附近的留白(padding)，该值越大，留白距离越大，图像远离坐标原点 </li>
+<li>kwds - 与scatter_matrix函数本身相关的字典参数 </li>
+<li>c - 颜色（可以用数字标签决定颜色）</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 数据可视化</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《Python机器学习基础教程》笔记(scikit-learn框架)</title>
+    <url>/2020/04/13/%E3%80%8APython%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%E3%80%8B%E7%AC%94%E8%AE%B0(scikit-learn%E6%A1%86%E6%9E%B6)/</url>
+    <content><![CDATA[<h1 id="第一章-引言"><a href="#第一章-引言" class="headerlink" title="第一章 引言"></a>第一章 引言</h1><hr>
+<h2 id="1-7-第一个应用：鸢（yuan）尾花分类"><a href="#1-7-第一个应用：鸢（yuan）尾花分类" class="headerlink" title="1.7 第一个应用：鸢（yuan）尾花分类"></a>1.7 第一个应用：鸢（yuan）尾花分类</h2><h3 id="1-7-3-要事第一：观察数据"><a href="#1-7-3-要事第一：观察数据" class="headerlink" title="1.7.3 要事第一：观察数据"></a>1.7.3 要事第一：观察数据</h3><ul>
+<li>在构建模型时，最重要的是要首先<strong>观察数据</strong>。</li>
+<li>检查数据的最佳方法就是将其<strong>可视化</strong>。</li>
+<li>当数据<strong>只有两个特征</strong>时，可以使用<strong>散点图</strong>。</li>
+<li>当数据<strong>有多个特征</strong>时，解决这个问题的一种方法就是绘制<strong>散点图矩阵</strong>(pair plot)。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 以下为绘制散点图矩阵的示例程序</span></span><br><span class="line"><span class="comment"># scatter_matrix为pandas绘制散点图矩阵的函数,矩阵的对角线是每个特征的直方图</span></span><br><span class="line"><span class="comment"># 利用X_train中的数据创建DataFrame</span></span><br><span class="line"><span class="comment"># 利用iris_dataset.feature_names中的字符串对数据列进行标记</span></span><br><span class="line">iris_dataframe = pd.DataFrame(X_train, columns = iris_dataset.feature_names)</span><br><span class="line"><span class="comment"># 利用DataFrame创建散点图矩阵，按y_train着色</span></span><br><span class="line">grr = pd.scatter_matrix(iris_dataframe, c = y_train, figsize = (15,15), marker = <span class="string">'o'</span> ...)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="1-7-4-构建第一个模型：k近邻算法"><a href="#1-7-4-构建第一个模型：k近邻算法" class="headerlink" title="1.7.4 构建第一个模型：k近邻算法"></a>1.7.4 构建第一个模型：k近邻算法</h3><ul>
+<li>k近邻算法：算法会在训练集中寻找与这个新数据点A最近的任意k个邻居（这也是&lt;k近邻算法&gt;中’k’的含义），然后将找到的数据点的标签赋值给这个新数据点A。</li>
+<li>scikit-learn中所有的机器学习模型都是在各自的被作为[Estimator]的类中完成的。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># k近邻算法是在neighbors模块的KNeighborsClassifier类中实现的</span></span><br><span class="line">from sklearn.neighbors import KNeighborsClassifier</span><br><span class="line">knn = KNeighborsClassifier(n_neighbors = 1)</span><br><span class="line"><span class="comment"># n_neighbors是KNeighborsClassifier最重要的参数，表示邻居的数目</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="1-7-5-做出预测"><a href="#1-7-5-做出预测" class="headerlink" title="1.7.5 做出预测"></a>1.7.5 做出预测</h3><ul>
+<li>scikit-learn的输入数据必须是二维数组。<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 调用knn对象的predict方法来进行预测：</span></span><br><span class="line">prediction = knn.predict(X_new)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Prediction :"</span>.format(prediction))</span><br><span class="line"><span class="comment"># [out]:Prediction :[0](标签数据)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h1 id="第二章-监督学习"><a href="#第二章-监督学习" class="headerlink" title="第二章 监督学习"></a>第二章 监督学习</h1><hr>
+<h2 id="2-1-分类与回归"><a href="#2-1-分类与回归" class="headerlink" title="2.1 分类与回归"></a>2.1 分类与回归</h2>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>《Python机器学习基础教程》</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>scikit-learn</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《数据结构与算法》笔记(Python语言实现)</title>
+    <url>/2020/04/13/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0(Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0)/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>《数据结构与算法》</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>数据结构与算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>你好，欢迎光临我的博客</title>
+    <url>/2020/04/11/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/</url>
     <content><![CDATA[<h2 id="这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游"><a href="#这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游" class="headerlink" title="这篇说明将更好地帮助你在&lt;Mr.l’s World&gt;里畅游"></a>这篇说明将更好地帮助你在&lt;<em>Mr.l’s World</em>&gt;里畅游</h2><blockquote>
 <p><strong>博客使用简介</strong></p>
 </blockquote>
 <ol>
-<li><p>博客界面<strong>左侧</strong>有<strong>侧边菜单</strong>为你提供快捷帮助&lt;<em>手机用户请点击屏幕左上角按钮以呼出菜单</em>&gt;</p>
+<li><p>博客界面<strong>左侧</strong>有<strong>侧边菜单</strong>为你提供快捷帮助<strong>&lt;<em>手机用户请点击屏幕左上角按钮以呼出菜单</em>&gt;</strong></p>
 </li>
 <li><p>博客界面<strong>右下角</strong>有<strong>暗夜模式按钮</strong>为你提供更好的浏览体验</p>
 </li>
@@ -15,30 +235,94 @@
 </li>
 <li><p>博客已开放<strong>评论留言系统</strong>，欢迎大家在评论区留下你的足迹</p>
 </li>
-<li><p><strong>《语言之美-古诗丽词》</strong>与<strong>《语言之美-新句美文》</strong>两篇文章将持续更新，欢迎大家在评论区留下自己的珍藏，我也很乐意将其收录进文章里面</p>
+<li><p><strong>《语言之美-古诗丽词》</strong>与<strong>《语言之美-新句美文》</strong>两篇文章将不定时持续更新，欢迎大家在评论区留下自己的珍藏，我也很乐意将其收录进文章里面</p>
 </li>
 </ol>
 <blockquote>
-<p>特别鸣谢</p>
+<p>技术支持</p>
 </blockquote>
 <ul>
 <li><strong>Powered by</strong> <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a></li>
 <li><strong>Theme:</strong> <a href="https://shen-yu.gitee.io/" target="_blank" rel="noopener">Ayer</a></li>
 </ul>
 <hr>
-<p> (以下是博客更新日志，日志从2020/4/11开始记录，无特殊需求你可以不用点击&lt;阅读更多…&gt;来阅读日志)</p>
+<p> (以下是博客更新日志，日志从2020/4/11开始记录，无特殊需求你<strong>不必点击</strong>&lt;阅读更多…&gt;来查看日志)</p>
 <a id="more"></a>
 
 <hr>
 <blockquote>
-<p><strong>2020/4/11 博客更新日志</strong></p>
+<p><strong>博客更新日志</strong></p>
 </blockquote>
+<hr>
+<ul>
+<li><strong>2020/4/13</strong></li>
+</ul>
+<ol>
+<li>更新文章《《Python机器学习基础教程》笔记(scikit-learn框架)》</li>
+<li>更新文章《python画散点图[plt.scatter()]以及矩阵散点图[pd.scatter_matrix()]详解》（待优化）</li>
+<li>暂时搁置文章《Pandas在Python语言下的基础使用》</li>
+<li>暂时搁置文章《《数据结构与算法》笔记(Python语言实现)》</li>
+<li><strong>小结</strong>：今日更新主要<strong>优化文章排版</strong>，<strong>更新两篇文章</strong>(2020/4/13 22:39 PV:354 UV:138)</li>
+</ol>
+<hr>
+<ul>
+<li><strong>2020/4/11</strong></li>
+</ul>
 <ol>
 <li>博客现在已经<strong>能够在文章中插入图片</strong>，但<strong>光影画廊仍然无法在云端显示图片</strong></li>
 <li>博客现在已开放<strong>评论留言系统</strong>，并能够<strong>置顶文章</strong></li>
-<li><strong>小结</strong>：今天无文章更新，主要是完善了一下博客的功能</li>
+<li><strong>小结</strong>：今天<strong>无文章更新</strong>，主要是<strong>完善博客功能</strong>(2020/4/11 22:39 PV:354 UV:138)</li>
 </ol>
 ]]></content>
+  </entry>
+  <entry>
+    <title>利用zip解决Python中字典自动正序带来的关系数据错位问题</title>
+    <url>/2020/04/09/%E5%88%A9%E7%94%A8zip%E8%A7%A3%E5%86%B3Python%E4%B8%AD%E5%AD%97%E5%85%B8%E8%87%AA%E5%8A%A8%E6%AD%A3%E5%BA%8F%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E9%94%99%E4%BD%8D%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<blockquote>
+<p>本问题最初出现在构建蛋白质的关系字典中</p>
+</blockquote>
+<ul>
+<li>由于在字典中，数据的排序是自动正序的（也可以理解为乱序），在一组关系数据列表中，<br>我们构建字典的方式往往是先提取一组数据构建字典的键，再提取另一组数据一一对应为键的值 。但是由于字典的键是乱序的，那么对应的值也必然是错误的。本方法就是为了解决这个问题。</li>
+</ul>
+<p><em>如果你对问题的描述仍有疑惑，下面的示例代码将有助于你的理解以及对你遇到的问题的解决</em><br><em>关于setdefault()函数的使用，可以参考文章《Python字典中setdefault()函数的用法》</em>(可通过博客搜索功能快速查找)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 为帮助你理解程序，我们假设一组关系数据[A-a，B-b，C-c，D-d]</span></span><br><span class="line"><span class="comment"># 以上数据表明A与a之间存在关系，可以理解为A与a互为标签（事实上在本实例中也确实是这样处理的）</span></span><br><span class="line"></span><br><span class="line">proteins_interaction_relationship = &#123;&#125; </span><br><span class="line"><span class="comment"># 首先，我们创建一个空的字典proteins_interaction_relationship </span></span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------------------- 创建相互作用关系语句</span></span><br><span class="line"><span class="comment"># protein_name1表示列表[A B C D]</span></span><br><span class="line"><span class="comment"># protein_name11表示列表[a b c d]</span></span><br><span class="line"><span class="comment"># dictionaries是一个字典&#123;A:1,B:2,C:3,D:4,a:5,b:6,c:7,d:8&#125;,该变量对代码理解影响不大。</span></span><br><span class="line"><span class="comment"># 使用setdefault()，它可以使我们不用提前给字典输入键，即精简了代码，又减小了BUG发生的概率。</span></span><br><span class="line"><span class="comment"># setdefault().add中add表示向set()空集中添加元素</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name1,protein_name11):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i,<span class="built_in">set</span>()).add(dictionaries[j])</span><br><span class="line"><span class="comment"># 在for循环中使用zip可以同时提取同一行相互存在关系的两个元素，键的创建和键的赋值是同时进行的，避免了关系数据错位。</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name11,protein_name1):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i, <span class="built_in">set</span>()).add(dictionaries[j])</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 问题解决</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>关键蛋白预测</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何利用Python将数组长度标准化</title>
+    <url>/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%A0%87%E5%87%86%E5%8C%96/</url>
+    <content><![CDATA[<blockquote>
+<p>本方法需要使用tensorflow包，请确认你已安装</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import tensorflow as tf  </span><br><span class="line">from tensorflow import keras</span><br><span class="line"></span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------- 将蛋白质语句长度标准化</span></span><br><span class="line">protein_dictionary_matrix = np.load(<span class="string">'文件路径'</span>) <span class="comment"># 载入数组</span></span><br><span class="line"></span><br><span class="line">protein_dictionary_matrix = tf.contrib.keras.preprocessing.sequence.pad_sequences</span><br><span class="line">(protein_dictionary_matrix,maxlen=None,padding=<span class="string">'post'</span>,truncating=<span class="string">'post'</span>,value = 0)</span><br><span class="line"><span class="comment"># protein_dictionary_matrix:	所要标准化的变量</span></span><br><span class="line"><span class="comment"># maxlen=None:	标准化长度:，None表示以数组最大长度为准</span></span><br><span class="line"><span class="comment"># padding='post':	'pre'或'post'，确定当需要补0时，从起始还是结尾补</span></span><br><span class="line"><span class="comment"># truncating:	'pre'或'post'，确定当需要截断序列时，从起始还是结尾截断</span></span><br><span class="line"><span class="comment"># value:	浮点数，将在填充时嵌入此值,默认的填充值0</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 问题解决</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何在hexo下进行本地预览</title>
+    <url>/2020/04/06/%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E4%B8%8B%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/</url>
+    <content><![CDATA[<h2 id="使用-hexo-s-进行本地预览"><a href="#使用-hexo-s-进行本地预览" class="headerlink" title="使用 hexo s 进行本地预览"></a>使用 hexo s 进行本地预览</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
   </entry>
   <entry>
     <title>语言之美-古诗丽词</title>
@@ -59,8 +343,9 @@
 <p>《贺新郎·甚矣吾衰矣》-[宋] 辛弃疾</p>
 </blockquote>
 <ul>
-<li><strong>我见青山多妩媚，料青山见我，应如是。</strong>  </li>
+<li><strong>我见青山多妩媚，料青山见我，应如是。</strong></li>
 </ul>
+<a id="more"></a>  
 <hr>
 <blockquote>
 <p>《虞美人·雨后同干誉才卿置酒来禽花下作》-[宋] 叶梦得</p>
@@ -81,7 +366,6 @@
 <p>《蝶恋花·春景》-[宋] 苏轼</p>
 </blockquote>
 <p><strong>花褪残红青杏小。燕子飞时，绿水人家绕。枝上柳绵吹又少。天涯何处无芳草。<br>墙里秋千墙外道。墙外行人，墙里佳人笑。笑渐不闻声渐悄。多情却被无情恼。</strong></p>
-<a id="more"></a>
 <hr>
 <blockquote>
 <p>《东风第一枝·倾国倾城》-[宋] 吴文英</p>
@@ -139,6 +423,7 @@
 <ul>
 <li><strong>待我长发及腰，少年娶我可好？待你青丝绾正，铺十里红妆可愿？ 却怕长发及腰，少年倾心他人。待你青丝绾正，笑看君怀她笑颜。时待我发齐腰长，愿与梦郎诉衷肠。半生缠绵报君享，此情绵绵意长长。时待我发齐腰长，轻舞霓裳意飞扬。襄王神女应无恙，巫山云雨梦得度偿。时待我发齐腰长，红颜老去珠也黄。</strong></li>
 </ul>
+<a id="more"></a>
 <hr>
 <blockquote>
 <p>《思念往昔》-张小娴</p>
@@ -158,7 +443,6 @@
 <ul>
 <li><strong>当人们做不到一些事情的时候，他们就会对你说你也同样不可能。如果你有梦想，就去捍卫它。</strong></li>
 </ul>
-<a id="more"></a>
 <hr>
 <blockquote>
 <p>《寄生虫》影评-Hong-King改编自网络</p>
@@ -241,53 +525,15 @@
       </tags>
   </entry>
   <entry>
-    <title>TensorFlow在Python语言下的基础使用</title>
-    <url>/2020/04/10/TensorFlow%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</url>
+    <title>如何利用Python将数据可视化为无向图（图论）</title>
+    <url>/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%BA%E6%97%A0%E5%90%91%E5%9B%BE%EF%BC%88%E5%9B%BE%E8%AE%BA%EF%BC%89/</url>
     <content><![CDATA[<blockquote>
-<p>该框架原型请参见TensorFlow官方教程《<a href="https://tensorflow.google.cn/tutorials/keras/text_classification" target="_blank" rel="noopener">对预文本进行文本分类处理</a>》</p>
+<p>以下以绘制蛋白质相互作用矩阵为例</p>
 </blockquote>
-<p><em>以下是我利用(访问官网请点击)<a href="https://tensorflow.google.cn/" target="_blank" rel="noopener">TensorFlow</a>构建&lt;预测关键蛋白&gt;算法框架时实际使用的源码</em></p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">from tensorflow import keras</span><br><span class="line"></span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------- 加载蛋白质字典</span></span><br><span class="line">protein_dictionary_matrix = np.load(<span class="string">'&lt;文件路径&gt;'</span>) <span class="comment"># 字典数据示例:&#123;('A':1,2,3),('B':2,5)&#125;</span></span><br><span class="line"><span class="comment">#------------------------- 将蛋白质语句长度标准化</span></span><br><span class="line">protein_dictionary_matrix = tf.contrib.keras.preprocessing.sequence.pad_sequences</span><br><span class="line">(protein_dictionary_matrix,maxlen=None,padding=<span class="string">'post'</span>,truncating=<span class="string">'post'</span>,value = 0)</span><br><span class="line"><span class="comment"># 具体用法可参见文章《如何利用Python将数组长度标准化》</span></span><br><span class="line"><span class="comment">#-------------------------------加载蛋白质标签矩阵</span></span><br><span class="line">proteins_labels_num = np.load(<span class="string">'&lt;文件路径&gt;'</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment">#-------------------------------构建模型</span></span><br><span class="line">proteins_size = len(proteins_labels_num)*len(protein_dictionary_matrix[1]) <span class="comment"># 蛋白质数量*标准矩阵长度</span></span><br><span class="line"></span><br><span class="line">model = keras.Sequential()</span><br><span class="line">model.add(keras.layers.Embedding(proteins_size, 16))</span><br><span class="line"><span class="comment"># 第一层是嵌入Embedding层。该层采用整数编码的词汇表，并查找每个词索引的嵌入向量(embedding vector)</span></span><br><span class="line"><span class="comment"># 这些向量是通过模型训练学习到的。向量向输出数组增加了一个维度。得到的维度为：(batch, sequence, embedding)。</span></span><br><span class="line">model.add(keras.layers.GlobalAveragePooling1D())</span><br><span class="line"><span class="comment"># GlobalAveragePooling1D 将通过对序列维度求平均值来为每个样本返回一个定长输出向量。这允许模型以尽可能最简单的方式处理变长输入。</span></span><br><span class="line">model.add(keras.layers.Dense(16, activation=<span class="string">'relu'</span>))</span><br><span class="line"><span class="comment"># 该定长输出向量通过一个有 16 个隐层单元的全连接（Dense）层传输。</span></span><br><span class="line">model.add(keras.layers.Dense(1, activation=<span class="string">'sigmoid'</span>))</span><br><span class="line"><span class="comment"># 最后一层与单个输出结点密集连接。使用 Sigmoid 激活函数，其函数值为介于0与1之间的浮点数，表示概率或置信度。</span></span><br><span class="line"></span><br><span class="line">model.summary()</span><br><span class="line"><span class="comment">#------------------------------损失函数与优化器</span></span><br><span class="line"><span class="comment"># 一个模型需要损失函数和优化器来进行训练。由于这是一个二分类问题且模型输出概率值（一个使用 sigmoid 激活函数的单一单元层），</span></span><br><span class="line"><span class="comment"># 我们将使用 binary_crossentropy 损失函数。</span></span><br><span class="line"><span class="comment"># 这不是损失函数的唯一选择，例如，你还可以选择 mean_squared_error。</span></span><br><span class="line"><span class="comment"># 但是，一般来说binary_crossentropy更适合处理概率——它能够度量概率分布之间的“距离”，或者在我们的示例中，指的是度量 ground-truth 分布与预测值之间的“距离”。</span></span><br><span class="line">model.compile(optimizer=<span class="string">'adam'</span>,</span><br><span class="line">              loss=<span class="string">'binary_crossentropy'</span>,</span><br><span class="line">              metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#---------------------------------对数据进行切割处理</span></span><br><span class="line">x_val = protein_dictionary_matrix[:1000] <span class="comment"># 实验集</span></span><br><span class="line">partial_x_train = protein_dictionary_matrix[1000:] <span class="comment"># 验证集</span></span><br><span class="line"></span><br><span class="line">y_val = proteins_labels_num[:1000] <span class="comment"># 实验集</span></span><br><span class="line">partial_y_train = proteins_labels_num[1000:] <span class="comment"># 验证集</span></span><br><span class="line"><span class="comment">#---------------------------------训练模型</span></span><br><span class="line"><span class="built_in">history</span> = model.fit(partial_x_train,</span><br><span class="line">                    partial_y_train,</span><br><span class="line">                    epochs=10,			<span class="comment"># 迭代次数</span></span><br><span class="line">                    batch_size=300,		<span class="comment"># 每次迭代的批量大小</span></span><br><span class="line">                    validation_data=(x_val, y_val),</span><br><span class="line">                    verbose=1)</span><br><span class="line"><span class="comment">#---------------------------------------------------------------评估模型</span></span><br><span class="line"><span class="comment"># 将返回两个值。损失值&lt;loss&gt;（一个表示误差的数字，值越低越好）与准确率&lt;accuracy&gt;（值越高越好）</span></span><br><span class="line">results = model.evaluate(protein_dictionary_matrix,  proteins_labels_num, verbose=2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(results)</span><br></pre></td></tr></table></figure>
-]]></content>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import xlrd </span><br><span class="line"><span class="comment"># 原文件为Excel文件，故需调用xlrd包</span></span><br><span class="line"><span class="comment"># 相关使用可查阅另一篇文章《Python如何读取Excel文件》</span></span><br><span class="line">import numpy as np</span><br><span class="line">import networkx as nx</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#--------------------------- 加载数据</span></span><br><span class="line">data1 = xlrd.open_workbook(<span class="string">'（数据文件路径）'</span>)</span><br><span class="line">data2 = xlrd.open_workbook(<span class="string">'（数据文件路径）'</span>)</span><br><span class="line">table1 = data1.sheets()[0]</span><br><span class="line">table2 = data2.sheets()[0]</span><br><span class="line"></span><br><span class="line">protein_name1 = table1.col_values(0)</span><br><span class="line">protein_name2 = table2.col_values(0)</span><br><span class="line">protein_name11 = table1.col_values(1)</span><br><span class="line">protein_name22 = table2.col_values(1)</span><br><span class="line"><span class="comment">#--------------------------- 数据可视化 </span></span><br><span class="line">G = nx.Graph() <span class="comment"># 首先创建一个空的无向图</span></span><br><span class="line">G.add_edges_from(zip(protein_name1,protein_name11)) <span class="comment"># zip将两个数组合并打包为一个（个人理解）</span></span><br><span class="line">nx.draw(G, with_labels=True) <span class="comment"># with_labels，节点是否带有标签，默认为true</span></span><br><span class="line">plt.show() <span class="comment"># 绘制图形</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>Python 框架用法</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>机器学习</tag>
-        <tag>关键蛋白预测</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python字典中setdefault()函数的用法</title>
-    <url>/2020/04/09/Python%E5%AD%97%E5%85%B8%E4%B8%ADsetdefault()%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/</url>
-    <content><![CDATA[<blockquote>
-<p>关于该函数实际用法，可以参考文章《利用zip解决Python中字典自动正序带来的关系数据错位问题》(可通过博客搜索功能快速查找)</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Python字典中的setdefault()函数：如果键不存在于字典中，将会添加键并将值设为默认值。</span></span><br><span class="line">dict.setdefault(key, default=None)</span><br><span class="line"><span class="comment"># dict -- 代指字典变量</span></span><br><span class="line"><span class="comment"># key -- 查找的键值。</span></span><br><span class="line"><span class="comment"># default -- 键不存在时，设置的默认键值。None为空值</span></span><br><span class="line"><span class="comment"># 对于default，可以设置set()等空列表或集合用以规定值的存储方式</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Python 基础语法</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用zip解决Python中字典自动正序带来的关系数据错位问题</title>
-    <url>/2020/04/09/%E5%88%A9%E7%94%A8zip%E8%A7%A3%E5%86%B3Python%E4%B8%AD%E5%AD%97%E5%85%B8%E8%87%AA%E5%8A%A8%E6%AD%A3%E5%BA%8F%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E9%94%99%E4%BD%8D%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<blockquote>
-<p>本问题最初出现在构建蛋白质的关系字典中</p>
-</blockquote>
-<ul>
-<li>由于在字典中，数据的排序是自动正序的（也可以理解为乱序），在一组关系数据列表中，<br>我们构建字典的方式往往是先提取一组数据构建字典的键，再提取另一组数据一一对应为键的值 。但是由于字典的键是乱序的，那么对应的值也必然是错误的。本方法就是为了解决这个问题。</li>
-</ul>
-<p><em>如果你对问题的描述仍有疑惑，下面的示例代码将有助于你的理解以及对你遇到的问题的解决</em><br><em>关于setdefault()函数的使用，可以参考文章《Python字典中setdefault()函数的用法》</em>(可通过博客搜索功能快速查找)</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 为帮助你理解程序，我们假设一组关系数据[A-a，B-b，C-c，D-d]</span></span><br><span class="line"><span class="comment"># 以上数据表明A与a之间存在关系，可以理解为A与a互为标签（事实上在本实例中也确实是这样处理的）</span></span><br><span class="line"></span><br><span class="line">proteins_interaction_relationship = &#123;&#125; </span><br><span class="line"><span class="comment"># 首先，我们创建一个空的字典proteins_interaction_relationship </span></span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------------------- 创建相互作用关系语句</span></span><br><span class="line"><span class="comment"># protein_name1表示列表[A B C D]</span></span><br><span class="line"><span class="comment"># protein_name11表示列表[a b c d]</span></span><br><span class="line"><span class="comment"># dictionaries是一个字典&#123;A:1,B:2,C:3,D:4,a:5,b:6,c:7,d:8&#125;,该变量对代码理解影响不大。</span></span><br><span class="line"><span class="comment"># 使用setdefault()，它可以使我们不用提前给字典输入键，即精简了代码，又减小了BUG发生的概率。</span></span><br><span class="line"><span class="comment"># setdefault().add中add表示向set()空集中添加元素</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name1,protein_name11):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i,<span class="built_in">set</span>()).add(dictionaries[j])</span><br><span class="line"><span class="comment"># 在for循环中使用zip可以同时提取同一行相互存在关系的两个元素，键的创建和键的赋值是同时进行的，避免了关系数据错位。</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name11,protein_name1):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i, <span class="built_in">set</span>()).add(dictionaries[j])</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Python 问题解决</category>
+        <category>Python 数据可视化</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -312,138 +558,6 @@
       <tags>
         <tag>机器学习</tag>
         <tag>Matlab</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何利用Python将数组长度标准化</title>
-    <url>/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%A0%87%E5%87%86%E5%8C%96/</url>
-    <content><![CDATA[<blockquote>
-<p>本方法需要使用tensorflow包，请确认你已安装</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import tensorflow as tf  </span><br><span class="line">from tensorflow import keras</span><br><span class="line"></span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------- 将蛋白质语句长度标准化</span></span><br><span class="line">protein_dictionary_matrix = np.load(<span class="string">'文件路径'</span>) <span class="comment"># 载入数组</span></span><br><span class="line"></span><br><span class="line">protein_dictionary_matrix = tf.contrib.keras.preprocessing.sequence.pad_sequences</span><br><span class="line">(protein_dictionary_matrix,maxlen=None,padding=<span class="string">'post'</span>,truncating=<span class="string">'post'</span>,value = 0)</span><br><span class="line"><span class="comment"># protein_dictionary_matrix:	所要标准化的变量</span></span><br><span class="line"><span class="comment"># maxlen=None:	标准化长度:，None表示以数组最大长度为准</span></span><br><span class="line"><span class="comment"># padding='post':	'pre'或'post'，确定当需要补0时，从起始还是结尾补</span></span><br><span class="line"><span class="comment"># truncating:	'pre'或'post'，确定当需要截断序列时，从起始还是结尾截断</span></span><br><span class="line"><span class="comment"># value:	浮点数，将在填充时嵌入此值,默认的填充值0</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Python 基础语法</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Python如何读取Excel文件</title>
-    <url>/2020/04/08/Python%E5%A6%82%E4%BD%95%E8%AF%BB%E5%8F%96Excel%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<blockquote>
-<p>首先需在Python下安装xlrd包</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">pip install  xlrd <span class="comment"># cmd窗口</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>python操作excel主要用到xlrd和xlwt这两个库，即xlrd是读excel，xlwt是写excel的库。<br>由于xlrd使用更为频繁，这里只简单介绍xlrd读取Excel文件的用法</li>
-</ul>
-<hr>
-<blockquote>
-<p>以下为语法介绍</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import xlrd <span class="comment"># 首先在Python程序中加载xlrd包</span></span><br><span class="line"></span><br><span class="line">data1 = xlrd.open_workbook(<span class="string">'数据文件路径'</span>) <span class="comment"># 首先加载文件，并赋值给一个变量</span></span><br><span class="line">*</span><br><span class="line">table1 = data1.sheets()[0] <span class="comment"># 通过索引顺序获取。从data1变量中提取数据，并保存在变量table1中。</span></span><br><span class="line">table1 = data.sheet_by_name(sheet_name) <span class="comment"># 通过名称获取</span></span><br><span class="line"><span class="comment">#以上两个函数都会返回一个xlrd.sheet.Sheet()对象</span></span><br><span class="line">*</span><br><span class="line">protein_name1 = table1.col_values(num) <span class="comment"># table1.col_values提取*列方向的数据为列表，num=第几列（0为第一列）</span></span><br><span class="line">protein_name1 = table1.row_values(num) <span class="comment"># table1.row_values提取*行方向的数据为列表，num=第几行（0为第一行）</span></span><br><span class="line">*</span><br><span class="line">nrows = table.nrows  <span class="comment"># 获取该sheet中的有效*行数</span></span><br><span class="line">ncols = table.ncols  <span class="comment"># 获取该sheet中的有效*列数</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Python 基础语法</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何利用Python将数据可视化为无向图（图论）</title>
-    <url>/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%BA%E6%97%A0%E5%90%91%E5%9B%BE%EF%BC%88%E5%9B%BE%E8%AE%BA%EF%BC%89/</url>
-    <content><![CDATA[<blockquote>
-<p>以下以绘制蛋白质相互作用矩阵为例</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import xlrd </span><br><span class="line"><span class="comment"># 原文件为Excel文件，故需调用xlrd包</span></span><br><span class="line"><span class="comment"># 相关使用可查阅另一篇文章《Python如何读取Excel文件》</span></span><br><span class="line">import numpy as np</span><br><span class="line">import networkx as nx</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#--------------------------- 加载数据</span></span><br><span class="line">data1 = xlrd.open_workbook(<span class="string">'（数据文件路径）'</span>)</span><br><span class="line">data2 = xlrd.open_workbook(<span class="string">'（数据文件路径）'</span>)</span><br><span class="line">table1 = data1.sheets()[0]</span><br><span class="line">table2 = data2.sheets()[0]</span><br><span class="line"></span><br><span class="line">protein_name1 = table1.col_values(0)</span><br><span class="line">protein_name2 = table2.col_values(0)</span><br><span class="line">protein_name11 = table1.col_values(1)</span><br><span class="line">protein_name22 = table2.col_values(1)</span><br><span class="line"><span class="comment">#--------------------------- 数据可视化 </span></span><br><span class="line">G = nx.Graph() <span class="comment"># 首先创建一个空的无向图</span></span><br><span class="line">G.add_edges_from(zip(protein_name1,protein_name11)) <span class="comment"># zip将两个数组合并打包为一个（个人理解）</span></span><br><span class="line">nx.draw(G, with_labels=True) <span class="comment"># with_labels，节点是否带有标签，默认为true</span></span><br><span class="line">plt.show() <span class="comment"># 绘制图形</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Python 数据可视化</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>关键蛋白预测</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo如何创建草稿/私密文章</title>
-    <url>/2020/04/08/Hexo%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E8%8D%89%E7%A8%BF%EF%BC%88%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0%EF%BC%89/</url>
-    <content><![CDATA[<ul>
-<li>输入创建草稿命令，系统会在source/_drafts目录下生成一个new-draft.md文件。但是这个文件不被显示在页面上，链接也访问不到。也就是说如果你想把某一篇文章移除显示，又不舍得删除，可以把它移动到_drafts目录之中。相当于很多博客都有的“私密文章”功能。 </li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new draft <span class="string">"new draft(File Name)"</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo如何插入本地图片</title>
-    <url>/2020/04/07/Hexo%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<ul>
-<li>由于某种原因安装图片插件安装不上，故使用此方法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![你想输入的替代文字](xxxx&#x2F;图片名.jpg)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo写作语法</title>
-    <url>/2020/04/07/Hexo%E5%86%99%E4%BD%9C%E8%AF%AD%E6%B3%95/</url>
-    <content><![CDATA[<blockquote>
-<p>以下是效果展示:</p>
-</blockquote>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><p><del>这是横线</del><br><strong>这是加粗</strong><br><em>这是斜体</em></p>
-<ul>
-<li>无序列表1</li>
-<li>无序列表2</li>
-</ul>
-<ol>
-<li>有序排列1</li>
-<li>有序排列2<br><code>内嵌代码</code><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">代码块</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>引用</p>
-</blockquote>
-<a id="more"></a>
-</li>
-</ol>
-<hr>
-<blockquote>
-<p>以下为源代码:</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 一级标题</span></span><br><span class="line"><span class="comment">## 二级标题</span></span><br><span class="line"><span class="comment">### 三级标题	</span></span><br><span class="line"><span class="comment">#### 四级标题</span></span><br><span class="line"><span class="comment">##### 五级标题</span></span><br><span class="line">~~这是横线~~	</span><br><span class="line">**这是加粗**	</span><br><span class="line">*这是斜体*</span><br><span class="line">* 无序列表1</span><br><span class="line">* 无序列表2</span><br><span class="line">1. 有序排列1</span><br><span class="line">2. 有序排列2</span><br><span class="line">`内嵌代码`</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">代码块</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">&gt;引用</span><br><span class="line">文章太长，截断按钮文字(在需要截断的行增加此标记：&lt;!--more--&gt;)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何在hexo下进行本地预览</title>
-    <url>/2020/04/06/%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E4%B8%8B%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/</url>
-    <content><![CDATA[<h2 id="使用-hexo-s-进行本地预览"><a href="#使用-hexo-s-进行本地预览" class="headerlink" title="使用 hexo s 进行本地预览"></a>使用 hexo s 进行本地预览</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
