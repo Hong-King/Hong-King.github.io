@@ -58,8 +58,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/12/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/" class="article-date">
-  <time datetime="2020-04-12T14:22:00.000Z" itemprop="datePublished">2020-04-12</time>
+      <a href="/2020/04/14/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2020-04-14T13:53:00.000Z" itemprop="datePublished">2020-04-14</time>
 </a>
       
   <div class="article-category">
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">405</span>
         </span>
     </span>
 
@@ -105,9 +105,20 @@
       
 
       
-      <blockquote>
+      <ul>
+<li>Pandas是个强大的结构数据处理包，但依本人经验来看：<strong>强烈建议在保存Pandas的DataFrame数据时，最好转化为numpy数组文件（.npy）进行保存</strong></li>
+</ul>
+<p><em>从实际使用来看，如果将DataFrame数据保存为csv或txt文件，在重新加载数据文件时，数据类型会自动转换成str类型，带来不必要的麻烦</em></p>
+<blockquote>
+<p>以下是我在实际应用&lt;预测关键蛋白&gt;中的实例</p>
 </blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">proteins_interaction_name=list(proteins_interaction_relationship.keys()) </span><br><span class="line"><span class="comment"># 将蛋白质名称列表赋值给对象proteins_interaction_name</span></span><br><span class="line">a = [proteins_interaction_relationship,proteins_labels] </span><br><span class="line"><span class="comment"># proteins_interaction_relationship以及proteins_labelsd都是字典对象</span></span><br><span class="line">data_preprocessing = pd.DataFrame(a,index=[<span class="string">'Proteins_interaction_relationship'</span>,<span class="string">'proteins_labels'</span>]) </span><br><span class="line"><span class="comment"># 通过pd.DataFrame内置函数依照proteins_interaction_relationship以及proteins_labelsd字典对象构建Pandas的DataFrame</span></span><br><span class="line"><span class="comment"># index为pd.DataFrame的内置属性，用于给每行添加索引</span></span><br><span class="line">data_preprocessing = data_preprocessing.dropna(axis=1)  </span><br><span class="line"><span class="comment"># 通过[DataFrame](代指DataFrame类型对象).dropna内置函数删除含有空值的列（axis=0为行） </span></span><br><span class="line">data_preprocessing.loc[2]=proteins_interaction_name</span><br><span class="line"><span class="comment"># 通过[DataFrame].loc[num]将proteins_interaction_name列表插入到第（num+1）行</span></span><br><span class="line">data_preprocessing.to_numpy</span><br><span class="line"><span class="comment"># 将数据转化成numpy数组类型，这样在保存数据时可以避免很多麻烦</span></span><br><span class="line">np.save(<span class="string">'data_preprocessing_DataFrame.npy'</span>,data_preprocessing) <span class="comment"># 保存Pandas结构数据</span></span><br></pre></td></tr></table></figure>
 
+<hr>
+<blockquote>
+<p>以下是读取csv时的一些值得注意的操作（不推荐保存为csv，但建议掌握以备不时之需）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=pd.read_csv(<span class="string">'data_preprocessing_DataFrame(无索引).csv'</span>,header=None)</span><br><span class="line"><span class="comment"># 注意：如果无列索引，必须添加header=None，否则默认把第一行数据处理成列名导致缺失</span></span><br><span class="line">a.values</span><br><span class="line"><span class="comment"># 通过这个操作，可以将对象a重新转化为DataFrame数据结构&lt;注意：此时数据的类型已经全部转化为str类型&gt;</span></span><br></pre></td></tr></table></figure>
       
       <!-- reward -->
       
@@ -175,7 +186,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hong-king.github.io/2020/04/12/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hong-king.github.io/2020/04/14/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -193,19 +204,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/04/13/python%E7%94%BB%E6%95%A3%E7%82%B9%E5%9B%BE%5Bplt.scatter()%5D%E4%BB%A5%E5%8F%8A%E7%9F%A9%E9%98%B5%E6%95%A3%E7%82%B9%E5%9B%BE%5Bpd.scatter_matrix()%5D%E8%AF%A6%E8%A7%A3/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            python画散点图[plt.scatter()]以及矩阵散点图[pd.scatter_matrix()]详解（待优化）
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/04/11/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/" class="article-nav-link">
+      <a href="/2020/04/13/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0(Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0)/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">你好，欢迎光临我的博客</div>
+        <div class="article-nav-title">《数据结构与算法》笔记(Python语言实现)</div>
       </a>
     
   </nav>

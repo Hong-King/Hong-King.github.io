@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hong-king.github.io/"/>
-  <updated>2020-04-13T13:54:41.575Z</updated>
+  <updated>2020-04-14T14:03:52.372Z</updated>
   <id>https://hong-king.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Pandas在Python语言下的基础使用</title>
+    <link href="https://hong-king.github.io/2020/04/14/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/"/>
+    <id>https://hong-king.github.io/2020/04/14/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</id>
+    <published>2020-04-14T13:53:00.000Z</published>
+    <updated>2020-04-14T14:03:52.372Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>Pandas是个强大的结构数据处理包，但依本人经验来看：<strong>强烈建议在保存Pandas的DataFrame数据时，最好转化为numpy数组文件（.npy）进行保存</strong></li></ul><p><em>从实际使用来看，如果将DataFrame数据保存为csv或txt文件，在重新加载数据文件时，数据类型会自动转换成str类型，带来不必要的麻烦</em></p><blockquote><p>以下是我在实际应用&lt;预测关键蛋白&gt;中的实例</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">proteins_interaction_name=list(proteins_interaction_relationship.keys()) </span><br><span class="line"><span class="comment"># 将蛋白质名称列表赋值给对象proteins_interaction_name</span></span><br><span class="line">a = [proteins_interaction_relationship,proteins_labels] </span><br><span class="line"><span class="comment"># proteins_interaction_relationship以及proteins_labelsd都是字典对象</span></span><br><span class="line">data_preprocessing = pd.DataFrame(a,index=[<span class="string">'Proteins_interaction_relationship'</span>,<span class="string">'proteins_labels'</span>]) </span><br><span class="line"><span class="comment"># 通过pd.DataFrame内置函数依照proteins_interaction_relationship以及proteins_labelsd字典对象构建Pandas的DataFrame</span></span><br><span class="line"><span class="comment"># index为pd.DataFrame的内置属性，用于给每行添加索引</span></span><br><span class="line">data_preprocessing = data_preprocessing.dropna(axis=1)  </span><br><span class="line"><span class="comment"># 通过[DataFrame](代指DataFrame类型对象).dropna内置函数删除含有空值的列（axis=0为行） </span></span><br><span class="line">data_preprocessing.loc[2]=proteins_interaction_name</span><br><span class="line"><span class="comment"># 通过[DataFrame].loc[num]将proteins_interaction_name列表插入到第（num+1）行</span></span><br><span class="line">data_preprocessing.to_numpy</span><br><span class="line"><span class="comment"># 将数据转化成numpy数组类型，这样在保存数据时可以避免很多麻烦</span></span><br><span class="line">np.save(<span class="string">'data_preprocessing_DataFrame.npy'</span>,data_preprocessing) <span class="comment"># 保存Pandas结构数据</span></span><br></pre></td></tr></table></figure><hr><blockquote><p>以下是读取csv时的一些值得注意的操作（不推荐保存为csv，但建议掌握以备不时之需）</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=pd.read_csv(<span class="string">'data_preprocessing_DataFrame(无索引).csv'</span>,header=None)</span><br><span class="line"><span class="comment"># 注意：如果无列索引，必须添加header=None，否则默认把第一行数据处理成列名导致缺失</span></span><br><span class="line">a.values</span><br><span class="line"><span class="comment"># 通过这个操作，可以将对象a重新转化为DataFrame数据结构&lt;注意：此时数据的类型已经全部转化为str类型&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;Pandas是个强大的结构数据处理包，但依本人经验来看：&lt;strong&gt;强烈建议在保存Pandas的DataFrame数据时，最好转化为numpy数组文件（.npy）进行保存&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;em&gt;从实际使用来看，如果将DataF
+      
+    
+    </summary>
+    
+    
+      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Python 框架用法" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E6%A1%86%E6%9E%B6%E7%94%A8%E6%B3%95/"/>
+    
+    
+      <category term="Python" scheme="https://Hong-King.github.io/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>《数据结构与算法》笔记(Python语言实现)</title>
@@ -99,43 +130,13 @@
   </entry>
   
   <entry>
-    <title>Pandas在Python语言下的基础使用</title>
-    <link href="https://hong-king.github.io/2020/04/12/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/"/>
-    <id>https://hong-king.github.io/2020/04/12/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</id>
-    <published>2020-04-12T14:22:00.000Z</published>
-    <updated>2020-04-12T16:51:53.306Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;/blockquote&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="Python 框架用法" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E6%A1%86%E6%9E%B6%E7%94%A8%E6%B3%95/"/>
-    
-    
-      <category term="Python" scheme="https://Hong-King.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
     <title>你好，欢迎光临我的博客</title>
     <link href="https://hong-king.github.io/2020/04/11/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/"/>
     <id>https://hong-king.github.io/2020/04/11/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/</id>
     <published>2020-04-11T14:08:00.000Z</published>
-    <updated>2020-04-13T13:59:28.248Z</updated>
+    <updated>2020-04-13T14:06:17.475Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游"><a href="#这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游" class="headerlink" title="这篇说明将更好地帮助你在&lt;Mr.l’s World&gt;里畅游"></a>这篇说明将更好地帮助你在&lt;<em>Mr.l’s World</em>&gt;里畅游</h2><blockquote><p><strong>博客使用简介</strong></p></blockquote><ol><li><p>博客界面<strong>左侧</strong>有<strong>侧边菜单</strong>为你提供快捷帮助<strong>&lt;<em>手机用户请点击屏幕左上角按钮以呼出菜单</em>&gt;</strong></p></li><li><p>博客界面<strong>右下角</strong>有<strong>暗夜模式按钮</strong>为你提供更好的浏览体验</p></li><li><p>博客同样为你提供<strong>文章查找</strong>功能，功能按钮在<strong>侧边菜单</strong>的下方</p></li><li><p>博客已开放<strong>评论留言系统</strong>，欢迎大家在评论区留下你的足迹</p></li><li><p><strong>《语言之美-古诗丽词》</strong>与<strong>《语言之美-新句美文》</strong>两篇文章将不定时持续更新，欢迎大家在评论区留下自己的珍藏，我也很乐意将其收录进文章里面</p></li></ol><blockquote><p>技术支持</p></blockquote><ul><li><strong>Powered by</strong> <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a></li><li><strong>Theme:</strong> <a href="https://shen-yu.gitee.io/" target="_blank" rel="noopener">Ayer</a></li></ul><hr><p> (以下是博客更新日志，日志从2020/4/11开始记录，无特殊需求你<strong>不必点击</strong>&lt;阅读更多…&gt;来查看日志)</p><a id="more"></a><hr><blockquote><p><strong>博客更新日志</strong></p></blockquote><hr><ul><li><strong>2020/4/13</strong></li></ul><ol><li>更新文章《《Python机器学习基础教程》笔记(scikit-learn框架)》</li><li>更新文章《python画散点图[plt.scatter()]以及矩阵散点图[pd.scatter_matrix()]详解》（待优化）</li><li>暂时搁置文章《Pandas在Python语言下的基础使用》</li><li>暂时搁置文章《《数据结构与算法》笔记(Python语言实现)》</li><li><strong>小结</strong>：今日更新主要<strong>优化文章排版</strong>，<strong>更新两篇文章</strong>(2020/4/13 22:39 PV:354 UV:138)</li></ol><hr><ul><li><strong>2020/4/11</strong></li></ul><ol><li>博客现在已经<strong>能够在文章中插入图片</strong>，但<strong>光影画廊仍然无法在云端显示图片</strong></li><li>博客现在已开放<strong>评论留言系统</strong>，并能够<strong>置顶文章</strong></li><li><strong>小结</strong>：今天<strong>无文章更新</strong>，主要是<strong>完善博客功能</strong>(2020/4/11 22:39 PV:354 UV:138)</li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游"><a href="#这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游" class="headerlink" title="这篇说明将更好地帮助你在&lt;Mr.l’s World&gt;里畅游"></a>这篇说明将更好地帮助你在&lt;<em>Mr.l’s World</em>&gt;里畅游</h2><blockquote><p><strong>博客使用简介</strong></p></blockquote><ol><li><p>博客界面<strong>左侧</strong>有<strong>侧边菜单</strong>为你提供快捷帮助<strong>&lt;<em>手机用户请点击屏幕左上角按钮以呼出菜单</em>&gt;</strong></p></li><li><p>博客界面<strong>右下角</strong>有<strong>暗夜模式按钮</strong>为你提供更好的浏览体验</p></li><li><p>博客同样为你提供<strong>文章查找</strong>功能，功能按钮在<strong>侧边菜单</strong>的下方</p></li><li><p>博客已开放<strong>评论留言系统</strong>，欢迎大家在评论区留下你的足迹</p></li><li><p><strong>《语言之美-古诗丽词》</strong>与<strong>《语言之美-新句美文》</strong>两篇文章将不定时持续更新，欢迎大家在评论区留下自己的珍藏，我也很乐意将其收录进文章里面</p></li></ol><blockquote><p>技术支持</p></blockquote><ul><li><strong>Powered by</strong> <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a></li><li><strong>Theme:</strong> <a href="https://shen-yu.gitee.io/" target="_blank" rel="noopener">Ayer</a></li></ul><hr><p> (以下是博客更新日志，日志从2020/4/11开始记录，无特殊需求你<strong>不必点击</strong>&lt;阅读更多…&gt;来查看日志)</p><a id="more"></a><hr><blockquote><p><strong>博客更新日志</strong></p></blockquote><hr><ul><li><strong>2020/4/13</strong></li></ul><ol><li>更新文章《《Python机器学习基础教程》笔记(scikit-learn框架)》</li><li>更新文章《python画散点图[plt.scatter()]以及矩阵散点图[pd.scatter_matrix()]详解》（待优化）</li><li>暂时搁置文章《Pandas在Python语言下的基础使用》</li><li>暂时搁置文章《《数据结构与算法》笔记(Python语言实现)》</li><li><strong>小结</strong>：今日更新主要<strong>优化文章排版</strong>，<strong>更新两篇文章</strong>(2020/4/13 22:05 PV:374 UV:143)</li></ol><hr><ul><li><strong>2020/4/11</strong></li></ul><ol><li>博客现在已经<strong>能够在文章中插入图片</strong>，但<strong>光影画廊仍然无法在云端显示图片</strong></li><li>博客现在已开放<strong>评论留言系统</strong>，并能够<strong>置顶文章</strong></li><li><strong>小结</strong>：今天<strong>无文章更新</strong>，主要是<strong>完善博客功能</strong>(2020/4/11 22:39 PV:354 UV:138)</li></ol>]]></content>
     
     <summary type="html">
     

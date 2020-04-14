@@ -34,6 +34,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo如何插入本地图片</title>
+    <url>/2020/04/07/Hexo%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</url>
+    <content><![CDATA[<ul>
+<li>由于某种原因安装图片插件安装不上，故使用此方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![你想输入的替代文字](xxxx&#x2F;图片名.jpg)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo如何创建草稿/私密文章</title>
     <url>/2020/04/08/Hexo%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E8%8D%89%E7%A8%BF%EF%BC%88%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0%EF%BC%89/</url>
     <content><![CDATA[<ul>
@@ -50,26 +65,22 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo如何插入本地图片</title>
-    <url>/2020/04/07/Hexo%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</url>
-    <content><![CDATA[<ul>
-<li>由于某种原因安装图片插件安装不上，故使用此方法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![你想输入的替代文字](xxxx&#x2F;图片名.jpg)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Pandas在Python语言下的基础使用</title>
-    <url>/2020/04/12/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<blockquote>
+    <url>/2020/04/14/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<ul>
+<li>Pandas是个强大的结构数据处理包，但依本人经验来看：<strong>强烈建议在保存Pandas的DataFrame数据时，最好转化为numpy数组文件（.npy）进行保存</strong></li>
+</ul>
+<p><em>从实际使用来看，如果将DataFrame数据保存为csv或txt文件，在重新加载数据文件时，数据类型会自动转换成str类型，带来不必要的麻烦</em></p>
+<blockquote>
+<p>以下是我在实际应用&lt;预测关键蛋白&gt;中的实例</p>
 </blockquote>
-]]></content>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">proteins_interaction_name=list(proteins_interaction_relationship.keys()) </span><br><span class="line"><span class="comment"># 将蛋白质名称列表赋值给对象proteins_interaction_name</span></span><br><span class="line">a = [proteins_interaction_relationship,proteins_labels] </span><br><span class="line"><span class="comment"># proteins_interaction_relationship以及proteins_labelsd都是字典对象</span></span><br><span class="line">data_preprocessing = pd.DataFrame(a,index=[<span class="string">'Proteins_interaction_relationship'</span>,<span class="string">'proteins_labels'</span>]) </span><br><span class="line"><span class="comment"># 通过pd.DataFrame内置函数依照proteins_interaction_relationship以及proteins_labelsd字典对象构建Pandas的DataFrame</span></span><br><span class="line"><span class="comment"># index为pd.DataFrame的内置属性，用于给每行添加索引</span></span><br><span class="line">data_preprocessing = data_preprocessing.dropna(axis=1)  </span><br><span class="line"><span class="comment"># 通过[DataFrame](代指DataFrame类型对象).dropna内置函数删除含有空值的列（axis=0为行） </span></span><br><span class="line">data_preprocessing.loc[2]=proteins_interaction_name</span><br><span class="line"><span class="comment"># 通过[DataFrame].loc[num]将proteins_interaction_name列表插入到第（num+1）行</span></span><br><span class="line">data_preprocessing.to_numpy</span><br><span class="line"><span class="comment"># 将数据转化成numpy数组类型，这样在保存数据时可以避免很多麻烦</span></span><br><span class="line">np.save(<span class="string">'data_preprocessing_DataFrame.npy'</span>,data_preprocessing) <span class="comment"># 保存Pandas结构数据</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>以下是读取csv时的一些值得注意的操作（不推荐保存为csv，但建议掌握以备不时之需）</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">a=pd.read_csv(<span class="string">'data_preprocessing_DataFrame(无索引).csv'</span>,header=None)</span><br><span class="line"><span class="comment"># 注意：如果无列索引，必须添加header=None，否则默认把第一行数据处理成列名导致缺失</span></span><br><span class="line">a.values</span><br><span class="line"><span class="comment"># 通过这个操作，可以将对象a重新转化为DataFrame数据结构&lt;注意：此时数据的类型已经全部转化为str类型&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术笔记</category>
         <category>Python 框架用法</category>
@@ -221,6 +232,26 @@
       </tags>
   </entry>
   <entry>
+    <title>利用zip解决Python中字典自动正序带来的关系数据错位问题</title>
+    <url>/2020/04/09/%E5%88%A9%E7%94%A8zip%E8%A7%A3%E5%86%B3Python%E4%B8%AD%E5%AD%97%E5%85%B8%E8%87%AA%E5%8A%A8%E6%AD%A3%E5%BA%8F%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E9%94%99%E4%BD%8D%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<blockquote>
+<p>本问题最初出现在构建蛋白质的关系字典中</p>
+</blockquote>
+<ul>
+<li>由于在字典中，数据的排序是自动正序的（也可以理解为乱序），在一组关系数据列表中，<br>我们构建字典的方式往往是先提取一组数据构建字典的键，再提取另一组数据一一对应为键的值 。但是由于字典的键是乱序的，那么对应的值也必然是错误的。本方法就是为了解决这个问题。</li>
+</ul>
+<p><em>如果你对问题的描述仍有疑惑，下面的示例代码将有助于你的理解以及对你遇到的问题的解决</em><br><em>关于setdefault()函数的使用，可以参考文章《Python字典中setdefault()函数的用法》</em>(可通过博客搜索功能快速查找)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 为帮助你理解程序，我们假设一组关系数据[A-a，B-b，C-c，D-d]</span></span><br><span class="line"><span class="comment"># 以上数据表明A与a之间存在关系，可以理解为A与a互为标签（事实上在本实例中也确实是这样处理的）</span></span><br><span class="line"></span><br><span class="line">proteins_interaction_relationship = &#123;&#125; </span><br><span class="line"><span class="comment"># 首先，我们创建一个空的字典proteins_interaction_relationship </span></span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------------------- 创建相互作用关系语句</span></span><br><span class="line"><span class="comment"># protein_name1表示列表[A B C D]</span></span><br><span class="line"><span class="comment"># protein_name11表示列表[a b c d]</span></span><br><span class="line"><span class="comment"># dictionaries是一个字典&#123;A:1,B:2,C:3,D:4,a:5,b:6,c:7,d:8&#125;,该变量对代码理解影响不大。</span></span><br><span class="line"><span class="comment"># 使用setdefault()，它可以使我们不用提前给字典输入键，即精简了代码，又减小了BUG发生的概率。</span></span><br><span class="line"><span class="comment"># setdefault().add中add表示向set()空集中添加元素</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name1,protein_name11):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i,<span class="built_in">set</span>()).add(dictionaries[j])</span><br><span class="line"><span class="comment"># 在for循环中使用zip可以同时提取同一行相互存在关系的两个元素，键的创建和键的赋值是同时进行的，避免了关系数据错位。</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name11,protein_name1):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i, <span class="built_in">set</span>()).add(dictionaries[j])</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 问题解决</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>关键蛋白预测</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>你好，欢迎光临我的博客</title>
     <url>/2020/04/11/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/</url>
     <content><![CDATA[<h2 id="这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游"><a href="#这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游" class="headerlink" title="这篇说明将更好地帮助你在&lt;Mr.l’s World&gt;里畅游"></a>这篇说明将更好地帮助你在&lt;<em>Mr.l’s World</em>&gt;里畅游</h2><blockquote>
@@ -262,7 +293,7 @@
 <li>更新文章《python画散点图[plt.scatter()]以及矩阵散点图[pd.scatter_matrix()]详解》（待优化）</li>
 <li>暂时搁置文章《Pandas在Python语言下的基础使用》</li>
 <li>暂时搁置文章《《数据结构与算法》笔记(Python语言实现)》</li>
-<li><strong>小结</strong>：今日更新主要<strong>优化文章排版</strong>，<strong>更新两篇文章</strong>(2020/4/13 22:39 PV:354 UV:138)</li>
+<li><strong>小结</strong>：今日更新主要<strong>优化文章排版</strong>，<strong>更新两篇文章</strong>(2020/4/13 22:05 PV:374 UV:143)</li>
 </ol>
 <hr>
 <ul>
@@ -274,26 +305,6 @@
 <li><strong>小结</strong>：今天<strong>无文章更新</strong>，主要是<strong>完善博客功能</strong>(2020/4/11 22:39 PV:354 UV:138)</li>
 </ol>
 ]]></content>
-  </entry>
-  <entry>
-    <title>利用zip解决Python中字典自动正序带来的关系数据错位问题</title>
-    <url>/2020/04/09/%E5%88%A9%E7%94%A8zip%E8%A7%A3%E5%86%B3Python%E4%B8%AD%E5%AD%97%E5%85%B8%E8%87%AA%E5%8A%A8%E6%AD%A3%E5%BA%8F%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E9%94%99%E4%BD%8D%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<blockquote>
-<p>本问题最初出现在构建蛋白质的关系字典中</p>
-</blockquote>
-<ul>
-<li>由于在字典中，数据的排序是自动正序的（也可以理解为乱序），在一组关系数据列表中，<br>我们构建字典的方式往往是先提取一组数据构建字典的键，再提取另一组数据一一对应为键的值 。但是由于字典的键是乱序的，那么对应的值也必然是错误的。本方法就是为了解决这个问题。</li>
-</ul>
-<p><em>如果你对问题的描述仍有疑惑，下面的示例代码将有助于你的理解以及对你遇到的问题的解决</em><br><em>关于setdefault()函数的使用，可以参考文章《Python字典中setdefault()函数的用法》</em>(可通过博客搜索功能快速查找)</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 为帮助你理解程序，我们假设一组关系数据[A-a，B-b，C-c，D-d]</span></span><br><span class="line"><span class="comment"># 以上数据表明A与a之间存在关系，可以理解为A与a互为标签（事实上在本实例中也确实是这样处理的）</span></span><br><span class="line"></span><br><span class="line">proteins_interaction_relationship = &#123;&#125; </span><br><span class="line"><span class="comment"># 首先，我们创建一个空的字典proteins_interaction_relationship </span></span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------------------- 创建相互作用关系语句</span></span><br><span class="line"><span class="comment"># protein_name1表示列表[A B C D]</span></span><br><span class="line"><span class="comment"># protein_name11表示列表[a b c d]</span></span><br><span class="line"><span class="comment"># dictionaries是一个字典&#123;A:1,B:2,C:3,D:4,a:5,b:6,c:7,d:8&#125;,该变量对代码理解影响不大。</span></span><br><span class="line"><span class="comment"># 使用setdefault()，它可以使我们不用提前给字典输入键，即精简了代码，又减小了BUG发生的概率。</span></span><br><span class="line"><span class="comment"># setdefault().add中add表示向set()空集中添加元素</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name1,protein_name11):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i,<span class="built_in">set</span>()).add(dictionaries[j])</span><br><span class="line"><span class="comment"># 在for循环中使用zip可以同时提取同一行相互存在关系的两个元素，键的创建和键的赋值是同时进行的，避免了关系数据错位。</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name11,protein_name1):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i, <span class="built_in">set</span>()).add(dictionaries[j])</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Python 问题解决</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>关键蛋白预测</tag>
-      </tags>
   </entry>
   <entry>
     <title>如何利用Python将数组长度标准化</title>
@@ -309,6 +320,22 @@
       <tags>
         <tag>Python</tag>
         <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何利用Python将数据可视化为无向图（图论）</title>
+    <url>/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%BA%E6%97%A0%E5%90%91%E5%9B%BE%EF%BC%88%E5%9B%BE%E8%AE%BA%EF%BC%89/</url>
+    <content><![CDATA[<blockquote>
+<p>以下以绘制蛋白质相互作用矩阵为例</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import xlrd </span><br><span class="line"><span class="comment"># 原文件为Excel文件，故需调用xlrd包</span></span><br><span class="line"><span class="comment"># 相关使用可查阅另一篇文章《Python如何读取Excel文件》</span></span><br><span class="line">import numpy as np</span><br><span class="line">import networkx as nx</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#--------------------------- 加载数据</span></span><br><span class="line">data1 = xlrd.open_workbook(<span class="string">'（数据文件路径）'</span>)</span><br><span class="line">data2 = xlrd.open_workbook(<span class="string">'（数据文件路径）'</span>)</span><br><span class="line">table1 = data1.sheets()[0]</span><br><span class="line">table2 = data2.sheets()[0]</span><br><span class="line"></span><br><span class="line">protein_name1 = table1.col_values(0)</span><br><span class="line">protein_name2 = table2.col_values(0)</span><br><span class="line">protein_name11 = table1.col_values(1)</span><br><span class="line">protein_name22 = table2.col_values(1)</span><br><span class="line"><span class="comment">#--------------------------- 数据可视化 </span></span><br><span class="line">G = nx.Graph() <span class="comment"># 首先创建一个空的无向图</span></span><br><span class="line">G.add_edges_from(zip(protein_name1,protein_name11)) <span class="comment"># zip将两个数组合并打包为一个（个人理解）</span></span><br><span class="line">nx.draw(G, with_labels=True) <span class="comment"># with_labels，节点是否带有标签，默认为true</span></span><br><span class="line">plt.show() <span class="comment"># 绘制图形</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 数据可视化</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>关键蛋白预测</tag>
       </tags>
   </entry>
   <entry>
@@ -522,22 +549,6 @@
       </categories>
       <tags>
         <tag>语言之美</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何利用Python将数据可视化为无向图（图论）</title>
-    <url>/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%BA%E6%97%A0%E5%90%91%E5%9B%BE%EF%BC%88%E5%9B%BE%E8%AE%BA%EF%BC%89/</url>
-    <content><![CDATA[<blockquote>
-<p>以下以绘制蛋白质相互作用矩阵为例</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import xlrd </span><br><span class="line"><span class="comment"># 原文件为Excel文件，故需调用xlrd包</span></span><br><span class="line"><span class="comment"># 相关使用可查阅另一篇文章《Python如何读取Excel文件》</span></span><br><span class="line">import numpy as np</span><br><span class="line">import networkx as nx</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#--------------------------- 加载数据</span></span><br><span class="line">data1 = xlrd.open_workbook(<span class="string">'（数据文件路径）'</span>)</span><br><span class="line">data2 = xlrd.open_workbook(<span class="string">'（数据文件路径）'</span>)</span><br><span class="line">table1 = data1.sheets()[0]</span><br><span class="line">table2 = data2.sheets()[0]</span><br><span class="line"></span><br><span class="line">protein_name1 = table1.col_values(0)</span><br><span class="line">protein_name2 = table2.col_values(0)</span><br><span class="line">protein_name11 = table1.col_values(1)</span><br><span class="line">protein_name22 = table2.col_values(1)</span><br><span class="line"><span class="comment">#--------------------------- 数据可视化 </span></span><br><span class="line">G = nx.Graph() <span class="comment"># 首先创建一个空的无向图</span></span><br><span class="line">G.add_edges_from(zip(protein_name1,protein_name11)) <span class="comment"># zip将两个数组合并打包为一个（个人理解）</span></span><br><span class="line">nx.draw(G, with_labels=True) <span class="comment"># with_labels，节点是否带有标签，默认为true</span></span><br><span class="line">plt.show() <span class="comment"># 绘制图形</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Python 数据可视化</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>关键蛋白预测</tag>
       </tags>
   </entry>
   <entry>
