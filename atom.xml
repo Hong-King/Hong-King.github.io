@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hong-king.github.io/"/>
-  <updated>2020-04-14T14:09:52.620Z</updated>
+  <updated>2020-04-19T03:08:17.955Z</updated>
   <id>https://hong-king.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《数据结构与算法》笔记(Python语言实现)</title>
+    <link href="https://hong-king.github.io/2020/04/19/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0(Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0)/"/>
+    <id>https://hong-king.github.io/2020/04/19/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0(Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0)/</id>
+    <published>2020-04-19T03:08:00.000Z</published>
+    <updated>2020-04-19T03:08:17.955Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第一章-Python入门"><a href="#第一章-Python入门" class="headerlink" title="第一章 Python入门"></a>第一章 Python入门</h1><hr><h2 id="1-2-Python对象"><a href="#1-2-Python对象" class="headerlink" title="1.2 Python对象"></a>1.2 Python对象</h2><h3 id="1-2-1-标识符、对象和赋值语句"><a href="#1-2-1-标识符、对象和赋值语句" class="headerlink" title="1.2.1 标识符、对象和赋值语句"></a>1.2.1 标识符、对象和赋值语句</h3><blockquote><p>概念理解</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">temperature = 98.6</span><br><span class="line"><span class="comment"># [temperature = 98.6] - 赋值语句</span></span><br><span class="line"><span class="comment"># temperature - 标识符</span></span><br><span class="line"><span class="comment"># 98.6 - 对象</span></span><br></pre></td></tr></table></figure><blockquote><p>标识符的引用原理</p></blockquote><ul><li>程序员可以向现有对象指定第二个标识符建立一个别名<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">temperature = 98.6</span><br><span class="line">original = temperature</span><br><span class="line"><span class="comment"># 这里标识符[original]和标识符[temperature]都是对象[98.6]的别名</span></span><br></pre></td></tr></table></figure></li><li>一旦建立了别名，两个名称都可以用来访问底层对象。如果对象的一个别名被赋值语句重新赋予了新的值，那么这并不影响已存在的对象，而是给别名重新分配了存储对象<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">temperature = temperature +5.0</span><br><span class="line">original</span><br><span class="line"></span><br><span class="line">[out]:</span><br><span class="line">temperature = 103.6</span><br><span class="line">original = 98.6</span><br></pre></td></tr></table></figure></li></ul><h3 id="1-2-3-Python的内置类"><a href="#1-2-3-Python的内置类" class="headerlink" title="1.2.3 Python的内置类"></a>1.2.3 Python的内置类</h3><blockquote><p>浮点类</p></blockquote><ul><li>在转化字符型的数字时，建议使用<strong>float（而不是int）</strong>进行转换<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">float</span>(<span class="string">'3'</span>)</span><br><span class="line"></span><br><span class="line">[out]:</span><br><span class="line">3.0</span><br><span class="line"><span class="comment">#------------------------</span></span><br><span class="line"><span class="built_in">float</span>(<span class="string">'3.14'</span>)</span><br><span class="line"></span><br><span class="line">[out]:</span><br><span class="line">3.14</span><br></pre></td></tr></table></figure><blockquote><p>set类和frozenset类</p></blockquote></li><li>set类和frozenset类都属于<strong>集合类型</strong>（frozenset类是集合类型的一种不可变的形式）</li><li>集合内的元素是<strong>无序</strong>的且只有<strong>不可变类型</strong>的实例才可以被添加到集合中（所以frozenset类是可以添加进集合的）</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;第一章-Python入门&quot;&gt;&lt;a href=&quot;#第一章-Python入门&quot; class=&quot;headerlink&quot; title=&quot;第一章 Python入门&quot;&gt;&lt;/a&gt;第一章 Python入门&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;1-2-Python对象&quot;&gt;&lt;a hre
+      
+    
+    </summary>
+    
+    
+      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="《数据结构与算法》" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B/"/>
+    
+    
+      <category term="Python" scheme="https://Hong-King.github.io/tags/Python/"/>
+    
+      <category term="数据结构与算法" scheme="https://Hong-King.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Pandas在Python语言下的基础使用</title>
@@ -48,36 +79,13 @@
   </entry>
   
   <entry>
-    <title>《数据结构与算法》笔记(Python语言实现)</title>
-    <link href="https://hong-king.github.io/2020/04/13/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0(Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0)/"/>
-    <id>https://hong-king.github.io/2020/04/13/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0(Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0)/</id>
-    <published>2020-04-13T13:52:00.000Z</published>
-    <updated>2020-04-13T13:54:41.575Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="《数据结构与算法》" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B/"/>
-    
-    
-      <category term="Python" scheme="https://Hong-King.github.io/tags/Python/"/>
-    
-      <category term="数据结构与算法" scheme="https://Hong-King.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
     <title>《Python机器学习基础教程》笔记(scikit-learn框架)</title>
     <link href="https://hong-king.github.io/2020/04/13/%E3%80%8APython%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%E3%80%8B%E7%AC%94%E8%AE%B0(scikit-learn%E6%A1%86%E6%9E%B6)/"/>
     <id>https://hong-king.github.io/2020/04/13/%E3%80%8APython%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%E3%80%8B%E7%AC%94%E8%AE%B0(scikit-learn%E6%A1%86%E6%9E%B6)/</id>
     <published>2020-04-13T13:01:00.000Z</published>
-    <updated>2020-04-13T13:48:28.606Z</updated>
+    <updated>2020-04-16T10:42:34.336Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="第一章-引言"><a href="#第一章-引言" class="headerlink" title="第一章 引言"></a>第一章 引言</h1><hr><h2 id="1-7-第一个应用：鸢（yuan）尾花分类"><a href="#1-7-第一个应用：鸢（yuan）尾花分类" class="headerlink" title="1.7 第一个应用：鸢（yuan）尾花分类"></a>1.7 第一个应用：鸢（yuan）尾花分类</h2><h3 id="1-7-3-要事第一：观察数据"><a href="#1-7-3-要事第一：观察数据" class="headerlink" title="1.7.3 要事第一：观察数据"></a>1.7.3 要事第一：观察数据</h3><ul><li>在构建模型时，最重要的是要首先<strong>观察数据</strong>。</li><li>检查数据的最佳方法就是将其<strong>可视化</strong>。</li><li>当数据<strong>只有两个特征</strong>时，可以使用<strong>散点图</strong>。</li><li>当数据<strong>有多个特征</strong>时，解决这个问题的一种方法就是绘制<strong>散点图矩阵</strong>(pair plot)。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下为绘制散点图矩阵的示例程序</span></span><br><span class="line"><span class="comment"># scatter_matrix为pandas绘制散点图矩阵的函数,矩阵的对角线是每个特征的直方图</span></span><br><span class="line"><span class="comment"># 利用X_train中的数据创建DataFrame</span></span><br><span class="line"><span class="comment"># 利用iris_dataset.feature_names中的字符串对数据列进行标记</span></span><br><span class="line">iris_dataframe = pd.DataFrame(X_train, columns = iris_dataset.feature_names)</span><br><span class="line"><span class="comment"># 利用DataFrame创建散点图矩阵，按y_train着色</span></span><br><span class="line">grr = pd.scatter_matrix(iris_dataframe, c = y_train, figsize = (15,15), marker = <span class="string">'o'</span> ...)</span><br></pre></td></tr></table></figure></li></ul><h3 id="1-7-4-构建第一个模型：k近邻算法"><a href="#1-7-4-构建第一个模型：k近邻算法" class="headerlink" title="1.7.4 构建第一个模型：k近邻算法"></a>1.7.4 构建第一个模型：k近邻算法</h3><ul><li>k近邻算法：算法会在训练集中寻找与这个新数据点A最近的任意k个邻居（这也是&lt;k近邻算法&gt;中’k’的含义），然后将找到的数据点的标签赋值给这个新数据点A。</li><li>scikit-learn中所有的机器学习模型都是在各自的被作为[Estimator]的类中完成的。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># k近邻算法是在neighbors模块的KNeighborsClassifier类中实现的</span></span><br><span class="line">from sklearn.neighbors import KNeighborsClassifier</span><br><span class="line">knn = KNeighborsClassifier(n_neighbors = 1)</span><br><span class="line"><span class="comment"># n_neighbors是KNeighborsClassifier最重要的参数，表示邻居的数目</span></span><br></pre></td></tr></table></figure></li></ul><h3 id="1-7-5-做出预测"><a href="#1-7-5-做出预测" class="headerlink" title="1.7.5 做出预测"></a>1.7.5 做出预测</h3><ul><li>scikit-learn的输入数据必须是二维数组。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 调用knn对象的predict方法来进行预测：</span></span><br><span class="line">prediction = knn.predict(X_new)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Prediction :"</span>.format(prediction))</span><br><span class="line"><span class="comment"># [out]:Prediction :[0](标签数据)</span></span><br></pre></td></tr></table></figure></li></ul><hr><h1 id="第二章-监督学习"><a href="#第二章-监督学习" class="headerlink" title="第二章 监督学习"></a>第二章 监督学习</h1><hr><h2 id="2-1-分类与回归"><a href="#2-1-分类与回归" class="headerlink" title="2.1 分类与回归"></a>2.1 分类与回归</h2>]]></content>
+    <content type="html"><![CDATA[<h1 id="第一章-引言"><a href="#第一章-引言" class="headerlink" title="第一章 引言"></a>第一章 引言</h1><hr><h2 id="1-7-第一个应用：鸢（yuan）尾花分类"><a href="#1-7-第一个应用：鸢（yuan）尾花分类" class="headerlink" title="1.7 第一个应用：鸢（yuan）尾花分类"></a>1.7 第一个应用：鸢（yuan）尾花分类</h2><h3 id="1-7-3-要事第一：观察数据"><a href="#1-7-3-要事第一：观察数据" class="headerlink" title="1.7.3 要事第一：观察数据"></a>1.7.3 要事第一：观察数据</h3><blockquote><p>在构建模型时，最重要的是要首先<strong>观察数据</strong>。<br>检查数据的最佳方法就是将其<strong>可视化</strong>。<br>当数据<strong>只有两个特征</strong>时，可以使用<strong>散点图</strong>。<br>当数据<strong>有多个特征</strong>时，解决这个问题的一种方法就是绘制<strong>散点图矩阵</strong>(pair plot)。</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下为绘制散点图矩阵的示例程序</span></span><br><span class="line"><span class="comment"># scatter_matrix为pandas绘制散点图矩阵的函数,矩阵的对角线是每个特征的直方图</span></span><br><span class="line"><span class="comment"># 利用X_train中的数据创建DataFrame</span></span><br><span class="line"><span class="comment"># 利用iris_dataset.feature_names中的字符串对数据列进行标记</span></span><br><span class="line">iris_dataframe = pd.DataFrame(X_train, columns = iris_dataset.feature_names)</span><br><span class="line"><span class="comment"># 利用DataFrame创建散点图矩阵，按y_train着色</span></span><br><span class="line">grr = pd.scatter_matrix(iris_dataframe, c = y_train, figsize = (15,15), marker = <span class="string">'o'</span> ...)</span><br></pre></td></tr></table></figure><h3 id="1-7-4-构建第一个模型：k近邻算法"><a href="#1-7-4-构建第一个模型：k近邻算法" class="headerlink" title="1.7.4 构建第一个模型：k近邻算法"></a>1.7.4 构建第一个模型：k近邻算法</h3><blockquote><p>k近邻算法：算法会在训练集中寻找与这个新数据点A最近的任意k个邻居（这也是&lt;k近邻算法&gt;中’k’的含义），然后将找到的数据点的标签赋值给这个新数据点A。<br>scikit-learn中所有的机器学习模型都是在各自的被作为[Estimator]的类中完成的。</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># k近邻算法是在neighbors模块的KNeighborsClassifier类中实现的</span></span><br><span class="line">from sklearn.neighbors import KNeighborsClassifier</span><br><span class="line">knn = KNeighborsClassifier(n_neighbors = 1)</span><br><span class="line"><span class="comment"># n_neighbors是KNeighborsClassifier最重要的参数，表示邻居的数目</span></span><br></pre></td></tr></table></figure><h3 id="1-7-5-做出预测"><a href="#1-7-5-做出预测" class="headerlink" title="1.7.5 做出预测"></a>1.7.5 做出预测</h3><blockquote><p>scikit-learn的输入数据必须是二维数组。</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 调用knn对象的predict方法来进行预测：</span></span><br><span class="line">prediction = knn.predict(X_new)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Prediction :"</span>.format(prediction))</span><br><span class="line"><span class="comment"># [out]:Prediction :[0](标签数据)</span></span><br></pre></td></tr></table></figure><hr><h1 id="第二章-监督学习"><a href="#第二章-监督学习" class="headerlink" title="第二章 监督学习"></a>第二章 监督学习</h1><hr><h2 id="2-1-分类与回归"><a href="#2-1-分类与回归" class="headerlink" title="2.1 分类与回归"></a>2.1 分类与回归</h2>]]></content>
     
     <summary type="html">
     
@@ -280,9 +288,9 @@
     
       <category term="Python" scheme="https://Hong-King.github.io/tags/Python/"/>
     
-      <category term="TensorFlow" scheme="https://Hong-King.github.io/tags/TensorFlow/"/>
-    
       <category term="关键蛋白预测" scheme="https://Hong-King.github.io/tags/%E5%85%B3%E9%94%AE%E8%9B%8B%E7%99%BD%E9%A2%84%E6%B5%8B/"/>
+    
+      <category term="TensorFlow" scheme="https://Hong-King.github.io/tags/TensorFlow/"/>
     
   </entry>
   
@@ -379,9 +387,9 @@
       <category term="Matlab 算法实现" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Matlab-%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/"/>
     
     
-      <category term="机器学习" scheme="https://Hong-King.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
       <category term="Matlab" scheme="https://Hong-King.github.io/tags/Matlab/"/>
+    
+      <category term="机器学习" scheme="https://Hong-King.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -390,9 +398,9 @@
     <link href="https://hong-king.github.io/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%A0%87%E5%87%86%E5%8C%96/"/>
     <id>https://hong-king.github.io/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%A0%87%E5%87%86%E5%8C%96/</id>
     <published>2020-04-08T02:53:00.000Z</published>
-    <updated>2020-04-12T14:22:00.143Z</updated>
+    <updated>2020-04-18T11:31:36.556Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>本方法需要使用tensorflow包，请确认你已安装</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf  </span><br><span class="line">from tensorflow import keras</span><br><span class="line"></span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------- 将蛋白质语句长度标准化</span></span><br><span class="line">protein_dictionary_matrix = np.load(<span class="string">'文件路径'</span>) <span class="comment"># 载入数组</span></span><br><span class="line"></span><br><span class="line">protein_dictionary_matrix = tf.contrib.keras.preprocessing.sequence.pad_sequences</span><br><span class="line">(protein_dictionary_matrix,maxlen=None,padding=<span class="string">'post'</span>,truncating=<span class="string">'post'</span>,value = 0)</span><br><span class="line"><span class="comment"># protein_dictionary_matrix:所要标准化的变量</span></span><br><span class="line"><span class="comment"># maxlen=None:标准化长度:，None表示以数组最大长度为准</span></span><br><span class="line"><span class="comment"># padding='post':'pre'或'post'，确定当需要补0时，从起始还是结尾补</span></span><br><span class="line"><span class="comment"># truncating:'pre'或'post'，确定当需要截断序列时，从起始还是结尾截断</span></span><br><span class="line"><span class="comment"># value:浮点数，将在填充时嵌入此值,默认的填充值0</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>本方法需要使用tensorflow包，请确认你已安装</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf  </span><br><span class="line">from tensorflow import keras</span><br><span class="line"></span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------- 将蛋白质语句长度标准化</span></span><br><span class="line">protein_dictionary_matrix = np.load(<span class="string">'文件路径'</span>) <span class="comment"># 载入数组</span></span><br><span class="line"></span><br><span class="line">protein_dictionary_matrix = keras.preprocessing.sequence.pad_sequences[适用于tensorflow2.0]</span><br><span class="line">(protein_dictionary_matrix,maxlen=None,padding=<span class="string">'post'</span>,truncating=<span class="string">'post'</span>,value = 0)</span><br><span class="line"><span class="comment"># protein_dictionary_matrix:所要标准化的变量</span></span><br><span class="line"><span class="comment"># maxlen=None:标准化长度:，None表示以数组最大长度为准</span></span><br><span class="line"><span class="comment"># padding='post':'pre'或'post'，确定当需要补0时，从起始还是结尾补</span></span><br><span class="line"><span class="comment"># truncating:'pre'或'post'，确定当需要截断序列时，从起始还是结尾截断</span></span><br><span class="line"><span class="comment"># value:浮点数，将在填充时嵌入此值,默认的填充值0</span></span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     

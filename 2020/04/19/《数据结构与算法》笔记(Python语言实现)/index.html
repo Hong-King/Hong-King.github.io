@@ -58,8 +58,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/13/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0(Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0)/" class="article-date">
-  <time datetime="2020-04-13T13:52:00.000Z" itemprop="datePublished">2020-04-13</time>
+      <a href="/2020/04/19/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0(Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0)/" class="article-date">
+  <time datetime="2020-04-19T03:08:00.000Z" itemprop="datePublished">2020-04-19</time>
 </a>
       
   <div class="article-category">
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">0</span>
+            <span class="post-count">303</span>
         </span>
     </span>
 
@@ -93,6 +93,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -105,7 +107,33 @@
       
 
       
-      
+      <h1 id="第一章-Python入门"><a href="#第一章-Python入门" class="headerlink" title="第一章 Python入门"></a>第一章 Python入门</h1><hr>
+<h2 id="1-2-Python对象"><a href="#1-2-Python对象" class="headerlink" title="1.2 Python对象"></a>1.2 Python对象</h2><h3 id="1-2-1-标识符、对象和赋值语句"><a href="#1-2-1-标识符、对象和赋值语句" class="headerlink" title="1.2.1 标识符、对象和赋值语句"></a>1.2.1 标识符、对象和赋值语句</h3><blockquote>
+<p>概念理解</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">temperature = 98.6</span><br><span class="line"><span class="comment"># [temperature = 98.6] - 赋值语句</span></span><br><span class="line"><span class="comment"># temperature - 标识符</span></span><br><span class="line"><span class="comment"># 98.6 - 对象</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>标识符的引用原理</p>
+</blockquote>
+<ul>
+<li>程序员可以向现有对象指定第二个标识符建立一个别名<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">temperature = 98.6</span><br><span class="line">original = temperature</span><br><span class="line"><span class="comment"># 这里标识符[original]和标识符[temperature]都是对象[98.6]的别名</span></span><br></pre></td></tr></table></figure></li>
+<li>一旦建立了别名，两个名称都可以用来访问底层对象。如果对象的一个别名被赋值语句重新赋予了新的值，那么这并不影响已存在的对象，而是给别名重新分配了存储对象<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">temperature = temperature +5.0</span><br><span class="line">original</span><br><span class="line"></span><br><span class="line">[out]:</span><br><span class="line">	temperature = 103.6</span><br><span class="line">	original = 98.6</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="1-2-3-Python的内置类"><a href="#1-2-3-Python的内置类" class="headerlink" title="1.2.3 Python的内置类"></a>1.2.3 Python的内置类</h3><blockquote>
+<p>浮点类</p>
+</blockquote>
+<ul>
+<li>在转化字符型的数字时，建议使用<strong>float（而不是int）</strong>进行转换<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">float</span>(<span class="string">'3'</span>)</span><br><span class="line"></span><br><span class="line">[out]:</span><br><span class="line">	3.0</span><br><span class="line"><span class="comment">#------------------------</span></span><br><span class="line"><span class="built_in">float</span>(<span class="string">'3.14'</span>)</span><br><span class="line"></span><br><span class="line">[out]:</span><br><span class="line">	3.14</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>set类和frozenset类</p>
+</blockquote>
+</li>
+<li>set类和frozenset类都属于<strong>集合类型</strong>（frozenset类是集合类型的一种不可变的形式）</li>
+<li>集合内的元素是<strong>无序</strong>的且只有<strong>不可变类型</strong>的实例才可以被添加到集合中（所以frozenset类是可以添加进集合的）</li>
+</ul>
+
       
       <!-- reward -->
       
@@ -173,7 +201,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hong-king.github.io/2020/04/13/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0(Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0)/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hong-king.github.io/2020/04/19/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0(Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0)/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -191,19 +219,10 @@
   
   <nav class="article-nav">
     
+    
       <a href="/2020/04/14/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Pandas在Python语言下的基础使用
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2020/04/13/%E3%80%8APython%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%E3%80%8B%E7%AC%94%E8%AE%B0(scikit-learn%E6%A1%86%E6%9E%B6)/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">《Python机器学习基础教程》笔记(scikit-learn框架)</div>
+        <div class="article-nav-title">Pandas在Python语言下的基础使用</div>
       </a>
     
   </nav>
