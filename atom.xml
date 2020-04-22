@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hong-king.github.io/"/>
-  <updated>2020-04-20T03:47:22.002Z</updated>
+  <updated>2020-04-22T02:31:56.766Z</updated>
   <id>https://hong-king.github.io/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用tf.concat()来拼接向量</title>
+    <link href="https://hong-king.github.io/2020/04/22/%E5%88%A9%E7%94%A8tf.concat()%E6%9D%A5%E6%8B%BC%E6%8E%A5%E5%90%91%E9%87%8F/"/>
+    <id>https://hong-king.github.io/2020/04/22/%E5%88%A9%E7%94%A8tf.concat()%E6%9D%A5%E6%8B%BC%E6%8E%A5%E5%90%91%E9%87%8F/</id>
+    <published>2020-04-22T02:18:00.000Z</published>
+    <updated>2020-04-22T02:31:56.766Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">tf.concat([tensor1, tensor2, tensor3,...], axis)</span><br><span class="line"><span class="comment"># 使用通式，其中tensor1等表示矩阵对象；axis表示拼接的维度，数值越大，纬度越高</span></span><br><span class="line"><span class="comment">#---------------------------------------------------------</span></span><br><span class="line">t1 = [[1, 2, 3], [4, 5, 6]]  t2 = [[7, 8, 9], [10, 11, 12]]  </span><br><span class="line">tf.concat([t1, t2], 0)  </span><br><span class="line"><span class="comment"># [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]  </span></span><br><span class="line">tf.concat([t1, t2], 1)  </span><br><span class="line"><span class="comment"># [[1, 2, 3, 7, 8, 9], [4, 5, 6, 10, 11, 12]]   </span></span><br><span class="line"><span class="comment">#---------------------------------------------------------</span></span><br><span class="line"><span class="comment"># tensor t3 with shape [2, 3]  </span></span><br><span class="line"><span class="comment"># tensor t4 with shape [2, 3]  </span></span><br><span class="line">tf.shape(tf.concat([t3, t4], 0))  <span class="comment"># [4, 3]  </span></span><br><span class="line">tf.shape(tf.concat([t3, t4], 1))  <span class="comment"># [2, 6]</span></span><br></pre></td></tr></table></figure><p>简单来讲，对于形状如[[ ], [ ]]和[[ ], [ ]]的矩阵，低维拼接等于拿掉最外面括号，高维拼接是拿掉里面的括号(保证其他维度不变)。如果axis为负数（-num），则表示倒数第num维度。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=
+      
+    
+    </summary>
+    
+    
+      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Python 基础语法" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="Python" scheme="https://Hong-King.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用reshape重塑数组</title>
+    <link href="https://hong-king.github.io/2020/04/22/%E5%88%A9%E7%94%A8reshape%E9%87%8D%E5%A1%91numpy%E6%95%B0%E7%BB%84/"/>
+    <id>https://hong-king.github.io/2020/04/22/%E5%88%A9%E7%94%A8reshape%E9%87%8D%E5%A1%91numpy%E6%95%B0%E7%BB%84/</id>
+    <published>2020-04-22T00:46:00.000Z</published>
+    <updated>2020-04-22T01:48:06.576Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>在数据预处理阶段，我们经常需要重塑数组。这里所介绍的numpy内置属性reshape将有助于此</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">z = np.array([[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12],[13, 14, 15, 16]])</span><br><span class="line"><span class="comment"># 创建一个形状为（4，4）的数组[z]</span></span><br><span class="line">a = z.reshape(-1)</span><br><span class="line"><span class="comment"># 使用reshape重塑数组[z]</span></span><br><span class="line">[out]:</span><br><span class="line">[ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 ]</span><br><span class="line"><span class="comment">#----------------------------------------------------------</span></span><br><span class="line">a = z.reshape(-1,2)</span><br><span class="line"><span class="comment"># 在这种用法中，-1可以理解为数组行数待定，2表示重组后的数组列数为2</span></span><br><span class="line">[out]:</span><br><span class="line">[[ 1  2]</span><br><span class="line"> [ 3  4]</span><br><span class="line"> [ 5  6]</span><br><span class="line"> [ 7  8]</span><br><span class="line"> [ 9 10]</span><br><span class="line"> [11 12]</span><br><span class="line"> [13 14]</span><br><span class="line"> [15 16]]</span><br><span class="line"><span class="comment">#--------------------------------------------------------------</span></span><br><span class="line">a = z.reshape(2,2,4)</span><br><span class="line"><span class="comment"># 也可以指定行列，但重组后的矩阵元素数量必须与之前相同</span></span><br><span class="line">[out]:</span><br><span class="line">[[[ 1  2  3  4]</span><br><span class="line">  [ 5  6  7  8]]</span><br><span class="line"></span><br><span class="line"> [[ 9 10 11 12]</span><br><span class="line">  [13 14 15 16]]]</span><br></pre></td></tr></table></figure><blockquote><p>在TensorFlow中还可以利用tf.reshape对数组重塑</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tf.reshape(tensor,shape,name=None)</span><br><span class="line"><span class="comment"># tensor表示要处理的对象，shape表示目标矩阵形状（如[num，num]）</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;在数据预处理阶段，我们经常需要重塑数组。这里所介绍的numpy内置属性reshape将有助于此&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutte
+      
+    
+    </summary>
+    
+    
+      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Python 基础语法" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"/>
+    
+    
+      <category term="Python" scheme="https://Hong-King.github.io/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>《数据结构与算法》笔记(Python语言实现)</title>
@@ -61,7 +120,7 @@
     <link href="https://hong-king.github.io/2020/04/14/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/"/>
     <id>https://hong-king.github.io/2020/04/14/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</id>
     <published>2020-04-14T13:53:00.000Z</published>
-    <updated>2020-04-14T14:09:52.620Z</updated>
+    <updated>2020-04-22T00:47:10.845Z</updated>
     
     <content type="html"><![CDATA[<ul><li>Pandas是个强大的结构数据处理包，但依本人经验来看：<strong>强烈建议在保存Pandas的DataFrame数据时，最好转化为numpy数组文件（.npy）进行保存</strong></li></ul><p><em>从实际使用来看，如果将DataFrame数据保存为csv或txt文件，在重新加载数据文件时，数据类型会自动转换成str类型，带来不必要的麻烦</em></p><blockquote><p>以下是我在实际应用&lt;预测关键蛋白&gt;中的实例</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">proteins_interaction_name=list(proteins_interaction_relationship.keys()) </span><br><span class="line"><span class="comment"># 将蛋白质名称列表赋值给对象proteins_interaction_name</span></span><br><span class="line">a = [proteins_interaction_relationship,proteins_labels] </span><br><span class="line"><span class="comment"># proteins_interaction_relationship以及proteins_labelsd都是字典对象</span></span><br><span class="line">data_preprocessing = pd.DataFrame(a,index=[<span class="string">'Proteins_interaction_relationship'</span>,<span class="string">'proteins_labels'</span>]) </span><br><span class="line"><span class="comment"># 通过pd.DataFrame内置函数依照proteins_interaction_relationship以及proteins_labelsd字典对象构建Pandas的DataFrame</span></span><br><span class="line"><span class="comment"># index为pd.DataFrame的内置属性，用于给每行添加索引</span></span><br><span class="line">data_preprocessing = data_preprocessing.dropna(axis=1)  </span><br><span class="line"><span class="comment"># 通过[DataFrame](代指DataFrame类型对象).dropna内置函数删除含有空值的列（axis=0为行） </span></span><br><span class="line">data_preprocessing.loc[2]=proteins_interaction_name</span><br><span class="line"><span class="comment"># 通过[DataFrame].loc[num]将proteins_interaction_name列表插入到第（num+1）行</span></span><br><span class="line">data_preprocessing.to_numpy</span><br><span class="line"><span class="comment"># 将数据转化成numpy数组类型，这样在保存数据时可以避免很多麻烦</span></span><br><span class="line">np.save(<span class="string">'data_preprocessing_DataFrame.npy'</span>,data_preprocessing) <span class="comment"># 保存Pandas结构数据</span></span><br></pre></td></tr></table></figure><hr><blockquote><p>以下是读取csv时的一些值得注意的操作（不推荐保存为csv，但建议掌握以备不时之需）</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a=pd.read_csv(<span class="string">'data_preprocessing_DataFrame(无索引).csv'</span>,header=None)</span><br><span class="line"><span class="comment"># 注意：如果无列索引，必须添加header=None，否则默认把第一行数据处理成列名导致缺失</span></span><br><span class="line">a.values</span><br><span class="line"><span class="comment"># 通过这个操作，可以将对象a重新转化为DataFrame数据结构&lt;注意：此时数据的类型已经全部转化为str类型&gt;</span></span><br><span class="line">data_preprocessing.to_csv(<span class="string">'data_preprocessing_DataFrame(无索引).csv'</span>,index=False,header=False) </span><br><span class="line"><span class="comment"># 只保存DataFrame的数据，index=False表示无行索引，header=False表示无列索引</span></span><br><span class="line">data_preprocessing.to_csv(<span class="string">'data_preprocessing_DataFrame.csv'</span>) </span><br><span class="line"><span class="comment"># 保存DataFrame的数据及索引</span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -80,7 +139,7 @@
     
       <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="Python 框架用法" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E6%A1%86%E6%9E%B6%E7%94%A8%E6%B3%95/"/>
+      <category term="Python 基础用法" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95/"/>
     
     
       <category term="Python" scheme="https://Hong-King.github.io/tags/Python/"/>
@@ -151,9 +210,9 @@
     <link href="https://hong-king.github.io/2020/04/11/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/"/>
     <id>https://hong-king.github.io/2020/04/11/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/</id>
     <published>2020-04-11T14:08:00.000Z</published>
-    <updated>2020-04-20T05:56:42.788Z</updated>
+    <updated>2020-04-22T02:38:41.201Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游"><a href="#这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游" class="headerlink" title="这篇说明将更好地帮助你在&lt;Mr.l’s World&gt;里畅游"></a>这篇说明将更好地帮助你在&lt;<em>Mr.l’s World</em>&gt;里畅游</h2><blockquote><p><strong>博客使用简介</strong></p></blockquote><ol><li><p>博客界面<strong>左侧</strong>有<strong>侧边菜单</strong>为你提供快捷帮助<strong>&lt;<em>手机用户请点击屏幕左上角按钮以呼出菜单</em>&gt;</strong></p></li><li><p>博客界面<strong>右下角</strong>有<strong>暗夜模式按钮</strong>为你提供更好的浏览体验</p></li><li><p>博客同样为你提供<strong>文章查找</strong>功能，功能按钮在<strong>侧边菜单</strong>的下方</p></li><li><p>博客已开放<strong>评论留言系统</strong>，欢迎大家在评论区留下你的足迹</p></li><li><p><strong>《语言之美-古诗丽词》</strong>与<strong>《语言之美-新句美文》</strong>两篇文章将不定时持续更新，欢迎大家在评论区留下自己的珍藏，我也很乐意将其收录进文章里面</p></li></ol><blockquote><p>技术支持</p></blockquote><ul><li><strong>Powered by</strong> <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a></li><li><strong>Theme:</strong> <a href="https://shen-yu.gitee.io/" target="_blank" rel="noopener">Ayer</a></li></ul><hr><p> (以下是博客更新日志，日志从2020/4/11开始记录，无特殊需求你<strong>不必点击</strong>&lt;阅读更多…&gt;来查看日志)</p><a id="more"></a><hr><blockquote><p><strong>博客更新日志</strong></p></blockquote><hr><ul><li><strong>2020/4/20</strong></li></ul><ol><li>更新文章《语言之美-古诗丽词》</li></ol><p><strong>小结</strong>：今日<strong>大幅更新《语言之美-古诗丽词》并优化文章排版</strong>(2020/4/20 22:05 PV:374 UV:143)</p><hr><ul><li><strong>2020/4/16</strong></li></ul><ol><li>更新文章《《数据结构与算法》笔记(Python语言实现)》(2020/4/16 20:06 PV:385 UV:150)</li></ol><hr><ul><li><strong>2020/4/14</strong></li></ul><ol><li>更新文章《Pandas在Python语言下的基础使用》(2020/4/14 22:12 PV:376 UV:145)</li></ol><hr><ul><li><strong>2020/4/13</strong></li></ul><ol><li>更新文章《《Python机器学习基础教程》笔记(scikit-learn框架)》</li><li>更新文章《python画散点图[plt.scatter()]以及矩阵散点图[pd.scatter_matrix()]详解》（待优化）</li><li>暂时搁置文章《Pandas在Python语言下的基础使用》</li><li>暂时搁置文章《《数据结构与算法》笔记(Python语言实现)》</li></ol><p><strong>小结</strong>：今日更新主要<strong>优化文章排版</strong>，<strong>更新两篇文章</strong>(2020/4/13 22:05 PV:374 UV:143)</p><hr><ul><li><strong>2020/4/11</strong></li></ul><ol><li>博客现在已经<strong>能够在文章中插入图片</strong>，但<strong>光影画廊仍然无法在云端显示图片</strong></li><li>博客现在已开放<strong>评论留言系统</strong>，并能够<strong>置顶文章</strong></li></ol><p><strong>小结</strong>：今天<strong>无文章更新</strong>，主要是<strong>完善博客功能</strong>(2020/4/11 22:39 PV:354 UV:138)</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游"><a href="#这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游" class="headerlink" title="这篇说明将更好地帮助你在&lt;Mr.l’s World&gt;里畅游"></a>这篇说明将更好地帮助你在&lt;<em>Mr.l’s World</em>&gt;里畅游</h2><blockquote><p><strong>博客使用简介</strong></p></blockquote><ol><li><p>博客界面<strong>左侧</strong>有<strong>侧边菜单</strong>为你提供快捷帮助<strong>&lt;<em>手机用户请点击屏幕左上角按钮以呼出菜单</em>&gt;</strong></p></li><li><p>博客界面<strong>右下角</strong>有<strong>暗夜模式按钮</strong>为你提供更好的浏览体验</p></li><li><p>博客同样为你提供<strong>文章查找</strong>功能，功能按钮在<strong>侧边菜单</strong>的下方</p></li><li><p>博客已开放<strong>评论留言系统</strong>，欢迎大家在评论区留下你的足迹</p></li><li><p><strong>《语言之美-古诗丽词》</strong>与<strong>《语言之美-新句美文》</strong>两篇文章将不定时持续更新，欢迎大家在评论区留下自己的珍藏，我也很乐意将其收录进文章里面</p></li></ol><blockquote><p>技术支持</p></blockquote><ul><li><strong>Powered by</strong> <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a></li><li><strong>Theme:</strong> <a href="https://shen-yu.gitee.io/" target="_blank" rel="noopener">Ayer</a></li></ul><hr><p> (以下是博客更新日志，日志从2020/4/11开始记录，无特殊需求你<strong>不必点击</strong>&lt;阅读更多…&gt;来查看日志)</p><a id="more"></a><hr><blockquote><p><strong>博客更新日志</strong></p></blockquote><ul><li><strong>2020/4/22</strong></li></ul><ol><li>添加文章《利用reshape重塑numpy数组》，《利用tf.concat()来拼接向量》</li></ol><p><strong>小结</strong>：今日****(2020/4/22 10:13 PV:399 UV:158)</p><hr><ul><li><strong>2020/4/20</strong></li></ul><ol><li>更新文章《语言之美-古诗丽词》</li></ol><p><strong>小结</strong>：今日<strong>大幅更新《语言之美-古诗丽词》并优化文章排版</strong>(2020/4/20 22:05 PV:390 UV:153)</p><hr><ul><li><strong>2020/4/16</strong></li></ul><ol><li>更新文章《《数据结构与算法》笔记(Python语言实现)》(2020/4/16 20:06 PV:385 UV:150)</li></ol><hr><ul><li><strong>2020/4/14</strong></li></ul><ol><li>更新文章《Pandas在Python语言下的基础使用》(2020/4/14 22:12 PV:376 UV:145)</li></ol><hr><ul><li><strong>2020/4/13</strong></li></ul><ol><li>更新文章《《Python机器学习基础教程》笔记(scikit-learn框架)》</li><li>更新文章《python画散点图[plt.scatter()]以及矩阵散点图[pd.scatter_matrix()]详解》（待优化）</li><li>暂时搁置文章《Pandas在Python语言下的基础使用》</li><li>暂时搁置文章《《数据结构与算法》笔记(Python语言实现)》</li></ol><p><strong>小结</strong>：今日更新主要<strong>优化文章排版</strong>，<strong>更新两篇文章</strong>(2020/4/13 22:05 PV:374 UV:143)</p><hr><ul><li><strong>2020/4/11</strong></li></ul><ol><li>博客现在已经<strong>能够在文章中插入图片</strong>，但<strong>光影画廊仍然无法在云端显示图片</strong></li><li>博客现在已开放<strong>评论留言系统</strong>，并能够<strong>置顶文章</strong></li></ol><p><strong>小结</strong>：今天<strong>无文章更新</strong>，主要是<strong>完善博客功能</strong>(2020/4/11 22:39 PV:354 UV:138)</p>]]></content>
     
     <summary type="html">
     
@@ -268,11 +327,11 @@
   </entry>
   
   <entry>
-    <title>TensorFlow在Python语言下的基础使用</title>
-    <link href="https://hong-king.github.io/2020/04/10/TensorFlow%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/"/>
-    <id>https://hong-king.github.io/2020/04/10/TensorFlow%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</id>
+    <title>利用TensorFlow实现简单的机器学习</title>
+    <link href="https://hong-king.github.io/2020/04/10/%E5%88%A9%E7%94%A8TensorFlow%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://hong-king.github.io/2020/04/10/%E5%88%A9%E7%94%A8TensorFlow%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</id>
     <published>2020-04-10T00:09:00.000Z</published>
-    <updated>2020-04-13T12:42:41.959Z</updated>
+    <updated>2020-04-22T02:02:39.097Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>该框架原型请参见TensorFlow官方教程《<a href="https://tensorflow.google.cn/tutorials/keras/text_classification" target="_blank" rel="noopener">对预文本进行文本分类处理</a>》</p></blockquote><p><em>以下是我利用(访问官网请点击)<a href="https://tensorflow.google.cn/" target="_blank" rel="noopener">TensorFlow</a>构建&lt;预测关键蛋白&gt;算法框架时实际使用的源码</em></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">from tensorflow import keras</span><br><span class="line"></span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------- 加载蛋白质字典</span></span><br><span class="line">protein_dictionary_matrix = np.load(<span class="string">'&lt;文件路径&gt;'</span>) <span class="comment"># 字典数据示例:&#123;('A':1,2,3),('B':2,5)&#125;</span></span><br><span class="line"><span class="comment">#------------------------- 将蛋白质语句长度标准化</span></span><br><span class="line">protein_dictionary_matrix = tf.contrib.keras.preprocessing.sequence.pad_sequences</span><br><span class="line">(protein_dictionary_matrix,maxlen=None,padding=<span class="string">'post'</span>,truncating=<span class="string">'post'</span>,value = 0)</span><br><span class="line"><span class="comment"># 具体用法可参见文章《如何利用Python将数组长度标准化》</span></span><br><span class="line"><span class="comment">#-------------------------------加载蛋白质标签矩阵</span></span><br><span class="line">proteins_labels_num = np.load(<span class="string">'&lt;文件路径&gt;'</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment">#-------------------------------构建模型</span></span><br><span class="line">proteins_size = len(proteins_labels_num)*len(protein_dictionary_matrix[1]) <span class="comment"># 蛋白质数量*标准矩阵长度</span></span><br><span class="line"></span><br><span class="line">model = keras.Sequential()</span><br><span class="line">model.add(keras.layers.Embedding(proteins_size, 16))</span><br><span class="line"><span class="comment"># 第一层是嵌入Embedding层。该层采用整数编码的词汇表，并查找每个词索引的嵌入向量(embedding vector)</span></span><br><span class="line"><span class="comment"># 这些向量是通过模型训练学习到的。向量向输出数组增加了一个维度。得到的维度为：(batch, sequence, embedding)。</span></span><br><span class="line">model.add(keras.layers.GlobalAveragePooling1D())</span><br><span class="line"><span class="comment"># GlobalAveragePooling1D 将通过对序列维度求平均值来为每个样本返回一个定长输出向量。这允许模型以尽可能最简单的方式处理变长输入。</span></span><br><span class="line">model.add(keras.layers.Dense(16, activation=<span class="string">'relu'</span>))</span><br><span class="line"><span class="comment"># 该定长输出向量通过一个有 16 个隐层单元的全连接（Dense）层传输。</span></span><br><span class="line">model.add(keras.layers.Dense(1, activation=<span class="string">'sigmoid'</span>))</span><br><span class="line"><span class="comment"># 最后一层与单个输出结点密集连接。使用 Sigmoid 激活函数，其函数值为介于0与1之间的浮点数，表示概率或置信度。</span></span><br><span class="line"></span><br><span class="line">model.summary()</span><br><span class="line"><span class="comment">#------------------------------损失函数与优化器</span></span><br><span class="line"><span class="comment"># 一个模型需要损失函数和优化器来进行训练。由于这是一个二分类问题且模型输出概率值（一个使用 sigmoid 激活函数的单一单元层），</span></span><br><span class="line"><span class="comment"># 我们将使用 binary_crossentropy 损失函数。</span></span><br><span class="line"><span class="comment"># 这不是损失函数的唯一选择，例如，你还可以选择 mean_squared_error。</span></span><br><span class="line"><span class="comment"># 但是，一般来说binary_crossentropy更适合处理概率——它能够度量概率分布之间的“距离”，或者在我们的示例中，指的是度量 ground-truth 分布与预测值之间的“距离”。</span></span><br><span class="line">model.compile(optimizer=<span class="string">'adam'</span>,</span><br><span class="line">              loss=<span class="string">'binary_crossentropy'</span>,</span><br><span class="line">              metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#---------------------------------对数据进行切割处理</span></span><br><span class="line">x_val = protein_dictionary_matrix[:1000] <span class="comment"># 实验集</span></span><br><span class="line">partial_x_train = protein_dictionary_matrix[1000:] <span class="comment"># 验证集</span></span><br><span class="line"></span><br><span class="line">y_val = proteins_labels_num[:1000] <span class="comment"># 实验集</span></span><br><span class="line">partial_y_train = proteins_labels_num[1000:] <span class="comment"># 验证集</span></span><br><span class="line"><span class="comment">#---------------------------------训练模型</span></span><br><span class="line"><span class="built_in">history</span> = model.fit(partial_x_train,</span><br><span class="line">                    partial_y_train,</span><br><span class="line">                    epochs=10,<span class="comment"># 迭代次数</span></span><br><span class="line">                    batch_size=300,<span class="comment"># 每次迭代的批量大小</span></span><br><span class="line">                    validation_data=(x_val, y_val),</span><br><span class="line">                    verbose=1)</span><br><span class="line"><span class="comment">#---------------------------------------------------------------评估模型</span></span><br><span class="line"><span class="comment"># 将返回两个值。损失值&lt;loss&gt;（一个表示误差的数字，值越低越好）与准确率&lt;accuracy&gt;（值越高越好）</span></span><br><span class="line">results = model.evaluate(protein_dictionary_matrix,  proteins_labels_num, verbose=2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(results)</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -301,11 +360,11 @@
   </entry>
   
   <entry>
-    <title>Python字典中setdefault()函数的用法</title>
-    <link href="https://hong-king.github.io/2020/04/09/Python%E5%AD%97%E5%85%B8%E4%B8%ADsetdefault()%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/"/>
-    <id>https://hong-king.github.io/2020/04/09/Python%E5%AD%97%E5%85%B8%E4%B8%ADsetdefault()%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/</id>
+    <title>Python字典中利用setdefault()函数创建字典</title>
+    <link href="https://hong-king.github.io/2020/04/09/Python%E5%AD%97%E5%85%B8%E4%B8%AD%E5%88%A9%E7%94%A8setdefault()%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%AD%97%E5%85%B8/"/>
+    <id>https://hong-king.github.io/2020/04/09/Python%E5%AD%97%E5%85%B8%E4%B8%AD%E5%88%A9%E7%94%A8setdefault()%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%AD%97%E5%85%B8/</id>
     <published>2020-04-09T04:02:00.000Z</published>
-    <updated>2020-04-10T00:53:41.100Z</updated>
+    <updated>2020-04-22T02:09:43.638Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>关于该函数实际用法，可以参考文章《利用zip解决Python中字典自动正序带来的关系数据错位问题》(可通过博客搜索功能快速查找)</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Python字典中的setdefault()函数：如果键不存在于字典中，将会添加键并将值设为默认值。</span></span><br><span class="line">dict.setdefault(key, default=None)</span><br><span class="line"><span class="comment"># dict -- 代指字典变量</span></span><br><span class="line"><span class="comment"># key -- 查找的键值。</span></span><br><span class="line"><span class="comment"># default -- 键不存在时，设置的默认键值。None为空值</span></span><br><span class="line"><span class="comment"># 对于default，可以设置set()等空列表或集合用以规定值的存储方式</span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -400,11 +459,11 @@
   </entry>
   
   <entry>
-    <title>如何利用Python将数组长度标准化</title>
-    <link href="https://hong-king.github.io/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%A0%87%E5%87%86%E5%8C%96/"/>
-    <id>https://hong-king.github.io/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%A0%87%E5%87%86%E5%8C%96/</id>
+    <title>利用Python将数组长度标准化</title>
+    <link href="https://hong-king.github.io/2020/04/08/%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%A0%87%E5%87%86%E5%8C%96/"/>
+    <id>https://hong-king.github.io/2020/04/08/%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%A0%87%E5%87%86%E5%8C%96/</id>
     <published>2020-04-08T02:53:00.000Z</published>
-    <updated>2020-04-18T11:31:36.556Z</updated>
+    <updated>2020-04-22T02:19:55.372Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>本方法需要使用tensorflow包，请确认你已安装</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf  </span><br><span class="line">from tensorflow import keras</span><br><span class="line"></span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------- 将蛋白质语句长度标准化</span></span><br><span class="line">protein_dictionary_matrix = np.load(<span class="string">'文件路径'</span>) <span class="comment"># 载入数组</span></span><br><span class="line"></span><br><span class="line">protein_dictionary_matrix = keras.preprocessing.sequence.pad_sequences[适用于tensorflow2.0]</span><br><span class="line">(protein_dictionary_matrix,maxlen=None,padding=<span class="string">'post'</span>,truncating=<span class="string">'post'</span>,value = 0)</span><br><span class="line"><span class="comment"># protein_dictionary_matrix:所要标准化的变量</span></span><br><span class="line"><span class="comment"># maxlen=None:标准化长度:，None表示以数组最大长度为准</span></span><br><span class="line"><span class="comment"># padding='post':'pre'或'post'，确定当需要补0时，从起始还是结尾补</span></span><br><span class="line"><span class="comment"># truncating:'pre'或'post'，确定当需要截断序列时，从起始还是结尾截断</span></span><br><span class="line"><span class="comment"># value:浮点数，将在填充时嵌入此值,默认的填充值0</span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -464,11 +523,11 @@
   </entry>
   
   <entry>
-    <title>如何利用Python将数据可视化为无向图（图论）</title>
-    <link href="https://hong-king.github.io/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%BA%E6%97%A0%E5%90%91%E5%9B%BE%EF%BC%88%E5%9B%BE%E8%AE%BA%EF%BC%89/"/>
-    <id>https://hong-king.github.io/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%BA%E6%97%A0%E5%90%91%E5%9B%BE%EF%BC%88%E5%9B%BE%E8%AE%BA%EF%BC%89/</id>
+    <title>利用Python将数据可视化为无向图（图论）</title>
+    <link href="https://hong-king.github.io/2020/04/08/%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%BA%E6%97%A0%E5%90%91%E5%9B%BE%EF%BC%88%E5%9B%BE%E8%AE%BA%EF%BC%89/"/>
+    <id>https://hong-king.github.io/2020/04/08/%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%BA%E6%97%A0%E5%90%91%E5%9B%BE%EF%BC%88%E5%9B%BE%E8%AE%BA%EF%BC%89/</id>
     <published>2020-04-08T01:02:00.000Z</published>
-    <updated>2020-04-09T03:05:37.484Z</updated>
+    <updated>2020-04-22T02:19:53.416Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>以下以绘制蛋白质相互作用矩阵为例</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import xlrd </span><br><span class="line"><span class="comment"># 原文件为Excel文件，故需调用xlrd包</span></span><br><span class="line"><span class="comment"># 相关使用可查阅另一篇文章《Python如何读取Excel文件》</span></span><br><span class="line">import numpy as np</span><br><span class="line">import networkx as nx</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#--------------------------- 加载数据</span></span><br><span class="line">data1 = xlrd.open_workbook(<span class="string">'（数据文件路径）'</span>)</span><br><span class="line">data2 = xlrd.open_workbook(<span class="string">'（数据文件路径）'</span>)</span><br><span class="line">table1 = data1.sheets()[0]</span><br><span class="line">table2 = data2.sheets()[0]</span><br><span class="line"></span><br><span class="line">protein_name1 = table1.col_values(0)</span><br><span class="line">protein_name2 = table2.col_values(0)</span><br><span class="line">protein_name11 = table1.col_values(1)</span><br><span class="line">protein_name22 = table2.col_values(1)</span><br><span class="line"><span class="comment">#--------------------------- 数据可视化 </span></span><br><span class="line">G = nx.Graph() <span class="comment"># 首先创建一个空的无向图</span></span><br><span class="line">G.add_edges_from(zip(protein_name1,protein_name11)) <span class="comment"># zip将两个数组合并打包为一个（个人理解）</span></span><br><span class="line">nx.draw(G, with_labels=True) <span class="comment"># with_labels，节点是否带有标签，默认为true</span></span><br><span class="line">plt.show() <span class="comment"># 绘制图形</span></span><br></pre></td></tr></table></figure>]]></content>
     
@@ -595,11 +654,11 @@
   </entry>
   
   <entry>
-    <title>如何在hexo下进行本地预览</title>
-    <link href="https://hong-king.github.io/2020/04/06/%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E4%B8%8B%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/"/>
-    <id>https://hong-king.github.io/2020/04/06/%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E4%B8%8B%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/</id>
+    <title>Hexo进行本地预览</title>
+    <link href="https://hong-king.github.io/2020/04/06/Hexo%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/"/>
+    <id>https://hong-king.github.io/2020/04/06/Hexo%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/</id>
     <published>2020-04-06T13:39:04.000Z</published>
-    <updated>2020-04-07T13:28:14.811Z</updated>
+    <updated>2020-04-22T02:20:09.428Z</updated>
     
     <content type="html"><![CDATA[<h2 id="使用-hexo-s-进行本地预览"><a href="#使用-hexo-s-进行本地预览" class="headerlink" title="使用 hexo s 进行本地预览"></a>使用 hexo s 进行本地预览</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>]]></content>
     

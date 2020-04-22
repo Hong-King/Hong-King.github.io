@@ -33,6 +33,13 @@
 <blockquote>
 <p><strong>博客更新日志</strong></p>
 </blockquote>
+<ul>
+<li><strong>2020/4/22</strong></li>
+</ul>
+<ol>
+<li>添加文章《利用reshape重塑numpy数组》，《利用tf.concat()来拼接向量》</li>
+</ol>
+<p><strong>小结</strong>：今日****(2020/4/22 10:13 PV:399 UV:158)</p>
 <hr>
 <ul>
 <li><strong>2020/4/20</strong></li>
@@ -40,7 +47,7 @@
 <ol>
 <li>更新文章《语言之美-古诗丽词》</li>
 </ol>
-<p><strong>小结</strong>：今日<strong>大幅更新《语言之美-古诗丽词》并优化文章排版</strong>(2020/4/20 22:05 PV:374 UV:143)</p>
+<p><strong>小结</strong>：今日<strong>大幅更新《语言之美-古诗丽词》并优化文章排版</strong>(2020/4/20 22:05 PV:390 UV:153)</p>
 <hr>
 <ul>
 <li><strong>2020/4/16</strong></li>
@@ -436,6 +443,39 @@
       </tags>
   </entry>
   <entry>
+    <title>利用tf.concat()来拼接向量</title>
+    <url>/2020/04/22/%E5%88%A9%E7%94%A8tf.concat()%E6%9D%A5%E6%8B%BC%E6%8E%A5%E5%90%91%E9%87%8F/</url>
+    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tf.concat([tensor1, tensor2, tensor3,...], axis)</span><br><span class="line"><span class="comment"># 使用通式，其中tensor1等表示矩阵对象；axis表示拼接的维度，数值越大，纬度越高</span></span><br><span class="line"><span class="comment">#---------------------------------------------------------</span></span><br><span class="line">t1 = [[1, 2, 3], [4, 5, 6]]  t2 = [[7, 8, 9], [10, 11, 12]]  </span><br><span class="line">tf.concat([t1, t2], 0)  </span><br><span class="line"><span class="comment"># [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]  </span></span><br><span class="line">tf.concat([t1, t2], 1)  </span><br><span class="line"><span class="comment"># [[1, 2, 3, 7, 8, 9], [4, 5, 6, 10, 11, 12]]   </span></span><br><span class="line"><span class="comment">#---------------------------------------------------------</span></span><br><span class="line"><span class="comment"># tensor t3 with shape [2, 3]  </span></span><br><span class="line"><span class="comment"># tensor t4 with shape [2, 3]  </span></span><br><span class="line">tf.shape(tf.concat([t3, t4], 0))  <span class="comment"># [4, 3]  </span></span><br><span class="line">tf.shape(tf.concat([t3, t4], 1))  <span class="comment"># [2, 6]</span></span><br></pre></td></tr></table></figure>
+<p>简单来讲，对于形状如[[ ], [ ]]和[[ ], [ ]]的矩阵，低维拼接等于拿掉最外面括号，高维拼接是拿掉里面的括号(保证其他维度不变)。如果axis为负数（-num），则表示倒数第num维度。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 基础语法</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用reshape重塑数组</title>
+    <url>/2020/04/22/%E5%88%A9%E7%94%A8reshape%E9%87%8D%E5%A1%91numpy%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<blockquote>
+<p>在数据预处理阶段，我们经常需要重塑数组。这里所介绍的numpy内置属性reshape将有助于此</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">z = np.array([[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12],[13, 14, 15, 16]])</span><br><span class="line"><span class="comment"># 创建一个形状为（4，4）的数组[z]</span></span><br><span class="line">a = z.reshape(-1)</span><br><span class="line"><span class="comment"># 使用reshape重塑数组[z]</span></span><br><span class="line">[out]:</span><br><span class="line">	[ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 ]</span><br><span class="line"><span class="comment">#----------------------------------------------------------</span></span><br><span class="line">a = z.reshape(-1,2)</span><br><span class="line"><span class="comment"># 在这种用法中，-1可以理解为数组行数待定，2表示重组后的数组列数为2</span></span><br><span class="line">[out]:</span><br><span class="line">	[[ 1  2]</span><br><span class="line">	 [ 3  4]</span><br><span class="line">	 [ 5  6]</span><br><span class="line">	 [ 7  8]</span><br><span class="line">	 [ 9 10]</span><br><span class="line">	 [11 12]</span><br><span class="line">	 [13 14]</span><br><span class="line">	 [15 16]]</span><br><span class="line"><span class="comment">#--------------------------------------------------------------</span></span><br><span class="line">a = z.reshape(2,2,4)</span><br><span class="line"><span class="comment"># 也可以指定行列，但重组后的矩阵元素数量必须与之前相同</span></span><br><span class="line">[out]:</span><br><span class="line">	[[[ 1  2  3  4]</span><br><span class="line">	  [ 5  6  7  8]]</span><br><span class="line"></span><br><span class="line">	 [[ 9 10 11 12]</span><br><span class="line">	  [13 14 15 16]]]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在TensorFlow中还可以利用tf.reshape对数组重塑</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tf.reshape(tensor,shape,name=None)</span><br><span class="line"><span class="comment"># tensor表示要处理的对象，shape表示目标矩阵形状（如[num，num]）</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 基础语法</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>《数据结构与算法》笔记(Python语言实现)</title>
     <url>/2020/04/19/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0(Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0)/</url>
     <content><![CDATA[<h1 id="第一章-Python入门"><a href="#第一章-Python入门" class="headerlink" title="第一章 Python入门"></a>第一章 Python入门</h1><hr>
@@ -495,7 +535,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">a=pd.read_csv(<span class="string">'data_preprocessing_DataFrame(无索引).csv'</span>,header=None)</span><br><span class="line"><span class="comment"># 注意：如果无列索引，必须添加header=None，否则默认把第一行数据处理成列名导致缺失</span></span><br><span class="line">a.values</span><br><span class="line"><span class="comment"># 通过这个操作，可以将对象a重新转化为DataFrame数据结构&lt;注意：此时数据的类型已经全部转化为str类型&gt;</span></span><br><span class="line">data_preprocessing.to_csv(<span class="string">'data_preprocessing_DataFrame(无索引).csv'</span>,index=False,header=False) </span><br><span class="line"><span class="comment"># 只保存DataFrame的数据，index=False表示无行索引，header=False表示无列索引</span></span><br><span class="line">data_preprocessing.to_csv(<span class="string">'data_preprocessing_DataFrame.csv'</span>) </span><br><span class="line"><span class="comment"># 保存DataFrame的数据及索引</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术笔记</category>
-        <category>Python 框架用法</category>
+        <category>Python 基础用法</category>
       </categories>
       <tags>
         <tag>Python</tag>
@@ -572,8 +612,8 @@
       </tags>
   </entry>
   <entry>
-    <title>TensorFlow在Python语言下的基础使用</title>
-    <url>/2020/04/10/TensorFlow%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/</url>
+    <title>利用TensorFlow实现简单的机器学习</title>
+    <url>/2020/04/10/%E5%88%A9%E7%94%A8TensorFlow%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<blockquote>
 <p>该框架原型请参见TensorFlow官方教程《<a href="https://tensorflow.google.cn/tutorials/keras/text_classification" target="_blank" rel="noopener">对预文本进行文本分类处理</a>》</p>
 </blockquote>
@@ -591,8 +631,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Python字典中setdefault()函数的用法</title>
-    <url>/2020/04/09/Python%E5%AD%97%E5%85%B8%E4%B8%ADsetdefault()%E5%87%BD%E6%95%B0%E7%9A%84%E7%94%A8%E6%B3%95/</url>
+    <title>Python字典中利用setdefault()函数创建字典</title>
+    <url>/2020/04/09/Python%E5%AD%97%E5%85%B8%E4%B8%AD%E5%88%A9%E7%94%A8setdefault()%E5%87%BD%E6%95%B0%E5%88%9B%E5%BB%BA%E5%AD%97%E5%85%B8/</url>
     <content><![CDATA[<blockquote>
 <p>关于该函数实际用法，可以参考文章《利用zip解决Python中字典自动正序带来的关系数据错位问题》(可通过博客搜索功能快速查找)</p>
 </blockquote>
@@ -646,8 +686,8 @@
       </tags>
   </entry>
   <entry>
-    <title>如何利用Python将数组长度标准化</title>
-    <url>/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%A0%87%E5%87%86%E5%8C%96/</url>
+    <title>利用Python将数组长度标准化</title>
+    <url>/2020/04/08/%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%A0%87%E5%87%86%E5%8C%96/</url>
     <content><![CDATA[<blockquote>
 <p>本方法需要使用tensorflow包，请确认你已安装</p>
 </blockquote>
@@ -685,8 +725,8 @@
       </tags>
   </entry>
   <entry>
-    <title>如何利用Python将数据可视化为无向图（图论）</title>
-    <url>/2020/04/08/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%BA%E6%97%A0%E5%90%91%E5%9B%BE%EF%BC%88%E5%9B%BE%E8%AE%BA%EF%BC%89/</url>
+    <title>利用Python将数据可视化为无向图（图论）</title>
+    <url>/2020/04/08/%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%BA%E6%97%A0%E5%90%91%E5%9B%BE%EF%BC%88%E5%9B%BE%E8%AE%BA%EF%BC%89/</url>
     <content><![CDATA[<blockquote>
 <p>以下以绘制蛋白质相互作用矩阵为例</p>
 </blockquote>
@@ -765,8 +805,8 @@
       </tags>
   </entry>
   <entry>
-    <title>如何在hexo下进行本地预览</title>
-    <url>/2020/04/06/%E5%A6%82%E4%BD%95%E5%9C%A8hexo%E4%B8%8B%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/</url>
+    <title>Hexo进行本地预览</title>
+    <url>/2020/04/06/Hexo%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/</url>
     <content><![CDATA[<h2 id="使用-hexo-s-进行本地预览"><a href="#使用-hexo-s-进行本地预览" class="headerlink" title="使用 hexo s 进行本地预览"></a>使用 hexo s 进行本地预览</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
