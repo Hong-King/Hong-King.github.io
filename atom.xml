@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hong-king.github.io/"/>
-  <updated>2020-05-02T00:10:00.313Z</updated>
+  <updated>2020-05-06T04:04:51.675Z</updated>
   <id>https://hong-king.github.io/</id>
   
   <author>
@@ -15,6 +15,77 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《python深度学习》笔记</title>
+    <link href="https://hong-king.github.io/2020/05/06/%E3%80%8Apython%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/"/>
+    <id>https://hong-king.github.io/2020/05/06/%E3%80%8Apython%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/</id>
+    <published>2020-05-06T02:57:00.000Z</published>
+    <updated>2020-05-06T04:04:51.675Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第一章-什么是深度学习"><a href="#第一章-什么是深度学习" class="headerlink" title="第一章 什么是深度学习"></a>第一章 什么是深度学习</h1><h2 id="1-1-人工智能、机器学习与深度学习"><a href="#1-1-人工智能、机器学习与深度学习" class="headerlink" title="1.1　人工智能、机器学习与深度学习"></a>1.1　人工智能、机器学习与深度学习</h2><blockquote><p>人工智能、机器学习与深度学习这三者之间的关系：{深度学习}&lt;{机器学习}&lt;{人工智能}</p></blockquote><h3 id="1-1-1-人工智能"><a href="#1-1-1-人工智能" class="headerlink" title="1.1.1　人工智能"></a>1.1.1　人工智能</h3><ul><li>人工智能的简洁定义如下：<strong>努力将通常由人类完成的智力任务自动化。</strong>因此，<strong>人工智能是一个综合性的领域，不仅包括机器学习与深度学习，还包括更多不涉及学习的方法</strong>。</li></ul><h3 id="1-1-2-机器学习"><a href="#1-1-2-机器学习" class="headerlink" title="1.1.2　机器学习"></a>1.1.2　机器学习</h3><ul><li><p>在经典的程序设计（即符号主义人工智能的范式）中，人们<strong>输入的是规则（即程序）</strong>和需要根据这些规则<strong>进行处理的数据</strong>，系统<strong>输出的是答案</strong>。</p></li><li><p>在机器学习中，人们<strong>输入的是数据</strong>和从这些数据中<strong>预期得到的答案</strong>，系统<strong>输出的是规则</strong>。这些规则随后可应用于新的数据，并使计算机自主生成答案。</p></li><li><p>机器学习系统是<strong>训练出来的</strong>，而不是明确地用程序编写出来的。</p></li><li><p>机器学习（尤其是深度学习）呈现出相对较少的数学理论（可能太少了），并且是以工程为导向的。这是一门<strong>需要上手实践的学科</strong>，想法<strong>更多地是靠实践来证明</strong>，而不是靠理论推导。</p></li></ul><a id="more"></a><h3 id="1-1-3-从数据中学习表示"><a href="#1-1-3-从数据中学习表示" class="headerlink" title="1.1.3　从数据中学习表示"></a>1.1.3　从数据中学习表示</h3><ul><li><p>机器学习和深度学习的核心问题在于<strong>有意义地变换数据</strong>，换句话说，在于学习输入数据的<strong>有用表示（representation）</strong>——这种表示可以让数据更接近预期输出。</p></li><li><p>什么是<strong>表示</strong>：这一概念的核心在于<strong>以一种不同的方式来查看数据（即表征数据或将数据编码）</strong>。例如，彩色图像可以编码为RGB（红-绿-蓝）格式或HSV（色相-饱和度-明度）格式，这是对相同数据的两种不同表示。在处理某些任务时，使用某种表示可能会很困难，但换用另一种表示就会变得很简单。</p></li><li><p>所有机器学习算法都包括<strong>自动寻找这样一种变换</strong>：这种变换可以根据任务将数据转化为更加有用的表示。机器学习算法在寻找这些变换时通常没有什么创造性，而仅仅是遍历一组预先定义好的操作，这组操作叫作<strong>假设空间（hypothesis space）</strong>。</p></li><li><p>这就是机器学习的技术定义：<strong>在预先定义好的可能性空间中，利用反馈信号的指引来寻找输入数据的有用表示</strong>。</p></li></ul><h3 id="1-1-4-深度学习之“深度”"><a href="#1-1-4-深度学习之“深度”" class="headerlink" title="1.1.4　深度学习之“深度”"></a>1.1.4　深度学习之“深度”</h3><ul><li><p>深度学习是机器学习的一个分支领域：它是从数据中学习表示的一种新方法，强调从连续的<strong>层（layer）</strong>中进行学习，这些层对应于<strong>越来越有意义的表示</strong>。</p></li><li><p>“深度学习”中的“深度”指的并不是利用这种方法所获取的更深层次的理解，而是指<strong>一系列连续的表示层</strong>。数据模型中包含多少层，这被称为模型的<strong>深度（depth）</strong>。这一领域的其他名称包括分层表示学习（layered representations learning）和层级表示学习（hierarchical representations learning）。</p></li><li><p>现代深度学习通常包含<strong>数十个甚至上百个连续的表示层</strong>，这些表示层全都是从训练数据中自动学习的。与此相反，其他机器学习方法的重点往往是仅仅学习一两层的数据表示，因此有时也被称为<strong>浅层学习（shallow learning）</strong>。</p></li><li><p>在深度学习中，这些分层表示几乎总是通过叫作<strong>神经网络（neural network）</strong>的模型来学习得到的。</p></li></ul><h3 id="1-1-5-理解深度学习的工作原理"><a href="#1-1-5-理解深度学习的工作原理" class="headerlink" title="1.1.5　理解深度学习的工作原理"></a>1.1.5　理解深度学习的工作原理</h3><ul><li><p>神经网络中每层对输入数据所做的具体操作保存在该层的<strong>权重（weight）</strong>中，其本质是一串数字。用术语来说，每层实现的变换由其权重来<strong>参数化（parameterize，见图 1-7）</strong>。权重有时<br>也被称为该层的<strong>参数（parameter）</strong>。在这种语境下，学习的意思是<strong>为神经网络的所有层找到一组权重值，使得该网络能够将每个示例输入与其目标正确地一一对应</strong>。</p></li><li><p>想要控制神经网络的输出，就需要能够衡量该输出与预期值之间的距离。这是神经网络<strong>损失函数（loss function）</strong>的任务，该函数也叫<strong>目标函数（objective function）</strong>。损失函数的输入是网络预测值与真实目标值（即你希望网络输出的结果），然后计算一个距离值，衡量该网络在这个示例上的效果好坏。</p></li><li><p>深度学习的基本技巧是利用这个距离值作为反馈信号来对权重值进行微调，以降低当前示例对应的损失值。这种调节由<strong>优化器（optimizer）</strong>来完成，它实现了所谓的<strong>反向传播（backpropagation）算法</strong>，这是深度学习的<strong>核心算法</strong>。</p></li></ul><h3 id="1-1-8-人工智能的未来"><a href="#1-1-8-人工智能的未来" class="headerlink" title="1.1.8　人工智能的未来"></a>1.1.8　人工智能的未来</h3><ul><li><strong>不要相信短期的炒作，但一定要相信长期的愿景。人工智能可能需要一段时间才能充分发挥其潜力。这一潜力的范围大到难以想象，但人工智能终将到来，它将以一种奇妙的方式改变我们的世界。</strong></li></ul><hr><h2 id="1-2-深度学习之前：机器学习简史"><a href="#1-2-深度学习之前：机器学习简史" class="headerlink" title="1.2　深度学习之前：机器学习简史"></a>1.2　深度学习之前：机器学习简史</h2><blockquote><p>深度学习已经得到了人工智能历史上前所未有的公众关注度和产业投资，但这并不是机器学习的第一次成功。可以这样说，当前工业界所使用的绝大部分机器学习算法都不是深度学习算法。深度学习不一定总是解决问题的正确工具：有时没有足够的数据，深度学习不适用；有时用其他算法可以更好地解决问题。如果你第一次接触的机器学习就是深度学习，那你可能会发现手中握着一把深度学习“锤子”，而所有机器学习问题看起来都像是“钉子”。为了避免陷入这个误区，唯一的方法就是熟悉其他机器学习方法并在适当的时候进行实践。</p></blockquote><h3 id="1-2-1-概率建模"><a href="#1-2-1-概率建模" class="headerlink" title="1.2.1　概率建模"></a>1.2.1　概率建模</h3><ul><li><p><strong>概率建模（probabilistic modeling）</strong>是统计学原理在数据分析中的应用。它是最早的机器学习形式之一，至今仍在广泛使用。</p></li><li><p>其中最有名的算法之一就是<strong>朴素贝叶斯算法</strong>:它假设输入数据的特征都是独立的。这是一个很强的假设，或者说“朴素的”假设，其名称正来源于此。</p></li><li><p>另一个密切相关的<strong>分类算法</strong>模型是 <strong>logistic 回归（logistic regression，简称 logreg）</strong>，它有时被认为是现代机器学习的“hello world”。面对一个数据集，数据科学家<strong>通常会首先尝试使用这个算法</strong>，以便初步熟悉手头的分类任务。</p></li></ul><h3 id="1-2-2-早期神经网络"><a href="#1-2-2-早期神经网络" class="headerlink" title="1.2.2　早期神经网络"></a>1.2.2　早期神经网络</h3><ul><li>反向传播算法——一种利用梯度下降优化来训练一系列参数化运算链的方法（笔记后面将给出这些概念的具体定义）</li></ul><h3 id="1-2-3-核方法"><a href="#1-2-3-核方法" class="headerlink" title="1.2.3　核方法"></a>1.2.3　核方法</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;第一章-什么是深度学习&quot;&gt;&lt;a href=&quot;#第一章-什么是深度学习&quot; class=&quot;headerlink&quot; title=&quot;第一章 什么是深度学习&quot;&gt;&lt;/a&gt;第一章 什么是深度学习&lt;/h1&gt;&lt;h2 id=&quot;1-1-人工智能、机器学习与深度学习&quot;&gt;&lt;a href=&quot;#1-1-人工智能、机器学习与深度学习&quot; class=&quot;headerlink&quot; title=&quot;1.1　人工智能、机器学习与深度学习&quot;&gt;&lt;/a&gt;1.1　人工智能、机器学习与深度学习&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;人工智能、机器学习与深度学习这三者之间的关系：{深度学习}&amp;lt;{机器学习}&amp;lt;{人工智能}&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;1-1-1-人工智能&quot;&gt;&lt;a href=&quot;#1-1-1-人工智能&quot; class=&quot;headerlink&quot; title=&quot;1.1.1　人工智能&quot;&gt;&lt;/a&gt;1.1.1　人工智能&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;人工智能的简洁定义如下：&lt;strong&gt;努力将通常由人类完成的智力任务自动化。&lt;/strong&gt;因此，&lt;strong&gt;人工智能是一个综合性的领域，不仅包括机器学习与深度学习，还包括更多不涉及学习的方法&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;1-1-2-机器学习&quot;&gt;&lt;a href=&quot;#1-1-2-机器学习&quot; class=&quot;headerlink&quot; title=&quot;1.1.2　机器学习&quot;&gt;&lt;/a&gt;1.1.2　机器学习&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;在经典的程序设计（即符号主义人工智能的范式）中，人们&lt;strong&gt;输入的是规则（即程序）&lt;/strong&gt;和需要根据这些规则&lt;strong&gt;进行处理的数据&lt;/strong&gt;，系统&lt;strong&gt;输出的是答案&lt;/strong&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在机器学习中，人们&lt;strong&gt;输入的是数据&lt;/strong&gt;和从这些数据中&lt;strong&gt;预期得到的答案&lt;/strong&gt;，系统&lt;strong&gt;输出的是规则&lt;/strong&gt;。这些规则随后可应用于新的数据，并使计算机自主生成答案。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;机器学习系统是&lt;strong&gt;训练出来的&lt;/strong&gt;，而不是明确地用程序编写出来的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;机器学习（尤其是深度学习）呈现出相对较少的数学理论（可能太少了），并且是以工程为导向的。这是一门&lt;strong&gt;需要上手实践的学科&lt;/strong&gt;，想法&lt;strong&gt;更多地是靠实践来证明&lt;/strong&gt;，而不是靠理论推导。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="《python深度学习》" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E3%80%8Apython%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8B/"/>
+    
+    
+      <category term="Python" scheme="https://Hong-King.github.io/tags/Python/"/>
+    
+      <category term="深度学习" scheme="https://Hong-King.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《数学建模方法与应用》笔记</title>
+    <link href="https://hong-king.github.io/2020/05/04/%E3%80%8A%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E7%AC%94%E8%AE%B0/"/>
+    <id>https://hong-king.github.io/2020/05/04/%E3%80%8A%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E7%AC%94%E8%AE%B0/</id>
+    <published>2020-05-03T22:59:00.000Z</published>
+    <updated>2020-05-04T00:28:33.019Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="图与网络模型及方法"><a href="#图与网络模型及方法" class="headerlink" title="图与网络模型及方法"></a><strong>图与网络模型及方法</strong></h2><hr><h3 id="1-概论"><a href="#1-概论" class="headerlink" title="1. 概论"></a><strong>1. 概论</strong></h3><blockquote><p>一笔画判定法则：<br>1.首先这个图是连通的。<br>2.每个点都与偶数线相关联。</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;图与网络模型及方法&quot;&gt;&lt;a href=&quot;#图与网络模型及方法&quot; class=&quot;headerlink&quot; title=&quot;图与网络模型及方法&quot;&gt;&lt;/a&gt;&lt;strong&gt;图与网络模型及方法&lt;/strong&gt;&lt;/h2&gt;&lt;hr&gt;
+&lt;h3 id=&quot;1-概论&quot;&gt;&lt;a href=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="数学建模" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    
+      <category term="数学建模" scheme="https://Hong-King.github.io/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>语言之美-古诗丽词</title>
@@ -60,9 +131,9 @@
     <link href="https://hong-king.github.io/2020/04/30/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/"/>
     <id>https://hong-king.github.io/2020/04/30/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/</id>
     <published>2020-04-30T14:08:00.000Z</published>
-    <updated>2020-05-02T00:22:25.065Z</updated>
+    <updated>2020-05-05T14:36:08.713Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游"><a href="#这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游" class="headerlink" title="这篇说明将更好地帮助你在&lt;Mr.l’s World&gt;里畅游"></a>这篇说明将更好地帮助你在&lt;<em>Mr.l’s World</em>&gt;里畅游</h2><blockquote><p><strong>博客使用简介</strong></p></blockquote><ol><li><p>博客界面<strong>左侧</strong>有<strong>侧边菜单</strong>为你提供快捷帮助<strong>&lt;<em>手机用户请点击屏幕左上角按钮以呼出菜单</em>&gt;</strong></p></li><li><p>博客界面<strong>右下角</strong>有<strong>暗夜模式按钮</strong>为你提供更好的浏览体验</p></li><li><p>博客同样为你提供<strong>文章查找</strong>功能，功能按钮在<strong>侧边菜单</strong>的下方</p></li><li><p>博客已开放<strong>评论留言系统</strong>，欢迎大家在评论区留下你的足迹</p></li><li><p><strong>《语言之美-古诗丽词》</strong>与<strong>《语言之美-新句美文》</strong>两篇文章将不定时持续更新，欢迎大家在评论区留下自己的珍藏，我也很乐意将其收录进文章里面</p></li><li><p><strong>光影画廊</strong>模块里展示了一些我个人的绘画作品，希望大家能够喜欢(^^)</p></li></ol><blockquote><p>技术支持</p></blockquote><ul><li><strong>Powered by</strong> <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a></li><li><strong>Theme:</strong> <a href="https://shen-yu.gitee.io/" target="_blank" rel="noopener">Ayer</a></li></ul><hr><p> (以下是博客更新日志，日志从2020/4/11开始记录，无特殊需求你<strong>不必点击</strong>&lt;阅读更多…&gt;来查看日志)</p><a id="more"></a><hr><blockquote><p><strong>博客更新日志</strong></p></blockquote><ul><li><strong>2020/4/30</strong></li></ul><ol><li>光影画廊模块上线</li><li>小幅更新文章《语言之美-古诗丽词》</li></ol><p><strong>小结</strong>：今日<strong>上线光影画廊模块</strong>,更新<strong>《语言之美-古诗丽词》</strong>(2020/4/30 20:39 PV:436 UV:188)</p><hr><ul><li><strong>2020/4/29</strong></li></ul><ol><li>小幅更新文章《语言之美-古诗丽词》与《语言之美-新句美文》</li><li>更改两处滚动标题</li></ol><p><strong>小结</strong>：今日<strong>更新两篇文章</strong>(2020/4/29 22:34 PV:430 UV:183)</p><hr><ul><li><strong>2020/4/23</strong></li></ul><ol><li>更新文章《利用tf.concat()与np.concatenate来拼接向量》</li></ol><p><strong>小结</strong>：今日<strong>更新一篇文章</strong>(2020/4/23 10:13 PV:411 UV:165)</p><hr><ul><li><strong>2020/4/22</strong></li></ul><ol><li>添加文章《利用reshape重塑numpy数组》，《利用tf.concat()与np.concatenate来拼接向量》</li></ol><p><strong>小结</strong>：今日<strong>添加两篇文章</strong>(2020/4/22 10:13 PV:399 UV:158)</p><hr><ul><li><strong>2020/4/20</strong></li></ul><ol><li>更新文章《语言之美-古诗丽词》</li></ol><p><strong>小结</strong>：今日<strong>大幅更新《语言之美-古诗丽词》并优化文章排版</strong>(2020/4/20 22:05 PV:390 UV:153)</p><hr><ul><li><strong>2020/4/16</strong></li></ul><ol><li>更新文章《《数据结构与算法》笔记(Python语言实现)》(2020/4/16 20:06 PV:385 UV:150)</li></ol><hr><ul><li><strong>2020/4/14</strong></li></ul><ol><li>更新文章《Pandas在Python语言下的基础使用》(2020/4/14 22:12 PV:376 UV:145)</li></ol><hr><ul><li><strong>2020/4/13</strong></li></ul><ol><li>更新文章《《Python机器学习基础教程》笔记(scikit-learn框架)》</li><li>更新文章《python画散点图[plt.scatter()]以及矩阵散点图[pd.scatter_matrix()]详解》（待优化）</li><li>暂时搁置文章《Pandas在Python语言下的基础使用》</li><li>暂时搁置文章《《数据结构与算法》笔记(Python语言实现)》</li></ol><p><strong>小结</strong>：今日更新主要<strong>优化文章排版</strong>，<strong>更新两篇文章</strong>(2020/4/13 22:05 PV:374 UV:143)</p><hr><ul><li><strong>2020/4/11</strong></li></ul><ol><li>博客现在已经<strong>能够在文章中插入图片</strong>，但<strong>光影画廊仍然无法在云端显示图片</strong></li><li>博客现在已开放<strong>评论留言系统</strong>，并能够<strong>置顶文章</strong></li></ol><p><strong>小结</strong>：今天<strong>无文章更新</strong>，主要是<strong>完善博客功能</strong>(2020/4/11 22:39 PV:354 UV:138)</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游"><a href="#这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游" class="headerlink" title="这篇说明将更好地帮助你在&lt;Mr.l’s World&gt;里畅游"></a>这篇说明将更好地帮助你在&lt;<em>Mr.l’s World</em>&gt;里畅游</h2><blockquote><p><strong>博客使用简介</strong></p></blockquote><ol><li><p>博客界面<strong>左侧</strong>有<strong>侧边菜单</strong>为你提供快捷帮助<strong>&lt;<em>手机用户请点击屏幕左上角按钮以呼出菜单</em>&gt;</strong></p></li><li><p>博客界面<strong>右下角</strong>有<strong>暗夜模式按钮</strong>为你提供更好的浏览体验</p></li><li><p>博客同样为你提供<strong>文章查找</strong>功能，功能按钮在<strong>侧边菜单</strong>的下方</p></li><li><p>博客已开放<strong>评论留言系统</strong>，欢迎大家在评论区留下你的足迹</p></li><li><p><strong>《语言之美-古诗丽词》</strong>与<strong>《语言之美-新句美文》</strong>两篇文章将不定时持续更新，欢迎大家在评论区留下自己的珍藏，我也很乐意将其收录进文章里面</p></li><li><p><strong>光影画廊</strong>模块里展示了一些我个人的绘画作品，希望大家能够喜欢(^^)</p></li></ol><blockquote><p>技术支持</p></blockquote><ul><li><strong>Powered by</strong> <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a></li><li><strong>Theme:</strong> <a href="https://shen-yu.gitee.io/" target="_blank" rel="noopener">Ayer</a></li></ul><hr><p> (以下是博客更新日志，日志从2020/4/11开始记录，你<strong>可以点击</strong>&lt;阅读更多…&gt;来快速掌握博客更新动向)</p><a id="more"></a><hr><blockquote><p><strong>博客更新日志</strong></p></blockquote><ul><li><strong>2020/4/30</strong></li></ul><ol><li>光影画廊模块上线</li><li>小幅更新文章《语言之美-古诗丽词》</li></ol><p><strong>小结</strong>：今日<strong>上线光影画廊模块</strong>,更新<strong>《语言之美-古诗丽词》</strong>(2020/4/30 20:39 PV:436 UV:188)</p><hr><ul><li><strong>2020/4/29</strong></li></ul><ol><li>小幅更新文章《语言之美-古诗丽词》与《语言之美-新句美文》</li><li>更改两处滚动标题</li></ol><p><strong>小结</strong>：今日<strong>更新两篇文章</strong>(2020/4/29 22:34 PV:430 UV:183)</p><hr><ul><li><strong>2020/4/23</strong></li></ul><ol><li>更新文章《利用tf.concat()与np.concatenate来拼接向量》</li></ol><p><strong>小结</strong>：今日<strong>更新一篇文章</strong>(2020/4/23 10:13 PV:411 UV:165)</p><hr><ul><li><strong>2020/4/22</strong></li></ul><ol><li>添加文章《利用reshape重塑numpy数组》，《利用tf.concat()与np.concatenate来拼接向量》</li></ol><p><strong>小结</strong>：今日<strong>添加两篇文章</strong>(2020/4/22 10:13 PV:399 UV:158)</p><hr><ul><li><strong>2020/4/20</strong></li></ul><ol><li>更新文章《语言之美-古诗丽词》</li></ol><p><strong>小结</strong>：今日<strong>大幅更新《语言之美-古诗丽词》并优化文章排版</strong>(2020/4/20 22:05 PV:390 UV:153)</p><hr><ul><li><strong>2020/4/16</strong></li></ul><ol><li>更新文章《《数据结构与算法》笔记(Python语言实现)》(2020/4/16 20:06 PV:385 UV:150)</li></ol><hr><ul><li><strong>2020/4/14</strong></li></ul><ol><li>更新文章《Pandas在Python语言下的基础使用》(2020/4/14 22:12 PV:376 UV:145)</li></ol><hr><ul><li><strong>2020/4/13</strong></li></ul><ol><li>更新文章《《Python机器学习基础教程》笔记(scikit-learn框架)》</li><li>更新文章《python画散点图[plt.scatter()]以及矩阵散点图[pd.scatter_matrix()]详解》（待优化）</li><li>暂时搁置文章《Pandas在Python语言下的基础使用》</li><li>暂时搁置文章《《数据结构与算法》笔记(Python语言实现)》</li></ol><p><strong>小结</strong>：今日更新主要<strong>优化文章排版</strong>，<strong>更新两篇文章</strong>(2020/4/13 22:05 PV:374 UV:143)</p><hr><ul><li><strong>2020/4/11</strong></li></ul><ol><li>博客现在已经<strong>能够在文章中插入图片</strong>，但<strong>光影画廊仍然无法在云端显示图片</strong></li><li>博客现在已开放<strong>评论留言系统</strong>，并能够<strong>置顶文章</strong></li></ol><p><strong>小结</strong>：今天<strong>无文章更新</strong>，主要是<strong>完善博客功能</strong>(2020/4/11 22:39 PV:354 UV:138)</p>]]></content>
     
     <summary type="html">
     
@@ -91,7 +162,7 @@
 &lt;li&gt;&lt;strong&gt;Theme:&lt;/strong&gt; &lt;a href=&quot;https://shen-yu.gitee.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Ayer&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;p&gt; (以下是博客更新日志，日志从2020/4/11开始记录，无特殊需求你&lt;strong&gt;不必点击&lt;/strong&gt;&amp;lt;阅读更多…&amp;gt;来查看日志)&lt;/p&gt;
+&lt;p&gt; (以下是博客更新日志，日志从2020/4/11开始记录，你&lt;strong&gt;可以点击&lt;/strong&gt;&amp;lt;阅读更多…&amp;gt;来快速掌握博客更新动向)&lt;/p&gt;
     
     </summary>
     
@@ -397,9 +468,9 @@
     
       <category term="Python" scheme="https://Hong-King.github.io/tags/Python/"/>
     
-      <category term="关键蛋白预测" scheme="https://Hong-King.github.io/tags/%E5%85%B3%E9%94%AE%E8%9B%8B%E7%99%BD%E9%A2%84%E6%B5%8B/"/>
-    
       <category term="TensorFlow" scheme="https://Hong-King.github.io/tags/TensorFlow/"/>
+    
+      <category term="关键蛋白预测" scheme="https://Hong-King.github.io/tags/%E5%85%B3%E9%94%AE%E8%9B%8B%E7%99%BD%E9%A2%84%E6%B5%8B/"/>
     
   </entry>
   
@@ -615,75 +686,6 @@
         &lt;ul&gt;
 &lt;li&gt;输入创建草稿命令，系统会在source/_drafts目录下生成一个new-draft.md文件。但是这个文件不被显示在页面上，链接也访问不到。也就是说如果你想把某一篇文章移除显示，又不舍得删除，可以把它移动到_drafts目录之中。相当于很多博客都有的“私密文
       
-    
-    </summary>
-    
-    
-      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="Hexo" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://Hong-King.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo如何插入本地图片</title>
-    <link href="https://hong-king.github.io/2020/04/07/Hexo%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/"/>
-    <id>https://hong-king.github.io/2020/04/07/Hexo%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/</id>
-    <published>2020-04-07T14:26:55.000Z</published>
-    <updated>2020-04-09T03:22:53.980Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>由于某种原因安装图片插件安装不上，故使用此方法</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![你想输入的替代文字](xxxx&#x2F;图片名.jpg)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ul&gt;
-&lt;li&gt;由于某种原因安装图片插件安装不上，故使用此方法&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;b
-      
-    
-    </summary>
-    
-    
-      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="Hexo" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://Hong-King.github.io/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo写作语法</title>
-    <link href="https://hong-king.github.io/2020/04/07/Hexo%E5%86%99%E4%BD%9C%E8%AF%AD%E6%B3%95/"/>
-    <id>https://hong-king.github.io/2020/04/07/Hexo%E5%86%99%E4%BD%9C%E8%AF%AD%E6%B3%95/</id>
-    <published>2020-04-07T09:52:00.000Z</published>
-    <updated>2020-04-08T07:59:26.233Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>以下是效果展示:</p></blockquote><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><p><del>这是横线</del><br><strong>这是加粗</strong><br><em>这是斜体</em></p><ul><li>无序列表1</li><li>无序列表2</li></ul><ol><li>有序排列1</li><li>有序排列2<br><code>内嵌代码</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">代码块</span><br></pre></td></tr></table></figure><blockquote><p>引用</p></blockquote><a id="more"></a></li></ol><hr><blockquote><p>以下为源代码:</p></blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一级标题</span></span><br><span class="line"><span class="comment">## 二级标题</span></span><br><span class="line"><span class="comment">### 三级标题</span></span><br><span class="line"><span class="comment">#### 四级标题</span></span><br><span class="line"><span class="comment">##### 五级标题</span></span><br><span class="line">~~这是横线~~</span><br><span class="line">**这是加粗**</span><br><span class="line">*这是斜体*</span><br><span class="line">* 无序列表1</span><br><span class="line">* 无序列表2</span><br><span class="line">1. 有序排列1</span><br><span class="line">2. 有序排列2</span><br><span class="line">`内嵌代码`</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">代码块</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">&gt;引用</span><br><span class="line">文章太长，截断按钮文字(在需要截断的行增加此标记：&lt;!--more--&gt;)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;以下是效果展示:&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;一级标题&quot;&gt;&lt;a href=&quot;#一级标题&quot; class=&quot;headerlink&quot; title=&quot;一级标题&quot;&gt;&lt;/a&gt;一级标题&lt;/h1&gt;&lt;h2 id=&quot;二级标题&quot;&gt;&lt;a href=&quot;#二级标题&quot; class=&quot;headerlink&quot; title=&quot;二级标题&quot;&gt;&lt;/a&gt;二级标题&lt;/h2&gt;&lt;h3 id=&quot;三级标题&quot;&gt;&lt;a href=&quot;#三级标题&quot; class=&quot;headerlink&quot; title=&quot;三级标题&quot;&gt;&lt;/a&gt;三级标题&lt;/h3&gt;&lt;h4 id=&quot;四级标题&quot;&gt;&lt;a href=&quot;#四级标题&quot; class=&quot;headerlink&quot; title=&quot;四级标题&quot;&gt;&lt;/a&gt;四级标题&lt;/h4&gt;&lt;h5 id=&quot;五级标题&quot;&gt;&lt;a href=&quot;#五级标题&quot; class=&quot;headerlink&quot; title=&quot;五级标题&quot;&gt;&lt;/a&gt;五级标题&lt;/h5&gt;&lt;p&gt;&lt;del&gt;这是横线&lt;/del&gt;&lt;br&gt;&lt;strong&gt;这是加粗&lt;/strong&gt;&lt;br&gt;&lt;em&gt;这是斜体&lt;/em&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;无序列表1&lt;/li&gt;
-&lt;li&gt;无序列表2&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol&gt;
-&lt;li&gt;有序排列1&lt;/li&gt;
-&lt;li&gt;有序排列2&lt;br&gt;&lt;code&gt;内嵌代码&lt;/code&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;代码块&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
-&lt;p&gt;引用&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;&lt;/ol&gt;
     
     </summary>
     

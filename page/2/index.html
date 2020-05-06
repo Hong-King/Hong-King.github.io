@@ -80,6 +80,177 @@
     
     
     
+    <article id="post-《Python机器学习基础教程》笔记(scikit-learn框架)" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/13/%E3%80%8APython%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%E3%80%8B%E7%AC%94%E8%AE%B0(scikit-learn%E6%A1%86%E6%9E%B6)/"
+    >《Python机器学习基础教程》笔记(scikit-learn框架)</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/13/%E3%80%8APython%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%E3%80%8B%E7%AC%94%E8%AE%B0(scikit-learn%E6%A1%86%E6%9E%B6)/" class="article-date">
+  <time datetime="2020-04-13T13:01:00.000Z" itemprop="datePublished">2020-04-13</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E3%80%8APython%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%E3%80%8B/">《Python机器学习基础教程》</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h1 id="第一章-引言"><a href="#第一章-引言" class="headerlink" title="第一章 引言"></a>第一章 引言</h1><hr>
+<h2 id="1-7-第一个应用：鸢（yuan）尾花分类"><a href="#1-7-第一个应用：鸢（yuan）尾花分类" class="headerlink" title="1.7 第一个应用：鸢（yuan）尾花分类"></a>1.7 第一个应用：鸢（yuan）尾花分类</h2><h3 id="1-7-3-要事第一：观察数据"><a href="#1-7-3-要事第一：观察数据" class="headerlink" title="1.7.3 要事第一：观察数据"></a>1.7.3 要事第一：观察数据</h3><blockquote>
+<p>在构建模型时，最重要的是要首先<strong>观察数据</strong>。<br>检查数据的最佳方法就是将其<strong>可视化</strong>。<br>当数据<strong>只有两个特征</strong>时，可以使用<strong>散点图</strong>。<br>当数据<strong>有多个特征</strong>时，解决这个问题的一种方法就是绘制<strong>散点图矩阵</strong>(pair plot)。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下为绘制散点图矩阵的示例程序</span></span><br><span class="line"><span class="comment"># scatter_matrix为pandas绘制散点图矩阵的函数,矩阵的对角线是每个特征的直方图</span></span><br><span class="line"><span class="comment"># 利用X_train中的数据创建DataFrame</span></span><br><span class="line"><span class="comment"># 利用iris_dataset.feature_names中的字符串对数据列进行标记</span></span><br><span class="line">iris_dataframe = pd.DataFrame(X_train, columns = iris_dataset.feature_names)</span><br><span class="line"><span class="comment"># 利用DataFrame创建散点图矩阵，按y_train着色</span></span><br><span class="line">grr = pd.scatter_matrix(iris_dataframe, c = y_train, figsize = (15,15), marker = <span class="string">'o'</span> ...)</span><br></pre></td></tr></table></figure>
+      
+      <a class="article-more-link" href="/2020/04/13/%E3%80%8APython%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%E3%80%8B%E7%AC%94%E8%AE%B0(scikit-learn%E6%A1%86%E6%9E%B6)/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/scikit-learn/" rel="tag">scikit-learn</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-python画散点图[plt.scatter()]以及矩阵散点图[pd.scatter_matrix()]详解" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/13/python%E7%94%BB%E6%95%A3%E7%82%B9%E5%9B%BE%5Bplt.scatter()%5D%E4%BB%A5%E5%8F%8A%E7%9F%A9%E9%98%B5%E6%95%A3%E7%82%B9%E5%9B%BE%5Bpd.scatter_matrix()%5D%E8%AF%A6%E8%A7%A3/"
+    >python画散点图[plt.scatter()]以及矩阵散点图[pd.scatter_matrix()]详解（待优化）</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/13/python%E7%94%BB%E6%95%A3%E7%82%B9%E5%9B%BE%5Bplt.scatter()%5D%E4%BB%A5%E5%8F%8A%E7%9F%A9%E9%98%B5%E6%95%A3%E7%82%B9%E5%9B%BE%5Bpd.scatter_matrix()%5D%E8%AF%A6%E8%A7%A3/" class="article-date">
+  <time datetime="2020-04-13T12:54:00.000Z" itemprop="datePublished">2020-04-13</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">Python 数据可视化</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h1 id="plt-scatter-散点图"><a href="#plt-scatter-散点图" class="headerlink" title="plt.scatter() 散点图"></a>plt.scatter() 散点图</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter( x, y, s=20, c = None, marker = <span class="string">'o'</span>, cmap = none, norm = none, vmin = none, vmax = none, alpha = none, linewidths = none,</span><br><span class="line">	verts = none, edgecolors = none, hold = none,**kwargs)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>s:散点的大小</li>
+<li>c:散点的颜色，’r ‘/‘g’/‘y’/‘w’/‘k’…….</li>
+<li>marker:散点形状,  ‘.’(点)/‘o’(圆)/‘v’(倒三角形)/‘ * ‘(星星)/‘s’(正方形)………</li>
+<li>cmap：colormap，颜色版：’accent’,’blues’,’bugn’,’oranges’….</li>
+<li>vmin，vmax:亮度设置，标亮</li>
+<li>alpha ：颜色透明程度， 实数，0-1之间</li>
+<li>linewidths:线的宽度</li>
+<li>linestyle: 线的风格，’–’（虚线）/ ‘-‘ (直线) / ‘-.’(间隔虚线)/ ‘: ‘(全为点)</li>
+</ul>
+<hr>
+<h1 id="pd-scatter-matrix-散点图"><a href="#pd-scatter-matrix-散点图" class="headerlink" title="pd.scatter_matrix()散点图"></a>pd.scatter_matrix()散点图</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scatter_matrix([frame], alpha=0.5, c, figsize=None, ax=None, diagonal=<span class="string">'hist'</span>, marker=<span class="string">'.'</span>, density_kwds=None, hist_kwds=None, </span><br><span class="line">	y range_padding=0.05, **kwds)</span><br></pre></td></tr></table></figure>
+<ol>
+<li>frame - pandas dataframe变量对象 </li>
+<li>alpha -  图像透明度，一般取(0,1] </li>
+<li>figsize - 以英寸为单位的图像大小，一般以元组 (width, height) 形式设置 </li>
+<li>ax - 可选一般为none </li>
+<li>diagonal - 必须且只能在{‘hist’, ‘kde’}中选择1个，’hist’表示直方图(Histogram plot),’kde’表示核密度估计(Kernel Density Estimation)；该参数是scatter_matrix函数的关键参数 </li>
+<li>marker - Matplotlib可用的标记类型，如’.’，’,’，’o’等 </li>
+<li>density_kwds - (other plotting keyword arguments，可选)，与kde相关的字典参数 </li>
+<li>hist_kwds - 与hist相关的字典参数 </li>
+<li>range_padding - (float, 可选)，图像在x轴、y轴原点附近的留白(padding)，该值越大，留白距离越大，图像远离坐标原点 </li>
+<li>kwds - 与scatter_matrix函数本身相关的字典参数 </li>
+<li>c - 颜色（可以用数字标签决定颜色）</li>
+</ol>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-利用TensorFlow实现简单的机器学习" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -675,163 +846,6 @@
 
 </article>
     
-    <article id="post-Hexo如何插入本地图片" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/07/Hexo%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/"
-    >Hexo如何插入本地图片</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/04/07/Hexo%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87/" class="article-date">
-  <time datetime="2020-04-07T14:26:55.000Z" itemprop="datePublished">2020-04-07</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Hexo/">Hexo</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <ul>
-<li>由于某种原因安装图片插件安装不上，故使用此方法</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![你想输入的替代文字](xxxx&#x2F;图片名.jpg)</span><br></pre></td></tr></table></figure>
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-Hexo写作语法" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/07/Hexo%E5%86%99%E4%BD%9C%E8%AF%AD%E6%B3%95/"
-    >Hexo写作语法</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/04/07/Hexo%E5%86%99%E4%BD%9C%E8%AF%AD%E6%B3%95/" class="article-date">
-  <time datetime="2020-04-07T09:52:00.000Z" itemprop="datePublished">2020-04-07</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Hexo/">Hexo</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <blockquote>
-<p>以下是效果展示:</p>
-</blockquote>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><p><del>这是横线</del><br><strong>这是加粗</strong><br><em>这是斜体</em></p>
-<ul>
-<li>无序列表1</li>
-<li>无序列表2</li>
-</ul>
-<ol>
-<li>有序排列1</li>
-<li>有序排列2<br><code>内嵌代码</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">代码块</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>引用</p>
-</blockquote></li></ol>
-      
-      <a class="article-more-link" href="/2020/04/07/Hexo%E5%86%99%E4%BD%9C%E8%AF%AD%E6%B3%95/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
   </article>
   
 
@@ -988,7 +1002,7 @@
 <script>
   try {
     var typed = new Typed("#subtitle", {
-      strings: ['倾国倾城，非花非雾，春风十里独步。', '岁月不饶人，我亦未曾饶过岁月。', '此后如竟没有炬火：我便是唯一的光！'],
+      strings: ['倾国倾城，非花非雾，春风十里独步。', '岁月不饶人，我亦未曾，饶过岁月。', '此后如竟没有炬火：我便是唯一的光！'],
       startDelay: 20,
       typeSpeed: 150,
       loop: true,
