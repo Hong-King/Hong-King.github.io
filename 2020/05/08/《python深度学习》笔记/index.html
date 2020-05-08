@@ -58,8 +58,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/05/07/%E3%80%8Apython%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time datetime="2020-05-07T03:16:00.000Z" itemprop="datePublished">2020-05-07</time>
+      <a href="/2020/05/08/%E3%80%8Apython%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2020-05-08T01:41:00.000Z" itemprop="datePublished">2020-05-08</time>
 </a>
       
   <div class="article-category">
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">2.8k</span>
+            <span class="post-count">5.9k</span>
         </span>
     </span>
 
@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">9 分钟</span>
+            <span class="post-count">21 分钟</span>
         </span>
     </span>
 </div>
@@ -194,10 +194,126 @@
 <li>梯度提升机用于<strong>处理结构化数据的问题</strong>，而深度学习则用于<strong>图像分类等感知问题</strong>。使用前一种方法的人几乎都使用优秀的<strong>XGBoost库</strong>，它同时支持数据科学最流行的两种语言：Python 和 R。使用深度学习的 Kaggle 参赛者则大多使用 <strong>Keras 库</strong>，因为它易于使用，非常灵活，并且支持Python。</li>
 </ul>
 <h2 id="1-3-为什么是深度学习，为什么是现在"><a href="#1-3-为什么是深度学习，为什么是现在" class="headerlink" title="1.3　为什么是深度学习，为什么是现在"></a><strong>1.3　为什么是深度学习，为什么是现在</strong></h2><blockquote>
-<p>由于这一领域是靠实验结果而不是理论指导的，所以只有当合适的数据和硬件可用于尝试新想法时（或者将旧想法的规模扩大，事实往往也是如此），才可能出现算法上的改进。机器学习不是数学或物理学，靠一支笔和一张纸就能实现重大进展。它是一门工程科学。在 20 世纪 90 年代和 21 世纪前十年，真正的瓶颈在于数据和硬件。但在这段时间内发生了下面这些事情：互联网高速发展，并且针对游戏市场的需求开发出了高性能图形芯片。</p>
+<p>由于这一领域是靠实验结果而不是理论指导的，所以只有当合适的数据和硬件可用于尝试新想法时（或者将旧想法的规模扩大，事实往往也是如此），才可能出现算法上的改进。<strong>机器学习不是数学或物理学，靠一支笔和一张纸就能实现重大进展。它是一门工程科学</strong>。在 20 世纪 90 年代和 21 世纪前十年，真正的瓶颈在于数据和硬件。但在这段时间内发生了下面这些事情：互联网高速发展，并且针对游戏市场的需求开发出了高性能图形芯片。</p>
 </blockquote>
 <hr>
-<h1 id="第二章-神经网络的数学基础"><a href="#第二章-神经网络的数学基础" class="headerlink" title="第二章 神经网络的数学基础"></a>第二章 神经网络的数学基础</h1>
+<h1 id="第二章-神经网络的数学基础"><a href="#第二章-神经网络的数学基础" class="headerlink" title="第二章 神经网络的数学基础"></a>第二章 神经网络的数学基础</h1><h2 id="2-2-神经网络的数据表示"><a href="#2-2-神经网络的数据表示" class="headerlink" title="2.2　神经网络的数据表示"></a><strong>2.2　神经网络的数据表示</strong></h2><blockquote>
+<p>数据存储在多维 Numpy 数组中，也叫<strong>张量（tensor）</strong>。矩阵是二维张量,张量是矩阵向任意维度的推广［注意:张量的<strong>维度（dimension）</strong>通常叫作<strong>轴（axis）</strong>］。</p>
+</blockquote>
+<h3 id="2-2-1-标量（0D-张量）"><a href="#2-2-1-标量（0D-张量）" class="headerlink" title="2.2.1　标量（0D 张量）"></a>2.2.1　标量（0D 张量）</h3><ul>
+<li><p>仅包含一个数字的张量叫作<strong>标量</strong>（scalar，也叫<strong>标量张量、零维张量、0D 张量</strong>）。</p>
+</li>
+<li><p>你可以用 ndim 属性来查看一个 Numpy 张量的轴的个数。标量张量有 0 个轴（ndim == 0）。张量轴的个数也叫作<strong>阶（rank）</strong>。下面展示一个 Numpy 标量。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import numpy as np</span><br><span class="line">&gt;&gt;&gt; x = np.array(12)</span><br><span class="line">&gt;&gt;&gt; x</span><br><span class="line">array(12)</span><br><span class="line">&gt;&gt;&gt; x.ndim</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="2-2-2-向量（1D-张量）"><a href="#2-2-2-向量（1D-张量）" class="headerlink" title="2.2.2　向量（1D 张量）"></a>2.2.2　向量（1D 张量）</h3><ul>
+<li><p>数字组成的数组叫作<strong>向量（vector）</strong>或<strong>一维张量（1D 张量）</strong>。一维张量只有一个轴,下面是一个 Numpy 向量。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = np.array([12, 3, 6, 14, 7])</span><br><span class="line">&gt;&gt;&gt; x</span><br><span class="line">array([12, 3, 6, 14, 7])</span><br><span class="line">&gt;&gt;&gt; x.ndim</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这个<strong>向量</strong>有 5 个元素，所以被称为 <strong>5D 向量</strong>。不要把<strong>5D 向量</strong>和 <strong><em>5D 张量</em></strong>弄混！ <strong>5D 向量</strong>只有一个轴，沿着轴有 5 个维度，而 <strong><em>5D 张量</em></strong>有 5 个轴（沿着每个轴可能有任意个维度）。<strong>维度（dimensionality）</strong>可以表示沿着某个轴上的元素个数（比如 5D 向量），也可以表示张量中轴的个数（比如 5D 张量），这有时会令人感到混乱。对于后一种情况，技术上更准确的说法是 <strong>5 阶张量</strong>（张量的阶数即轴的个数），但 5D 张量这种模糊的写法更常见。</p>
+</li>
+</ul>
+<h3 id="2-2-3-矩阵（2D-张量）"><a href="#2-2-3-矩阵（2D-张量）" class="headerlink" title="2.2.3　矩阵（2D 张量）"></a>2.2.3　矩阵（2D 张量）</h3><ul>
+<li>向量组成的数组叫作<strong>矩阵（matrix）</strong>或<strong>二维张量（2D 张量）</strong>。矩阵有 <strong>2 个轴</strong>（通常叫作<strong>行</strong>和<strong>列</strong>）。你可以将矩阵直观地理解为数字组成的矩形网格。下面是一个 Numpy 矩阵.<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = np.array([[5, 78, 2, 34, 0],</span><br><span class="line"> [6, 79, 3, 35, 1],</span><br><span class="line"> [7, 80, 4, 36, 2]])</span><br><span class="line">&gt;&gt;&gt; x.ndim</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+第一个轴上的元素叫作行（row），第二个轴上的元素叫作列（column）。在上面的例子中，[5, 78, 2, 34, 0] 是 x 的第一行，[5, 6, 7] 是第一列。</li>
+</ul>
+<h3 id="2-2-4-3D-张量与更高维张量"><a href="#2-2-4-3D-张量与更高维张量" class="headerlink" title="2.2.4 3D 张量与更高维张量"></a>2.2.4 3D 张量与更高维张量</h3><ul>
+<li>将多个矩阵组合成一个新的数组，可以得到一个 3D 张量，你可以将其直观地理解为数字组成的立方体。下面是一个 Numpy 的 3D 张量。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = np.array([[[5, 78, 2, 34, 0],</span><br><span class="line"> [6, 79, 3, 35, 1],</span><br><span class="line"> [7, 80, 4, 36, 2]],</span><br><span class="line"> [[5, 78, 2, 34, 0],</span><br><span class="line"> [6, 79, 3, 35, 1],</span><br><span class="line"> [7, 80, 4, 36, 2]],</span><br><span class="line"> [[5, 78, 2, 34, 0],</span><br><span class="line"> [6, 79, 3, 35, 1],</span><br><span class="line"> [7, 80, 4, 36, 2]]])</span><br><span class="line">&gt;&gt;&gt; x.ndim</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+将多个 3D 张量组合成一个数组，可以创建一个 4D 张量，以此类推。深度学习处理的一般是 0D 到 4D 的张量，但处理视频数据时可能会遇到 5D 张量。</li>
+</ul>
+<h3 id="2-2-5-关键属性"><a href="#2-2-5-关键属性" class="headerlink" title="2.2.5　关键属性"></a>2.2.5　关键属性</h3><ul>
+<li>张量是由以下三个关键属性来定义的:</li>
+</ul>
+<ol>
+<li><p><strong>轴的个数（阶）</strong>。例如，3D 张量有 3 个轴，矩阵有 2 个轴。这在 Numpy 等 Python 库中也叫张量的 ndim(轴)。</p>
+</li>
+<li><p><strong>形状</strong>。这是一个整数元组，表示张量沿每个轴的维度大小（元素个数）。例如，前面矩阵示例的形状为 (3, 5)，3D 张量示例的形状为 (3, 3, 5)。向量的形状只包含一个元素，比如 (5,)，而标量的形状为空，即 ()。</p>
+</li>
+<li><p><strong>数据类型</strong>（在 Python 库中通常叫作 dtype）。这是张量中所包含数据的类型，例如，张量的类型可以是 float32、uint8、float64 等。在极少数情况下，你可能会遇到字符（char）张量。<strong><em>注意</em></strong>:Numpy（以及大多数其他库）中不存在字符串张量，因为张量存储在预先分配的连续内存段中，而字符串的长度是可变的，无法用这种方式存储。</p>
+</li>
+</ol>
+<h3 id="2-2-7-数据批量的概念"><a href="#2-2-7-数据批量的概念" class="headerlink" title="2.2.7　数据批量的概念"></a>2.2.7　数据批量的概念</h3><ul>
+<li><p>通常来说，深度学习中所有数据张量的第一个轴（0 轴，因为索引从 0 开始）都是<strong>样本轴（samples axis，有时也叫样本维度）</strong>。在 MNIST 的例子中，样本就是数字图像。</p>
+</li>
+<li><p>此外，深度学习模型<strong>不会同时处理整个数据集</strong>，而是<strong>将数据拆分成小批量</strong>。具体来看，下面是 MNIST 数据集的一个批量，批量大小为 128。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">batch = train_images[:128]</span><br><span class="line"><span class="comment">#然后是下一个批量。</span></span><br><span class="line">batch = train_images[128:256]</span><br><span class="line"><span class="comment">#然后是第 n 个批量。</span></span><br><span class="line">batch = train_images[128 * n:128 * (n + 1)]</span><br></pre></td></tr></table></figure>
+<p>对于这种批量张量，第一个轴（0 轴）叫作<strong>批量轴（batch axis）</strong>或<strong>批量维度（batch dimension）</strong>。在使用 Keras 和其他深度学习库时会经常遇到这个术语。</p>
+</li>
+</ul>
+<h3 id="2-2-8-现实世界中的数据张量"><a href="#2-2-8-现实世界中的数据张量" class="headerlink" title="2.2.8　现实世界中的数据张量"></a>2.2.8　现实世界中的数据张量</h3><ul>
+<li>我们用几个你未来会遇到的示例来具体介绍数据张量。你需要处理的数据几乎总是以下类别之一:</li>
+</ul>
+<ol>
+<li><p><strong>向量数据</strong>：2D 张量，形状为 (samples, features)。</p>
+</li>
+<li><p><strong>时间序列数据或序列数据</strong>：3D 张量，形状为 (samples, timesteps, features)。</p>
+</li>
+<li><p><strong>图像</strong>：4D 张量，形状为 (samples, height, width, channels) 或 (samples, channels,height, width)。</p>
+</li>
+<li><p><strong>视频</strong>：5D 张量，形状为 (samples, frames, height, width, channels) 或 (samples,frames, channels, height, width)。</p>
+</li>
+</ol>
+<h3 id="2-2-9-向量数据"><a href="#2-2-9-向量数据" class="headerlink" title="2.2.9　向量数据"></a>2.2.9　向量数据</h3><ul>
+<li>这是最常见的数据。对于这种数据集，每个数据点都被编码为一个向量，因此一个数据批量就被编码为 2D 张量（即向量组成的数组），其中第一个轴是<strong>样本轴</strong>，第二个轴是<strong>特征轴</strong>。以下展示两个例子:</li>
+</ul>
+<ol>
+<li><p><strong>人口统计数据集</strong>:其中包括每个人的年龄、邮编和收入。每个人可以表示为包含 3 个值的向量，而整个数据集包含 100 000 个人，因此可以存储在形状为 (100000, 3) 的 2D张量中。</p>
+</li>
+<li><p><strong>文本文档数据集</strong>:我们将每个文档表示为每个单词在其中出现的次数（字典中包含20 000 个常见单词）。每个文档可以被编码为包含 20 000 个值的向量（每个值对应于字典中每个单词的出现次数），整个数据集包含 500 个文档，因此可以存储在形状为(500, 20000) 的张量中。</p>
+</li>
+</ol>
+<h3 id="2-2-10-时间序列数据或序列数据"><a href="#2-2-10-时间序列数据或序列数据" class="headerlink" title="2.2.10　时间序列数据或序列数据"></a>2.2.10　时间序列数据或序列数据</h3><ul>
+<li>当时间（或序列顺序）对于数据很重要时，应该将数据存储在带有时间轴的 3D 张量中。每个样本可以被编码为一个向量序列（即 2D 张量），因此一个数据批量就被编码为一个 3D 张量。根据惯例，时间轴始终是第 2 个轴（索引为 1 的轴）。以下展示两个例子:</li>
+</ul>
+<ol>
+<li><p><strong>股票价格数据集</strong>。每一分钟，我们将股票的当前价格、前一分钟的最高价格和前一分钟的最低价格保存下来。因此每分钟被编码为一个 3D 向量，整个交易日被编码为一个形状为 (390, 3) 的 2D 张量（一个交易日有 390 分钟），而 250 天的数据则可以保存在一个形状为 (250, 390, 3) 的 3D 张量中。这里每个样本是一天的股票数据。</p>
+</li>
+<li><p><strong>推文数据集</strong>。我们将每条推文编码为 280 个字符组成的序列，而每个字符又来自于 128个字符组成的字母表。在这种情况下，每个字符可以被编码为大小为 128 的二进制向量（只有在该字符对应的索引位置取值为 1，其他元素都为 0）。那么每条推文可以被编码为一个形状为 (280, 128) 的 2D 张量，而包含 100 万条推文的数据集则可以存储在一个形状为 (1000000, 280, 128) 的张量中。</p>
+</li>
+</ol>
+<h3 id="2-2-11-图像数据"><a href="#2-2-11-图像数据" class="headerlink" title="2.2.11　图像数据"></a>2.2.11　图像数据</h3><ul>
+<li><p>图像通常具有三个维度：<strong>高度、宽度和颜色深度</strong>。虽然灰度图像（比如 MNIST 数字图像）只有一个颜色通道，因此可以保存在 2D 张量中，但按照惯例，图像张量始终都是 3D 张量，灰度图像的彩色通道只有一维。因此，如果图像大小为 256×256，那么 128 张灰度图像组成的批量可以保存在一个形状为 (128, 256, 256, 1) 的张量中，而 128 张彩色图像组成的批量则可以保存在一个形状为 (128, 256, 256, 3) 的张量中</p>
+</li>
+<li><p>图像张量的形状有两种约定：<strong>通道在后（channels-last）</strong>的约定（在 TensorFlow 中使用）和<strong>通道在前（channels-first）</strong>的约定（在 Theano 中使用）。Google 的 TensorFlow 机器学习框架将颜色深度轴放在最后：(samples, height, width, color_depth)。与此相反，Theano将图像深度轴放在批量轴之后：(samples, color_depth, height, width)。如果采用 Theano 约定，前面的两个例子将变成 (128, 1, 256, 256) 和 (128, 3, 256, 256)。Keras 框架同时支持这两种格式。</p>
+</li>
+</ul>
+<h3 id="2-2-12-视频数据"><a href="#2-2-12-视频数据" class="headerlink" title="2.2.12　视频数据"></a>2.2.12　视频数据</h3><ul>
+<li>视频数据是现实生活中需要用到 5D 张量的少数数据类型之一。视频可以看作一系列帧，每一帧都是一张彩色图像。由于每一帧都可以保存在一个形状为 (height, width, color_depth) 的 3D 张量中，因此一系列帧可以保存在一个形状为 (frames, height, width,color_depth) 的 4D 张量中，而不同视频组成的批量则可以保存在一个 5D 张量中，其形状为(samples, frames, height, width, color_depth)。举个例子:</li>
+</ul>
+<ol>
+<li>一个以每秒 4 帧采样的 60 秒 YouTube 视频片段，视频尺寸为 144×256，这个视频共有 240 帧。4 个这样的视频片段组成的批量将保存在形状为 (4, 240, 144, 256, 3)的张量中。总共有 106 168 320 个值！如果张量的数据类型（dtype）是 float32，每个值都是32 位，那么这个张量共有 405MB。好大！你在现实生活中遇到的视频要小得多，因为它们不以float32 格式存储，而且通常被大大压缩，比如 MPEG 格式。</li>
+</ol>
+<h2 id="2-3-神经网络的“齿轮”：张量运算"><a href="#2-3-神经网络的“齿轮”：张量运算" class="headerlink" title="2.3　神经网络的“齿轮”：张量运算"></a>2.3　神经网络的“齿轮”：张量运算</h2><blockquote>
+<p>所有计算机程序最终都可以简化为二进制输入上的一些二进制运算（AND、OR、NOR 等），与此类似，深度神经网络学到的所有变换也都可以简化为数值数据张量上的一些<strong>张量运算（tensor operation）</strong>。Keras 层的实例如下所示:</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keras.layers.Dense(512, activation=<span class="string">'relu'</span>)</span><br></pre></td></tr></table></figure>
+<p>这个层可以理解为一个函数，输入一个 2D 张量，返回另一个 2D 张量，即输入张量的新表示。具体而言，这个函数如下所示（其中 W 是一个 2D 张量，b 是一个向量，二者都是该层的属性）:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">output = relu(dot(W, input) + b)</span><br></pre></td></tr></table></figure>
+<p>我们将上式拆开来看。这里有三个张量运算：输入张量和张量 W 之间的点积运算（dot）、得到的 2D 张量与向量 b 之间的加法运算（+）、最后的 relu 运算。relu(x) 是 max(x, 0)。</p>
+<h3 id="2-3-1-逐元素运算"><a href="#2-3-1-逐元素运算" class="headerlink" title="2.3.1　逐元素运算"></a>2.3.1　逐元素运算</h3><ul>
+<li><p>relu 运算和加法都是<strong>逐元素（element-wise）</strong>的运算，即该运算独立地应用于张量中的每个元素，也就是说，这些运算非常适合大规模并行实现（<strong>向量化</strong>实现，这一术语来自于 1970—1990 年间<strong>向量处理器</strong>超级计算机架构）。下列代码是对逐元素 relu 运算的简单实现:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def naive_relu(x):</span><br><span class="line">	assert len(x.shape) == 2 <span class="comment"># x是一个 Numpy 的 2D 张量</span></span><br><span class="line"></span><br><span class="line">	x = x.copy() <span class="comment"># 避免覆盖输入张量</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(x.shape[0]):</span><br><span class="line"> 		<span class="keyword">for</span> j <span class="keyword">in</span> range(x.shape[1]):</span><br><span class="line"> 			x[i,j] = max(x[i, j], 0)</span><br><span class="line">	<span class="built_in">return</span> x</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对于加法采用同样的实现方法:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def naive_add(x, y):</span><br><span class="line">	assert len(x.shape) == 2 <span class="comment"># x 和 y 是 Numpy 的 2D 张量</span></span><br><span class="line">	assert x.shape == y.shape</span><br><span class="line"></span><br><span class="line">	x = x.copy() <span class="comment"># 避免覆盖输入张量</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(x.shape[0]):</span><br><span class="line">		<span class="keyword">for</span> j <span class="keyword">in</span> range(x.shape[1]):</span><br><span class="line">			x[i,j] += y[i, j]</span><br><span class="line">	<span class="built_in">return</span> x</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="2-3-2-广播"><a href="#2-3-2-广播" class="headerlink" title="2.3.2　广播"></a>2.3.2　广播</h3><ul>
+<li>上一节 naive_add 的简单实现仅支持两个形状相同的 2D 张量相加。但在前面介绍的Dense 层中，我们将一个 2D 张量与一个向量相加。如果将两个形状不同的张量相加——没有歧义的话——较小的张量会被<strong>广播（broadcast）</strong>，以匹配较大张量的形状。广播包含以下两步：</li>
+</ul>
+<ol>
+<li><p>向较小的张量添加轴（叫作<strong>广播轴</strong>），使其 ndim 与较大的张量相同。</p>
+</li>
+<li><p>将较小的张量沿着新轴重复，使其形状与较大的张量相同。</p>
+</li>
+</ol>
+<ul>
+<li></li>
+</ul>
+
       
       <!-- reward -->
       
@@ -265,7 +381,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hong-king.github.io/2020/05/07/%E3%80%8Apython%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hong-king.github.io/2020/05/08/%E3%80%8Apython%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -282,6 +398,15 @@
   
   
   <nav class="article-nav">
+    
+      <a href="/2020/05/08/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            你好，欢迎光临我的博客
+          
+        </div>
+      </a>
     
     
       <a href="/2020/05/04/%E3%80%8A%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E7%AC%94%E8%AE%B0/" class="article-nav-link">
