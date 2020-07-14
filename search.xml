@@ -580,6 +580,26 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo常用命令</title>
+    <url>/2020/07/14/Hexo%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/</url>
+    <content><![CDATA[<h2 id="使用-进行本地预览"><a href="#使用-进行本地预览" class="headerlink" title="使用  进行本地预览"></a>使用 <hexo s> 进行本地预览</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-清除缓存文件和已生成的静态文件"><a href="#使用-清除缓存文件和已生成的静态文件" class="headerlink" title="使用  清除缓存文件和已生成的静态文件"></a>使用 <hexo clean> 清除缓存文件和已生成的静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean <span class="comment"># 清除缓存文件db.json 和已生成的静态文件public</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-hexo-generate的简写形式-生成静态文件"><a href="#使用-hexo-generate的简写形式-生成静态文件" class="headerlink" title="使用  (hexo generate的简写形式)生成静态文件"></a>使用 <hexo g> (hexo generate的简写形式)生成静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g <span class="comment"># 是hexo generate的简写形式，生成静态文件到public文件夹</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-hexo-deploy的简写形式-部署静态文件到设定的仓库"><a href="#使用-hexo-deploy的简写形式-部署静态文件到设定的仓库" class="headerlink" title="使用  (hexo deploy的简写形式)部署静态文件到设定的仓库"></a>使用 <hexo d> (hexo deploy的简写形式)部署静态文件到设定的仓库</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d <span class="comment"># 是hexo deploy的简写形式，部署静态文件到设定的仓库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作"><a href="#使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作" class="headerlink" title="使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作"></a>使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d <span class="comment"># 常用的组合命令，清除缓存，生成静态文件，并部署到指定仓库</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>R语言学习笔记</title>
     <url>/2020/07/11/R%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><h3 id="使用getwd-函数来显示当前工作目录"><a href="#使用getwd-函数来显示当前工作目录" class="headerlink" title="使用getwd()函数来显示当前工作目录"></a>使用<em>getwd()</em>函数来显示当前工作目录</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">getwd()</span><br><span class="line"></span><br><span class="line"><span class="comment"># out:</span></span><br><span class="line">	[1] <span class="string">"C:/Users/lenovo/Documents"</span></span><br></pre></td></tr></table></figure>
@@ -1290,26 +1310,6 @@
 <p>以下为源代码:</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 一级标题</span></span><br><span class="line"><span class="comment">## 二级标题</span></span><br><span class="line"><span class="comment">### 三级标题	</span></span><br><span class="line"><span class="comment">#### 四级标题</span></span><br><span class="line"><span class="comment">##### 五级标题</span></span><br><span class="line">~~这是横线~~	</span><br><span class="line">**这是加粗**	</span><br><span class="line">*这是斜体*</span><br><span class="line">* 无序列表1</span><br><span class="line">* 无序列表2</span><br><span class="line">1. 有序排列1</span><br><span class="line">2. 有序排列2</span><br><span class="line">`内嵌代码`</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">代码块</span><br><span class="line">` ` `  <span class="comment">#无间隔</span></span><br><span class="line">&gt;引用</span><br><span class="line">文章太长，截断按钮文字(在需要截断的行增加此标记：&lt;!--more--&gt;)</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo常用命令</title>
-    <url>/2020/04/06/Hexo%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/</url>
-    <content><![CDATA[<h2 id="使用-进行本地预览"><a href="#使用-进行本地预览" class="headerlink" title="使用  进行本地预览"></a>使用 <hexo s> 进行本地预览</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-清除缓存文件和已生成的静态文件"><a href="#使用-清除缓存文件和已生成的静态文件" class="headerlink" title="使用  清除缓存文件和已生成的静态文件"></a>使用 <hexo clean> 清除缓存文件和已生成的静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean <span class="comment"># 清除缓存文件db.json 和已生成的静态文件public</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-hexo-generate的简写形式-生成静态文件"><a href="#使用-hexo-generate的简写形式-生成静态文件" class="headerlink" title="使用  (hexo generate的简写形式)生成静态文件"></a>使用 <hexo g> (hexo generate的简写形式)生成静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g <span class="comment"># 是hexo generate的简写形式，生成静态文件到public文件夹</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-hexo-deploy的简写形式-部署静态文件到设定的仓库"><a href="#使用-hexo-deploy的简写形式-部署静态文件到设定的仓库" class="headerlink" title="使用  (hexo deploy的简写形式)部署静态文件到设定的仓库"></a>使用 <hexo d> (hexo deploy的简写形式)部署静态文件到设定的仓库</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d <span class="comment"># 是hexo deploy的简写形式，部署静态文件到设定的仓库</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作"><a href="#使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作" class="headerlink" title="使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作"></a>使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d <span class="comment"># 常用的组合命令，清除缓存，生成静态文件，并部署到指定仓库</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术笔记</category>
         <category>Hexo</category>
