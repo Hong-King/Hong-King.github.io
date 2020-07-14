@@ -80,6 +80,86 @@
     
     
     
+    <article id="post-Python如何读取Excel文件" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/08/Python%E5%A6%82%E4%BD%95%E8%AF%BB%E5%8F%96Excel%E6%96%87%E4%BB%B6/"
+    >Python如何读取Excel文件</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/08/Python%E5%A6%82%E4%BD%95%E8%AF%BB%E5%8F%96Excel%E6%96%87%E4%BB%B6/" class="article-date">
+  <time datetime="2020-04-08T01:26:00.000Z" itemprop="datePublished">2020-04-08</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">Python 基础语法</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <blockquote>
+<p>首先需在Python下安装xlrd包</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install  xlrd <span class="comment"># cmd窗口</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>python操作excel主要用到xlrd和xlwt这两个库，即xlrd是读excel，xlwt是写excel的库。<br>由于xlrd使用更为频繁，这里只简单介绍xlrd读取Excel文件的用法</li>
+</ul>
+<hr>
+<blockquote>
+<p>以下为语法介绍</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import xlrd <span class="comment"># 首先在Python程序中加载xlrd包</span></span><br><span class="line"></span><br><span class="line">data1 = xlrd.open_workbook(<span class="string">'数据文件路径'</span>) <span class="comment"># 首先加载文件，并赋值给一个变量</span></span><br><span class="line">*</span><br><span class="line">table1 = data1.sheets()[0] <span class="comment"># 通过索引顺序获取。从data1变量中提取数据，并保存在变量table1中。</span></span><br><span class="line">table1 = data.sheet_by_name(sheet_name) <span class="comment"># 通过名称获取</span></span><br><span class="line"><span class="comment">#以上两个函数都会返回一个xlrd.sheet.Sheet()对象</span></span><br><span class="line">*</span><br><span class="line">protein_name1 = table1.col_values(num) <span class="comment"># table1.col_values提取*列方向的数据为列表，num=第几列（0为第一列）</span></span><br><span class="line">protein_name1 = table1.row_values(num) <span class="comment"># table1.row_values提取*行方向的数据为列表，num=第几行（0为第一行）</span></span><br><span class="line">*</span><br><span class="line">nrows = table.nrows  <span class="comment"># 获取该sheet中的有效*行数</span></span><br><span class="line">ncols = table.ncols  <span class="comment"># 获取该sheet中的有效*列数</span></span><br></pre></td></tr></table></figure>
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-利用Python将数据可视化为无向图（图论）" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -391,7 +471,7 @@
        
 <h2 itemprop="name">
   <a class="article-title" href="/2020/04/06/Hexo%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/"
-    >Hexo进行本地预览</a> 
+    >Hexo常用命令</a> 
 </h2>
  
 
@@ -422,8 +502,15 @@
       
 
       
-      <h2 id="使用-hexo-s-进行本地预览"><a href="#使用-hexo-s-进行本地预览" class="headerlink" title="使用 hexo s 进行本地预览"></a>使用 hexo s 进行本地预览</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+      <h2 id="使用-进行本地预览"><a href="#使用-进行本地预览" class="headerlink" title="使用  进行本地预览"></a>使用 <hexo s> 进行本地预览</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
 
+<h2 id="使用-清除缓存文件和已生成的静态文件"><a href="#使用-清除缓存文件和已生成的静态文件" class="headerlink" title="使用  清除缓存文件和已生成的静态文件"></a>使用 <hexo clean> 清除缓存文件和已生成的静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean <span class="comment"># 清除缓存文件db.json 和已生成的静态文件public</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-hexo-generate的简写形式-生成静态文件"><a href="#使用-hexo-generate的简写形式-生成静态文件" class="headerlink" title="使用  (hexo generate的简写形式)生成静态文件"></a>使用 <hexo g> (hexo generate的简写形式)生成静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g <span class="comment"># 是hexo generate的简写形式，生成静态文件到public文件夹</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-hexo-deploy的简写形式-部署静态文件到设定的仓库"><a href="#使用-hexo-deploy的简写形式-部署静态文件到设定的仓库" class="headerlink" title="使用  (hexo deploy的简写形式)部署静态文件到设定的仓库"></a>使用 <hexo d> (hexo deploy的简写形式)部署静态文件到设定的仓库</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d <span class="comment"># 是hexo deploy的简写形式，部署静态文件到设定的仓库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作"><a href="#使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作" class="headerlink" title="使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作"></a>使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d <span class="comment"># 常用的组合命令，清除缓存，生成静态文件，并部署到指定仓库</span></span><br></pre></td></tr></table></figure>
       
       <!-- reward -->
       
