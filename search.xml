@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>你好，欢迎光临我的博客</title>
-    <url>/2020/07/14/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/</url>
+    <url>/2020/07/20/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/</url>
     <content><![CDATA[<h2 id="这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游"><a href="#这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游" class="headerlink" title="这篇说明将更好地帮助你在&lt;Mr.l’s World&gt;里畅游"></a>这篇说明将更好地帮助你在&lt;<em>Mr.l’s World</em>&gt;里畅游</h2><blockquote>
 <p><strong>博客使用简介</strong></p>
 </blockquote>
@@ -36,12 +36,29 @@
 <p><strong>博客更新日志</strong></p>
 </blockquote>
 <ul>
+<li><strong>2020/7/20</strong></li>
+</ul>
+<ol>
+<li>更新文章《R语言学习笔记》</li>
+</ol>
+<p><strong>小结</strong>：更新一篇文章</p>
+<hr>
+<ul>
+<li><strong>2020/7/19</strong></li>
+</ul>
+<ol>
+<li>更新文章《R语言学习笔记》</li>
+</ol>
+<p><strong>小结</strong>：更新一篇文章</p>
+<hr>
+<ul>
 <li><strong>2020/7/5</strong></li>
 </ul>
 <ol>
 <li>更新文章《Hexo进行本地预览》为《Hexo常用命令》</li>
+<li>小幅修改博客导航文字</li>
 </ol>
-<p><strong>小结</strong>：</p>
+<p><strong>小结</strong>：更新一篇文章，小幅修改博客导航文字</p>
 <hr>
 <ul>
 <li><strong>2020/7/5</strong></li>
@@ -580,28 +597,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo常用命令</title>
-    <url>/2020/07/14/Hexo%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/</url>
-    <content><![CDATA[<h2 id="使用-进行本地预览"><a href="#使用-进行本地预览" class="headerlink" title="使用  进行本地预览"></a>使用 <hexo s> 进行本地预览</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-清除缓存文件和已生成的静态文件"><a href="#使用-清除缓存文件和已生成的静态文件" class="headerlink" title="使用  清除缓存文件和已生成的静态文件"></a>使用 <hexo clean> 清除缓存文件和已生成的静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean <span class="comment"># 清除缓存文件db.json 和已生成的静态文件public</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-hexo-generate的简写形式-生成静态文件"><a href="#使用-hexo-generate的简写形式-生成静态文件" class="headerlink" title="使用  (hexo generate的简写形式)生成静态文件"></a>使用 <hexo g> (hexo generate的简写形式)生成静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g <span class="comment"># 是hexo generate的简写形式，生成静态文件到public文件夹</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-hexo-deploy的简写形式-部署静态文件到设定的仓库"><a href="#使用-hexo-deploy的简写形式-部署静态文件到设定的仓库" class="headerlink" title="使用  (hexo deploy的简写形式)部署静态文件到设定的仓库"></a>使用 <hexo d> (hexo deploy的简写形式)部署静态文件到设定的仓库</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d <span class="comment"># 是hexo deploy的简写形式，部署静态文件到设定的仓库</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作"><a href="#使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作" class="headerlink" title="使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作"></a>使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d <span class="comment"># 常用的组合命令，清除缓存，生成静态文件，并部署到指定仓库</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>R语言学习笔记</title>
-    <url>/2020/07/11/R%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <url>/2020/07/20/R%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><h3 id="使用getwd-函数来显示当前工作目录"><a href="#使用getwd-函数来显示当前工作目录" class="headerlink" title="使用getwd()函数来显示当前工作目录"></a>使用<em>getwd()</em>函数来显示当前工作目录</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">getwd()</span><br><span class="line"></span><br><span class="line"><span class="comment"># out:</span></span><br><span class="line">	[1] <span class="string">"C:/Users/lenovo/Documents"</span></span><br></pre></td></tr></table></figure>
 
 <hr>
@@ -620,16 +617,79 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">x[x&gt;5]</span><br><span class="line"></span><br><span class="line">x[x&gt;5 &amp; x&lt;9]</span><br><span class="line"></span><br><span class="line">x[x&gt;5 &amp; x&gt;9]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># out:</span></span><br><span class="line">	[1]  6  7  8  9 10</span><br><span class="line">	[1] 6 7 8</span><br><span class="line">	[1] 10</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h1 id="创建数据集"><a href="#创建数据集" class="headerlink" title="创建数据集"></a>创建数据集</h1><h3 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h3><pre><code>矩阵是一个二维数组，只是每个元素都拥有相同的模式（数值型、字符型或逻辑型）。可通</code></pre><p>过函数matrix()创建矩阵。一般使用格式为：</p>
+<h1 id="创建数据集"><a href="#创建数据集" class="headerlink" title="创建数据集"></a>创建数据集</h1><h3 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h3><p>矩阵是一个二维数组，只是每个元素都拥有相同的模式（数值型、字符型或逻辑型）。可通过函数matrix()创建矩阵。一般使用格式为：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">myymatrix &lt;- matrix(vector, nrow=number_of_rows, ncol=number_of_columns, byrow=logical_value, dimnames=list(</span><br><span class="line"> char_vector_rownames, char_vector_colnames))</span><br></pre></td></tr></table></figure>
-<p>其中vector包含了矩阵的元素，nrow和ncol用以指定行和列的维数，dimnames包含了可选<br>的、以字符型向量表示的行名和列名。选项byrow则表明矩阵应当按行填充（byrow=TRUE）<br>还是按列填充（byrow=FALSE），默认情况下按列填充。</p>
-]]></content>
+<p>其中vector包含了矩阵的元素，nrow和ncol用以指定行和列的维数，dimnames包含了可选的、以字符型向量表示的行名和列名。选项byrow则表明矩阵应当按行填充（byrow=TRUE）还是按列填充（byrow=FALSE），默认情况下按列填充。</p>
+<hr>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><pre><code>数组（array）与矩阵类似，但是维度可以大于2。数组可通过array函数创建，形式如下：</code></pre><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">myarray &lt;- array(vector, dimensions, dimnames)</span><br></pre></td></tr></table></figure>
+<p>其中vector包含了数组中的数据，dimensions是一个数值型向量，给出了各个维度下标的最大值，而dimnames是可选的、各维度名称标签的列表。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; dim1 &lt;- c(<span class="string">"A1"</span>, <span class="string">"A2"</span>)</span><br><span class="line">&gt; dim2 &lt;- c(<span class="string">"B1"</span>, <span class="string">"B2"</span>, <span class="string">"B3"</span>)</span><br><span class="line">&gt; dim3 &lt;- c(<span class="string">"C1"</span>, <span class="string">"C2"</span>, <span class="string">"C3"</span>, <span class="string">"C4"</span>)</span><br><span class="line">&gt; z &lt;- array(1:24, c(2, 3, 4), dimnames=list(dim1, dim2, dim3))</span><br><span class="line"><span class="comment">#  z[1,2,3]为15</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="数据框"><a href="#数据框" class="headerlink" title="数据框"></a>数据框</h3><p>数据框不同的列可以包含不同模式（数值型、字符型等）的数据，所以其较矩阵来说更为一般。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; patientID &lt;- c(1, 2, 3, 4)</span><br><span class="line">&gt; age &lt;- c(25, 34, 28, 52)</span><br><span class="line">&gt; diabetes &lt;- c(<span class="string">"Type1"</span>, <span class="string">"Type2"</span>, <span class="string">"Type1"</span>, <span class="string">"Type1"</span>)</span><br><span class="line">&gt; status &lt;- c(<span class="string">"Poor"</span>, <span class="string">"Improved"</span>, <span class="string">"Excellent"</span>, <span class="string">"Poor"</span>)</span><br><span class="line">&gt; patientdata &lt;- data.frame(patientID, age, diabetes, status)</span><br><span class="line">&gt; patientdata</span><br><span class="line"></span><br><span class="line"> patientID age diabetes status</span><br><span class="line">1 1 25 Type1 Poor</span><br><span class="line">2 2 34 Type2 Improved</span><br><span class="line">3 3 28 Type1 Excellent</span><br><span class="line">4 4 52 Type1 Poor</span><br></pre></td></tr></table></figure>
+<p>选取数据框中元素的方式有若干种。你可以使用前述（如矩阵中的）下标记号，亦可直接指定列名。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; patientdata[1:2]</span><br><span class="line"> patientID age</span><br><span class="line">1 1 25</span><br><span class="line">2 2 34</span><br><span class="line">3 3 28</span><br><span class="line">4 4 52</span><br><span class="line"></span><br><span class="line">&gt; patientdata[c(<span class="string">"diabetes"</span>, <span class="string">"status"</span>)]</span><br><span class="line"> diabetes status</span><br><span class="line">1 Type1 Poor</span><br><span class="line">2 Type2 Improved</span><br><span class="line">3 Type1 Excellent</span><br><span class="line">4 Type1 Poor</span><br><span class="line"></span><br><span class="line"> &gt; patientdata<span class="variable">$age</span></span><br><span class="line">[1] 25 34 28 52</span><br></pre></td></tr></table></figure>
+<p>第三个例子中的记号&lt;$&gt;被用来选取一个给定数据框中的某个特定变量。例如，如果你想生成糖尿病类型变量diabetes和病情变量status的列联表，使用以下代码即可：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; table(patientdata<span class="variable">$diabetes</span>, patientdata<span class="variable">$status</span>)</span><br><span class="line"> Excellent Improved Poor</span><br><span class="line"> Type1 1 0 2</span><br><span class="line"> Type2 0 1 0</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="使用attach-、detach-和with-函数简化代码"><a href="#使用attach-、detach-和with-函数简化代码" class="headerlink" title="使用attach()、detach()和with()函数简化代码"></a>使用attach()、detach()和with()函数简化代码</h3><p>函数attach()[attach有”绑定”之意]可将数据框添加到R的搜索路径中。R在遇到一个变量名以后，将检查搜索路径中的数据框。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">summary(mtcars<span class="variable">$mpg</span>)</span><br><span class="line">plot(mtcars<span class="variable">$mpg</span>, mtcars<span class="variable">$disp</span>)</span><br><span class="line">plot(mtcars<span class="variable">$mpg</span>, mtcars<span class="variable">$wt</span>)</span><br><span class="line"><span class="comment">#----------------------以上代码可简化成：</span></span><br><span class="line">attach(mtcars)</span><br><span class="line"> summary(mpg)</span><br><span class="line"> plot(mpg, disp)</span><br><span class="line"> plot(mpg, wt)</span><br><span class="line">detach(mtcars) 	<span class="comment">#函数detach()将数据框从搜索路径中移除。值得注意的是，detach()并不会对数据框本身做任何处理。这句是可以省略的，但其实它应当被例行地放入代码中，因为这是一个好的编程习惯。</span></span><br></pre></td></tr></table></figure>
+<p>当名称相同的对象不止一个时，这种方法的局限性就很明显了。考虑以下代码：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; mpg &lt;- c(25, 36, 47)</span><br><span class="line">&gt; attach(mtcars)</span><br><span class="line">The following object(s) are masked _by_ <span class="string">'.GlobalEnv'</span>: mpg</span><br><span class="line">&gt; plot(mpg, wt)</span><br><span class="line">Error <span class="keyword">in</span> xy.coords(x, y, xlabel, ylabel, <span class="built_in">log</span>) :</span><br><span class="line"> <span class="string">'x'</span> and <span class="string">'y'</span> lengths differ</span><br><span class="line">&gt; mpg</span><br><span class="line">[1] 25 36 47 </span><br><span class="line"></span><br><span class="line"><span class="comment">#这里，在数据框mtcars被绑定（attach）之前，你们的环境中已经有了一个名为mpg的对象。在这种情况下，原始对象将取得优先权。由于mpg中有3个元素而disp中有32个元素，故plot语句出错。函数attach()和detach()最好在你分析一个单独的数据框，并且不太可能有多个同名对象时使用。**任何情况下，都要当心那些告知某个对象已被屏蔽（masked）的警告。**</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#-------------------------使用函数with()可以这样重写上例</span></span><br><span class="line"></span><br><span class="line">with(mtcars, &#123;</span><br><span class="line"> <span class="built_in">print</span>(summary(mpg))</span><br><span class="line"> plot(mpg, disp)</span><br><span class="line"> plot(mpg, wt)</span><br><span class="line">&#125;) </span><br><span class="line"><span class="comment">#在这种情况下，花括号&#123;&#125;之间的语句都针对数据框mtcars执行，这样就无需担心名称冲突了。如果仅有一条语句（例如summary(mpg)），那么花括号&#123;&#125;可以省略。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#-----------------函数with()的局限性在于，赋值仅在此函数的括号内生效。</span></span><br><span class="line"></span><br><span class="line">&gt; with(mtcars, &#123;</span><br><span class="line"> stats &lt;- summary(mpg)</span><br><span class="line"> stats</span><br><span class="line"> &#125;)</span><br><span class="line"> Min. 1st Qu. Median Mean 3rd Qu. Max.</span><br><span class="line"> 10.40 15.43 19.20 20.09 22.80 33.90</span><br><span class="line">&gt; stats</span><br><span class="line">Error: object <span class="string">'stats'</span> not found </span><br><span class="line"></span><br><span class="line"><span class="comment">#-------------------如果你需要创建在with()结构以外存在的对象，使用特殊赋值符(&lt;&lt;-)替代标准赋值符（&lt;-）即可，它可将对象保存到with()之外的全局环境中。</span></span><br><span class="line"></span><br><span class="line">&gt; with(mtcars, &#123;</span><br><span class="line"> nokeepstats &lt;- summary(mpg)</span><br><span class="line"> keepstats &lt;&lt;- summary(mpg)</span><br><span class="line">&#125;)</span><br><span class="line">&gt; nokeepstats</span><br><span class="line">Error: object <span class="string">'nokeepstats'</span> not found</span><br><span class="line">&gt; keepstats</span><br><span class="line"> Min. 1st Qu. Median Mean 3rd Qu. Max.</span><br><span class="line"> 10.40 15.43 19.20 20.09 22.80 33.90</span><br></pre></td></tr></table></figure>
+<ul>
+<li>实例标识符<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; patientID &lt;- c(1, 2, 3, 4)</span><br><span class="line">&gt; age &lt;- c(25, 34, 28, 52)</span><br><span class="line">&gt; diabetes &lt;- c(<span class="string">"Type1"</span>, <span class="string">"Type2"</span>, <span class="string">"Type1"</span>, <span class="string">"Type1"</span>)</span><br><span class="line">&gt; status &lt;- c(<span class="string">"Poor"</span>, <span class="string">"Improved"</span>, <span class="string">"Excellent"</span>, <span class="string">"Poor"</span>)</span><br><span class="line">&gt; patientdata &lt;- data.frame(patientID, age, diabetes, status)</span><br><span class="line">&gt; patientdata </span><br><span class="line">  patientID age diabetes    status</span><br><span class="line">1         1  25    Type1      Poor</span><br><span class="line">2         2  34    Type2  Improved</span><br><span class="line">3         3  28    Type1 Excellent</span><br><span class="line">4         4  52    Type1      Poor</span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------------在病例数据中，病人编号（patientID）用于区分数据集中不同的个体。在R中，实例标识符（case identifier）可通过数据框操作函数中的rowname选项指定。</span></span><br><span class="line"></span><br><span class="line">&gt; patientdata &lt;- data.frame(patientID, age, diabetes,status, row.names=age) </span><br><span class="line">&gt; patientdata</span><br><span class="line">   patientID age diabetes    status</span><br><span class="line">25         1  25    Type1      Poor</span><br><span class="line">34         2  34    Type2  Improved</span><br><span class="line">28         3  28    Type1 Excellent</span><br><span class="line">52         4  52    Type1      Poor</span><br><span class="line"><span class="comment">#将patientID指定为R中标记各类打印输出和图形中实例名称所用的变量。</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h3 id="因子"><a href="#因子" class="headerlink" title="因子"></a>因子</h3><p>变量可归结为名义型、有序型或连续型变量。</p>
+<ol>
+<li>名义型变量是没有顺序之分的类别变量。糖尿病类型Diabetes（Type1、Type2）是名义型变量的一例。即使在数据中Type1编码为1而Type2编码为2，这也并不意味着二者是有序的。</li>
+<li>有序型变量表示一种顺序关系，而非数量关系。病情Status（poor、improved、excellent）是顺序型变量的一个上佳示例。我们明白，病情为poor（较差）病人的状态不如improved（病情好转）的病人，但并不知道相差多少。</li>
+<li>连续型变量可以呈现为某个范围内的任意值，并同时表示了顺序和数量。年龄Age就是一个连续型变量，它能够表示像14.5或22.8这样的值以及其间的其他任意值。</li>
+</ol>
+<p><strong>类别（名义型）变量</strong>和<strong>有序类别（有序型）变量</strong>在R中称为<strong>因子（factor）</strong>。<strong>因子在R中非常重要，因为它决定了数据的分析方式以及如何进行视觉呈现</strong>。</p>
+<p>函数factor()以一个整数向量的形式存储类别值，整数的取值范围是[1…k]（其中k是名义型变量中唯一值的个数），同时一个由字符串（原始值）组成的内部向量将映射到这些整数上。</p>
+<ul>
+<li><p>对于<strong>字符型向量</strong>，因子的水平默认<strong>依字母顺序创建</strong>。但按默认的字母顺序排序的因子很少能够让人满意。你可以通过指定levels选项来覆盖默认排序。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; status &lt;- c(<span class="string">"Poor"</span>, <span class="string">"Improved"</span>, <span class="string">"Excellent"</span>, <span class="string">"Poor"</span>)</span><br><span class="line">&gt; status &lt;- factor(status, order=TRUE,levels=c(<span class="string">"Poor"</span>, <span class="string">"Improved"</span>, <span class="string">"Excellent"</span>))</span><br><span class="line">&gt; status</span><br><span class="line">[1] Poor Improved Excellent Poor     </span><br><span class="line">Levels: Poor &lt; Improved &lt; Excellent</span><br><span class="line"><span class="comment">#各水平的赋值将为1=Poor、2=Improved、3=Excellent。必须保证指定的水平与数据中的真实值相匹配，否则任何在数据中出现而未在参数中列举的数据都将被设为缺失值。</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数值型变量可以用levels和labels参数来编码成因子。如果男性被编码成1，女性被编码成2</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; sex &lt;- c(1,2,1,1)</span><br><span class="line">&gt; sex &lt;- factor(sex, levels=c(1, 2), labels=c(<span class="string">"Male"</span>, <span class="string">"Female"</span>))</span><br><span class="line">&gt; sex</span><br><span class="line">[1] Male Female Male Male  </span><br><span class="line">Levels: Male Female</span><br></pre></td></tr></table></figure>
+<p>以下代码演示了普通因子和有序因子的不同是如何影响数据分析的。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">&gt; patientID &lt;- c(1, 2, 3, 4)</span><br><span class="line">&gt; age &lt;- c(25, 34, 28, 52)</span><br><span class="line">&gt; diabetes &lt;- c(<span class="string">"Type1"</span>, <span class="string">"Type2"</span>, <span class="string">"Type1"</span>, <span class="string">"Type1"</span>)</span><br><span class="line">&gt; status &lt;- c(<span class="string">"Poor"</span>, <span class="string">"Improved"</span>, <span class="string">"Excellent"</span>, <span class="string">"Poor"</span>)</span><br><span class="line">&gt; diabetes &lt;- factor(diabetes)</span><br><span class="line">&gt; status &lt;- factor(status, order=TRUE)</span><br><span class="line">&gt; patientdata &lt;- data.frame(patientID, age, diabetes, status) </span><br><span class="line"></span><br><span class="line">&gt; str(patientdata) </span><br><span class="line"><span class="string">'data.frame'</span>:	4 obs. of  4 variables:</span><br><span class="line"> $ patientID: num  1 2 3 4</span><br><span class="line"> $ age      : num  25 34 28 52</span><br><span class="line"> $ diabetes : Factor w/ 2 levels <span class="string">"Type1"</span>,<span class="string">"Type2"</span>: 1 2 1 1</span><br><span class="line"> $ status   : Ord.factor w/ 3 levels <span class="string">"Excellent"</span>&lt;<span class="string">"Improved"</span>&lt;..: 3 2 1 3</span><br><span class="line"></span><br><span class="line"> &gt; summary(patientdata)</span><br><span class="line">   patientID         age         diabetes</span><br><span class="line"> Min.   :1.00   Min.   :25.00   Type1:3  </span><br><span class="line"> 1st Qu.:1.75   1st Qu.:27.25   Type2:1  </span><br><span class="line"> Median :2.50   Median :31.00            </span><br><span class="line"> Mean   :2.50   Mean   :34.75            </span><br><span class="line"> 3rd Qu.:3.25   3rd Qu.:38.50            </span><br><span class="line"> Max.   :4.00   Max.   :52.00  </span><br><span class="line"></span><br><span class="line">       status </span><br><span class="line"> Excellent:1  </span><br><span class="line"> Improved :1  </span><br><span class="line"> Poor     :2</span><br><span class="line"></span><br><span class="line"><span class="comment">#---------------------</span></span><br><span class="line"></span><br><span class="line">&gt; patientID &lt;- c(1, 2, 3, 4)</span><br><span class="line">&gt; age &lt;- c(25, 34, 28, 52)</span><br><span class="line">&gt; diabetes &lt;- c(<span class="string">"Type1"</span>, <span class="string">"Type2"</span>, <span class="string">"Type1"</span>, <span class="string">"Type1"</span>)</span><br><span class="line">&gt; status &lt;- c(<span class="string">"Poor"</span>, <span class="string">"Improved"</span>, <span class="string">"Excellent"</span>, <span class="string">"Poor"</span>)</span><br><span class="line">&gt; patientdata &lt;- data.frame(patientID, age, diabetes, status)</span><br><span class="line"></span><br><span class="line">&gt; str(patientdata) </span><br><span class="line"><span class="string">'data.frame'</span>:	4 obs. of  4 variables:</span><br><span class="line"> $ patientID: num  1 2 3 4</span><br><span class="line"> $ age      : num  25 34 28 52</span><br><span class="line"> $ diabetes : chr  <span class="string">"Type1"</span> <span class="string">"Type2"</span> <span class="string">"Type1"</span> <span class="string">"Type1"</span></span><br><span class="line"> $ status   : chr  <span class="string">"Poor"</span> <span class="string">"Improved"</span> <span class="string">"Excellent"</span> <span class="string">"Poor"</span></span><br><span class="line"></span><br><span class="line">&gt; summary(patientdata)</span><br><span class="line">   patientID         age          diabetes        </span><br><span class="line"> Min.   :1.00   Min.   :25.00   Length:4          </span><br><span class="line"> 1st Qu.:1.75   1st Qu.:27.25   Class :character  </span><br><span class="line"> Median :2.50   Median :31.00   Mode  :character  </span><br><span class="line"> Mean   :2.50   Mean   :34.75                     </span><br><span class="line"> 3rd Qu.:3.25   3rd Qu.:38.50                     </span><br><span class="line"> Max.   :4.00   Max.   :52.00 </span><br><span class="line"></span><br><span class="line">    status         </span><br><span class="line"> Length:4          </span><br><span class="line"> Class :character  </span><br><span class="line"> Mode  :character</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3>]]></content>
       <categories>
         <category>技术笔记</category>
         <category>R语言 基础语法</category>
       </categories>
       <tags>
         <tag>R语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo常用命令</title>
+    <url>/2020/07/14/Hexo%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/</url>
+    <content><![CDATA[<h2 id="使用-进行本地预览"><a href="#使用-进行本地预览" class="headerlink" title="使用  进行本地预览"></a>使用 <hexo s> 进行本地预览</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-清除缓存文件和已生成的静态文件"><a href="#使用-清除缓存文件和已生成的静态文件" class="headerlink" title="使用  清除缓存文件和已生成的静态文件"></a>使用 <hexo clean> 清除缓存文件和已生成的静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean <span class="comment"># 清除缓存文件db.json 和已生成的静态文件public</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-hexo-generate的简写形式-生成静态文件"><a href="#使用-hexo-generate的简写形式-生成静态文件" class="headerlink" title="使用  (hexo generate的简写形式)生成静态文件"></a>使用 <hexo g> (hexo generate的简写形式)生成静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo g <span class="comment"># 是hexo generate的简写形式，生成静态文件到public文件夹</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-hexo-deploy的简写形式-部署静态文件到设定的仓库"><a href="#使用-hexo-deploy的简写形式-部署静态文件到设定的仓库" class="headerlink" title="使用  (hexo deploy的简写形式)部署静态文件到设定的仓库"></a>使用 <hexo d> (hexo deploy的简写形式)部署静态文件到设定的仓库</hexo></h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo d <span class="comment"># 是hexo deploy的简写形式，部署静态文件到设定的仓库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作"><a href="#使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作" class="headerlink" title="使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作"></a>使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d <span class="comment"># 常用的组合命令，清除缓存，生成静态文件，并部署到指定仓库</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
