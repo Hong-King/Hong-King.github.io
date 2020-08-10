@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://hong-king.github.io/"/>
-  <updated>2020-08-06T12:24:28.173Z</updated>
+  <updated>2020-08-09T04:48:43.296Z</updated>
   <id>https://hong-king.github.io/</id>
   
   <author>
@@ -15,6 +15,114 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python 表格数据合并函数merge()</title>
+    <link href="https://hong-king.github.io/2020/08/09/python%20%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6%E5%87%BD%E6%95%B0merge()/"/>
+    <id>https://hong-king.github.io/2020/08/09/python%20%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6%E5%87%BD%E6%95%B0merge()/</id>
+    <published>2020-08-09T00:52:00.000Z</published>
+    <updated>2020-08-09T04:48:43.296Z</updated>
+    
+    <content type="html"><![CDATA[<p>函数merge()的用法有点类似SQL语言</p><h3 id="左右连接键名一样"><a href="#左右连接键名一样" class="headerlink" title="左右连接键名一样"></a>左右连接键名一样</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">df1=pd.DataFrame(&#123;<span class="string">'key'</span>:[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'b'</span>],<span class="string">'value1'</span>:range(5)&#125;)</span><br><span class="line">df2=pd.DataFrame(&#123;<span class="string">'key'</span>:[<span class="string">'a'</span>,<span class="string">'c'</span>,<span class="string">'c'</span>,<span class="string">'c'</span>,<span class="string">'c'</span>],<span class="string">'value2'</span>:range(5)&#125;)</span><br><span class="line">display(df1,df2,pd.merge(df1,df2))</span><br></pre></td></tr></table></figure><p>df1</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    key  value1          </span><br><span class="line">0 a  0</span><br><span class="line">1  b  1</span><br><span class="line">2  a  2</span><br><span class="line">3  b  3</span><br><span class="line">4  b  4</span><br></pre></td></tr></table></figure><p>df2</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    key  value2</span><br><span class="line">0  a  0</span><br><span class="line">1  c  1</span><br><span class="line">2  c  2</span><br><span class="line">3  c  3</span><br><span class="line">4  c  4</span><br></pre></td></tr></table></figure><p>pd.merge(df1,df2) ##以df1、df2中相同的列名key进行连接,默认how=’inner’, pd.merge(df1,df2,on=’key’,how=’inner’)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   key  value1 value2</span><br><span class="line">0  a    0    0</span><br><span class="line">1  a    2    0</span><br></pre></td></tr></table></figure><a id="more"></a><p>pd.merge(df1,df2,how=’outer’) ##  全连接，取并集</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">keyvalue1value2</span><br><span class="line">0  a  0.00.0</span><br><span class="line">1 a  2.00.0</span><br><span class="line">2 b  1.0NaN</span><br><span class="line">3  b  3.0NaN</span><br><span class="line">4  b  4.0NaN</span><br><span class="line">5 c  NaN1.0</span><br><span class="line">6  c  NaN2.0</span><br><span class="line">7  c  NaN3.0</span><br><span class="line">8  c  NaN4.0</span><br></pre></td></tr></table></figure><p>pd.merge(df1,df2,how=’left’)  ### 左连接，左边取全部，右边取部分，没有值则用NaN填充</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">   key   value1   value2</span><br><span class="line">0  a   0   0.0</span><br><span class="line">1  b   1   NaN</span><br><span class="line">2  a   2   0.0</span><br><span class="line">3  b   3   NaN</span><br><span class="line">4  b   4   NaN</span><br></pre></td></tr></table></figure><p>pd.merge(df1,df2,how=’right’) ###  右连接，右边取全部，左边取部分，没有值则用NaN填充</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">key   value1  value2</span><br><span class="line">0a   0.0 0</span><br><span class="line">1a   2.0 0</span><br><span class="line">2c   NaN 1</span><br><span class="line">3c   NaN 2</span><br><span class="line">4c   NaN 3</span><br><span class="line">5c   NaN 4</span><br></pre></td></tr></table></figure><hr><h3 id="左右连接键名不一样"><a href="#左右连接键名不一样" class="headerlink" title="左右连接键名不一样"></a>左右连接键名不一样</h3><p>如果两个DataFrame的左右连接键的列名不一样，可以用left_on，right_on来进行指定</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df3=pd.DataFrame(&#123;<span class="string">'lkey'</span>:[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'b'</span>],<span class="string">'data1'</span>:range(5)&#125;)</span><br><span class="line">df4=pd.DataFrame(&#123;<span class="string">'rkey'</span>:[<span class="string">'a'</span>,<span class="string">'c'</span>,<span class="string">'c'</span>,<span class="string">'c'</span>,<span class="string">'c'</span>],<span class="string">'data2'</span>:range(5)&#125;)</span><br></pre></td></tr></table></figure><p>df3</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    lkey  data1</span><br><span class="line">0    a      0</span><br><span class="line">1    b      1</span><br><span class="line">2    a      2</span><br><span class="line">3    b      3</span><br><span class="line">4    b      4</span><br></pre></td></tr></table></figure><p>df4</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    rkey  data2</span><br><span class="line">0    a      0</span><br><span class="line">1    c      1</span><br><span class="line">2    c      2</span><br><span class="line">3    c      3</span><br><span class="line">4    c      4</span><br></pre></td></tr></table></figure><p>pd.merge(df3,df4,left_on=’lkey’,right_on=’rkey’)   ### 内连接，默认how=’inner’</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    lkey  data1 rkey  data2</span><br><span class="line">0    a      0    a      0</span><br><span class="line">1    a      2    a      0</span><br></pre></td></tr></table></figure><p>pd.merge(df3,df4,left_on=’lkey’,right_on=’lkey’,how=’outer’)  ### 全连接</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">    lkey  data1 rkey  data2</span><br><span class="line">0    a    0.0    a    0.0</span><br><span class="line">1    a    2.0    a    0.0</span><br><span class="line">2    b    1.0  NaN    NaN</span><br><span class="line">3    b    3.0  NaN    NaN</span><br><span class="line">4    b    4.0  NaN    NaN</span><br><span class="line">5  NaN    NaN    c    1.0</span><br><span class="line">6  NaN    NaN    c    2.0</span><br><span class="line">7  NaN    NaN    c    3.0</span><br><span class="line">8  NaN    NaN    c    4.0</span><br></pre></td></tr></table></figure><p>pd.merge(df3,df4,left_on=’lkey’,right_on=’rkey’,how=’left’)  ### 左连接</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    lkey  data1 rkey  data2</span><br><span class="line">0    a      0    a    0.0</span><br><span class="line">1    b      1  NaN    NaN</span><br><span class="line">2    a      2    a    0.0</span><br><span class="line">3    b      3  NaN    NaN</span><br><span class="line">4    b      4  NaN    NaN</span><br></pre></td></tr></table></figure><p>pd.merge(df3,df4,left_on=’lkey’,right_on=’rkey’,how=’right’)  ### 右连接</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    lkey  data1 rkey  data2</span><br><span class="line">0    a    0.0    a      0</span><br><span class="line">1    a    2.0    a      0</span><br><span class="line">2  NaN    NaN    c      1</span><br><span class="line">3  NaN    NaN    c      2</span><br><span class="line">4  NaN    NaN    c      3</span><br><span class="line">5  NaN    NaN    c      4</span><br></pre></td></tr></table></figure><hr><h3 id="索引作为连接键"><a href="#索引作为连接键" class="headerlink" title="索引作为连接键"></a>索引作为连接键</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df5=pd.DataFrame(np.arange(12).reshape(3,4),index=list(<span class="string">'abc'</span>),columns=[<span class="string">'v1'</span>,<span class="string">'v2'</span>,<span class="string">'v3'</span>,<span class="string">'v4'</span>])</span><br><span class="line">df6=pd.DataFrame(np.arange(12,24,1).reshape(3,4),index=list(<span class="string">'abd'</span>),columns=[<span class="string">'v5'</span>,<span class="string">'v6'</span>,<span class="string">'v7'</span>,<span class="string">'v8'</span>])</span><br></pre></td></tr></table></figure><p>df5</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    v1  v2  v3  v4</span><br><span class="line">a   0   1   2   3</span><br><span class="line">b   4   5   6   7</span><br><span class="line">c   8   9  10  11</span><br></pre></td></tr></table></figure><p>df6</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   v5  v6  v7  v8</span><br><span class="line">a  12  13  14  15</span><br><span class="line">b  16  17  18  19</span><br><span class="line">d  20  21  22  23</span><br></pre></td></tr></table></figure><p>pd.merge(df5,df6,left_index=True,right_index=True)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">v1v2v3v4v5v6v7v8</span><br><span class="line">a012312131415</span><br><span class="line">b456716171819</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;函数merge()的用法有点类似SQL语言&lt;/p&gt;
+&lt;h3 id=&quot;左右连接键名一样&quot;&gt;&lt;a href=&quot;#左右连接键名一样&quot; class=&quot;headerlink&quot; title=&quot;左右连接键名一样&quot;&gt;&lt;/a&gt;左右连接键名一样&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;import pandas as pd&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;df1=pd.DataFrame(&amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;key&#39;&lt;/span&gt;:[&lt;span class=&quot;string&quot;&gt;&#39;a&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;b&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;a&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;b&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;b&#39;&lt;/span&gt;],&lt;span class=&quot;string&quot;&gt;&#39;value1&#39;&lt;/span&gt;:range(5)&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;df2=pd.DataFrame(&amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;key&#39;&lt;/span&gt;:[&lt;span class=&quot;string&quot;&gt;&#39;a&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;c&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;c&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;c&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;c&#39;&lt;/span&gt;],&lt;span class=&quot;string&quot;&gt;&#39;value2&#39;&lt;/span&gt;:range(5)&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;display(df1,df2,pd.merge(df1,df2))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;df1&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;    key  value1          &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;0 	a		  0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;1	  b		  1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2	  a		  2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3	  b		  3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4	  b		  4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;df2&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;    key  value2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;0	  a		  0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;1	  c		  1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2	  c		  2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3	  c		  3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4	  c		  4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;pd.merge(df1,df2) ##以df1、df2中相同的列名key进行连接,默认how=’inner’, pd.merge(df1,df2,on=’key’,how=’inner’)&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;   key  value1 value2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;0	  a	    0	    0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;1	  a	    2	    0&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Python 问题解决" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    
+    
+      <category term="Python" scheme="https://Hong-King.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>你好，欢迎光临我的博客</title>
+    <link href="https://hong-king.github.io/2020/08/09/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/"/>
+    <id>https://hong-king.github.io/2020/08/09/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/</id>
+    <published>2020-08-09T00:52:00.000Z</published>
+    <updated>2020-08-09T01:12:35.724Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游"><a href="#这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游" class="headerlink" title="这篇说明将更好地帮助你在&lt;Mr.l’s World&gt;里畅游"></a>这篇说明将更好地帮助你在&lt;<em>Mr.l’s World</em>&gt;里畅游</h2><blockquote><p><strong>博客使用简介</strong></p></blockquote><ol><li><p>博客界面<strong>左侧</strong>有<strong>侧边菜单</strong>为你提供快捷帮助<strong>&lt;<em>手机用户请点击屏幕左上角按钮以呼出菜单</em>&gt;</strong></p></li><li><p>博客界面<strong>右下角</strong>有<strong>暗夜模式按钮</strong>为你提供更好的浏览体验</p></li><li><p>博客同样为你提供<strong>文章查找</strong>功能，功能按钮在<strong>侧边菜单</strong>的下方</p></li><li><p>博客已开放<strong>评论留言系统</strong>，欢迎大家在评论区留下你的足迹</p></li><li><p><strong>《语言之美-古诗丽词》</strong>与<strong>《语言之美-新句美文》</strong>两篇文章将不定时持续更新，欢迎大家在评论区留下自己的珍藏，我也很乐意将其收录进文章里面</p></li><li><p><strong>光影画廊</strong>模块里展示了一些我个人的绘画作品，希望大家能够喜欢(^^)</p></li></ol><blockquote><p>技术支持</p></blockquote><ul><li><strong>Powered by</strong> <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a></li><li><strong>Theme:</strong> <a href="https://shen-yu.gitee.io/" target="_blank" rel="noopener">Ayer</a></li></ul><hr><p> (以下是博客更新日志，日志从2020/4/11开始记录，你<strong>可以点击</strong>&lt;阅读更多…&gt;来快速掌握博客更新动向，或者在<strong>文章概览</strong>里浏览最近更新的文章)</p><a id="more"></a><hr><blockquote><p><strong>博客更新日志</strong></p></blockquote><ul><li><strong>2020/8/9</strong></li></ul><ol><li>添加文章《关于在Python中利用pandas读取与保存csv文件失败的解决方法(‘utf-8’编码格式不对)》</li><li>删除两篇低价值文章，合并一篇文章</li></ol><p><strong>小结</strong>：更新一篇文章</p><hr><ul><li><strong>2020/8/6</strong></li></ul><ol><li>更新文章《语言之美-古诗丽词》</li><li>添加文章《R语言dgCMatrix稀疏矩阵结构》</li><li>修复文章评论系统</li></ol><p><strong>小结</strong>：更新两篇文章，修复无法评论小BUG</p><hr><ul><li><strong>2020/7/21</strong></li></ul><ol><li>更新文章《R语言学习笔记》、《语言之美-古诗丽词》</li></ol><p><strong>小结</strong>：更新两篇文章</p><hr><ul><li><strong>2020/7/20</strong></li></ul><ol><li>更新文章《R语言学习笔记》</li></ol><p><strong>小结</strong>：更新一篇文章</p><hr><ul><li><strong>2020/7/19</strong></li></ul><ol><li>更新文章《R语言学习笔记》</li></ol><p><strong>小结</strong>：更新一篇文章</p><hr><ul><li><strong>2020/7/5</strong></li></ul><ol><li>更新文章《Hexo进行本地预览》为《Hexo常用命令》</li><li>小幅修改博客导航文字</li></ol><p><strong>小结</strong>：更新一篇文章，小幅修改博客导航文字</p><hr><ul><li><strong>2020/7/5</strong></li></ul><ol><li>更新文章《R语言学习笔记》</li></ol><p><strong>小结</strong>：更新文章《R语言学习笔记》</p><hr><ul><li><strong>2020/7/5</strong></li></ul><ol><li>添加文章《C++学习笔记》</li></ol><p><strong>小结</strong>：添加文章《C++学习笔记》</p><hr><ul><li><strong>2020/7/4</strong></li></ul><ol><li>修复了博客<em>文章分类</em>模块无法显示的问题</li></ol><p><strong>小结</strong>：博客小BUG修复</p><hr><ul><li><strong>2020/7/2</strong></li></ul><ol><li>添加文章《R语言学习笔记》</li></ol><p><strong>小结</strong>：添加文章<strong>《R语言学习笔记》</strong></p><hr><ul><li><strong>2020/5/9</strong></li></ul><ol><li>更新文章《《python深度学习》笔记》</li><li>添加文章《Python中copy与deepcopy的区别》</li></ol><p><strong>小结</strong>：今日更新文章<strong>《《python深度学习》笔记》</strong>，添加文章<strong>《Python中copy与deepcopy的区别》</strong></p><hr><ul><li><strong>2020/5/8</strong></li></ul><ol><li>更新文章《《python深度学习》笔记》</li><li>优化《语言之美-古诗丽词》检索界面</li></ol><p><strong>小结</strong>：今日更新文章<strong>《《python深度学习》笔记》</strong>，优化<strong>《语言之美-古诗丽词》</strong>检索界面(2020/5/8 09:42 PV:460 UV:206)</p><hr><ul><li><strong>2020/5/7</strong></li></ul><ol><li>更新文章《《python深度学习》笔记》</li></ol><p><strong>小结</strong>：今日更新文章<strong>《《python深度学习》笔记》</strong>(2020/5/7 11:14 PV:460 UV:206)</p><hr><ul><li><strong>2020/5/6</strong></li></ul><ol><li>添加文章《《python深度学习》笔记》</li></ol><p><strong>小结</strong>：今日添加文章<strong>《《python深度学习》笔记》</strong>(2020/5/6 12:08 PV:456 UV:204)</p><hr><ul><li><strong>2020/4/30</strong></li></ul><ol><li>光影画廊模块上线</li><li>小幅更新文章《语言之美-古诗丽词》</li></ol><p><strong>小结</strong>：今日<strong>上线光影画廊模块</strong>,更新<strong>《语言之美-古诗丽词》</strong>(2020/4/30 20:39 PV:436 UV:188)</p><hr><ul><li><strong>2020/4/29</strong></li></ul><ol><li>小幅更新文章《语言之美-古诗丽词》与《语言之美-新句美文》</li><li>更改两处滚动标题</li></ol><p><strong>小结</strong>：今日<strong>更新两篇文章</strong>(2020/4/29 22:34 PV:430 UV:183)</p><hr><ul><li><strong>2020/4/23</strong></li></ul><ol><li>更新文章《利用tf.concat()与np.concatenate来拼接向量》</li></ol><p><strong>小结</strong>：今日<strong>更新一篇文章</strong>(2020/4/23 10:13 PV:411 UV:165)</p><hr><ul><li><strong>2020/4/22</strong></li></ul><ol><li>添加文章《利用reshape重塑numpy数组》，《利用tf.concat()与np.concatenate来拼接向量》</li></ol><p><strong>小结</strong>：今日<strong>添加两篇文章</strong>(2020/4/22 10:13 PV:399 UV:158)</p><hr><ul><li><strong>2020/4/20</strong></li></ul><ol><li>更新文章《语言之美-古诗丽词》</li></ol><p><strong>小结</strong>：今日<strong>大幅更新《语言之美-古诗丽词》并优化文章排版</strong>(2020/4/20 22:05 PV:390 UV:153)</p><hr><ul><li><strong>2020/4/16</strong></li></ul><ol><li>更新文章《《数据结构与算法》笔记(Python语言实现)》(2020/4/16 20:06 PV:385 UV:150)</li></ol><hr><ul><li><strong>2020/4/14</strong></li></ul><ol><li>更新文章《Pandas在Python语言下的基础使用》(2020/4/14 22:12 PV:376 UV:145)</li></ol><hr><ul><li><strong>2020/4/13</strong></li></ul><ol><li>更新文章《《Python机器学习基础教程》笔记(scikit-learn框架)》</li><li>更新文章《python画散点图[plt.scatter()]以及矩阵散点图[pd.scatter_matrix()]详解》（待优化）</li><li>暂时搁置文章《Pandas在Python语言下的基础使用》</li><li>暂时搁置文章《《数据结构与算法》笔记(Python语言实现)》</li></ol><p><strong>小结</strong>：今日更新主要<strong>优化文章排版</strong>，<strong>更新两篇文章</strong>(2020/4/13 22:05 PV:374 UV:143)</p><hr><ul><li><strong>2020/4/11</strong></li></ul><ol><li>博客现在已经<strong>能够在文章中插入图片</strong>，但<strong>光影画廊仍然无法在云端显示图片</strong></li><li>博客现在已开放<strong>评论留言系统</strong>，并能够<strong>置顶文章</strong></li></ol><p><strong>小结</strong>：今天<strong>无文章更新</strong>，主要是<strong>完善博客功能</strong>(2020/4/11 22:39 PV:354 UV:138)</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游&quot;&gt;&lt;a href=&quot;#这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游&quot; class=&quot;headerlink&quot; title=&quot;这篇说明将更好地帮助你在&amp;lt;Mr.l’s World&amp;gt;里畅游&quot;&gt;&lt;/a&gt;这篇说明将更好地帮助你在&amp;lt;&lt;em&gt;Mr.l’s World&lt;/em&gt;&amp;gt;里畅游&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;博客使用简介&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;博客界面&lt;strong&gt;左侧&lt;/strong&gt;有&lt;strong&gt;侧边菜单&lt;/strong&gt;为你提供快捷帮助&lt;strong&gt;&amp;lt;&lt;em&gt;手机用户请点击屏幕左上角按钮以呼出菜单&lt;/em&gt;&amp;gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;博客界面&lt;strong&gt;右下角&lt;/strong&gt;有&lt;strong&gt;暗夜模式按钮&lt;/strong&gt;为你提供更好的浏览体验&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;博客同样为你提供&lt;strong&gt;文章查找&lt;/strong&gt;功能，功能按钮在&lt;strong&gt;侧边菜单&lt;/strong&gt;的下方&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;博客已开放&lt;strong&gt;评论留言系统&lt;/strong&gt;，欢迎大家在评论区留下你的足迹&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;《语言之美-古诗丽词》&lt;/strong&gt;与&lt;strong&gt;《语言之美-新句美文》&lt;/strong&gt;两篇文章将不定时持续更新，欢迎大家在评论区留下自己的珍藏，我也很乐意将其收录进文章里面&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;光影画廊&lt;/strong&gt;模块里展示了一些我个人的绘画作品，希望大家能够喜欢(^^)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;技术支持&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Powered by&lt;/strong&gt; &lt;a href=&quot;https://hexo.io/zh-cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Theme:&lt;/strong&gt; &lt;a href=&quot;https://shen-yu.gitee.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Ayer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt; (以下是博客更新日志，日志从2020/4/11开始记录，你&lt;strong&gt;可以点击&lt;/strong&gt;&amp;lt;阅读更多…&amp;gt;来快速掌握博客更新动向，或者在&lt;strong&gt;文章概览&lt;/strong&gt;里浏览最近更新的文章)&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>关于在Python中利用pandas读取与保存csv文件失败的解决方法(&#39;utf-8&#39;编码格式不对)</title>
+    <link href="https://hong-king.github.io/2020/08/09/%E5%85%B3%E4%BA%8E%E5%9C%A8Python%E4%B8%AD%E5%88%A9%E7%94%A8pandas%E8%AF%BB%E5%8F%96csv%E6%96%87%E4%BB%B6%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95(&#39;utf-8&#39;%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E4%B8%8D%E5%AF%B9)/"/>
+    <id>https://hong-king.github.io/2020/08/09/%E5%85%B3%E4%BA%8E%E5%9C%A8Python%E4%B8%AD%E5%88%A9%E7%94%A8pandas%E8%AF%BB%E5%8F%96csv%E6%96%87%E4%BB%B6%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95(&#39;utf-8&#39;%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E4%B8%8D%E5%AF%B9)/</id>
+    <published>2020-08-09T00:52:00.000Z</published>
+    <updated>2020-08-09T00:52:26.906Z</updated>
+    
+    <content type="html"><![CDATA[<p>在一开始我遇到了这个错误：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(<span class="string">'data1.csv'</span>)</span><br><span class="line"><span class="built_in">print</span>(data)</span><br><span class="line"></span><br><span class="line">[out]:</span><br><span class="line">UnicodeDecodeError: <span class="string">'utf-8'</span> codec can<span class="string">'t decode byte 0xc4 in position 0: invalid continuation byte</span></span><br></pre></td></tr></table></figure><p>开始不知道如何解决，一直想通过下载csv包来解决，但pip里没有这个包。后来我通过对csv文件进行“只读”操作后，发出现程序可以运行了</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(open(<span class="string">'data1.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line"><span class="built_in">print</span>(data)</span><br></pre></td></tr></table></figure><hr><p>在保存时我也遇到了编码格式不对的错误，我是这样解决的</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">data1 = pd.read_csv(open(<span class="string">'data1.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line">data2 = pd.read_csv(open(<span class="string">'data2.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line">data3 = pd.read_csv(open(<span class="string">'data3.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(data1))</span><br><span class="line">result = pd.merge(data1, data2 ,on=<span class="string">'CardNo'</span>)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line">result.to_csv(<span class="string">'data4.csv'</span>,encoding=<span class="string">"utf_8_sig"</span>) <span class="comment">#用于解决编码错误问题</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在一开始我遇到了这个错误：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/
+      
+    
+    </summary>
+    
+    
+      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="Python 问题解决" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    
+    
+      <category term="Python" scheme="https://Hong-King.github.io/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>语言之美-古诗丽词</title>
@@ -90,50 +198,6 @@
   </entry>
   
   <entry>
-    <title>你好，欢迎光临我的博客</title>
-    <link href="https://hong-king.github.io/2020/07/21/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/"/>
-    <id>https://hong-king.github.io/2020/07/21/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/</id>
-    <published>2020-07-21T12:43:00.000Z</published>
-    <updated>2020-08-06T16:26:42.224Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游"><a href="#这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游" class="headerlink" title="这篇说明将更好地帮助你在&lt;Mr.l’s World&gt;里畅游"></a>这篇说明将更好地帮助你在&lt;<em>Mr.l’s World</em>&gt;里畅游</h2><blockquote><p><strong>博客使用简介</strong></p></blockquote><ol><li><p>博客界面<strong>左侧</strong>有<strong>侧边菜单</strong>为你提供快捷帮助<strong>&lt;<em>手机用户请点击屏幕左上角按钮以呼出菜单</em>&gt;</strong></p></li><li><p>博客界面<strong>右下角</strong>有<strong>暗夜模式按钮</strong>为你提供更好的浏览体验</p></li><li><p>博客同样为你提供<strong>文章查找</strong>功能，功能按钮在<strong>侧边菜单</strong>的下方</p></li><li><p>博客已开放<strong>评论留言系统</strong>，欢迎大家在评论区留下你的足迹</p></li><li><p><strong>《语言之美-古诗丽词》</strong>与<strong>《语言之美-新句美文》</strong>两篇文章将不定时持续更新，欢迎大家在评论区留下自己的珍藏，我也很乐意将其收录进文章里面</p></li><li><p><strong>光影画廊</strong>模块里展示了一些我个人的绘画作品，希望大家能够喜欢(^^)</p></li></ol><blockquote><p>技术支持</p></blockquote><ul><li><strong>Powered by</strong> <a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a></li><li><strong>Theme:</strong> <a href="https://shen-yu.gitee.io/" target="_blank" rel="noopener">Ayer</a></li></ul><hr><p> (以下是博客更新日志，日志从2020/4/11开始记录，你<strong>可以点击</strong>&lt;阅读更多…&gt;来快速掌握博客更新动向，或者在<strong>文章概览</strong>里浏览最近更新的文章)</p><a id="more"></a><hr><blockquote><p><strong>博客更新日志</strong></p></blockquote><ul><li><strong>2020/8/6</strong></li></ul><ol><li>更新文章《语言之美-古诗丽词》</li><li>添加文章《R语言dgCMatrix稀疏矩阵结构》</li><li>修复文章评论系统</li></ol><p><strong>小结</strong>：更新两篇文章，修复无法评论小BUG</p><hr><ul><li><strong>2020/7/21</strong></li></ul><ol><li>更新文章《R语言学习笔记》、《语言之美-古诗丽词》</li></ol><p><strong>小结</strong>：更新两篇文章</p><hr><ul><li><strong>2020/7/20</strong></li></ul><ol><li>更新文章《R语言学习笔记》</li></ol><p><strong>小结</strong>：更新一篇文章</p><hr><ul><li><strong>2020/7/19</strong></li></ul><ol><li>更新文章《R语言学习笔记》</li></ol><p><strong>小结</strong>：更新一篇文章</p><hr><ul><li><strong>2020/7/5</strong></li></ul><ol><li>更新文章《Hexo进行本地预览》为《Hexo常用命令》</li><li>小幅修改博客导航文字</li></ol><p><strong>小结</strong>：更新一篇文章，小幅修改博客导航文字</p><hr><ul><li><strong>2020/7/5</strong></li></ul><ol><li>更新文章《R语言学习笔记》</li></ol><p><strong>小结</strong>：更新文章《R语言学习笔记》</p><hr><ul><li><strong>2020/7/5</strong></li></ul><ol><li>添加文章《C++学习笔记》</li></ol><p><strong>小结</strong>：添加文章《C++学习笔记》</p><hr><ul><li><strong>2020/7/4</strong></li></ul><ol><li>修复了博客<em>文章分类</em>模块无法显示的问题</li></ol><p><strong>小结</strong>：博客小BUG修复</p><hr><ul><li><strong>2020/7/2</strong></li></ul><ol><li>添加文章《R语言学习笔记》</li></ol><p><strong>小结</strong>：添加文章<strong>《R语言学习笔记》</strong></p><hr><ul><li><strong>2020/5/9</strong></li></ul><ol><li>更新文章《《python深度学习》笔记》</li><li>添加文章《Python中copy与deepcopy的区别》</li></ol><p><strong>小结</strong>：今日更新文章<strong>《《python深度学习》笔记》</strong>，添加文章<strong>《Python中copy与deepcopy的区别》</strong></p><hr><ul><li><strong>2020/5/8</strong></li></ul><ol><li>更新文章《《python深度学习》笔记》</li><li>优化《语言之美-古诗丽词》检索界面</li></ol><p><strong>小结</strong>：今日更新文章<strong>《《python深度学习》笔记》</strong>，优化<strong>《语言之美-古诗丽词》</strong>检索界面(2020/5/8 09:42 PV:460 UV:206)</p><hr><ul><li><strong>2020/5/7</strong></li></ul><ol><li>更新文章《《python深度学习》笔记》</li></ol><p><strong>小结</strong>：今日更新文章<strong>《《python深度学习》笔记》</strong>(2020/5/7 11:14 PV:460 UV:206)</p><hr><ul><li><strong>2020/5/6</strong></li></ul><ol><li>添加文章《《python深度学习》笔记》</li></ol><p><strong>小结</strong>：今日添加文章<strong>《《python深度学习》笔记》</strong>(2020/5/6 12:08 PV:456 UV:204)</p><hr><ul><li><strong>2020/4/30</strong></li></ul><ol><li>光影画廊模块上线</li><li>小幅更新文章《语言之美-古诗丽词》</li></ol><p><strong>小结</strong>：今日<strong>上线光影画廊模块</strong>,更新<strong>《语言之美-古诗丽词》</strong>(2020/4/30 20:39 PV:436 UV:188)</p><hr><ul><li><strong>2020/4/29</strong></li></ul><ol><li>小幅更新文章《语言之美-古诗丽词》与《语言之美-新句美文》</li><li>更改两处滚动标题</li></ol><p><strong>小结</strong>：今日<strong>更新两篇文章</strong>(2020/4/29 22:34 PV:430 UV:183)</p><hr><ul><li><strong>2020/4/23</strong></li></ul><ol><li>更新文章《利用tf.concat()与np.concatenate来拼接向量》</li></ol><p><strong>小结</strong>：今日<strong>更新一篇文章</strong>(2020/4/23 10:13 PV:411 UV:165)</p><hr><ul><li><strong>2020/4/22</strong></li></ul><ol><li>添加文章《利用reshape重塑numpy数组》，《利用tf.concat()与np.concatenate来拼接向量》</li></ol><p><strong>小结</strong>：今日<strong>添加两篇文章</strong>(2020/4/22 10:13 PV:399 UV:158)</p><hr><ul><li><strong>2020/4/20</strong></li></ul><ol><li>更新文章《语言之美-古诗丽词》</li></ol><p><strong>小结</strong>：今日<strong>大幅更新《语言之美-古诗丽词》并优化文章排版</strong>(2020/4/20 22:05 PV:390 UV:153)</p><hr><ul><li><strong>2020/4/16</strong></li></ul><ol><li>更新文章《《数据结构与算法》笔记(Python语言实现)》(2020/4/16 20:06 PV:385 UV:150)</li></ol><hr><ul><li><strong>2020/4/14</strong></li></ul><ol><li>更新文章《Pandas在Python语言下的基础使用》(2020/4/14 22:12 PV:376 UV:145)</li></ol><hr><ul><li><strong>2020/4/13</strong></li></ul><ol><li>更新文章《《Python机器学习基础教程》笔记(scikit-learn框架)》</li><li>更新文章《python画散点图[plt.scatter()]以及矩阵散点图[pd.scatter_matrix()]详解》（待优化）</li><li>暂时搁置文章《Pandas在Python语言下的基础使用》</li><li>暂时搁置文章《《数据结构与算法》笔记(Python语言实现)》</li></ol><p><strong>小结</strong>：今日更新主要<strong>优化文章排版</strong>，<strong>更新两篇文章</strong>(2020/4/13 22:05 PV:374 UV:143)</p><hr><ul><li><strong>2020/4/11</strong></li></ul><ol><li>博客现在已经<strong>能够在文章中插入图片</strong>，但<strong>光影画廊仍然无法在云端显示图片</strong></li><li>博客现在已开放<strong>评论留言系统</strong>，并能够<strong>置顶文章</strong></li></ol><p><strong>小结</strong>：今天<strong>无文章更新</strong>，主要是<strong>完善博客功能</strong>(2020/4/11 22:39 PV:354 UV:138)</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游&quot;&gt;&lt;a href=&quot;#这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游&quot; class=&quot;headerlink&quot; title=&quot;这篇说明将更好地帮助你在&amp;lt;Mr.l’s World&amp;gt;里畅游&quot;&gt;&lt;/a&gt;这篇说明将更好地帮助你在&amp;lt;&lt;em&gt;Mr.l’s World&lt;/em&gt;&amp;gt;里畅游&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;博客使用简介&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;博客界面&lt;strong&gt;左侧&lt;/strong&gt;有&lt;strong&gt;侧边菜单&lt;/strong&gt;为你提供快捷帮助&lt;strong&gt;&amp;lt;&lt;em&gt;手机用户请点击屏幕左上角按钮以呼出菜单&lt;/em&gt;&amp;gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;博客界面&lt;strong&gt;右下角&lt;/strong&gt;有&lt;strong&gt;暗夜模式按钮&lt;/strong&gt;为你提供更好的浏览体验&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;博客同样为你提供&lt;strong&gt;文章查找&lt;/strong&gt;功能，功能按钮在&lt;strong&gt;侧边菜单&lt;/strong&gt;的下方&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;博客已开放&lt;strong&gt;评论留言系统&lt;/strong&gt;，欢迎大家在评论区留下你的足迹&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;《语言之美-古诗丽词》&lt;/strong&gt;与&lt;strong&gt;《语言之美-新句美文》&lt;/strong&gt;两篇文章将不定时持续更新，欢迎大家在评论区留下自己的珍藏，我也很乐意将其收录进文章里面&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;光影画廊&lt;/strong&gt;模块里展示了一些我个人的绘画作品，希望大家能够喜欢(^^)&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;技术支持&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Powered by&lt;/strong&gt; &lt;a href=&quot;https://hexo.io/zh-cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Theme:&lt;/strong&gt; &lt;a href=&quot;https://shen-yu.gitee.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Ayer&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt; (以下是博客更新日志，日志从2020/4/11开始记录，你&lt;strong&gt;可以点击&lt;/strong&gt;&amp;lt;阅读更多…&amp;gt;来快速掌握博客更新动向，或者在&lt;strong&gt;文章概览&lt;/strong&gt;里浏览最近更新的文章)&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>R语言学习笔记</title>
     <link href="https://hong-king.github.io/2020/07/20/R%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>https://hong-king.github.io/2020/07/20/R%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
@@ -167,12 +231,12 @@
   
   <entry>
     <title>Hexo常用命令</title>
-    <link href="https://hong-king.github.io/2020/07/14/Hexo%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/"/>
-    <id>https://hong-king.github.io/2020/07/14/Hexo%E8%BF%9B%E8%A1%8C%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88/</id>
+    <link href="https://hong-king.github.io/2020/07/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://hong-king.github.io/2020/07/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
     <published>2020-07-14T00:19:04.000Z</published>
-    <updated>2020-07-14T00:19:37.878Z</updated>
+    <updated>2020-08-10T07:39:45.080Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="使用-进行本地预览"><a href="#使用-进行本地预览" class="headerlink" title="使用  进行本地预览"></a>使用 <hexo s> 进行本地预览</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure><h2 id="使用-清除缓存文件和已生成的静态文件"><a href="#使用-清除缓存文件和已生成的静态文件" class="headerlink" title="使用  清除缓存文件和已生成的静态文件"></a>使用 <hexo clean> 清除缓存文件和已生成的静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean <span class="comment"># 清除缓存文件db.json 和已生成的静态文件public</span></span><br></pre></td></tr></table></figure><h2 id="使用-hexo-generate的简写形式-生成静态文件"><a href="#使用-hexo-generate的简写形式-生成静态文件" class="headerlink" title="使用  (hexo generate的简写形式)生成静态文件"></a>使用 <hexo g> (hexo generate的简写形式)生成静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g <span class="comment"># 是hexo generate的简写形式，生成静态文件到public文件夹</span></span><br></pre></td></tr></table></figure><h2 id="使用-hexo-deploy的简写形式-部署静态文件到设定的仓库"><a href="#使用-hexo-deploy的简写形式-部署静态文件到设定的仓库" class="headerlink" title="使用  (hexo deploy的简写形式)部署静态文件到设定的仓库"></a>使用 <hexo d> (hexo deploy的简写形式)部署静态文件到设定的仓库</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d <span class="comment"># 是hexo deploy的简写形式，部署静态文件到设定的仓库</span></span><br></pre></td></tr></table></figure><h2 id="使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作"><a href="#使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作" class="headerlink" title="使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作"></a>使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d <span class="comment"># 常用的组合命令，清除缓存，生成静态文件，并部署到指定仓库</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="使用-进行本地预览"><a href="#使用-进行本地预览" class="headerlink" title="使用  进行本地预览"></a>使用 <hexo s> 进行本地预览</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure><h2 id="使用-清除缓存文件和已生成的静态文件"><a href="#使用-清除缓存文件和已生成的静态文件" class="headerlink" title="使用  清除缓存文件和已生成的静态文件"></a>使用 <hexo clean> 清除缓存文件和已生成的静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean <span class="comment"># 清除缓存文件db.json 和已生成的静态文件public</span></span><br></pre></td></tr></table></figure><h2 id="使用-hexo-generate的简写形式-生成静态文件"><a href="#使用-hexo-generate的简写形式-生成静态文件" class="headerlink" title="使用  (hexo generate的简写形式)生成静态文件"></a>使用 <hexo g> (hexo generate的简写形式)生成静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g <span class="comment"># 是hexo generate的简写形式，生成静态文件到public文件夹</span></span><br></pre></td></tr></table></figure><h2 id="使用-hexo-deploy的简写形式-部署静态文件到设定的仓库"><a href="#使用-hexo-deploy的简写形式-部署静态文件到设定的仓库" class="headerlink" title="使用  (hexo deploy的简写形式)部署静态文件到设定的仓库"></a>使用 <hexo d> (hexo deploy的简写形式)部署静态文件到设定的仓库</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d <span class="comment"># 是hexo deploy的简写形式，部署静态文件到设定的仓库</span></span><br></pre></td></tr></table></figure><h2 id="使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作"><a href="#使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作" class="headerlink" title="使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作"></a>使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d <span class="comment"># 常用的组合命令，清除缓存，生成静态文件，并部署到指定仓库</span></span><br></pre></td></tr></table></figure><h2 id="使用-lt-hexo-new-draft-“new-draft-File-Name-”-gt-创建草稿（私密文章）"><a href="#使用-lt-hexo-new-draft-“new-draft-File-Name-”-gt-创建草稿（私密文章）" class="headerlink" title="使用 &lt;hexo new draft “new draft(File Name)”&gt; 创建草稿（私密文章）"></a>使用 &lt;hexo new draft “new draft(File Name)”&gt; 创建草稿（私密文章）</h2><ul><li>输入创建草稿命令，系统会在source/_drafts目录下生成一个new-draft.md文件。但是这个文件不被显示在页面上，链接也访问不到。也就是说如果你想把某一篇文章移除显示，又不舍得删除，可以把它移动到_drafts目录之中。相当于很多博客都有的“私密文章”功能。 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new draft <span class="string">"new draft(File Name)"</span></span><br></pre></td></tr></table></figure></li></ul>]]></content>
     
     <summary type="html">
     
@@ -291,65 +355,6 @@
       <category term="Python" scheme="https://Hong-King.github.io/tags/Python/"/>
     
       <category term="深度学习" scheme="https://Hong-King.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《数学建模方法与应用》笔记</title>
-    <link href="https://hong-king.github.io/2020/05/04/%E3%80%8A%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E7%AC%94%E8%AE%B0/"/>
-    <id>https://hong-king.github.io/2020/05/04/%E3%80%8A%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E6%96%B9%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%E3%80%8B%E7%AC%94%E8%AE%B0/</id>
-    <published>2020-05-03T22:59:00.000Z</published>
-    <updated>2020-05-04T00:28:33.019Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="图与网络模型及方法"><a href="#图与网络模型及方法" class="headerlink" title="图与网络模型及方法"></a><strong>图与网络模型及方法</strong></h2><hr><h3 id="1-概论"><a href="#1-概论" class="headerlink" title="1. 概论"></a><strong>1. 概论</strong></h3><blockquote><p>一笔画判定法则：<br>1.首先这个图是连通的。<br>2.每个点都与偶数线相关联。</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;图与网络模型及方法&quot;&gt;&lt;a href=&quot;#图与网络模型及方法&quot; class=&quot;headerlink&quot; title=&quot;图与网络模型及方法&quot;&gt;&lt;/a&gt;&lt;strong&gt;图与网络模型及方法&lt;/strong&gt;&lt;/h2&gt;&lt;hr&gt;
-&lt;h3 id=&quot;1-概论&quot;&gt;&lt;a href=&quot;
-      
-    
-    </summary>
-    
-    
-      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="数学建模" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
-    
-    
-      <category term="数学建模" scheme="https://Hong-King.github.io/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unreal Engine 4 学习笔记</title>
-    <link href="https://hong-king.github.io/2020/04/29/Unreal%20Engine%204%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://hong-king.github.io/2020/04/29/Unreal%20Engine%204%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
-    <published>2020-04-29T14:52:00.000Z</published>
-    <updated>2020-04-29T15:26:53.091Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h3><ul><li>右键加“W，A，S，D”进行镜头移动</li><li>选中物体按E进行旋转操作，按W进行位移操作，按R进行缩放操作</li><li>在世界大纲视图选中物体按F进行聚焦</li><li>按G开启/关闭开发者模式</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;基础操作&quot;&gt;&lt;a href=&quot;#基础操作&quot; class=&quot;headerlink&quot; title=&quot;基础操作&quot;&gt;&lt;/a&gt;基础操作&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;右键加“W，A，S，D”进行镜头移动&lt;/li&gt;
-&lt;li&gt;选中物体按E进行旋转操作，按W进行位移操作，按R进行缩放
-      
-    
-    </summary>
-    
-    
-      <category term="技术笔记" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="Unreal Engine" scheme="https://Hong-King.github.io/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Unreal-Engine/"/>
-    
-    
-      <category term="Unreal Engine" scheme="https://Hong-King.github.io/tags/Unreal-Engine/"/>
     
   </entry>
   
