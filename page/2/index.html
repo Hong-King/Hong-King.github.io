@@ -80,6 +80,99 @@
     
     
     
+    <article id="post-Python中copy与deepcopy的区别" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/05/09/Python%E4%B8%ADcopy%E4%B8%8Edeepcopy%E7%9A%84%E5%8C%BA%E5%88%AB/"
+    >Python中copy与deepcopy的区别</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/05/09/Python%E4%B8%ADcopy%E4%B8%8Edeepcopy%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2020-05-09T01:12:00.000Z" itemprop="datePublished">2020-05-09</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">Python 基础语法</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <blockquote>
+<p>copy与deepcopy都在copy模块中，使用的时候需要实现导入copy包,以下为示例：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line"></span><br><span class="line">a = [1, 2]</span><br><span class="line">b = a</span><br><span class="line">c = copy.copy(a)</span><br><span class="line">d = copy.deepcopy(a)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(b), id(c), id(d))</span><br><span class="line"><span class="comment">#[out]:</span></span><br><span class="line">	2480148669704 2480148669704 2480148617096 2479872285064</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line"></span><br><span class="line">a = 22</span><br><span class="line">b = a</span><br><span class="line">c = copy.copy(a)</span><br><span class="line">d = copy.deepcopy(a)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(b), id(c), id(d))</span><br><span class="line"><span class="comment"># [out]:</span></span><br><span class="line">	140731869655968 140731869655968 140731869655968 140731869655968</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p><strong>赋值语句</strong>：赋值，并不会产生一个独立的对象单独存在，他只是将原有的数据块打上一个新标签，所以当其中一个标签被改变的时候，数据块就会发生变化，另一个标签也会随之改变。</p>
+</li>
+<li><p><strong>对于不可变类型（数值，字符串，元组）</strong>：浅复制、深复制和“等于赋值”的情况一样，对象的id值与原来的值相同，都是将对象指向同一个引用。</p>
+</li>
+</ol>
+<hr>
+<p><strong>对于可变类型（列表和字典）</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line"></span><br><span class="line">a = [1, 2, [1, 2]]</span><br><span class="line">b = a</span><br><span class="line">c = copy.copy(a)</span><br><span class="line">d = copy.deepcopy(a)</span><br><span class="line"><span class="built_in">print</span>(a, b, c, d)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(b), id(c), id(d))</span><br><span class="line"></span><br><span class="line">a[0] = 2</span><br><span class="line"><span class="built_in">print</span>(a, b, c, d)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(b), id(c), id(d))</span><br><span class="line"></span><br><span class="line">a[2][0] = 5</span><br><span class="line"><span class="built_in">print</span>(a, b, c, d)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(b), id(c), id(d))</span><br><span class="line"></span><br><span class="line"><span class="comment">#[out]:</span></span><br><span class="line">[1, 2, [1, 2]] [1, 2, [1, 2]] [1, 2, [1, 2]] [1, 2, [1, 2]]</span><br><span class="line">1292062431112 1292062431112 1291786145352 1291786145608</span><br><span class="line">[2, 2, [1, 2]] [2, 2, [1, 2]] [1, 2, [1, 2]] [1, 2, [1, 2]]</span><br><span class="line">1292062431112 1292062431112 1291786145352 1291786145608</span><br><span class="line">[2, 2, [5, 2]] [2, 2, [5, 2]] [1, 2, [5, 2]] [1, 2, [1, 2]]</span><br><span class="line">1292062431112 1292062431112 1291786145352 1291786145608</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>浅复制copy.copy(): 只拷贝父对象，不会拷贝对象的内部的子对象。</strong></li>
+</ol>
+<ul>
+<li>第一种情况(无复杂子对象):原来值的改变并不会影响浅复制的值，同时浅复制的值改变也并不会影响原来的值。原来值的id值与浅复制原来的值不同。</li>
+<li>第二种情况(有复杂子对象):（例如列表中的一个子元素是一个列表），如果不改变其中复杂子对象，浅复制的值改变并不会影响原来的值。 但是改变原来的值中的复杂子对象的值会影响浅复制的值， 因为他们子对象的引用是一样的。</li>
+</ul>
+<ol start="2">
+<li><strong>深复制deepcopy.copy()：拷贝父对象以及拷贝对象的内部的子对象,索引值都不同。</strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line"></span><br><span class="line">a = [1, 2, [1, 2]]</span><br><span class="line">c = copy.deepcopy(a)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(c))</span><br><span class="line"><span class="built_in">print</span>(id(a[2]), id(c[2]))</span><br><span class="line"><span class="comment">#[out]:</span></span><br><span class="line">	1828100118472 1827823832200</span><br><span class="line">	1828100146760 1827823754632</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-《python深度学习》笔记" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -785,82 +878,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-利用zip解决Python中字典自动正序带来的关系数据错位问题" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/09/%E5%88%A9%E7%94%A8zip%E8%A7%A3%E5%86%B3Python%E4%B8%AD%E5%AD%97%E5%85%B8%E8%87%AA%E5%8A%A8%E6%AD%A3%E5%BA%8F%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E9%94%99%E4%BD%8D%E9%97%AE%E9%A2%98/"
-    >利用zip解决Python中字典自动正序带来的关系数据错位问题</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/04/09/%E5%88%A9%E7%94%A8zip%E8%A7%A3%E5%86%B3Python%E4%B8%AD%E5%AD%97%E5%85%B8%E8%87%AA%E5%8A%A8%E6%AD%A3%E5%BA%8F%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E9%94%99%E4%BD%8D%E9%97%AE%E9%A2%98/" class="article-date">
-  <time datetime="2020-04-09T03:06:00.000Z" itemprop="datePublished">2020-04-09</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python 问题解决</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <blockquote>
-<p>本问题最初出现在构建蛋白质的关系字典中</p>
-</blockquote>
-<ul>
-<li>由于在字典中，数据的排序是自动正序的（也可以理解为乱序），在一组关系数据列表中，<br>我们构建字典的方式往往是先提取一组数据构建字典的键，再提取另一组数据一一对应为键的值 。但是由于字典的键是乱序的，那么对应的值也必然是错误的。本方法就是为了解决这个问题。</li>
-</ul>
-<p><em>如果你对问题的描述仍有疑惑，下面的示例代码将有助于你的理解以及对你遇到的问题的解决</em><br><em>关于setdefault()函数的使用，可以参考文章《Python字典中setdefault()函数的用法》</em>(可通过博客搜索功能快速查找)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 为帮助你理解程序，我们假设一组关系数据[A-a，B-b，C-c，D-d]</span></span><br><span class="line"><span class="comment"># 以上数据表明A与a之间存在关系，可以理解为A与a互为标签（事实上在本实例中也确实是这样处理的）</span></span><br><span class="line"></span><br><span class="line">proteins_interaction_relationship = &#123;&#125; </span><br><span class="line"><span class="comment"># 首先，我们创建一个空的字典proteins_interaction_relationship </span></span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------------------- 创建相互作用关系语句</span></span><br><span class="line"><span class="comment"># protein_name1表示列表[A B C D]</span></span><br><span class="line"><span class="comment"># protein_name11表示列表[a b c d]</span></span><br><span class="line"><span class="comment"># dictionaries是一个字典&#123;A:1,B:2,C:3,D:4,a:5,b:6,c:7,d:8&#125;,该变量对代码理解影响不大。</span></span><br><span class="line"><span class="comment"># 使用setdefault()，它可以使我们不用提前给字典输入键，即精简了代码，又减小了BUG发生的概率。</span></span><br><span class="line"><span class="comment"># setdefault().add中add表示向set()空集中添加元素</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name1,protein_name11):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i,<span class="built_in">set</span>()).add(dictionaries[j])</span><br><span class="line"><span class="comment"># 在for循环中使用zip可以同时提取同一行相互存在关系的两个元素，键的创建和键的赋值是同时进行的，避免了关系数据错位。</span></span><br><span class="line"><span class="keyword">for</span> i,j <span class="keyword">in</span> zip(protein_name11,protein_name1):</span><br><span class="line">    proteins_interaction_relationship.setdefault(i, <span class="built_in">set</span>()).add(dictionaries[j])</span><br></pre></td></tr></table></figure>
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E8%9B%8B%E7%99%BD%E9%A2%84%E6%B5%8B/" rel="tag">关键蛋白预测</a></li></ul>
 
 
     </footer>
