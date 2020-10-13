@@ -387,6 +387,81 @@
 
 </article>
     
+    <article id="post-解决C++从输入流读取所需个数的数据后，多余数据仍存在输入流中的问题" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/10/13/%E8%A7%A3%E5%86%B3C++%E4%BB%8E%E8%BE%93%E5%85%A5%E6%B5%81%E8%AF%BB%E5%8F%96%E6%89%80%E9%9C%80%E4%B8%AA%E6%95%B0%E7%9A%84%E6%95%B0%E6%8D%AE%E5%90%8E%EF%BC%8C%E5%A4%9A%E4%BD%99%E6%95%B0%E6%8D%AE%E4%BB%8D%E5%AD%98%E5%9C%A8%E8%BE%93%E5%85%A5%E6%B5%81%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"
+    >解决C++从输入流读取所需个数的数据后，多余数据仍存在输入流中的问题</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/10/13/%E8%A7%A3%E5%86%B3C++%E4%BB%8E%E8%BE%93%E5%85%A5%E6%B5%81%E8%AF%BB%E5%8F%96%E6%89%80%E9%9C%80%E4%B8%AA%E6%95%B0%E7%9A%84%E6%95%B0%E6%8D%AE%E5%90%8E%EF%BC%8C%E5%A4%9A%E4%BD%99%E6%95%B0%E6%8D%AE%E4%BB%8D%E5%AD%98%E5%9C%A8%E8%BE%93%E5%85%A5%E6%B5%81%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2020-10-13T03:19:00.000Z" itemprop="datePublished">2020-10-13</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/C-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">C++ 基础语法</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>在我用链表实现票务管理系统过程中，发现在输入超过所需个数的数据，并在下一次从输入流中读取数据时，上一次输入到输入流中未读取的数据仍在数据流中，故使程序错误运行，现将解决办法展示如下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"--------【录入票务信息】----------\n"</span>);</span><br><span class="line">		fflush(stdin);//清空缓冲区</span><br><span class="line">		cout &lt;&lt; <span class="string">"请输入：起始站名 终点站名 火车编号 车票编号 票价"</span> &lt;&lt; endl;</span><br><span class="line">		cin &gt;&gt; Data.Terminus_Station &gt;&gt; Data.Departure_Station &gt;&gt; Data.Train_number &gt;&gt; Data.Ticketing_number &gt;&gt; Data.price;</span><br><span class="line">		cin.clear(); </span><br><span class="line">		cin.ignore(numeric_limits&lt;streamsize&gt;::max(), <span class="string">'\n'</span>); //清空输入流</span><br><span class="line">		insertNodeByHead(list_administrators, Data);</span><br><span class="line">		cout &lt;&lt; <span class="string">"信息录入成功!"</span> &lt;&lt; endl;</span><br><span class="line">		<span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>cin.clear()是用来更改cin的状态标示符的，cin在接收到错误的输入的时候，会设置状态位good。如果good位不为1，则cin不接受输入，直接跳过。如果下次输入前状态位没有改变那么即使清除了缓冲区数据流也无法输入。所以清除缓冲区之前必须要cin.clear()。</strong></p>
+<p><strong>使用ignore清空输入流</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cin.ignore(numeric_limits&lt;std::streamsize&gt;::max(),’\n’);	//清除输入缓冲区的当前行 </span><br><span class="line">cin.ignore(numeric_limits&lt;std::streamsize&gt;::max()); 		//清除输入缓冲区里所有内容 </span><br><span class="line">cin.ignore();												//清除一个字符</span><br><span class="line">cin.get(str,5).get();										//清除后面的换行符</span><br></pre></td></tr></table></figure>
+<p>*numeric_limits<a href="std::streamsize">std::streamsize</a>::max()是climits头文件定义的流使用的最大值，你也可以用一个足够大的整数代替它。 </p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-解决C++ ifstream 读取文件总多读一次问题" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -821,88 +896,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/R%E8%AF%AD%E8%A8%80/" rel="tag">R语言</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-Hexo常用命令" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/07/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"
-    >Hexo常用命令</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/07/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
-  <time datetime="2020-07-14T00:19:04.000Z" itemprop="datePublished">2020-07-14</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Hexo/">Hexo</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <h2 id="使用-进行本地预览"><a href="#使用-进行本地预览" class="headerlink" title="使用  进行本地预览"></a>使用 <hexo s> 进行本地预览</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-清除缓存文件和已生成的静态文件"><a href="#使用-清除缓存文件和已生成的静态文件" class="headerlink" title="使用  清除缓存文件和已生成的静态文件"></a>使用 <hexo clean> 清除缓存文件和已生成的静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean <span class="comment"># 清除缓存文件db.json 和已生成的静态文件public</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-hexo-generate的简写形式-生成静态文件"><a href="#使用-hexo-generate的简写形式-生成静态文件" class="headerlink" title="使用  (hexo generate的简写形式)生成静态文件"></a>使用 <hexo g> (hexo generate的简写形式)生成静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g <span class="comment"># 是hexo generate的简写形式，生成静态文件到public文件夹</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-hexo-deploy的简写形式-部署静态文件到设定的仓库"><a href="#使用-hexo-deploy的简写形式-部署静态文件到设定的仓库" class="headerlink" title="使用  (hexo deploy的简写形式)部署静态文件到设定的仓库"></a>使用 <hexo d> (hexo deploy的简写形式)部署静态文件到设定的仓库</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d <span class="comment"># 是hexo deploy的简写形式，部署静态文件到设定的仓库</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作"><a href="#使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作" class="headerlink" title="使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作"></a>使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d <span class="comment"># 常用的组合命令，清除缓存，生成静态文件，并部署到指定仓库</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="使用-lt-hexo-new-draft-“new-draft-File-Name-”-gt-创建草稿（私密文章）"><a href="#使用-lt-hexo-new-draft-“new-draft-File-Name-”-gt-创建草稿（私密文章）" class="headerlink" title="使用 &lt;hexo new draft “new draft(File Name)”&gt; 创建草稿（私密文章）"></a>使用 &lt;hexo new draft “new draft(File Name)”&gt; 创建草稿（私密文章）</h2><ul>
-<li>输入创建草稿命令，系统会在source/_drafts目录下生成一个new-draft.md文件。但是这个文件不被显示在页面上，链接也访问不到。也就是说如果你想把某一篇文章移除显示，又不舍得删除，可以把它移动到_drafts目录之中。相当于很多博客都有的“私密文章”功能。 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new draft <span class="string">"new draft(File Name)"</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
 
 
     </footer>

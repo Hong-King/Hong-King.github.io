@@ -80,6 +80,88 @@
     
     
     
+    <article id="post-Hexo常用命令" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/07/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"
+    >Hexo常用命令</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/07/14/Hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time datetime="2020-07-14T00:19:04.000Z" itemprop="datePublished">2020-07-14</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Hexo/">Hexo</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h2 id="使用-进行本地预览"><a href="#使用-进行本地预览" class="headerlink" title="使用  进行本地预览"></a>使用 <hexo s> 进行本地预览</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-清除缓存文件和已生成的静态文件"><a href="#使用-清除缓存文件和已生成的静态文件" class="headerlink" title="使用  清除缓存文件和已生成的静态文件"></a>使用 <hexo clean> 清除缓存文件和已生成的静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean <span class="comment"># 清除缓存文件db.json 和已生成的静态文件public</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-hexo-generate的简写形式-生成静态文件"><a href="#使用-hexo-generate的简写形式-生成静态文件" class="headerlink" title="使用  (hexo generate的简写形式)生成静态文件"></a>使用 <hexo g> (hexo generate的简写形式)生成静态文件</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g <span class="comment"># 是hexo generate的简写形式，生成静态文件到public文件夹</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-hexo-deploy的简写形式-部署静态文件到设定的仓库"><a href="#使用-hexo-deploy的简写形式-部署静态文件到设定的仓库" class="headerlink" title="使用  (hexo deploy的简写形式)部署静态文件到设定的仓库"></a>使用 <hexo d> (hexo deploy的简写形式)部署静态文件到设定的仓库</hexo></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d <span class="comment"># 是hexo deploy的简写形式，部署静态文件到设定的仓库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作"><a href="#使用-lt-hexo-clean-amp-amp-hexo-g-amp-amp-hexo-d-gt-进行一步操作" class="headerlink" title="使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作"></a>使用 &lt;hexo clean &amp;&amp; hexo g &amp;&amp; hexo d&gt; 进行一步操作</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d <span class="comment"># 常用的组合命令，清除缓存，生成静态文件，并部署到指定仓库</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-lt-hexo-new-draft-“new-draft-File-Name-”-gt-创建草稿（私密文章）"><a href="#使用-lt-hexo-new-draft-“new-draft-File-Name-”-gt-创建草稿（私密文章）" class="headerlink" title="使用 &lt;hexo new draft “new draft(File Name)”&gt; 创建草稿（私密文章）"></a>使用 &lt;hexo new draft “new draft(File Name)”&gt; 创建草稿（私密文章）</h2><ul>
+<li>输入创建草稿命令，系统会在source/_drafts目录下生成一个new-draft.md文件。但是这个文件不被显示在页面上，链接也访问不到。也就是说如果你想把某一篇文章移除显示，又不舍得删除，可以把它移动到_drafts目录之中。相当于很多博客都有的“私密文章”功能。 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new draft <span class="string">"new draft(File Name)"</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-C++学习笔记" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -814,80 +896,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-利用TensorFlow实现简单的机器学习" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/10/%E5%88%A9%E7%94%A8TensorFlow%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"
-    >利用TensorFlow实现简单的机器学习</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/04/10/%E5%88%A9%E7%94%A8TensorFlow%E5%AE%9E%E7%8E%B0%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="article-date">
-  <time datetime="2020-04-10T00:09:00.000Z" itemprop="datePublished">2020-04-10</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E6%A1%86%E6%9E%B6%E7%94%A8%E6%B3%95/">Python 框架用法</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <blockquote>
-<p>该框架原型请参见TensorFlow官方教程《<a href="https://tensorflow.google.cn/tutorials/keras/text_classification" target="_blank" rel="noopener">对预文本进行文本分类处理</a>》</p>
-</blockquote>
-<p><em>以下是我利用(访问官网请点击)<a href="https://tensorflow.google.cn/" target="_blank" rel="noopener">TensorFlow</a>构建&lt;预测关键蛋白&gt;算法框架时实际使用的源码</em></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">from tensorflow import keras</span><br><span class="line"></span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------- 加载蛋白质字典</span></span><br><span class="line">protein_dictionary_matrix = np.load(<span class="string">'&lt;文件路径&gt;'</span>) <span class="comment"># 字典数据示例:&#123;('A':1,2,3),('B':2,5)&#125;</span></span><br><span class="line"><span class="comment">#------------------------- 将蛋白质语句长度标准化</span></span><br><span class="line">protein_dictionary_matrix = tf.contrib.keras.preprocessing.sequence.pad_sequences</span><br><span class="line">(protein_dictionary_matrix,maxlen=None,padding=<span class="string">'post'</span>,truncating=<span class="string">'post'</span>,value = 0)</span><br><span class="line"><span class="comment"># 具体用法可参见文章《如何利用Python将数组长度标准化》</span></span><br><span class="line"><span class="comment">#-------------------------------加载蛋白质标签矩阵</span></span><br><span class="line">proteins_labels_num = np.load(<span class="string">'&lt;文件路径&gt;'</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment">#-------------------------------构建模型</span></span><br><span class="line">proteins_size = len(proteins_labels_num)*len(protein_dictionary_matrix[1]) <span class="comment"># 蛋白质数量*标准矩阵长度</span></span><br><span class="line"></span><br><span class="line">model = keras.Sequential()</span><br><span class="line">model.add(keras.layers.Embedding(proteins_size, 16))</span><br><span class="line"><span class="comment"># 第一层是嵌入Embedding层。该层采用整数编码的词汇表，并查找每个词索引的嵌入向量(embedding vector)</span></span><br><span class="line"><span class="comment"># 这些向量是通过模型训练学习到的。向量向输出数组增加了一个维度。得到的维度为：(batch, sequence, embedding)。</span></span><br><span class="line">model.add(keras.layers.GlobalAveragePooling1D())</span><br><span class="line"><span class="comment"># GlobalAveragePooling1D 将通过对序列维度求平均值来为每个样本返回一个定长输出向量。这允许模型以尽可能最简单的方式处理变长输入。</span></span><br><span class="line">model.add(keras.layers.Dense(16, activation=<span class="string">'relu'</span>))</span><br><span class="line"><span class="comment"># 该定长输出向量通过一个有 16 个隐层单元的全连接（Dense）层传输。</span></span><br><span class="line">model.add(keras.layers.Dense(1, activation=<span class="string">'sigmoid'</span>))</span><br><span class="line"><span class="comment"># 最后一层与单个输出结点密集连接。使用 Sigmoid 激活函数，其函数值为介于0与1之间的浮点数，表示概率或置信度。</span></span><br><span class="line"></span><br><span class="line">model.summary()</span><br><span class="line"><span class="comment">#------------------------------损失函数与优化器</span></span><br><span class="line"><span class="comment"># 一个模型需要损失函数和优化器来进行训练。由于这是一个二分类问题且模型输出概率值（一个使用 sigmoid 激活函数的单一单元层），</span></span><br><span class="line"><span class="comment"># 我们将使用 binary_crossentropy 损失函数。</span></span><br><span class="line"><span class="comment"># 这不是损失函数的唯一选择，例如，你还可以选择 mean_squared_error。</span></span><br><span class="line"><span class="comment"># 但是，一般来说binary_crossentropy更适合处理概率——它能够度量概率分布之间的“距离”，或者在我们的示例中，指的是度量 ground-truth 分布与预测值之间的“距离”。</span></span><br><span class="line">model.compile(optimizer=<span class="string">'adam'</span>,</span><br><span class="line">              loss=<span class="string">'binary_crossentropy'</span>,</span><br><span class="line">              metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#---------------------------------对数据进行切割处理</span></span><br><span class="line">x_val = protein_dictionary_matrix[:1000] <span class="comment"># 实验集</span></span><br><span class="line">partial_x_train = protein_dictionary_matrix[1000:] <span class="comment"># 验证集</span></span><br><span class="line"></span><br><span class="line">y_val = proteins_labels_num[:1000] <span class="comment"># 实验集</span></span><br><span class="line">partial_y_train = proteins_labels_num[1000:] <span class="comment"># 验证集</span></span><br><span class="line"><span class="comment">#---------------------------------训练模型</span></span><br><span class="line"><span class="built_in">history</span> = model.fit(partial_x_train,</span><br><span class="line">                    partial_y_train,</span><br><span class="line">                    epochs=10,			<span class="comment"># 迭代次数</span></span><br><span class="line">                    batch_size=300,		<span class="comment"># 每次迭代的批量大小</span></span><br><span class="line">                    validation_data=(x_val, y_val),</span><br><span class="line">                    verbose=1)</span><br><span class="line"><span class="comment">#---------------------------------------------------------------评估模型</span></span><br><span class="line"><span class="comment"># 将返回两个值。损失值&lt;loss&gt;（一个表示误差的数字，值越低越好）与准确率&lt;accuracy&gt;（值越高越好）</span></span><br><span class="line">results = model.evaluate(protein_dictionary_matrix,  proteins_labels_num, verbose=2)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(results)</span><br></pre></td></tr></table></figure>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TensorFlow/" rel="tag">TensorFlow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E8%9B%8B%E7%99%BD%E9%A2%84%E6%B5%8B/" rel="tag">关键蛋白预测</a></li></ul>
 
 
     </footer>
