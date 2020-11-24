@@ -383,6 +383,146 @@
 
 </article>
     
+    <article id="post-费诺(Fano)编码的Python实现" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/11/24/%E8%B4%B9%E8%AF%BA(Fano)%E7%BC%96%E7%A0%81%E7%9A%84Python%E5%AE%9E%E7%8E%B0/"
+    >费诺(Fano)编码的Python实现</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/11/24/%E8%B4%B9%E8%AF%BA(Fano)%E7%BC%96%E7%A0%81%E7%9A%84Python%E5%AE%9E%E7%8E%B0/" class="article-date">
+  <time datetime="2020-11-24T10:56:00.000Z" itemprop="datePublished">2020-11-24</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python 问题解决</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>此程序为费诺编码的Python实现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">All rights reserved by Liu Junhong</span></span><br><span class="line"><span class="string">Reference books: 《信息论基础》</span></span><br><span class="line"><span class="string">Completion time：2020-11-24</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line"><span class="comment">#import numpy as np</span></span><br><span class="line"><span class="comment">#import pandas</span></span><br><span class="line"><span class="comment">#import time</span></span><br><span class="line">import math</span><br><span class="line"><span class="comment">#import sys</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#程序说明</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------&lt;费诺编码&gt;程序说明-------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Designed by 刘俊宏：All rights reserved"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Reference books: 《信息论基础》、百度百科-费诺编码 (https://baike.baidu.com/item/%E8%B4%B9%E8%AF%BA%E7%BC%96%E7%A0%81)"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Completion time：2020-11-24"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Last modification time ：2020-11-24"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"--------------------------------------------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#*******录入数据</span></span><br><span class="line">N_num = <span class="built_in">float</span>(input(<span class="string">"请输入需要编码字符个数："</span>))</span><br><span class="line"><span class="keyword">while</span>(N_num &lt;= 0 or (N_num % 1)):</span><br><span class="line">    N_num = <span class="built_in">float</span>(input(<span class="string">"请输入正整数："</span>))</span><br><span class="line">N_num = int(N_num)</span><br><span class="line"></span><br><span class="line">Dict = &#123;&#125;</span><br><span class="line">probability = 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(N_num &gt; 0):</span><br><span class="line">    N_num = N_num-1</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\n"</span>,<span class="string">"------还需输入"</span>,N_num,<span class="string">"编码字符信息------"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\n"</span>,<span class="string">"请输入一个编码字符名："</span>)</span><br><span class="line">    name = str(input())</span><br><span class="line">    Dict.setdefault(name)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"请输入小于"</span>,probability,<span class="string">"的对应编码字符概率："</span>)</span><br><span class="line">    value = <span class="built_in">float</span>(input())</span><br><span class="line">    probability = probability - value</span><br><span class="line">    Dict[name] = value</span><br><span class="line"></span><br><span class="line"><span class="comment">#print(Dict)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#按概率排序</span></span><br><span class="line">Dict_order=sorted(Dict.items(),key=lambda x:x[1],reverse=True)</span><br><span class="line"></span><br><span class="line"><span class="comment">#print(Dict_order)</span></span><br><span class="line"><span class="comment">#sys.exit(0)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#编码算法</span></span><br><span class="line">name = []</span><br><span class="line">value = []</span><br><span class="line"><span class="comment">#code = []</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#truncation = 0 #保存截断位置</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> Dict_order:</span><br><span class="line">    name.append(i[0])</span><br><span class="line">    value.append(i[1])</span><br><span class="line">    </span><br><span class="line">Fano_dict_value = &#123;&#125;.fromkeys(value,<span class="string">''</span>)</span><br><span class="line"><span class="comment">#print(name)</span></span><br><span class="line"><span class="comment">#print(value)</span></span><br><span class="line"></span><br><span class="line">value_copy = [value]</span><br><span class="line">value_copy_copy = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(len(value_copy)&gt;0):</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> value_copy:</span><br><span class="line">        <span class="keyword">if</span> len(k) == 2:</span><br><span class="line">            Fano_dict_value[k[0]] = Fano_dict_value[k[0]] + <span class="string">'0'</span></span><br><span class="line">            Fano_dict_value[k[1]] = Fano_dict_value[k[1]] + <span class="string">'1'</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(k)):</span><br><span class="line">                a = sum(k[:i])</span><br><span class="line">                b = sum(k[i:])</span><br><span class="line">                c = sum(k[:(i+1)])</span><br><span class="line">                d = sum(k[(i+1):])</span><br><span class="line">                <span class="keyword">if</span> abs(a-b)&lt;abs(c<span class="_">-d</span>):</span><br><span class="line">                    <span class="keyword">if</span> i == 1:</span><br><span class="line">                        Fano_dict_value[k[0]] = Fano_dict_value[k[0]] + <span class="string">'0'</span></span><br><span class="line">                        value_copy_copy.append(k[1:])</span><br><span class="line">                        <span class="keyword">for</span> h <span class="keyword">in</span> k[1:]:</span><br><span class="line">                            Fano_dict_value[h] = Fano_dict_value[h] + <span class="string">'1'</span></span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        value_copy_copy.append(k[:i])</span><br><span class="line">                        value_copy_copy.append(k[i:])</span><br><span class="line">                        <span class="keyword">for</span> j <span class="keyword">in</span> k[:i]:</span><br><span class="line">                            Fano_dict_value[j] = Fano_dict_value[j] + <span class="string">'0'</span></span><br><span class="line">                        <span class="keyword">for</span> h <span class="keyword">in</span> k[i:]:</span><br><span class="line">                            Fano_dict_value[h] = Fano_dict_value[h] + <span class="string">'1'</span></span><br><span class="line">                    <span class="built_in">break</span></span><br><span class="line">    value_copy = value_copy_copy</span><br><span class="line">    value_copy_copy = []</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出结果</span></span><br><span class="line">Fano_dict = dict(zip(name,Fano_dict_value.values()))</span><br><span class="line"><span class="built_in">print</span>(Fano_dict)</span><br></pre></td></tr></table></figure>
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-香农(Shannon)编码的Python实现" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/11/24/%E9%A6%99%E5%86%9C(Shannon)%E7%BC%96%E7%A0%81%E7%9A%84Python%E5%AE%9E%E7%8E%B0/"
+    >香农(Shannon)编码的Python实现</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/11/24/%E9%A6%99%E5%86%9C(Shannon)%E7%BC%96%E7%A0%81%E7%9A%84Python%E5%AE%9E%E7%8E%B0/" class="article-date">
+  <time datetime="2020-11-24T10:53:00.000Z" itemprop="datePublished">2020-11-24</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python 问题解决</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>此程序为香农编码的Python实现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">All rights reserved by Liu Junhong</span></span><br><span class="line"><span class="string">Reference books: 《信息论基础》</span></span><br><span class="line"><span class="string">Completion time：2020-11-23</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line"><span class="comment">#import numpy as np</span></span><br><span class="line"><span class="comment">#import pandas</span></span><br><span class="line"><span class="comment">#import time</span></span><br><span class="line">import math</span><br><span class="line"><span class="comment">#import sys</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#程序说明</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------&lt;香农编码&gt;程序说明-------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Designed by 刘俊宏：All rights reserved"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Reference books: 《信息论基础》、百度百科-香农编码 (https://baike.baidu.com/item/%E9%A6%99%E5%86%9C%E7%BC%96%E7%A0%81/22353186?fr=aladdin)"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Completion time：2020-11-23"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Last modification time ：2020-11-23"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"--------------------------------------------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#*******录入数据</span></span><br><span class="line">N_num = <span class="built_in">float</span>(input(<span class="string">"请输入需要编码字符个数："</span>))</span><br><span class="line"><span class="keyword">while</span>(N_num &lt;= 0 or (N_num % 1)):</span><br><span class="line">    N_num = <span class="built_in">float</span>(input(<span class="string">"请输入正整数："</span>))</span><br><span class="line">N_num = int(N_num)</span><br><span class="line"></span><br><span class="line">Dict = &#123;&#125;</span><br><span class="line">probability = 1</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(N_num &gt; 0):</span><br><span class="line">    N_num = N_num-1</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\n"</span>,<span class="string">"------还需输入"</span>,N_num,<span class="string">"编码字符信息------"</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\n"</span>,<span class="string">"请输入一个编码字符名："</span>)</span><br><span class="line">    name = str(input())</span><br><span class="line">    Dict.setdefault(name)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"请输入小于"</span>,probability,<span class="string">"的对应编码字符概率："</span>)</span><br><span class="line">    value = <span class="built_in">float</span>(input())</span><br><span class="line">    probability = probability - value</span><br><span class="line">    Dict[name] = value</span><br><span class="line"></span><br><span class="line"><span class="comment">#print(Dict)</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">#按概率排序</span></span><br><span class="line">Dict_order=sorted(Dict.items(),key=lambda x:x[1],reverse=True)</span><br><span class="line"></span><br><span class="line"><span class="comment">#print(Dict_order)</span></span><br><span class="line"><span class="comment">#sys.exit(0)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#编码算法</span></span><br><span class="line">Q = 0  <span class="comment">#累加概率</span></span><br><span class="line">Shannon_dict = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> Dict_order:</span><br><span class="line">    P = i[1]    <span class="comment">#字符概率</span></span><br><span class="line">    L = math.ceil(-math.log(P,2)) <span class="comment">#码长</span></span><br><span class="line">    Autoregressive_variable = 0</span><br><span class="line">    num = Q</span><br><span class="line">    word = <span class="string">""</span>   <span class="comment">#码字</span></span><br><span class="line">    <span class="keyword">while</span>(Autoregressive_variable &lt; L):</span><br><span class="line">        <span class="keyword">if</span> int(num) &lt; int(2*num):</span><br><span class="line">            word = word + <span class="string">'1'</span></span><br><span class="line">            num = 2*num - int(2*num)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            word = word + <span class="string">'0'</span></span><br><span class="line">            num = 2*num</span><br><span class="line">        Autoregressive_variable = Autoregressive_variable+1</span><br><span class="line">    Shannon_dict.setdefault(i[0])</span><br><span class="line">    Shannon_dict[i[0]] = word</span><br><span class="line">    Q = Q + P</span><br><span class="line">    </span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Shannon_dict编码结果："</span>,Shannon_dict)</span><br><span class="line"><span class="comment">#sys.exit(0)</span></span><br></pre></td></tr></table></figure>
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-天平秤球问题的Python实现" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -423,8 +563,8 @@
       
 
       
-      <p>此程序为信息论中提到的秤球问题的代码实现，但此代码并不完善。目前，该程序只能针对特定的情况给出特定的称量方法，无法给出通解。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">All rights reserved by Liu Junhong</span></span><br><span class="line"><span class="string">Reference books: 百度百科-称球问题 (https://baike.baidu.com/item/称球问题/16038399?fr=aladdin)</span></span><br><span class="line"><span class="string">Power by Python_3.7</span></span><br><span class="line"><span class="string">Completion time：2020-11-16</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line">import numpy as np</span><br><span class="line">import pandas</span><br><span class="line">import time</span><br><span class="line">import math</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">sys.setrecursionlimit(1000000) <span class="comment">#设置最大递归深度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#*******录入数据</span></span><br><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">N_num 所需判断球的总数(正整数)</span></span><br><span class="line"><span class="string">N_bad 坏球的序号(正整数)</span></span><br><span class="line"><span class="string">N_bad_weight 坏球的轻重(正整数)</span></span><br><span class="line"><span class="string">Weighing_times 所需称量的次数</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line">N_num = <span class="built_in">float</span>(input(<span class="string">"请输入所需判断球的总数(正整数，n&gt;1)："</span>))</span><br><span class="line"><span class="keyword">while</span>(N_num &lt;= 1 or (N_num % 1)):</span><br><span class="line">    N_num = <span class="built_in">float</span>(input(<span class="string">"请输入规范正整数："</span>))</span><br><span class="line">N_num = int(N_num)</span><br><span class="line">N = np.zeros(N_num,dtype=int)</span><br><span class="line"></span><br><span class="line">N_bad = <span class="built_in">float</span>(input(<span class="string">"请输入第几个球为坏球(正整数)："</span>))</span><br><span class="line"><span class="keyword">while</span>(N_bad &lt;= 0 or (N_bad % 1)):</span><br><span class="line">    N_bad = <span class="built_in">float</span>(input(<span class="string">"请输入正整数："</span>))</span><br><span class="line">N_bad = int(N_bad)</span><br><span class="line"></span><br><span class="line">N_bad_weight = <span class="built_in">float</span>(input(<span class="string">"请输入坏球的轻重(轻输入 -1，重输入 1)："</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>((N_bad_weight != -1) and  (N_bad_weight != 1)):</span><br><span class="line">    </span><br><span class="line">    N_bad_weight = <span class="built_in">float</span>(input(<span class="string">"请输入正确数字："</span>))</span><br><span class="line">N_bad_weight = int(N_bad_weight)</span><br><span class="line"></span><br><span class="line">N[N_bad - 1] = N_bad_weight</span><br><span class="line"></span><br><span class="line">Weighing_times = math.ceil(math.log((2*N_num+3),3))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"---------数据录入成功！---------"</span>,<span class="string">"\n"</span>)</span><br><span class="line">time.sleep(0.6)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"球的总数为："</span>,int(N_num),<span class="string">"\n"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"第"</span>,int(N_bad),<span class="string">"个球为坏球"</span>,<span class="string">"\n"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"球的数据概览如下："</span>,N,<span class="string">"\n"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"所需称量的次数为："</span>,Weighing_times,<span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#*******算法部分</span></span><br><span class="line">def Random_generation():</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#生成符合条件的随机矩阵</span></span><br><span class="line">    A = np.random.randint(-1, 2, size=(Weighing_times,N_num)) <span class="comment">#生成在[-1,2)区间的整数随机矩阵</span></span><br><span class="line">    <span class="keyword">while</span> (not all(np.sum(A,axis=1) == 0)):</span><br><span class="line">        A = np.random.randint(-1, 2, size=(Weighing_times,N_num))</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#进行矩阵乘法    </span></span><br><span class="line">    Y = np.dot(A,N.reshape((-1,1)))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N_num):</span><br><span class="line">        LIST = list(range(N_num))</span><br><span class="line">        LIST.pop(i)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> all(Y == A[:,i].reshape((-1,1))) and (not any(all(Y == -A[:,j].reshape((-1,1))) <span class="keyword">for</span> j <span class="keyword">in</span> LIST)) and (not any(all(Y == A[:,j].reshape((-1,1))) <span class="keyword">for</span> j <span class="keyword">in</span> LIST)):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"---------程序运行成功，输出结果：---------"</span>,<span class="string">"\n"</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"第"</span>,i+1,<span class="string">"个球为坏的重球"</span>,<span class="string">"\n"</span>)</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        <span class="keyword">elif</span> all(Y == -A[:,i].reshape((-1,1))) and (not any(all(Y == A[:,j].reshape((-1,1))) <span class="keyword">for</span> j <span class="keyword">in</span> LIST)) and (not any(all(Y == -A[:,j].reshape((-1,1))) <span class="keyword">for</span> j <span class="keyword">in</span> LIST)):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"---------程序运行成功，输出结果：---------"</span>,<span class="string">"\n"</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"第"</span>,i+1,<span class="string">"个球为坏的轻球"</span>,<span class="string">"\n"</span>)</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        <span class="keyword">elif</span> i == N_num-1:</span><br><span class="line">            Random_generation()</span><br><span class="line">            </span><br><span class="line">    <span class="built_in">return</span> A,Y</span><br><span class="line"></span><br><span class="line">A,Y = Random_generation()</span><br><span class="line"></span><br><span class="line"><span class="comment">#*******描述部分</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"---------称量方法展示！---------"</span>,<span class="string">"\n"</span>)</span><br><span class="line">time.sleep(0.6)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(Weighing_times):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\n"</span>,<span class="string">"第"</span>,i+1,<span class="string">"次称量:"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"左盘球的序号(从1开始计数):"</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(N_num):</span><br><span class="line">        <span class="keyword">if</span> A[i,j] == 1:</span><br><span class="line">            <span class="built_in">print</span>(j+1)</span><br><span class="line">            </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"右盘球的序号(从1开始计数):"</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(N_num):</span><br><span class="line">        <span class="keyword">if</span> A[i,j] == -1:</span><br><span class="line">            <span class="built_in">print</span>(j+1)</span><br><span class="line">            </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"称量结果:"</span>)</span><br><span class="line">    <span class="keyword">if</span> Y[i] == 1:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"左盘重"</span>)</span><br><span class="line">    <span class="keyword">elif</span> Y[i] == 0:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"平衡"</span>)</span><br><span class="line">    <span class="keyword">elif</span> Y[i] == -1:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"右盘重"</span>)</span><br></pre></td></tr></table></figure>
+      <p>此程序为信息论中提到的秤球问题的代码实现，但此算法功能并不完善。目前，该程序只能针对特定的情况给出特定的称量方法，无法给出通解。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">All rights reserved by Liu Junhong</span></span><br><span class="line"><span class="string">Reference books: 百度百科-称球问题 (https://baike.baidu.com/item/称球问题/16038399?fr=aladdin)</span></span><br><span class="line"><span class="string">Completion time：2020-11-16</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line">import numpy as np</span><br><span class="line">import pandas</span><br><span class="line">import time</span><br><span class="line">import math</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">sys.setrecursionlimit(1000000) <span class="comment">#设置最大递归深度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#程序说明</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------&lt;称球问题&gt;程序说明-------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Designed by 刘俊宏：All rights reserved"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Reference books: 百度百科-称球问题 (https://baike.baidu.com/item/称球问题/16038399?fr=aladdin)"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Completion time：2020-11-16"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Last modification time ：2020-11-24"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"程序缺陷：目前只能对于提供的特定称量情况，给出相对应的称量方案"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"--------------------------------------------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#*******录入数据</span></span><br><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">N_num 所需判断球的总数(正整数)</span></span><br><span class="line"><span class="string">N_bad 坏球的序号(正整数)</span></span><br><span class="line"><span class="string">N_bad_weight 坏球的轻重(正整数)</span></span><br><span class="line"><span class="string">Weighing_times 所需称量的次数</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line">N_num = <span class="built_in">float</span>(input(<span class="string">"请输入所需判断球的总数(正整数，n&gt;1)："</span>))</span><br><span class="line"><span class="keyword">while</span>(N_num &lt;= 1 or (N_num % 1)):</span><br><span class="line">    N_num = <span class="built_in">float</span>(input(<span class="string">"请输入规范正整数："</span>))</span><br><span class="line">N_num = int(N_num)</span><br><span class="line">N = np.zeros(N_num,dtype=int)</span><br><span class="line"></span><br><span class="line">N_bad = <span class="built_in">float</span>(input(<span class="string">"请输入第几个球为坏球(正整数)："</span>))</span><br><span class="line"><span class="keyword">while</span>(N_bad &lt;= 0 or (N_bad % 1)):</span><br><span class="line">    N_bad = <span class="built_in">float</span>(input(<span class="string">"请输入正整数："</span>))</span><br><span class="line">N_bad = int(N_bad)</span><br><span class="line"></span><br><span class="line">N_bad_weight = <span class="built_in">float</span>(input(<span class="string">"请输入坏球的轻重(轻输入 -1，重输入 1)："</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>((N_bad_weight != -1) and  (N_bad_weight != 1)):</span><br><span class="line">    </span><br><span class="line">    N_bad_weight = <span class="built_in">float</span>(input(<span class="string">"请输入正确数字："</span>))</span><br><span class="line">N_bad_weight = int(N_bad_weight)</span><br><span class="line"></span><br><span class="line">N[N_bad - 1] = N_bad_weight</span><br><span class="line"></span><br><span class="line">Weighing_times = math.ceil(math.log((2*N_num+3),3))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"---------数据录入成功！---------"</span>,<span class="string">"\n"</span>)</span><br><span class="line">time.sleep(0.6)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"球的总数为："</span>,int(N_num),<span class="string">"\n"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"第"</span>,int(N_bad),<span class="string">"个球为坏球"</span>,<span class="string">"\n"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"球的数据概览如下："</span>,N,<span class="string">"\n"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"所需称量的次数为："</span>,Weighing_times,<span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#*******算法部分</span></span><br><span class="line">def Random_generation():</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#生成符合条件的随机矩阵</span></span><br><span class="line">    A = np.random.randint(-1, 2, size=(Weighing_times,N_num)) <span class="comment">#生成[-1,2)区间的整数随机矩阵</span></span><br><span class="line">    <span class="keyword">while</span> (not all(np.sum(A,axis=1) == 0)):</span><br><span class="line">        A = np.random.randint(-1, 2, size=(Weighing_times,N_num))</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#进行矩阵乘法    </span></span><br><span class="line">    Y = np.dot(A,N.reshape((-1,1)))</span><br><span class="line">    <span class="keyword">if</span> all(Y == 0):         <span class="comment">#防止天平全平衡情况</span></span><br><span class="line">        Random_generation()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N_num):</span><br><span class="line">        LIST = list(range(N_num))</span><br><span class="line">        LIST.pop(i)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> all(Y == A[:,i].reshape((-1,1))) and (not any(all(Y == -A[:,j].reshape((-1,1))) <span class="keyword">for</span> j <span class="keyword">in</span> LIST)) and (not any(all(Y == A[:,j].reshape((-1,1))) <span class="keyword">for</span> j <span class="keyword">in</span> LIST)):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"---------程序运行成功，输出结果：---------"</span>,<span class="string">"\n"</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"第"</span>,i+1,<span class="string">"个球为坏的重球"</span>,<span class="string">"\n"</span>)</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        <span class="keyword">elif</span> all(Y == -A[:,i].reshape((-1,1))) and (not any(all(Y == A[:,j].reshape((-1,1))) <span class="keyword">for</span> j <span class="keyword">in</span> LIST)) and (not any(all(Y == -A[:,j].reshape((-1,1))) <span class="keyword">for</span> j <span class="keyword">in</span> LIST)):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"---------程序运行成功，输出结果：---------"</span>,<span class="string">"\n"</span>)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"第"</span>,i+1,<span class="string">"个球为坏的轻球"</span>,<span class="string">"\n"</span>)</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        <span class="keyword">elif</span> i == N_num-1:</span><br><span class="line">            Random_generation()</span><br><span class="line">            </span><br><span class="line">    <span class="built_in">return</span> A,Y</span><br><span class="line"></span><br><span class="line">A,Y = Random_generation()</span><br><span class="line"></span><br><span class="line"><span class="comment">#*******描述部分</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"---------称量方法展示！---------"</span>,<span class="string">"\n"</span>)</span><br><span class="line">time.sleep(0.6)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(Weighing_times):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\n"</span>,<span class="string">"第"</span>,i+1,<span class="string">"次称量:"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"左盘球的序号(从1开始计数):"</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(N_num):</span><br><span class="line">        <span class="keyword">if</span> A[i,j] == 1:</span><br><span class="line">            <span class="built_in">print</span>(j+1)</span><br><span class="line">            </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"右盘球的序号(从1开始计数):"</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(N_num):</span><br><span class="line">        <span class="keyword">if</span> A[i,j] == -1:</span><br><span class="line">            <span class="built_in">print</span>(j+1)</span><br><span class="line">            </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"称量结果:"</span>)</span><br><span class="line">    <span class="keyword">if</span> Y[i] == 1:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"左盘重"</span>)</span><br><span class="line">    <span class="keyword">elif</span> Y[i] == 0:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"平衡"</span>)</span><br><span class="line">    <span class="keyword">elif</span> Y[i] == -1:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"右盘重"</span>)</span><br></pre></td></tr></table></figure>
       
       <!-- reward -->
       
@@ -717,164 +857,6 @@
 
       
       <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line">import urllib.parse</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://fanyi.youdao.com/translate?smartresult=dict&amp;smartresult=rule&amp;sessionFrom='</span></span><br><span class="line">data = &#123;&#125;</span><br><span class="line">data[<span class="string">'i'</span>] = <span class="string">'hellow world'</span></span><br><span class="line">data[<span class="string">'from'</span>] = <span class="string">'AUTO'</span></span><br><span class="line">data[<span class="string">'to'</span>] = <span class="string">'AUTO'</span></span><br><span class="line">data[<span class="string">'smartresult'</span>] = <span class="string">'fanyideskweb'</span></span><br><span class="line">data[<span class="string">'salt'</span>] = <span class="string">'15974087852539'</span></span><br><span class="line">data[<span class="string">'sign'</span>] = <span class="string">'bf425f71f33933c9acf4bfbf4e7977f2'</span></span><br><span class="line">data[<span class="string">'lts'</span>] = <span class="string">'1597408785253'</span></span><br><span class="line">data[<span class="string">'bv'</span>] = <span class="string">'4a974ec57c26e120374ce7e28f9434e5'</span></span><br><span class="line">data[<span class="string">'client'</span>] = <span class="string">'dict'</span></span><br><span class="line">data[<span class="string">'doctype'</span>] = <span class="string">'json'</span></span><br><span class="line">data[<span class="string">'version'</span>] = <span class="string">'2.1'</span></span><br><span class="line">data[<span class="string">'keyfrom'</span>] = <span class="string">'fanyi.web'</span></span><br><span class="line">data[<span class="string">'action'</span>] = <span class="string">'FY_BY_CLICKBUTTION'</span></span><br><span class="line">data = urllib.parse.urlencode(data).encode(<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">response = urllib.request.urlopen(url,data)</span><br><span class="line">html = response.read().decode(<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(html)</span><br></pre></td></tr></table></figure>
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-python 表格数据合并函数merge()" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/08/09/python%20%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6%E5%87%BD%E6%95%B0merge()/"
-    >python 表格数据合并函数merge()</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/08/09/python%20%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6%E5%87%BD%E6%95%B0merge()/" class="article-date">
-  <time datetime="2020-08-09T00:52:00.000Z" itemprop="datePublished">2020-08-09</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python 问题解决</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>函数merge()的用法有点类似SQL语言</p>
-<h3 id="左右连接键名一样"><a href="#左右连接键名一样" class="headerlink" title="左右连接键名一样"></a>左右连接键名一样</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">df1=pd.DataFrame(&#123;<span class="string">'key'</span>:[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'b'</span>],<span class="string">'value1'</span>:range(5)&#125;)</span><br><span class="line">df2=pd.DataFrame(&#123;<span class="string">'key'</span>:[<span class="string">'a'</span>,<span class="string">'c'</span>,<span class="string">'c'</span>,<span class="string">'c'</span>,<span class="string">'c'</span>],<span class="string">'value2'</span>:range(5)&#125;)</span><br><span class="line">display(df1,df2,pd.merge(df1,df2))</span><br></pre></td></tr></table></figure>
-
-<p>df1</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    key  value1          </span><br><span class="line">0 	a		  0</span><br><span class="line">1	  b		  1</span><br><span class="line">2	  a		  2</span><br><span class="line">3	  b		  3</span><br><span class="line">4	  b		  4</span><br></pre></td></tr></table></figure>
-
-<p>df2</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    key  value2</span><br><span class="line">0	  a		  0</span><br><span class="line">1	  c		  1</span><br><span class="line">2	  c		  2</span><br><span class="line">3	  c		  3</span><br><span class="line">4	  c		  4</span><br></pre></td></tr></table></figure>
-
-<p>pd.merge(df1,df2) ##以df1、df2中相同的列名key进行连接,默认how=’inner’, pd.merge(df1,df2,on=’key’,how=’inner’)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   key  value1 value2</span><br><span class="line">0	  a	    0	    0</span><br><span class="line">1	  a	    2	    0</span><br></pre></td></tr></table></figure>
-      
-      <a class="article-more-link" href="/2020/08/09/python%20%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6%E5%87%BD%E6%95%B0merge()/">阅读更多...</a>
-      
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-关于在Python中利用pandas读取csv文件失败的解决方法(&#39;utf-8&#39;编码格式不对)" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/08/09/%E5%85%B3%E4%BA%8E%E5%9C%A8Python%E4%B8%AD%E5%88%A9%E7%94%A8pandas%E8%AF%BB%E5%8F%96csv%E6%96%87%E4%BB%B6%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95('utf-8'%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E4%B8%8D%E5%AF%B9)/"
-    >关于在Python中利用pandas读取与保存csv文件失败的解决方法(&#39;utf-8&#39;编码格式不对)</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/08/09/%E5%85%B3%E4%BA%8E%E5%9C%A8Python%E4%B8%AD%E5%88%A9%E7%94%A8pandas%E8%AF%BB%E5%8F%96csv%E6%96%87%E4%BB%B6%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95('utf-8'%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E4%B8%8D%E5%AF%B9)/" class="article-date">
-  <time datetime="2020-08-09T00:52:00.000Z" itemprop="datePublished">2020-08-09</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python 问题解决</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>在一开始我遇到了这个错误：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(<span class="string">'data1.csv'</span>)</span><br><span class="line"><span class="built_in">print</span>(data)</span><br><span class="line"></span><br><span class="line">[out]:</span><br><span class="line">	UnicodeDecodeError: <span class="string">'utf-8'</span> codec can<span class="string">'t decode byte 0xc4 in position 0: invalid continuation byte</span></span><br></pre></td></tr></table></figure>
-<p>开始不知道如何解决，一直想通过下载csv包来解决，但pip里没有这个包。后来我通过对csv文件进行“只读”操作后，发出现程序可以运行了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(open(<span class="string">'data1.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line"><span class="built_in">print</span>(data)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>在保存时我也遇到了编码格式不对的错误，我是这样解决的</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">data1 = pd.read_csv(open(<span class="string">'data1.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line">data2 = pd.read_csv(open(<span class="string">'data2.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line">data3 = pd.read_csv(open(<span class="string">'data3.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(data1))</span><br><span class="line">result = pd.merge(data1, data2 ,on=<span class="string">'CardNo'</span>)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line">result.to_csv(<span class="string">'data4.csv'</span>,encoding=<span class="string">"utf_8_sig"</span>) <span class="comment">#用于解决编码错误问题</span></span><br></pre></td></tr></table></figure>
       
       <!-- reward -->
       
