@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>你好，欢迎光临我的博客</title>
-    <url>/2020/11/25/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/</url>
+    <url>/2020/11/28/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/</url>
     <content><![CDATA[<h2 id="这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游"><a href="#这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游" class="headerlink" title="这篇说明将更好地帮助你在&lt;Mr.l’s World&gt;里畅游"></a>这篇说明将更好地帮助你在&lt;<em>Mr.l’s World</em>&gt;里畅游</h2><blockquote>
 <p><strong>博客使用简介</strong></p>
 </blockquote>
@@ -35,6 +35,23 @@
 <blockquote>
 <p><strong>博客更新日志</strong></p>
 </blockquote>
+<ul>
+<li><strong>2020/11/28</strong></li>
+</ul>
+<ol>
+<li>添加文章《希尔密码(Hill Cipher)的Python实现》</li>
+</ol>
+<p><strong>小结</strong>：添加一篇文章</p>
+<hr>
+<ul>
+<li><strong>2020/11/27</strong></li>
+</ul>
+<ol>
+<li>修改文章《利用reshape重塑数》</li>
+<li>添加文章《Python 从输入端读取多行数据》</li>
+</ol>
+<p><strong>小结</strong>：修改一篇文章，添加一篇文章</p>
+<hr>
 <ul>
 <li><strong>2020/11/25</strong></li>
 </ul>
@@ -783,6 +800,51 @@
       </tags>
   </entry>
   <entry>
+    <title>希尔密码(Hill Cipher)的Python实现</title>
+    <url>/2020/11/28/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81(Hill%20Cipher)%E7%9A%84Python%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<p>此程序为希尔密码(Hill Cipher)的Python实现</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">All rights reserved by Liu Junhong</span></span><br><span class="line"><span class="string">Reference books: 《信息论基础》、百度百科-希尔密码 (https://baike.baidu.com/item/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81/2250150?fr=aladdin)</span></span><br><span class="line"><span class="string">Completion time：2020-11-27</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line">import math</span><br><span class="line">import numpy as np</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def <span class="keyword">function</span>(matrix):</span><br><span class="line">    List = []</span><br><span class="line">    STR = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> message:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(i)):</span><br><span class="line">            <span class="keyword">for</span> h <span class="keyword">in</span> i[j]:</span><br><span class="line">                List.append(letter_dict[h])</span><br><span class="line">            <span class="keyword">if</span> len(i)- j &gt; 1:</span><br><span class="line">                List.append(letter_dict[<span class="string">' '</span>])</span><br><span class="line">        <span class="keyword">while</span>(not len(List)%4 == 0):</span><br><span class="line">            List.append(letter_dict[<span class="string">' '</span>])</span><br><span class="line">        B = np.array(List).reshape(-1,4)</span><br><span class="line">        C = np.dot(matrix,np.transpose(B))</span><br><span class="line">        <span class="built_in">print</span>(C)</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> np.transpose(C).reshape(1,-1)[0]:</span><br><span class="line">            <span class="keyword">if</span> k &gt;int(k):                                <span class="comment">#确保矩阵计算精度</span></span><br><span class="line">                STR = STR + num_dict[(int(k)+1)%53]</span><br><span class="line">            <span class="keyword">else</span>:STR = STR + num_dict[k%53]</span><br><span class="line">        <span class="built_in">print</span>(STR)</span><br><span class="line">        List = []     </span><br><span class="line">        STR = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#程序说明</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------&lt;希尔密码(MOD52)&gt;程序说明-------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"该程序目前只接受大小写英文加密讯息(支持空格)!"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"每次运行程序，密钥都会改变!"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"为保证解码顺利，密钥矩阵|A|=+/-1!"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\n"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Designed by 刘俊宏：All rights reserved"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Reference books: 《信息论基础》、百度百科-希尔密码 (https://baike.baidu.com/item/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81/2250150?fr=aladdin)"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Completion time：2020-11-27"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Last modification time ：2020-11-28"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"--------------------------------------------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建码符集</span></span><br><span class="line">letter = [<span class="string">' '</span>]+[chr(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(97, 123)] + [chr(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(65, 91)]</span><br><span class="line">letter_dict = dict(zip(letter,range(len(letter))))</span><br><span class="line">num_dict = dict(zip(range(len(letter)),letter))</span><br><span class="line">                   </span><br><span class="line"><span class="comment">#*******录入数据</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"请输入需要加密的英文讯息:"</span>)</span><br><span class="line">message = []</span><br><span class="line">try:</span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        m = sys.stdin.readline().strip() <span class="comment">#若是多输入，strip()默认是以空格分隔，返回一个包含多个字符串的list。</span></span><br><span class="line">        <span class="keyword">if</span> m == <span class="string">''</span>:</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        m = list(m.split())</span><br><span class="line">        message.append(m)</span><br><span class="line">except:</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line"><span class="comment">#生成随机4阶可逆矩阵</span></span><br><span class="line">A = np.random.randint(1, 10, size=(4,4)) <span class="comment">#生成[1,7)区间的整数随机矩阵</span></span><br><span class="line"><span class="keyword">while</span> (not abs(np.linalg.det(A)) == 1 ): <span class="comment">#该条件用于保证密钥的逆矩阵为整数</span></span><br><span class="line">    A = np.random.randint(1, 10, size=(4,4))</span><br><span class="line">A_Inv = np.linalg.inv(A)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------密钥-------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(A)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------密文-------------------"</span>)</span><br><span class="line"><span class="keyword">function</span>(A)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------解码-------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"请输入密文："</span>)</span><br><span class="line">message = []</span><br><span class="line">try:</span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        m = sys.stdin.readline().strip() <span class="comment">#若是多输入，strip()默认是以空格分隔，返回一个包含多个字符串的list。</span></span><br><span class="line">        <span class="keyword">if</span> m == <span class="string">''</span>:</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        m = list(m.split())</span><br><span class="line">        message.append(m)</span><br><span class="line">except:</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------原文-------------------"</span>)</span><br><span class="line"><span class="keyword">function</span>(A_Inv)</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 问题解决</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python 从输入端读取多行数据</title>
+    <url>/2020/11/27/Python%20%E4%BB%8E%E8%BE%93%E5%85%A5%E7%AB%AF%E8%AF%BB%E5%8F%96%E5%A4%9A%E8%A1%8C%E6%95%B0%E6%8D%AE/</url>
+    <content><![CDATA[<p>该方法解决Python从输入端一次读取多个数据的问题</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import sys</span><br><span class="line">try:</span><br><span class="line">    mx = []</span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        m = sys.stdin.readline().strip()</span><br><span class="line">        <span class="comment">#若是多输入，strip()默认是以空格分隔，返回一个包含多个字符串的list。</span></span><br><span class="line">        <span class="keyword">if</span> m == <span class="string">''</span>:</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        m = list(m.split())</span><br><span class="line">        mx.append(m)</span><br><span class="line">    <span class="built_in">print</span>(mx)</span><br><span class="line">except:</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 问题解决</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用reshape重塑数组</title>
+    <url>/2020/11/27/%E5%88%A9%E7%94%A8reshape%E9%87%8D%E5%A1%91numpy%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<blockquote>
+<p>在数据预处理阶段，我们经常需要重塑数组。这里所介绍的numpy内置属性reshape将有助于此</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">z = np.array([[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12],[13, 14, 15, 16]])</span><br><span class="line"><span class="comment"># 创建一个形状为（4，4）的数组[z]</span></span><br><span class="line">a = z.reshape(-1)</span><br><span class="line"><span class="comment">#reshape(1,-1)转化成1行：</span></span><br><span class="line"><span class="comment">#reshape(2,-1)转换成两行：</span></span><br><span class="line"><span class="comment">#reshape(-1,1)转换成1列：</span></span><br><span class="line"><span class="comment">#reshape(-1,2)转化成两列</span></span><br><span class="line"><span class="comment"># 使用reshape重塑数组[z]</span></span><br><span class="line">[out]:</span><br><span class="line">	[ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 ]</span><br><span class="line"><span class="comment">#----------------------------------------------------------</span></span><br><span class="line">a = z.reshape(-1,2)</span><br><span class="line"><span class="comment"># 在这种用法中，-1可以理解为数组行数待定，2表示重组后的数组列数为2</span></span><br><span class="line">[out]:</span><br><span class="line">	[[ 1  2]</span><br><span class="line">	 [ 3  4]</span><br><span class="line">	 [ 5  6]</span><br><span class="line">	 [ 7  8]</span><br><span class="line">	 [ 9 10]</span><br><span class="line">	 [11 12]</span><br><span class="line">	 [13 14]</span><br><span class="line">	 [15 16]]</span><br><span class="line"><span class="comment">#--------------------------------------------------------------</span></span><br><span class="line">a = z.reshape(2,2,4)</span><br><span class="line"><span class="comment"># 也可以指定行列，但重组后的矩阵元素数量必须与之前相同</span></span><br><span class="line">[out]:</span><br><span class="line">	[[[ 1  2  3  4]</span><br><span class="line">	  [ 5  6  7  8]]</span><br><span class="line"></span><br><span class="line">	 [[ 9 10 11 12]</span><br><span class="line">	  [13 14 15 16]]]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在TensorFlow中还可以利用tf.reshape对数组重塑</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tf.reshape(tensor,shape,name=None)</span><br><span class="line"><span class="comment"># tensor表示要处理的对象，shape表示目标矩阵形状（如[num，num]）</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 基础语法</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>哈夫曼(Huffman)编码的Python实现</title>
     <url>/2020/11/25/%E5%93%88%E5%A4%AB%E6%9B%BC(Huffman)%E7%BC%96%E7%A0%81%E7%9A%84Python%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<p>此程序为哈夫曼(Huffman)编码的Python实现</p>
@@ -1424,25 +1486,6 @@
 <hr>
 <p>np.concatenate的用法与tf.concat()类似，所以下面只展示示例，不做过多介绍</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">z = np.array([[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12],[13, 14, 15, 16]])</span><br><span class="line">a = np.concatenate(z,axis=1)</span><br><span class="line">[out]:</span><br><span class="line">	a = [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 ]</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Python 基础语法</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用reshape重塑数组</title>
-    <url>/2020/04/22/%E5%88%A9%E7%94%A8reshape%E9%87%8D%E5%A1%91numpy%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<blockquote>
-<p>在数据预处理阶段，我们经常需要重塑数组。这里所介绍的numpy内置属性reshape将有助于此</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">z = np.array([[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12],[13, 14, 15, 16]])</span><br><span class="line"><span class="comment"># 创建一个形状为（4，4）的数组[z]</span></span><br><span class="line">a = z.reshape(-1)</span><br><span class="line"><span class="comment"># 使用reshape重塑数组[z]</span></span><br><span class="line">[out]:</span><br><span class="line">	[ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 ]</span><br><span class="line"><span class="comment">#----------------------------------------------------------</span></span><br><span class="line">a = z.reshape(-1,2)</span><br><span class="line"><span class="comment"># 在这种用法中，-1可以理解为数组行数待定，2表示重组后的数组列数为2</span></span><br><span class="line">[out]:</span><br><span class="line">	[[ 1  2]</span><br><span class="line">	 [ 3  4]</span><br><span class="line">	 [ 5  6]</span><br><span class="line">	 [ 7  8]</span><br><span class="line">	 [ 9 10]</span><br><span class="line">	 [11 12]</span><br><span class="line">	 [13 14]</span><br><span class="line">	 [15 16]]</span><br><span class="line"><span class="comment">#--------------------------------------------------------------</span></span><br><span class="line">a = z.reshape(2,2,4)</span><br><span class="line"><span class="comment"># 也可以指定行列，但重组后的矩阵元素数量必须与之前相同</span></span><br><span class="line">[out]:</span><br><span class="line">	[[[ 1  2  3  4]</span><br><span class="line">	  [ 5  6  7  8]]</span><br><span class="line"></span><br><span class="line">	 [[ 9 10 11 12]</span><br><span class="line">	  [13 14 15 16]]]</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>在TensorFlow中还可以利用tf.reshape对数组重塑</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tf.reshape(tensor,shape,name=None)</span><br><span class="line"><span class="comment"># tensor表示要处理的对象，shape表示目标矩阵形状（如[num，num]）</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术笔记</category>
         <category>Python 基础语法</category>

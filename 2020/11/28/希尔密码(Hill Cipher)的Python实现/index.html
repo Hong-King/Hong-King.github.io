@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    利用tf.concat()与np.concatenate()来拼接向量 |  Welcome to Mr.l&#39;s World
+    希尔密码(Hill Cipher)的Python实现 |  Welcome to Mr.l&#39;s World
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -41,7 +41,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-利用tf.concat()与np.concatenate来拼接向量" class="article article-type-post" itemscope
+  <article id="post-希尔密码(Hill Cipher)的Python实现" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -49,7 +49,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  利用tf.concat()与np.concatenate()来拼接向量
+  希尔密码(Hill Cipher)的Python实现
 </h1>
  
 
@@ -58,12 +58,12 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/23/%E5%88%A9%E7%94%A8tf.concat()%E4%B8%8Enp.concatenate%E6%9D%A5%E6%8B%BC%E6%8E%A5%E5%90%91%E9%87%8F/" class="article-date">
-  <time datetime="2020-04-23T09:14:00.000Z" itemprop="datePublished">2020-04-23</time>
+      <a href="/2020/11/28/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81(Hill%20Cipher)%E7%9A%84Python%E5%AE%9E%E7%8E%B0/" class="article-date">
+  <time datetime="2020-11-28T02:28:00.000Z" itemprop="datePublished">2020-11-28</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">Python 基础语法</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python 问题解决</a>
   </div>
 
       
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">253</span>
+            <span class="post-count">532</span>
         </span>
     </span>
 
@@ -82,7 +82,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">2 分钟</span>
         </span>
     </span>
 </div>
@@ -105,12 +105,8 @@
       
 
       
-      <p>tf.concat()用法展示</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">tf.concat([tensor1, tensor2, tensor3,...], axis)</span><br><span class="line"><span class="comment"># 使用通式，其中tensor1等表示矩阵对象；axis表示拼接的维度，数值越大，纬度越高</span></span><br><span class="line"><span class="comment">#---------------------------------------------------------</span></span><br><span class="line">t1 = [[1, 2, 3], [4, 5, 6]]  t2 = [[7, 8, 9], [10, 11, 12]]  </span><br><span class="line">tf.concat([t1, t2], 0)  </span><br><span class="line"><span class="comment"># [out] : [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]  </span></span><br><span class="line">tf.concat([t1, t2], 1)  </span><br><span class="line"><span class="comment"># [out] : [[1, 2, 3, 7, 8, 9], [4, 5, 6, 10, 11, 12]]   </span></span><br><span class="line"><span class="comment">#---------------------------------------------------------</span></span><br><span class="line"><span class="comment"># tensor t3 with shape [2, 3]  </span></span><br><span class="line"><span class="comment"># tensor t4 with shape [2, 3]  </span></span><br><span class="line">tf.shape(tf.concat([t3, t4], 0))  <span class="comment"># shape:[4, 3]  </span></span><br><span class="line">tf.shape(tf.concat([t3, t4], 1))  <span class="comment"># shape:[2, 6]</span></span><br></pre></td></tr></table></figure>
-<p>简单来讲，对于形状如[[ ], [ ]]和[[ ], [ ]]的矩阵，低维拼接等于拿掉最外面括号，高维拼接是拿掉里面的括号(保证其他维度不变)。如果axis为负数（-num），则表示倒数第num维度。</p>
-<hr>
-<p>np.concatenate的用法与tf.concat()类似，所以下面只展示示例，不做过多介绍</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">z = np.array([[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12],[13, 14, 15, 16]])</span><br><span class="line">a = np.concatenate(z,axis=1)</span><br><span class="line">[out]:</span><br><span class="line">	a = [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 ]</span><br></pre></td></tr></table></figure>
+      <p>此程序为希尔密码(Hill Cipher)的Python实现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">All rights reserved by Liu Junhong</span></span><br><span class="line"><span class="string">Reference books: 《信息论基础》、百度百科-希尔密码 (https://baike.baidu.com/item/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81/2250150?fr=aladdin)</span></span><br><span class="line"><span class="string">Completion time：2020-11-27</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line">import math</span><br><span class="line">import numpy as np</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def <span class="keyword">function</span>(matrix):</span><br><span class="line">    List = []</span><br><span class="line">    STR = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> message:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(i)):</span><br><span class="line">            <span class="keyword">for</span> h <span class="keyword">in</span> i[j]:</span><br><span class="line">                List.append(letter_dict[h])</span><br><span class="line">            <span class="keyword">if</span> len(i)- j &gt; 1:</span><br><span class="line">                List.append(letter_dict[<span class="string">' '</span>])</span><br><span class="line">        <span class="keyword">while</span>(not len(List)%4 == 0):</span><br><span class="line">            List.append(letter_dict[<span class="string">' '</span>])</span><br><span class="line">        B = np.array(List).reshape(-1,4)</span><br><span class="line">        C = np.dot(matrix,np.transpose(B))</span><br><span class="line">        <span class="built_in">print</span>(C)</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> np.transpose(C).reshape(1,-1)[0]:</span><br><span class="line">            <span class="keyword">if</span> k &gt;int(k):                                <span class="comment">#确保矩阵计算精度</span></span><br><span class="line">                STR = STR + num_dict[(int(k)+1)%53]</span><br><span class="line">            <span class="keyword">else</span>:STR = STR + num_dict[k%53]</span><br><span class="line">        <span class="built_in">print</span>(STR)</span><br><span class="line">        List = []     </span><br><span class="line">        STR = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#程序说明</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------&lt;希尔密码(MOD52)&gt;程序说明-------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"该程序目前只接受大小写英文加密讯息(支持空格)!"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"每次运行程序，密钥都会改变!"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"为保证解码顺利，密钥矩阵|A|=+/-1!"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\n"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Designed by 刘俊宏：All rights reserved"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Reference books: 《信息论基础》、百度百科-希尔密码 (https://baike.baidu.com/item/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81/2250150?fr=aladdin)"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Completion time：2020-11-27"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Last modification time ：2020-11-28"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"--------------------------------------------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建码符集</span></span><br><span class="line">letter = [<span class="string">' '</span>]+[chr(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(97, 123)] + [chr(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(65, 91)]</span><br><span class="line">letter_dict = dict(zip(letter,range(len(letter))))</span><br><span class="line">num_dict = dict(zip(range(len(letter)),letter))</span><br><span class="line">                   </span><br><span class="line"><span class="comment">#*******录入数据</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"请输入需要加密的英文讯息:"</span>)</span><br><span class="line">message = []</span><br><span class="line">try:</span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        m = sys.stdin.readline().strip() <span class="comment">#若是多输入，strip()默认是以空格分隔，返回一个包含多个字符串的list。</span></span><br><span class="line">        <span class="keyword">if</span> m == <span class="string">''</span>:</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        m = list(m.split())</span><br><span class="line">        message.append(m)</span><br><span class="line">except:</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line"><span class="comment">#生成随机4阶可逆矩阵</span></span><br><span class="line">A = np.random.randint(1, 10, size=(4,4)) <span class="comment">#生成[1,7)区间的整数随机矩阵</span></span><br><span class="line"><span class="keyword">while</span> (not abs(np.linalg.det(A)) == 1 ): <span class="comment">#该条件用于保证密钥的逆矩阵为整数</span></span><br><span class="line">    A = np.random.randint(1, 10, size=(4,4))</span><br><span class="line">A_Inv = np.linalg.inv(A)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------密钥-------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(A)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------密文-------------------"</span>)</span><br><span class="line"><span class="keyword">function</span>(A)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------解码-------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"请输入密文："</span>)</span><br><span class="line">message = []</span><br><span class="line">try:</span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        m = sys.stdin.readline().strip() <span class="comment">#若是多输入，strip()默认是以空格分隔，返回一个包含多个字符串的list。</span></span><br><span class="line">        <span class="keyword">if</span> m == <span class="string">''</span>:</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        m = list(m.split())</span><br><span class="line">        message.append(m)</span><br><span class="line">except:</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------原文-------------------"</span>)</span><br><span class="line"><span class="keyword">function</span>(A_Inv)</span><br></pre></td></tr></table></figure>
       
       <!-- reward -->
       
@@ -178,7 +174,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hong-king.github.io/2020/04/23/%E5%88%A9%E7%94%A8tf.concat()%E4%B8%8Enp.concatenate%E6%9D%A5%E6%8B%BC%E6%8E%A5%E5%90%91%E9%87%8F/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hong-king.github.io/2020/11/28/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81(Hill%20Cipher)%E7%9A%84Python%E5%AE%9E%E7%8E%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -196,19 +192,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/05/08/%E3%80%8Apython%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+      <a href="/2020/11/28/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            《python深度学习》笔记
+            你好，欢迎光临我的博客
           
         </div>
       </a>
     
     
-      <a href="/2020/04/19/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0(Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0)/" class="article-nav-link">
+      <a href="/2020/11/27/Python%20%E4%BB%8E%E8%BE%93%E5%85%A5%E7%AB%AF%E8%AF%BB%E5%8F%96%E5%A4%9A%E8%A1%8C%E6%95%B0%E6%8D%AE/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">《数据结构与算法》笔记(Python语言实现)</div>
+        <div class="article-nav-title">Python 从输入端读取多行数据</div>
       </a>
     
   </nav>

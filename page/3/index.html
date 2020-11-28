@@ -80,7 +80,7 @@
     
     
     
-    <article id="post-利用reshape重塑numpy数组" class="article article-type-post" itemscope
+    <article id="post-Python中copy与deepcopy的区别" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -88,8 +88,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/04/22/%E5%88%A9%E7%94%A8reshape%E9%87%8D%E5%A1%91numpy%E6%95%B0%E7%BB%84/"
-    >利用reshape重塑数组</a> 
+  <a class="article-title" href="/2020/05/09/Python%E4%B8%ADcopy%E4%B8%8Edeepcopy%E7%9A%84%E5%8C%BA%E5%88%AB/"
+    >Python中copy与deepcopy的区别</a> 
 </h2>
  
 
@@ -98,8 +98,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/22/%E5%88%A9%E7%94%A8reshape%E9%87%8D%E5%A1%91numpy%E6%95%B0%E7%BB%84/" class="article-date">
-  <time datetime="2020-04-22T00:46:00.000Z" itemprop="datePublished">2020-04-22</time>
+      <a href="/2020/05/09/Python%E4%B8%ADcopy%E4%B8%8Edeepcopy%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2020-05-09T01:12:00.000Z" itemprop="datePublished">2020-05-09</time>
 </a>
       
   <div class="article-category">
@@ -121,13 +121,191 @@
 
       
       <blockquote>
-<p>在数据预处理阶段，我们经常需要重塑数组。这里所介绍的numpy内置属性reshape将有助于此</p>
+<p>copy与deepcopy都在copy模块中，使用的时候需要实现导入copy包,以下为示例：</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">z = np.array([[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12],[13, 14, 15, 16]])</span><br><span class="line"><span class="comment"># 创建一个形状为（4，4）的数组[z]</span></span><br><span class="line">a = z.reshape(-1)</span><br><span class="line"><span class="comment"># 使用reshape重塑数组[z]</span></span><br><span class="line">[out]:</span><br><span class="line">	[ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 ]</span><br><span class="line"><span class="comment">#----------------------------------------------------------</span></span><br><span class="line">a = z.reshape(-1,2)</span><br><span class="line"><span class="comment"># 在这种用法中，-1可以理解为数组行数待定，2表示重组后的数组列数为2</span></span><br><span class="line">[out]:</span><br><span class="line">	[[ 1  2]</span><br><span class="line">	 [ 3  4]</span><br><span class="line">	 [ 5  6]</span><br><span class="line">	 [ 7  8]</span><br><span class="line">	 [ 9 10]</span><br><span class="line">	 [11 12]</span><br><span class="line">	 [13 14]</span><br><span class="line">	 [15 16]]</span><br><span class="line"><span class="comment">#--------------------------------------------------------------</span></span><br><span class="line">a = z.reshape(2,2,4)</span><br><span class="line"><span class="comment"># 也可以指定行列，但重组后的矩阵元素数量必须与之前相同</span></span><br><span class="line">[out]:</span><br><span class="line">	[[[ 1  2  3  4]</span><br><span class="line">	  [ 5  6  7  8]]</span><br><span class="line"></span><br><span class="line">	 [[ 9 10 11 12]</span><br><span class="line">	  [13 14 15 16]]]</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>在TensorFlow中还可以利用tf.reshape对数组重塑</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line"></span><br><span class="line">a = [1, 2]</span><br><span class="line">b = a</span><br><span class="line">c = copy.copy(a)</span><br><span class="line">d = copy.deepcopy(a)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(b), id(c), id(d))</span><br><span class="line"><span class="comment">#[out]:</span></span><br><span class="line">	2480148669704 2480148669704 2480148617096 2479872285064</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line"></span><br><span class="line">a = 22</span><br><span class="line">b = a</span><br><span class="line">c = copy.copy(a)</span><br><span class="line">d = copy.deepcopy(a)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(b), id(c), id(d))</span><br><span class="line"><span class="comment"># [out]:</span></span><br><span class="line">	140731869655968 140731869655968 140731869655968 140731869655968</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p><strong>赋值语句</strong>：赋值，并不会产生一个独立的对象单独存在，他只是将原有的数据块打上一个新标签，所以当其中一个标签被改变的时候，数据块就会发生变化，另一个标签也会随之改变。</p>
+</li>
+<li><p><strong>对于不可变类型（数值，字符串，元组）</strong>：浅复制、深复制和“等于赋值”的情况一样，对象的id值与原来的值相同，都是将对象指向同一个引用。</p>
+</li>
+</ol>
+<hr>
+<p><strong>对于可变类型（列表和字典）</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line"></span><br><span class="line">a = [1, 2, [1, 2]]</span><br><span class="line">b = a</span><br><span class="line">c = copy.copy(a)</span><br><span class="line">d = copy.deepcopy(a)</span><br><span class="line"><span class="built_in">print</span>(a, b, c, d)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(b), id(c), id(d))</span><br><span class="line"></span><br><span class="line">a[0] = 2</span><br><span class="line"><span class="built_in">print</span>(a, b, c, d)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(b), id(c), id(d))</span><br><span class="line"></span><br><span class="line">a[2][0] = 5</span><br><span class="line"><span class="built_in">print</span>(a, b, c, d)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(b), id(c), id(d))</span><br><span class="line"></span><br><span class="line"><span class="comment">#[out]:</span></span><br><span class="line">[1, 2, [1, 2]] [1, 2, [1, 2]] [1, 2, [1, 2]] [1, 2, [1, 2]]</span><br><span class="line">1292062431112 1292062431112 1291786145352 1291786145608</span><br><span class="line">[2, 2, [1, 2]] [2, 2, [1, 2]] [1, 2, [1, 2]] [1, 2, [1, 2]]</span><br><span class="line">1292062431112 1292062431112 1291786145352 1291786145608</span><br><span class="line">[2, 2, [5, 2]] [2, 2, [5, 2]] [1, 2, [5, 2]] [1, 2, [1, 2]]</span><br><span class="line">1292062431112 1292062431112 1291786145352 1291786145608</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>浅复制copy.copy(): 只拷贝父对象，不会拷贝对象的内部的子对象。</strong></li>
+</ol>
+<ul>
+<li>第一种情况(无复杂子对象):原来值的改变并不会影响浅复制的值，同时浅复制的值改变也并不会影响原来的值。原来值的id值与浅复制原来的值不同。</li>
+<li>第二种情况(有复杂子对象):（例如列表中的一个子元素是一个列表），如果不改变其中复杂子对象，浅复制的值改变并不会影响原来的值。 但是改变原来的值中的复杂子对象的值会影响浅复制的值， 因为他们子对象的引用是一样的。</li>
+</ul>
+<ol start="2">
+<li><strong>深复制deepcopy.copy()：拷贝父对象以及拷贝对象的内部的子对象,索引值都不同。</strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line"></span><br><span class="line">a = [1, 2, [1, 2]]</span><br><span class="line">c = copy.deepcopy(a)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(c))</span><br><span class="line"><span class="built_in">print</span>(id(a[2]), id(c[2]))</span><br><span class="line"><span class="comment">#[out]:</span></span><br><span class="line">	1828100118472 1827823832200</span><br><span class="line">	1828100146760 1827823754632</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-《python深度学习》笔记" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/05/08/%E3%80%8Apython%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/"
+    >《python深度学习》笔记</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/05/08/%E3%80%8Apython%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/" class="article-date">
+  <time datetime="2020-05-08T01:41:00.000Z" itemprop="datePublished">2020-05-08</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/%E3%80%8Apython%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8B/">《python深度学习》</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <h1 id="第一章-什么是深度学习"><a href="#第一章-什么是深度学习" class="headerlink" title="第一章 什么是深度学习"></a>第一章 什么是深度学习</h1><h2 id="1-1-人工智能、机器学习与深度学习"><a href="#1-1-人工智能、机器学习与深度学习" class="headerlink" title="1.1　人工智能、机器学习与深度学习"></a><strong>1.1　人工智能、机器学习与深度学习</strong></h2><blockquote>
+<p>人工智能、机器学习与深度学习这三者之间的关系：{深度学习}&lt;{机器学习}&lt;{人工智能}</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tf.reshape(tensor,shape,name=None)</span><br><span class="line"><span class="comment"># tensor表示要处理的对象，shape表示目标矩阵形状（如[num，num]）</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-1-1-人工智能"><a href="#1-1-1-人工智能" class="headerlink" title="1.1.1　人工智能"></a>1.1.1　人工智能</h3><ul>
+<li>人工智能的简洁定义如下：<strong>努力将通常由人类完成的智力任务自动化。</strong>因此，<strong>人工智能是一个综合性的领域，不仅包括机器学习与深度学习，还包括更多不涉及学习的方法</strong>。</li>
+</ul>
+<h3 id="1-1-2-机器学习"><a href="#1-1-2-机器学习" class="headerlink" title="1.1.2　机器学习"></a>1.1.2　机器学习</h3><ul>
+<li><p>在经典的程序设计（即符号主义人工智能的范式）中，人们<strong>输入的是规则（即程序）</strong>和需要根据这些规则<strong>进行处理的数据</strong>，系统<strong>输出的是答案</strong>。</p>
+</li>
+<li><p>在机器学习中，人们<strong>输入的是数据</strong>和从这些数据中<strong>预期得到的答案</strong>，系统<strong>输出的是规则</strong>。这些规则随后可应用于新的数据，并使计算机自主生成答案。</p>
+</li>
+<li><p>机器学习系统是<strong>训练出来的</strong>，而不是明确地用程序编写出来的。</p>
+</li>
+<li><p>机器学习（尤其是深度学习）呈现出相对较少的数学理论（可能太少了），并且是以工程为导向的。这是一门<strong>需要上手实践的学科</strong>，想法<strong>更多地是靠实践来证明</strong>，而不是靠理论推导。</p>
+</li>
+</ul>
+      
+      <a class="article-more-link" href="/2020/05/08/%E3%80%8Apython%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-利用tf.concat()与np.concatenate来拼接向量" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/23/%E5%88%A9%E7%94%A8tf.concat()%E4%B8%8Enp.concatenate%E6%9D%A5%E6%8B%BC%E6%8E%A5%E5%90%91%E9%87%8F/"
+    >利用tf.concat()与np.concatenate()来拼接向量</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/23/%E5%88%A9%E7%94%A8tf.concat()%E4%B8%8Enp.concatenate%E6%9D%A5%E6%8B%BC%E6%8E%A5%E5%90%91%E9%87%8F/" class="article-date">
+  <time datetime="2020-04-23T09:14:00.000Z" itemprop="datePublished">2020-04-23</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">Python 基础语法</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>tf.concat()用法展示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">tf.concat([tensor1, tensor2, tensor3,...], axis)</span><br><span class="line"><span class="comment"># 使用通式，其中tensor1等表示矩阵对象；axis表示拼接的维度，数值越大，纬度越高</span></span><br><span class="line"><span class="comment">#---------------------------------------------------------</span></span><br><span class="line">t1 = [[1, 2, 3], [4, 5, 6]]  t2 = [[7, 8, 9], [10, 11, 12]]  </span><br><span class="line">tf.concat([t1, t2], 0)  </span><br><span class="line"><span class="comment"># [out] : [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]  </span></span><br><span class="line">tf.concat([t1, t2], 1)  </span><br><span class="line"><span class="comment"># [out] : [[1, 2, 3, 7, 8, 9], [4, 5, 6, 10, 11, 12]]   </span></span><br><span class="line"><span class="comment">#---------------------------------------------------------</span></span><br><span class="line"><span class="comment"># tensor t3 with shape [2, 3]  </span></span><br><span class="line"><span class="comment"># tensor t4 with shape [2, 3]  </span></span><br><span class="line">tf.shape(tf.concat([t3, t4], 0))  <span class="comment"># shape:[4, 3]  </span></span><br><span class="line">tf.shape(tf.concat([t3, t4], 1))  <span class="comment"># shape:[2, 6]</span></span><br></pre></td></tr></table></figure>
+<p>简单来讲，对于形状如[[ ], [ ]]和[[ ], [ ]]的矩阵，低维拼接等于拿掉最外面括号，高维拼接是拿掉里面的括号(保证其他维度不变)。如果axis为负数（-num），则表示倒数第num维度。</p>
+<hr>
+<p>np.concatenate的用法与tf.concat()类似，所以下面只展示示例，不做过多介绍</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">z = np.array([[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12],[13, 14, 15, 16]])</span><br><span class="line">a = np.concatenate(z,axis=1)</span><br><span class="line">[out]:</span><br><span class="line">	a = [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 ]</span><br></pre></td></tr></table></figure>
       
       <!-- reward -->
       
@@ -700,154 +878,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E8%9B%8B%E7%99%BD%E9%A2%84%E6%B5%8B/" rel="tag">关键蛋白预测</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-非负矩阵分解（NMF）的Matlab实现" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/08/%E9%9D%9E%E8%B4%9F%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%EF%BC%88NMF%EF%BC%89%E7%9A%84Matlab%E5%AE%9E%E7%8E%B0/"
-    >非负矩阵分解（NMF）的Matlab实现</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/04/08/%E9%9D%9E%E8%B4%9F%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%EF%BC%88NMF%EF%BC%89%E7%9A%84Matlab%E5%AE%9E%E7%8E%B0/" class="article-date">
-  <time datetime="2020-04-08T08:01:00.000Z" itemprop="datePublished">2020-04-08</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Matlab-%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/">Matlab 算法实现</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <blockquote>
-<p>非负矩阵分解(Nonnegative Matrix Factorization),简称NMF,是由Lee和Seung于1999年在自然杂志上提出的一种矩阵分解</p>
-</blockquote>
-<ul>
-<li>它使分解后的所有分量均为非负值(要求纯加性的描述)并且同时实现非线性的维数约减.</li>
-<li>NMF已逐渐成为信号处理、生物医学工程、模式识别、计算机视觉和图像工程等研究领域中最受欢迎的多维数据处理工具之一.<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">V=double(imread(<span class="string">'图片名或路径'</span>));      <span class="comment">#	这里的图片默认为RGB格式（即三通道图片）</span></span><br><span class="line">imshow(mat2gray(V));</span><br><span class="line">V1=V(:,:,1);		<span class="comment"># 将图片的第一通道数值赋值给V1</span></span><br><span class="line">V2=V(:,:,2);		<span class="comment"># 将图片的第二通道数值赋值给V2</span></span><br><span class="line">V3=V(:,:,3);		<span class="comment"># 将图片的第三通道数值赋值给V3</span></span><br><span class="line"></span><br><span class="line">[i,u]=size(V1);		<span class="comment"># 将V1的行数赋值给i，列数赋值给u</span></span><br><span class="line">r=100;				<span class="comment"># 设置分解矩阵的秩</span></span><br><span class="line">W=rand(i,r);		<span class="comment"># 初始化WH，为非负数</span></span><br><span class="line">H=rand(r,u);		<span class="comment"># 初始化WH，为非负数</span></span><br><span class="line">maviter=600;		<span class="comment"># 最大迭代次数</span></span><br><span class="line">-----------------------------------------------------------------------------------</span><br><span class="line"><span class="comment"># 以下为非负矩阵算法公式，V2，V3同上处理，就不重复展示,以'...'代替</span></span><br><span class="line"><span class="keyword">for</span> iter=1:maviter</span><br><span class="line">    W=W.*((V1./(W*H))*H<span class="string">');           	</span></span><br><span class="line"><span class="string">    W=W./(ones(i,1)*sum(W));    </span></span><br><span class="line"><span class="string">    H=H.*(W'</span>*(V1./(W*H)));</span><br><span class="line">end</span><br><span class="line">V1=W*H;</span><br><span class="line">...</span><br><span class="line">-----------------------------------------------------------------------------------</span><br><span class="line"><span class="comment"># 以下程序用于重新拼接图形</span></span><br><span class="line">img_V(:,:,1)=V1(:,:);</span><br><span class="line">img_V(:,:,2)=V2(:,:);</span><br><span class="line">img_V(:,:,3)=V3(:,:);</span><br><span class="line">figure;</span><br><span class="line">imshow(mat2gray(img_V));</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Matlab/" rel="tag">Matlab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-利用Python将数组长度标准化" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/08/%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%A0%87%E5%87%86%E5%8C%96/"
-    >利用Python将数组长度标准化</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/04/08/%E5%88%A9%E7%94%A8Python%E5%B0%86%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6%E6%A0%87%E5%87%86%E5%8C%96/" class="article-date">
-  <time datetime="2020-04-08T02:53:00.000Z" itemprop="datePublished">2020-04-08</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python 问题解决</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <blockquote>
-<p>本方法需要使用tensorflow包，请确认你已安装</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf  </span><br><span class="line">from tensorflow import keras</span><br><span class="line"></span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"><span class="comment">#------------------------- 将蛋白质语句长度标准化</span></span><br><span class="line">protein_dictionary_matrix = np.load(<span class="string">'文件路径'</span>) <span class="comment"># 载入数组</span></span><br><span class="line"></span><br><span class="line">protein_dictionary_matrix = keras.preprocessing.sequence.pad_sequences[适用于tensorflow2.0]</span><br><span class="line">(protein_dictionary_matrix,maxlen=None,padding=<span class="string">'post'</span>,truncating=<span class="string">'post'</span>,value = 0)</span><br><span class="line"><span class="comment"># protein_dictionary_matrix:	所要标准化的变量</span></span><br><span class="line"><span class="comment"># maxlen=None:	标准化长度:，None表示以数组最大长度为准</span></span><br><span class="line"><span class="comment"># padding='post':	'pre'或'post'，确定当需要补0时，从起始还是结尾补</span></span><br><span class="line"><span class="comment"># truncating:	'pre'或'post'，确定当需要截断序列时，从起始还是结尾截断</span></span><br><span class="line"><span class="comment"># value:	浮点数，将在填充时嵌入此值,默认的填充值0</span></span><br></pre></td></tr></table></figure>
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
 
 
     </footer>

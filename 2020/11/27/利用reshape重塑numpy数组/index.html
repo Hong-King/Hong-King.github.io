@@ -58,8 +58,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/22/%E5%88%A9%E7%94%A8reshape%E9%87%8D%E5%A1%91numpy%E6%95%B0%E7%BB%84/" class="article-date">
-  <time datetime="2020-04-22T00:46:00.000Z" itemprop="datePublished">2020-04-22</time>
+      <a href="/2020/11/27/%E5%88%A9%E7%94%A8reshape%E9%87%8D%E5%A1%91numpy%E6%95%B0%E7%BB%84/" class="article-date">
+  <time datetime="2020-11-27T08:49:00.000Z" itemprop="datePublished">2020-11-27</time>
 </a>
       
   <div class="article-category">
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">236</span>
+            <span class="post-count">268</span>
         </span>
     </span>
 
@@ -108,7 +108,7 @@
       <blockquote>
 <p>在数据预处理阶段，我们经常需要重塑数组。这里所介绍的numpy内置属性reshape将有助于此</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">z = np.array([[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12],[13, 14, 15, 16]])</span><br><span class="line"><span class="comment"># 创建一个形状为（4，4）的数组[z]</span></span><br><span class="line">a = z.reshape(-1)</span><br><span class="line"><span class="comment"># 使用reshape重塑数组[z]</span></span><br><span class="line">[out]:</span><br><span class="line">	[ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 ]</span><br><span class="line"><span class="comment">#----------------------------------------------------------</span></span><br><span class="line">a = z.reshape(-1,2)</span><br><span class="line"><span class="comment"># 在这种用法中，-1可以理解为数组行数待定，2表示重组后的数组列数为2</span></span><br><span class="line">[out]:</span><br><span class="line">	[[ 1  2]</span><br><span class="line">	 [ 3  4]</span><br><span class="line">	 [ 5  6]</span><br><span class="line">	 [ 7  8]</span><br><span class="line">	 [ 9 10]</span><br><span class="line">	 [11 12]</span><br><span class="line">	 [13 14]</span><br><span class="line">	 [15 16]]</span><br><span class="line"><span class="comment">#--------------------------------------------------------------</span></span><br><span class="line">a = z.reshape(2,2,4)</span><br><span class="line"><span class="comment"># 也可以指定行列，但重组后的矩阵元素数量必须与之前相同</span></span><br><span class="line">[out]:</span><br><span class="line">	[[[ 1  2  3  4]</span><br><span class="line">	  [ 5  6  7  8]]</span><br><span class="line"></span><br><span class="line">	 [[ 9 10 11 12]</span><br><span class="line">	  [13 14 15 16]]]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">z = np.array([[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12],[13, 14, 15, 16]])</span><br><span class="line"><span class="comment"># 创建一个形状为（4，4）的数组[z]</span></span><br><span class="line">a = z.reshape(-1)</span><br><span class="line"><span class="comment">#reshape(1,-1)转化成1行：</span></span><br><span class="line"><span class="comment">#reshape(2,-1)转换成两行：</span></span><br><span class="line"><span class="comment">#reshape(-1,1)转换成1列：</span></span><br><span class="line"><span class="comment">#reshape(-1,2)转化成两列</span></span><br><span class="line"><span class="comment"># 使用reshape重塑数组[z]</span></span><br><span class="line">[out]:</span><br><span class="line">	[ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 ]</span><br><span class="line"><span class="comment">#----------------------------------------------------------</span></span><br><span class="line">a = z.reshape(-1,2)</span><br><span class="line"><span class="comment"># 在这种用法中，-1可以理解为数组行数待定，2表示重组后的数组列数为2</span></span><br><span class="line">[out]:</span><br><span class="line">	[[ 1  2]</span><br><span class="line">	 [ 3  4]</span><br><span class="line">	 [ 5  6]</span><br><span class="line">	 [ 7  8]</span><br><span class="line">	 [ 9 10]</span><br><span class="line">	 [11 12]</span><br><span class="line">	 [13 14]</span><br><span class="line">	 [15 16]]</span><br><span class="line"><span class="comment">#--------------------------------------------------------------</span></span><br><span class="line">a = z.reshape(2,2,4)</span><br><span class="line"><span class="comment"># 也可以指定行列，但重组后的矩阵元素数量必须与之前相同</span></span><br><span class="line">[out]:</span><br><span class="line">	[[[ 1  2  3  4]</span><br><span class="line">	  [ 5  6  7  8]]</span><br><span class="line"></span><br><span class="line">	 [[ 9 10 11 12]</span><br><span class="line">	  [13 14 15 16]]]</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>在TensorFlow中还可以利用tf.reshape对数组重塑</p>
 </blockquote>
@@ -180,7 +180,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hong-king.github.io/2020/04/22/%E5%88%A9%E7%94%A8reshape%E9%87%8D%E5%A1%91numpy%E6%95%B0%E7%BB%84/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hong-king.github.io/2020/11/27/%E5%88%A9%E7%94%A8reshape%E9%87%8D%E5%A1%91numpy%E6%95%B0%E7%BB%84/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -198,19 +198,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/04/23/%E5%88%A9%E7%94%A8tf.concat()%E4%B8%8Enp.concatenate%E6%9D%A5%E6%8B%BC%E6%8E%A5%E5%90%91%E9%87%8F/" class="article-nav-link">
+      <a href="/2020/11/27/Python%20%E4%BB%8E%E8%BE%93%E5%85%A5%E7%AB%AF%E8%AF%BB%E5%8F%96%E5%A4%9A%E8%A1%8C%E6%95%B0%E6%8D%AE/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            利用tf.concat()与np.concatenate()来拼接向量
+            Python 从输入端读取多行数据
           
         </div>
       </a>
     
     
-      <a href="/2020/04/19/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0(Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0)/" class="article-nav-link">
+      <a href="/2020/11/25/%E5%93%88%E5%A4%AB%E6%9B%BC(Huffman)%E7%BC%96%E7%A0%81%E7%9A%84Python%E5%AE%9E%E7%8E%B0/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">《数据结构与算法》笔记(Python语言实现)</div>
+        <div class="article-nav-title">哈夫曼(Huffman)编码的Python实现</div>
       </a>
     
   </nav>

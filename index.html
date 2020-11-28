@@ -88,7 +88,7 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/11/25/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/"
+  <a class="article-title" href="/2020/11/28/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/"
     >你好，欢迎光临我的博客
   <i class="article-topping">置顶</i>
 </a> 
@@ -100,8 +100,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/11/25/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/" class="article-date">
-  <time datetime="2020-11-25T12:18:00.000Z" itemprop="datePublished">2020-11-25</time>
+      <a href="/2020/11/28/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/" class="article-date">
+  <time datetime="2020-11-28T02:30:00.000Z" itemprop="datePublished">2020-11-28</time>
 </a>
       
       
@@ -145,7 +145,7 @@
 <hr>
 <p> (以下是博客更新日志，日志从2020/4/11开始记录，你<strong>可以点击</strong>&lt;阅读更多…&gt;来快速掌握博客更新动向，或者在<strong>文章概览</strong>里浏览最近更新的文章)</p>
       
-      <a class="article-more-link" href="/2020/11/25/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/">阅读更多...</a>
+      <a class="article-more-link" href="/2020/11/28/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/">阅读更多...</a>
       
       
       <!-- reward -->
@@ -367,6 +367,222 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AF%AD%E8%A8%80%E4%B9%8B%E7%BE%8E/" rel="tag">语言之美</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-希尔密码(Hill Cipher)的Python实现" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/11/28/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81(Hill%20Cipher)%E7%9A%84Python%E5%AE%9E%E7%8E%B0/"
+    >希尔密码(Hill Cipher)的Python实现</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/11/28/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81(Hill%20Cipher)%E7%9A%84Python%E5%AE%9E%E7%8E%B0/" class="article-date">
+  <time datetime="2020-11-28T02:28:00.000Z" itemprop="datePublished">2020-11-28</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python 问题解决</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>此程序为希尔密码(Hill Cipher)的Python实现</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">All rights reserved by Liu Junhong</span></span><br><span class="line"><span class="string">Reference books: 《信息论基础》、百度百科-希尔密码 (https://baike.baidu.com/item/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81/2250150?fr=aladdin)</span></span><br><span class="line"><span class="string">Completion time：2020-11-27</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line">import math</span><br><span class="line">import numpy as np</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">def <span class="keyword">function</span>(matrix):</span><br><span class="line">    List = []</span><br><span class="line">    STR = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> message:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(i)):</span><br><span class="line">            <span class="keyword">for</span> h <span class="keyword">in</span> i[j]:</span><br><span class="line">                List.append(letter_dict[h])</span><br><span class="line">            <span class="keyword">if</span> len(i)- j &gt; 1:</span><br><span class="line">                List.append(letter_dict[<span class="string">' '</span>])</span><br><span class="line">        <span class="keyword">while</span>(not len(List)%4 == 0):</span><br><span class="line">            List.append(letter_dict[<span class="string">' '</span>])</span><br><span class="line">        B = np.array(List).reshape(-1,4)</span><br><span class="line">        C = np.dot(matrix,np.transpose(B))</span><br><span class="line">        <span class="built_in">print</span>(C)</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> np.transpose(C).reshape(1,-1)[0]:</span><br><span class="line">            <span class="keyword">if</span> k &gt;int(k):                                <span class="comment">#确保矩阵计算精度</span></span><br><span class="line">                STR = STR + num_dict[(int(k)+1)%53]</span><br><span class="line">            <span class="keyword">else</span>:STR = STR + num_dict[k%53]</span><br><span class="line">        <span class="built_in">print</span>(STR)</span><br><span class="line">        List = []     </span><br><span class="line">        STR = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#程序说明</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------&lt;希尔密码(MOD52)&gt;程序说明-------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"该程序目前只接受大小写英文加密讯息(支持空格)!"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"每次运行程序，密钥都会改变!"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"为保证解码顺利，密钥矩阵|A|=+/-1!"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\n"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Designed by 刘俊宏：All rights reserved"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Reference books: 《信息论基础》、百度百科-希尔密码 (https://baike.baidu.com/item/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81/2250150?fr=aladdin)"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Completion time：2020-11-27"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Last modification time ：2020-11-28"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"--------------------------------------------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建码符集</span></span><br><span class="line">letter = [<span class="string">' '</span>]+[chr(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(97, 123)] + [chr(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(65, 91)]</span><br><span class="line">letter_dict = dict(zip(letter,range(len(letter))))</span><br><span class="line">num_dict = dict(zip(range(len(letter)),letter))</span><br><span class="line">                   </span><br><span class="line"><span class="comment">#*******录入数据</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"请输入需要加密的英文讯息:"</span>)</span><br><span class="line">message = []</span><br><span class="line">try:</span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        m = sys.stdin.readline().strip() <span class="comment">#若是多输入，strip()默认是以空格分隔，返回一个包含多个字符串的list。</span></span><br><span class="line">        <span class="keyword">if</span> m == <span class="string">''</span>:</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        m = list(m.split())</span><br><span class="line">        message.append(m)</span><br><span class="line">except:</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line"><span class="comment">#生成随机4阶可逆矩阵</span></span><br><span class="line">A = np.random.randint(1, 10, size=(4,4)) <span class="comment">#生成[1,7)区间的整数随机矩阵</span></span><br><span class="line"><span class="keyword">while</span> (not abs(np.linalg.det(A)) == 1 ): <span class="comment">#该条件用于保证密钥的逆矩阵为整数</span></span><br><span class="line">    A = np.random.randint(1, 10, size=(4,4))</span><br><span class="line">A_Inv = np.linalg.inv(A)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------密钥-------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(A)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------密文-------------------"</span>)</span><br><span class="line"><span class="keyword">function</span>(A)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------解码-------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"请输入密文："</span>)</span><br><span class="line">message = []</span><br><span class="line">try:</span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        m = sys.stdin.readline().strip() <span class="comment">#若是多输入，strip()默认是以空格分隔，返回一个包含多个字符串的list。</span></span><br><span class="line">        <span class="keyword">if</span> m == <span class="string">''</span>:</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        m = list(m.split())</span><br><span class="line">        message.append(m)</span><br><span class="line">except:</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------原文-------------------"</span>)</span><br><span class="line"><span class="keyword">function</span>(A_Inv)</span><br></pre></td></tr></table></figure>
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-Python 从输入端读取多行数据" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/11/27/Python%20%E4%BB%8E%E8%BE%93%E5%85%A5%E7%AB%AF%E8%AF%BB%E5%8F%96%E5%A4%9A%E8%A1%8C%E6%95%B0%E6%8D%AE/"
+    >Python 从输入端读取多行数据</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/11/27/Python%20%E4%BB%8E%E8%BE%93%E5%85%A5%E7%AB%AF%E8%AF%BB%E5%8F%96%E5%A4%9A%E8%A1%8C%E6%95%B0%E6%8D%AE/" class="article-date">
+  <time datetime="2020-11-27T08:49:00.000Z" itemprop="datePublished">2020-11-27</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python 问题解决</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>该方法解决Python从输入端一次读取多个数据的问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">try:</span><br><span class="line">    mx = []</span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        m = sys.stdin.readline().strip()</span><br><span class="line">        <span class="comment">#若是多输入，strip()默认是以空格分隔，返回一个包含多个字符串的list。</span></span><br><span class="line">        <span class="keyword">if</span> m == <span class="string">''</span>:</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        m = list(m.split())</span><br><span class="line">        mx.append(m)</span><br><span class="line">    <span class="built_in">print</span>(mx)</span><br><span class="line">except:</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-利用reshape重塑numpy数组" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/11/27/%E5%88%A9%E7%94%A8reshape%E9%87%8D%E5%A1%91numpy%E6%95%B0%E7%BB%84/"
+    >利用reshape重塑数组</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/11/27/%E5%88%A9%E7%94%A8reshape%E9%87%8D%E5%A1%91numpy%E6%95%B0%E7%BB%84/" class="article-date">
+  <time datetime="2020-11-27T08:49:00.000Z" itemprop="datePublished">2020-11-27</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">Python 基础语法</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <blockquote>
+<p>在数据预处理阶段，我们经常需要重塑数组。这里所介绍的numpy内置属性reshape将有助于此</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">z = np.array([[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12],[13, 14, 15, 16]])</span><br><span class="line"><span class="comment"># 创建一个形状为（4，4）的数组[z]</span></span><br><span class="line">a = z.reshape(-1)</span><br><span class="line"><span class="comment">#reshape(1,-1)转化成1行：</span></span><br><span class="line"><span class="comment">#reshape(2,-1)转换成两行：</span></span><br><span class="line"><span class="comment">#reshape(-1,1)转换成1列：</span></span><br><span class="line"><span class="comment">#reshape(-1,2)转化成两列</span></span><br><span class="line"><span class="comment"># 使用reshape重塑数组[z]</span></span><br><span class="line">[out]:</span><br><span class="line">	[ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 ]</span><br><span class="line"><span class="comment">#----------------------------------------------------------</span></span><br><span class="line">a = z.reshape(-1,2)</span><br><span class="line"><span class="comment"># 在这种用法中，-1可以理解为数组行数待定，2表示重组后的数组列数为2</span></span><br><span class="line">[out]:</span><br><span class="line">	[[ 1  2]</span><br><span class="line">	 [ 3  4]</span><br><span class="line">	 [ 5  6]</span><br><span class="line">	 [ 7  8]</span><br><span class="line">	 [ 9 10]</span><br><span class="line">	 [11 12]</span><br><span class="line">	 [13 14]</span><br><span class="line">	 [15 16]]</span><br><span class="line"><span class="comment">#--------------------------------------------------------------</span></span><br><span class="line">a = z.reshape(2,2,4)</span><br><span class="line"><span class="comment"># 也可以指定行列，但重组后的矩阵元素数量必须与之前相同</span></span><br><span class="line">[out]:</span><br><span class="line">	[[[ 1  2  3  4]</span><br><span class="line">	  [ 5  6  7  8]]</span><br><span class="line"></span><br><span class="line">	 [[ 9 10 11 12]</span><br><span class="line">	  [13 14 15 16]]]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在TensorFlow中还可以利用tf.reshape对数组重塑</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tf.reshape(tensor,shape,name=None)</span><br><span class="line"><span class="comment"># tensor表示要处理的对象，shape表示目标矩阵形状（如[num，num]）</span></span><br></pre></td></tr></table></figure>
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
 
     </footer>
@@ -653,229 +869,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-利用Python从文本中提取单词" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/10/16/%E5%88%A9%E7%94%A8Python%E4%BB%8E%E6%96%87%E6%9C%AC%E4%B8%AD%E6%8F%90%E5%8F%96%E5%8D%95%E8%AF%8D/"
-    >利用Python从文本中提取单词</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/10/16/%E5%88%A9%E7%94%A8Python%E4%BB%8E%E6%96%87%E6%9C%AC%E4%B8%AD%E6%8F%90%E5%8F%96%E5%8D%95%E8%AF%8D/" class="article-date">
-  <time datetime="2020-10-16T10:49:00.000Z" itemprop="datePublished">2020-10-16</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python 问题解决</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>首先介绍string包的一些实用内置函数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import string</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; string.digits  			<span class="comment">#所有的数字</span></span><br><span class="line"><span class="string">'0123456789'</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; string.ascii_lowercase  <span class="comment">#所有的小写字母</span></span><br><span class="line"><span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; string.ascii_uppercase  <span class="comment">#所有的大写字母</span></span><br><span class="line"><span class="string">'ABCDEFGHIJKLMNOPQRSTUVWXYZ'</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; string.hexdigits        <span class="comment">#所有的十六进制字符</span></span><br><span class="line"><span class="string">'0123456789abcdefABCDEF'</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; string.whitespace       <span class="comment">#所有的空白字符</span></span><br><span class="line"><span class="string">' \t\n\r\x0b\x0c'</span></span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; string.punctuation      <span class="comment">#所有的标点字符</span></span><br><span class="line"><span class="string">'!"#$%&amp;\'</span>()*+,-./:;&lt;=&gt;?@[\\]^_`&#123;|&#125;~<span class="string">'</span></span><br></pre></td></tr></table></figure>
-<p>接下来时python的一些内置函数</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line">import pandas</span><br><span class="line">import string</span><br><span class="line"></span><br><span class="line">data = open(<span class="string">"data.txt"</span>,<span class="string">"r"</span>,encoding = <span class="string">'utf-8'</span>)</span><br><span class="line"><span class="comment">##------------提取单词</span></span><br><span class="line">data.readlines()   		<span class="comment">#data.readlines()用于读取所有行，每行为一个元素</span></span><br><span class="line"></span><br><span class="line">data.replace(i,<span class="string">" "</span>) 	<span class="comment">#data.replace()用其他字符替换文本中的指定字符</span></span><br><span class="line"></span><br><span class="line">data.strip()        	<span class="comment">#data.strip用于移除字符串头尾指定的字符序列</span></span><br><span class="line"></span><br><span class="line">data.rstrip() 			<span class="comment">#rstrip() 删除字符串末尾的指定字符（默认为空格）</span></span><br><span class="line"></span><br><span class="line">data.split():           <span class="comment">#split() 通过指定分隔符对字符串进行切片，如果参数 num 有指定值，则分隔 num+1 个子字符串</span></span><br><span class="line"></span><br><span class="line">str.upper()          	<span class="comment"># 把所有字符中的小写字母转换成大写字母</span></span><br><span class="line"></span><br><span class="line">str.lower()         	<span class="comment"># 把所有字符中的大写字母转换成小写字母</span></span><br><span class="line"></span><br><span class="line">str.capitalize()   		<span class="comment"># 把第一个字母转化为大写字母，其余小写</span></span><br><span class="line"></span><br><span class="line">str.title()         	<span class="comment"># 把每个单词的第一个字母转化为大写，其余小写</span></span><br></pre></td></tr></table></figure>
-<p>一下为解决一个英文文档单词提取问题的源码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import numpy</span><br><span class="line">import pandas</span><br><span class="line">import string</span><br><span class="line"></span><br><span class="line">data = open(<span class="string">"data.txt"</span>,<span class="string">"r"</span>,encoding = <span class="string">'utf-8'</span>)</span><br><span class="line"><span class="comment">##------------提取单词</span></span><br><span class="line">words = <span class="built_in">set</span>()</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> data.readlines():                                       <span class="comment">#.readlines用于读取所有行</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> line:</span><br><span class="line">        <span class="keyword">if</span> i <span class="keyword">in</span> (string.punctuation.replace(<span class="string">"'"</span>,<span class="string">" "</span>)):  <span class="comment">#如果字符是标点符号的话就将其替换为空格,.replace("'"," ")用于剔除"'"符号</span></span><br><span class="line">            line = line.replace(i,<span class="string">" "</span>)</span><br><span class="line">    line = line.strip(<span class="string">'\n'</span>)                                         <span class="comment">#.strip用于移除字符串头尾指定的字符序列</span></span><br><span class="line">    line = line.strip(string.digits)                                <span class="comment">#string.digits方法的作用是生成数组，包括0-9</span></span><br><span class="line"><span class="comment">#    line = line.strip(string.punctuation)                           #string.punctuation所有的标点字符</span></span><br><span class="line"><span class="comment">#    line = line.rstrip(string.punctuation)                          #rstrip() 删除字符串末尾的指定字符（默认为空格）</span></span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> line.split():                                       <span class="comment">#split() 通过指定分隔符对字符串进行切片，如果参数 num 有指定值，则分隔 num+1 个子字符串</span></span><br><span class="line">        words.add(word)</span><br><span class="line"><span class="built_in">print</span>(words)</span><br><span class="line">data.close()</span><br></pre></td></tr></table></figure>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-解决C++从输入流读取所需个数的数据后，多余数据仍存在输入流中的问题" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/10/13/%E8%A7%A3%E5%86%B3C++%E4%BB%8E%E8%BE%93%E5%85%A5%E6%B5%81%E8%AF%BB%E5%8F%96%E6%89%80%E9%9C%80%E4%B8%AA%E6%95%B0%E7%9A%84%E6%95%B0%E6%8D%AE%E5%90%8E%EF%BC%8C%E5%A4%9A%E4%BD%99%E6%95%B0%E6%8D%AE%E4%BB%8D%E5%AD%98%E5%9C%A8%E8%BE%93%E5%85%A5%E6%B5%81%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"
-    >解决C++从输入流读取所需个数的数据后，多余数据仍存在输入流中的问题</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/10/13/%E8%A7%A3%E5%86%B3C++%E4%BB%8E%E8%BE%93%E5%85%A5%E6%B5%81%E8%AF%BB%E5%8F%96%E6%89%80%E9%9C%80%E4%B8%AA%E6%95%B0%E7%9A%84%E6%95%B0%E6%8D%AE%E5%90%8E%EF%BC%8C%E5%A4%9A%E4%BD%99%E6%95%B0%E6%8D%AE%E4%BB%8D%E5%AD%98%E5%9C%A8%E8%BE%93%E5%85%A5%E6%B5%81%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
-  <time datetime="2020-10-13T03:19:00.000Z" itemprop="datePublished">2020-10-13</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/C-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">C++ 基础语法</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>在我用链表实现票务管理系统过程中，发现在输入超过所需个数的数据，并在下一次从输入流中读取数据时，上一次输入到输入流中未读取的数据仍在数据流中，故使程序错误运行，现将解决办法展示如下。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"--------【录入票务信息】----------\n"</span>);</span><br><span class="line">		fflush(stdin);//清空缓冲区</span><br><span class="line">		cout &lt;&lt; <span class="string">"请输入：起始站名 终点站名 火车编号 车票编号 票价"</span> &lt;&lt; endl;</span><br><span class="line">		cin &gt;&gt; Data.Terminus_Station &gt;&gt; Data.Departure_Station &gt;&gt; Data.Train_number &gt;&gt; Data.Ticketing_number &gt;&gt; Data.price;</span><br><span class="line">		cin.clear(); </span><br><span class="line">		cin.ignore(numeric_limits&lt;streamsize&gt;::max(), <span class="string">'\n'</span>); //清空输入流</span><br><span class="line">		insertNodeByHead(list_administrators, Data);</span><br><span class="line">		cout &lt;&lt; <span class="string">"信息录入成功!"</span> &lt;&lt; endl;</span><br><span class="line">		<span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
-<p><strong>cin.clear()是用来更改cin的状态标示符的，cin在接收到错误的输入的时候，会设置状态位good。如果good位不为1，则cin不接受输入，直接跳过。如果下次输入前状态位没有改变那么即使清除了缓冲区数据流也无法输入。所以清除缓冲区之前必须要cin.clear()。</strong></p>
-<p><strong>使用ignore清空输入流</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cin.ignore(numeric_limits&lt;std::streamsize&gt;::max(),’\n’);	//清除输入缓冲区的当前行 </span><br><span class="line">cin.ignore(numeric_limits&lt;std::streamsize&gt;::max()); 		//清除输入缓冲区里所有内容 </span><br><span class="line">cin.ignore();												//清除一个字符</span><br><span class="line">cin.get(str,5).get();										//清除后面的换行符</span><br></pre></td></tr></table></figure>
-<p>*numeric_limits<a href="std::streamsize">std::streamsize</a>::max()是climits头文件定义的流使用的最大值，你也可以用一个足够大的整数代替它。 </p>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-解决C++ ifstream 读取文件总多读一次问题" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/10/12/%E8%A7%A3%E5%86%B3C++%20ifstream%20%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E6%80%BB%E5%A4%9A%E8%AF%BB%E4%B8%80%E6%AC%A1%E9%97%AE%E9%A2%98/"
-    >解决C++ ifstream 读取文件总多读一次问题</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/10/12/%E8%A7%A3%E5%86%B3C++%20ifstream%20%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E6%80%BB%E5%A4%9A%E8%AF%BB%E4%B8%80%E6%AC%A1%E9%97%AE%E9%A2%98/" class="article-date">
-  <time datetime="2020-10-12T11:55:00.000Z" itemprop="datePublished">2020-10-12</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/C-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">C++ 基础语法</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//文件读操作</span><br><span class="line">void readInfoFromFile(struct LNode* headNode,const char* fileName)</span><br><span class="line">&#123;</span><br><span class="line">	struct Ticketing data;</span><br><span class="line">	ifstream fin(fileName);</span><br><span class="line">	<span class="keyword">while</span> (!fin.eof())</span><br><span class="line">	&#123;</span><br><span class="line">		fin &gt;&gt; data.Terminus_Station &gt;&gt; data.Departure_Station &gt;&gt; data.Train_number &gt;&gt; data.Ticketing_number &gt;&gt; data.price;</span><br><span class="line">	//	<span class="keyword">if</span> (fin.fail())</span><br><span class="line">	//		<span class="built_in">break</span>;</span><br><span class="line">		insertNodeByHead(headNode, data);</span><br><span class="line">	&#125;</span><br><span class="line">	fin.close();</span><br><span class="line">	fin.clear();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果按上述原码操作，在读取文件数据时总是会多读取一遍。<br>查阅了<a href="https://www.cnblogs.com/youxin/p/3793814.html" target="_blank" rel="noopener">资料</a>后：<br>发现问题出在，fin对象在读取文件的时候，到末尾后后，再读一次才能判断到eof<br>因此最后一行会被读取两次。<br>解决方法是在while循环中加入判断：<br><strong>对于c风格的字符串可以使用:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a[0]=<span class="string">'\0'</span>) //其中a是第一个被读入的对象</span><br><span class="line">	<span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
-<p><strong>更加通用的形式:</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (in.fail())</span><br><span class="line">	<span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
 
 
     </footer>

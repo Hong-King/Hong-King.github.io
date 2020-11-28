@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    利用tf.concat()与np.concatenate()来拼接向量 |  Welcome to Mr.l&#39;s World
+    Python 从输入端读取多行数据 |  Welcome to Mr.l&#39;s World
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -41,7 +41,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-利用tf.concat()与np.concatenate来拼接向量" class="article article-type-post" itemscope
+  <article id="post-Python 从输入端读取多行数据" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -49,7 +49,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  利用tf.concat()与np.concatenate()来拼接向量
+  Python 从输入端读取多行数据
 </h1>
  
 
@@ -58,12 +58,12 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/23/%E5%88%A9%E7%94%A8tf.concat()%E4%B8%8Enp.concatenate%E6%9D%A5%E6%8B%BC%E6%8E%A5%E5%90%91%E9%87%8F/" class="article-date">
-  <time datetime="2020-04-23T09:14:00.000Z" itemprop="datePublished">2020-04-23</time>
+      <a href="/2020/11/27/Python%20%E4%BB%8E%E8%BE%93%E5%85%A5%E7%AB%AF%E8%AF%BB%E5%8F%96%E5%A4%9A%E8%A1%8C%E6%95%B0%E6%8D%AE/" class="article-date">
+  <time datetime="2020-11-27T08:49:00.000Z" itemprop="datePublished">2020-11-27</time>
 </a>
       
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">Python 基础语法</a>
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python 问题解决</a>
   </div>
 
       
@@ -73,7 +73,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">253</span>
+            <span class="post-count">72</span>
         </span>
     </span>
 
@@ -105,12 +105,8 @@
       
 
       
-      <p>tf.concat()用法展示</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">tf.concat([tensor1, tensor2, tensor3,...], axis)</span><br><span class="line"><span class="comment"># 使用通式，其中tensor1等表示矩阵对象；axis表示拼接的维度，数值越大，纬度越高</span></span><br><span class="line"><span class="comment">#---------------------------------------------------------</span></span><br><span class="line">t1 = [[1, 2, 3], [4, 5, 6]]  t2 = [[7, 8, 9], [10, 11, 12]]  </span><br><span class="line">tf.concat([t1, t2], 0)  </span><br><span class="line"><span class="comment"># [out] : [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]  </span></span><br><span class="line">tf.concat([t1, t2], 1)  </span><br><span class="line"><span class="comment"># [out] : [[1, 2, 3, 7, 8, 9], [4, 5, 6, 10, 11, 12]]   </span></span><br><span class="line"><span class="comment">#---------------------------------------------------------</span></span><br><span class="line"><span class="comment"># tensor t3 with shape [2, 3]  </span></span><br><span class="line"><span class="comment"># tensor t4 with shape [2, 3]  </span></span><br><span class="line">tf.shape(tf.concat([t3, t4], 0))  <span class="comment"># shape:[4, 3]  </span></span><br><span class="line">tf.shape(tf.concat([t3, t4], 1))  <span class="comment"># shape:[2, 6]</span></span><br></pre></td></tr></table></figure>
-<p>简单来讲，对于形状如[[ ], [ ]]和[[ ], [ ]]的矩阵，低维拼接等于拿掉最外面括号，高维拼接是拿掉里面的括号(保证其他维度不变)。如果axis为负数（-num），则表示倒数第num维度。</p>
-<hr>
-<p>np.concatenate的用法与tf.concat()类似，所以下面只展示示例，不做过多介绍</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">z = np.array([[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12],[13, 14, 15, 16]])</span><br><span class="line">a = np.concatenate(z,axis=1)</span><br><span class="line">[out]:</span><br><span class="line">	a = [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 ]</span><br></pre></td></tr></table></figure>
+      <p>该方法解决Python从输入端一次读取多个数据的问题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">try:</span><br><span class="line">    mx = []</span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        m = sys.stdin.readline().strip()</span><br><span class="line">        <span class="comment">#若是多输入，strip()默认是以空格分隔，返回一个包含多个字符串的list。</span></span><br><span class="line">        <span class="keyword">if</span> m == <span class="string">''</span>:</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        m = list(m.split())</span><br><span class="line">        mx.append(m)</span><br><span class="line">    <span class="built_in">print</span>(mx)</span><br><span class="line">except:</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
       
       <!-- reward -->
       
@@ -178,7 +174,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hong-king.github.io/2020/04/23/%E5%88%A9%E7%94%A8tf.concat()%E4%B8%8Enp.concatenate%E6%9D%A5%E6%8B%BC%E6%8E%A5%E5%90%91%E9%87%8F/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://hong-king.github.io/2020/11/27/Python%20%E4%BB%8E%E8%BE%93%E5%85%A5%E7%AB%AF%E8%AF%BB%E5%8F%96%E5%A4%9A%E8%A1%8C%E6%95%B0%E6%8D%AE/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -196,19 +192,19 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/05/08/%E3%80%8Apython%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E3%80%8B%E7%AC%94%E8%AE%B0/" class="article-nav-link">
+      <a href="/2020/11/28/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81(Hill%20Cipher)%E7%9A%84Python%E5%AE%9E%E7%8E%B0/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            《python深度学习》笔记
+            希尔密码(Hill Cipher)的Python实现
           
         </div>
       </a>
     
     
-      <a href="/2020/04/19/%E3%80%8A%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E3%80%8B%E7%AC%94%E8%AE%B0(Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0)/" class="article-nav-link">
+      <a href="/2020/11/27/%E5%88%A9%E7%94%A8reshape%E9%87%8D%E5%A1%91numpy%E6%95%B0%E7%BB%84/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">《数据结构与算法》笔记(Python语言实现)</div>
+        <div class="article-nav-title">利用reshape重塑数组</div>
       </a>
     
   </nav>
