@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>你好，欢迎光临我的博客</title>
-    <url>/2021/02/01/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/</url>
+    <url>/2021/02/02/%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%AC%A2%E8%BF%8E%E5%85%89%E4%B8%B4%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%81/</url>
     <content><![CDATA[<h2 id="这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游"><a href="#这篇说明将更好地帮助你在-lt-Mr-l’s-World-gt-里畅游" class="headerlink" title="这篇说明将更好地帮助你在&lt;Mr.l’s World&gt;里畅游"></a>这篇说明将更好地帮助你在&lt;<em>Mr.l’s World</em>&gt;里畅游</h2><blockquote>
 <p><strong>博客使用简介</strong></p>
 </blockquote>
@@ -37,6 +37,16 @@
 <blockquote>
 <p><strong>博客更新日志</strong></p>
 </blockquote>
+<ul>
+<li><strong>2021/2/2</strong></li>
+</ul>
+<ol>
+<li>添加《遗传算法的Matlab实现》</li>
+<li>添加《负指数分布的卡方检验（Matlab实现）》</li>
+<li>添加《泊松分布的卡方检验（Matlab实现）》</li>
+</ol>
+<p><strong>小结</strong>：添加三篇文章</p>
+<hr>
 <ul>
 <li><strong>2021/2/1</strong></li>
 </ul>
@@ -476,11 +486,11 @@
 <h3 id="《玉楼春·别后不知君远近》-宋-欧阳修"><a href="#《玉楼春·别后不知君远近》-宋-欧阳修" class="headerlink" title="《玉楼春·别后不知君远近》-[宋] 欧阳修"></a>《玉楼春·别后不知君远近》-[宋] 欧阳修</h3><blockquote>
 <p><strong>别后不知君远近。触目凄凉多少闷。渐行渐远渐无书，水阔鱼沉何处问。<br>夜深风竹敲秋韵。万叶千声皆是恨。故欹单枕梦中寻，梦又不成灯又烬。</strong></p>
 </blockquote>
+<a id="more"></a>
 <hr>
 <h3 id="《水龙吟·次韵章质夫杨花词》-宋-苏轼"><a href="#《水龙吟·次韵章质夫杨花词》-宋-苏轼" class="headerlink" title="《水龙吟·次韵章质夫杨花词》-[宋] 苏轼"></a>《水龙吟·次韵章质夫杨花词》-[宋] 苏轼</h3><blockquote>
 <p><strong>似花还似非花，也无人惜从教坠。抛家傍路，思量却是，无情有思。萦损柔肠，困酣娇眼，欲开还闭。梦随风万里，寻郎去处，又还被莺呼起。<br>不恨此花飞尽，恨西园，落红难缀。晓来雨过，遗踪何在？一池萍碎。春色三分，二分尘土，一分流水。细看来，不是杨花点点，是离人泪。</strong></p>
 </blockquote>
-<a id="more"></a>
 <hr>
 <h3 id="《送李副使赴碛西官军》-唐-岑参"><a href="#《送李副使赴碛西官军》-唐-岑参" class="headerlink" title="《送李副使赴碛西官军》-[唐] 岑参"></a>《送李副使赴碛西官军》-[唐] 岑参</h3><blockquote>
 <p><strong>火山六月应更热，赤亭道口行人绝。<br>知君惯度祁连城，岂能愁见轮台月。<br>脱鞍暂入酒家垆，送君万里西击胡。<br>功名只向马上取，真是英雄一丈夫。</strong></p>
@@ -845,6 +855,7 @@
 <ul>
 <li><strong>你写了成百上千条微博、日志或朋友圈，有些是写给专门的人看的。但往往这个人看不到，不会看，也不想看。直到有一天，另一个不相关的人突然跟你说：你写的所有东西我都看完了，好心疼你呀，啊哈——你看，真正在乎你的人读的不是你的某条心情，他们想读的，是你的整个人生。</strong></li>
 </ul>
+<a id="more"></a>
 <hr>
 <blockquote>
 <p>某位抑郁症患者-佚名</p>
@@ -852,7 +863,6 @@
 <ul>
 <li><strong>我做了自己最大的抗争，我在无数次放弃自己的边缘拯救自己，也许在别人的世界里我什么也不是，但在我自己的世界里，我是自己的英雄。</strong></li>
 </ul>
-<a id="more"></a>
 <hr>
 <blockquote>
 <p>佚名</p>
@@ -1028,6 +1038,91 @@
       </categories>
       <tags>
         <tag>语言之美</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>泊松分布的卡方检验（Matlab实现）</title>
+    <url>/2021/02/02/%E6%B3%8A%E6%9D%BE%E5%88%86%E5%B8%83%E7%9A%84%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%EF%BC%88Matlab%E5%AE%9E%E7%8E%B0%EF%BC%89/</url>
+    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">%&#123;</span><br><span class="line">r = expcdf(x,2.5)*100; %负指数分布(累计)</span><br><span class="line">P = poisscdf(x,2.1)*100; %泊松分布(累计)</span><br><span class="line">r = exppdf(x,2.5)*100; %负指数分布</span><br><span class="line">P = poisspdf(x,2.1)*100; %泊松分布</span><br><span class="line">%&#125;</span><br><span class="line"></span><br><span class="line">x = 0:1:6;</span><br><span class="line">y = poisspdf(x,2.1)*100; %泊松分布的理论值</span><br><span class="line">plot(x,y)</span><br><span class="line">hold on;</span><br><span class="line">x = 0:1:6;</span><br><span class="line">y1 = [10 28 29 16 10 6 1]; %泊松分布的实际值</span><br><span class="line">plot(x,y1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[h,p,stats] = chi2gof(x, <span class="string">'ctrs'</span>, x, <span class="string">'frequency'</span>, y1, <span class="string">'expected'</span>, y, <span class="string">'nparams'</span>,0) %卡方检验</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Matlab 算法实现</category>
+      </categories>
+      <tags>
+        <tag>Matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>负指数分布的卡方检验（Matlab实现）</title>
+    <url>/2021/02/02/%E8%B4%9F%E6%8C%87%E6%95%B0%E5%88%86%E5%B8%83%E7%9A%84%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%EF%BC%88Matlab%E5%AE%9E%E7%8E%B0%EF%BC%89/</url>
+    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">%&#123;</span><br><span class="line">r = expcdf(x,2.5)*100; %负指数分布(累计)</span><br><span class="line">P = poisscdf(x,2.1)*100; %泊松分布(累计)</span><br><span class="line">r = exppdf(x,2.5)*100; %负指数分布</span><br><span class="line">P = poisspdf(x,2.1)*100; %泊松分布</span><br><span class="line">%&#125;</span><br><span class="line"></span><br><span class="line">x = 0:1:6;</span><br><span class="line">y1 = [38,25,17,9,6,5,0]; %负指数分布实际值</span><br><span class="line">plot(x,y1)</span><br><span class="line">hold on;</span><br><span class="line">x = 0:1:6;</span><br><span class="line">y2 = exppdf(x,2.5)*100; %负指数分布理论值</span><br><span class="line">plot(x,y2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[h,p,stats] = chi2gof(x, <span class="string">'ctrs'</span>, x, <span class="string">'frequency'</span>, y1, <span class="string">'expected'</span>, y2, <span class="string">'nparams'</span>,0) %卡方检验</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Matlab 算法实现</category>
+      </categories>
+      <tags>
+        <tag>Matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>遗传算法的Matlab实现</title>
+    <url>/2021/02/02/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%E7%9A%84Matlab%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<blockquote>
+<p>遗传算法主函数</p>
+</blockquote>
+<p><strong>k1</strong>为遗传进化总代数，<strong>k2</strong>为计算机显示控制数<br><strong>m</strong>为群体规模，<strong>n</strong>为染色体长度，<strong>t</strong>为交叉算子选择位<br><strong>pc</strong>为交叉概率，<strong>pm</strong>为变异概率，<strong>[a,b]</strong>为解码取值范围<br><strong>A</strong>为进化结束后群体，<strong>xx</strong>为对应解码，<strong>yy</strong>为目标函数值</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> [A,xx,yy] = genetic_algorithm(k1,k2,m,n,t,pc,pm,a,b)</span><br><span class="line">%&#123;</span><br><span class="line">k1为遗传进化总代数，k2为计算机显示控制数</span><br><span class="line">m为群体规模，n为染色体长度，t为交叉算子选择位</span><br><span class="line">pc为交叉概率，pm为变异概率，[a,b]为解码取值范围</span><br><span class="line">A为进化结束后群体，xx为对应解码，yy为目标函数值</span><br><span class="line">%&#125;</span><br><span class="line">A = round(rand(m,n)); %生成遗传基因</span><br><span class="line">% round()函数用于取最接近的整数</span><br><span class="line">% rand())函数用于产生由在(0, 1)之间均匀分布的随机数组成的数组。</span><br><span class="line"><span class="keyword">for</span> k = 1:k1</span><br><span class="line">    [g,f] = fun_fitness(A,n,a,b);%计算适应度函数</span><br><span class="line">    A = fun_selection(A,g,m,n);%选择算子</span><br><span class="line">    A = fun_crossover(A,t,n,pc);%交叉算子</span><br><span class="line">    A = fun_mutation(A,pm); %变异算子</span><br><span class="line">    <span class="keyword">if</span> mod(k,k2) == 0</span><br><span class="line">        [xx,yy] = fun_value(A,n,a,b); %函数值计算</span><br><span class="line">        k</span><br><span class="line">        dispx = xx<span class="string">'</span></span><br><span class="line"><span class="string">        dispy = yy'</span></span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">[xx,yy] = fun_value(A,n,a,b);</span><br><span class="line">%[A,xx,yy] = genetic_algorithm(500,100,10,17,9,0.8,0.01,0,10)</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+<hr>
+<blockquote>
+<p>适应度函数，用于计算A中各染色体的个体适应度</p>
+</blockquote>
+<p><strong>n</strong>为染色体长度，<strong>[a,b]</strong>为变量取值范围，<strong>g</strong>为适应值，<strong>f</strong>为目标函数值</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> [g,f] = fun_fitness(A,n,a,b)</span><br><span class="line">%适应度函数，用于计算A中各染色体的个体适应度</span><br><span class="line">%n为染色体长度，[a,b]为变量取值范围，g为适应值，f为目标函数值</span><br><span class="line">[p,~] = size(A);</span><br><span class="line">f = zeros(p,1);</span><br><span class="line">g = zeros(p,1);</span><br><span class="line">vx = fun_decode(A,n,a,b); % 解码操作</span><br><span class="line"><span class="keyword">for</span> i = 1:p</span><br><span class="line">     x = vx(i);</span><br><span class="line">     f(i,1) = 8*sin(5*x)+5*cos(4*x); %目标函数值</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">fmin = min(f);</span><br><span class="line"><span class="keyword">for</span> i = 1:p</span><br><span class="line">    g(i,1) = f(i)-fmin+1; %适应度函数值</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>选择算子</p>
+</blockquote>
+<p>按个体适应度F从种群A中选取m个形成种群B，<strong>n</strong>为基因编码长度</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> B = fun_selection(A,F,m,n)</span><br><span class="line">%选择算子。按个体适应度F从种群A中选取m个形成种群B，n为基因编码长度</span><br><span class="line">[p,~] = size(A);</span><br><span class="line">B = zeros(m,n);</span><br><span class="line">s = sum(F); % 默认对每列进行求和</span><br><span class="line">F = cumsum(F)/s; %cumsum()函数计算元素累加值，默认对每列进行累加</span><br><span class="line">rr = rand(1,m); %</span><br><span class="line"><span class="keyword">for</span> k=1:m</span><br><span class="line">    <span class="keyword">if</span> rr(k)&lt;F(1)</span><br><span class="line">        w = 1;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        con = 1;</span><br><span class="line">        t = 2;</span><br><span class="line">        <span class="keyword">while</span> t &lt;= p &amp;&amp; con == 1 %&amp;&amp;与</span><br><span class="line">            <span class="keyword">if</span> rr(k)&lt;F(t) &amp;&amp; rr(k)&gt;=F(t-1)</span><br><span class="line">                w = t;</span><br><span class="line">                con = 0;</span><br><span class="line">            end</span><br><span class="line">            t = t+1;</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">    B(k,:) = A(w,:);</span><br><span class="line">    %D(k) = w;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>交叉算子，单点交叉操作。</p>
+</blockquote>
+<p><strong>k</strong>表示选择位，<strong>n</strong>表示总位数，<strong>r</strong>表示交叉概率</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> B = fun_crossover(A,k,n,r)</span><br><span class="line">%交叉算子，单点交叉操作。k表示选择位，n表示总位数，r表示交叉概率</span><br><span class="line">[p,q] = size(A);</span><br><span class="line">B = zeros(p,q);</span><br><span class="line">R = rand(p,1);</span><br><span class="line"><span class="keyword">for</span> i = 1:2:p</span><br><span class="line">    <span class="keyword">if</span> R(i)&lt;r</span><br><span class="line">        a = A(i,:);</span><br><span class="line">        b = A(i+1,:);</span><br><span class="line">        a1 = a(1:k-1);</span><br><span class="line">        a2 = a(k:n);</span><br><span class="line">        b1 = b(1:k-1);</span><br><span class="line">        b2 = b(k:n);</span><br><span class="line">        B(i,:) = [a1,b2];</span><br><span class="line">        B(i+1,:) = [b1,a2];</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        B(i,:) = A(i,:);</span><br><span class="line">        B(i+1,:) = A(i+1,:);</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>变异算子</p>
+</blockquote>
+<p>以变异概率<strong>r</strong>对种群A中基因进行变异操作</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> A = fun_mutation(A,r)</span><br><span class="line">%变异算子，以变异概率r对种群A中基因进行变异操作</span><br><span class="line">[p,q] = size(A);</span><br><span class="line">B = rand(p,q);</span><br><span class="line"><span class="keyword">for</span> i = 1:p</span><br><span class="line">    <span class="keyword">for</span> j = 1:q</span><br><span class="line">        <span class="keyword">if</span> B(i,j)&lt;r</span><br><span class="line">            <span class="keyword">if</span> A(i,j) == 1</span><br><span class="line">                A(i,j)=0;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                A(i,j) = 1;</span><br><span class="line">            end</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>函数值计算</p>
+</blockquote>
+<p><strong>n</strong>为染色体长度，<strong>[a，b]</strong>为变量取值范围，<strong>xx</strong>为染色体解码，<strong>yy</strong>为目标函数</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> [xx,yy] = fun_value(A,n,a,b)</span><br><span class="line">%函数值计算</span><br><span class="line">%n为染色体长度，[a，b]为变量取值范围，xx为染色体解码，yy为目标函数</span><br><span class="line">[p,q] = size(A);</span><br><span class="line">xx = fun_decode(A,n,a,b);</span><br><span class="line">yy = zeros(p,1);</span><br><span class="line"><span class="keyword">for</span> i=1:p</span><br><span class="line">    x = xx(i);</span><br><span class="line">    yy(i,1) = 8*sin(5*x)+5*cos(4*x);</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>解码操作</p>
+</blockquote>
+<p>将二进制基因编码转换为在<strong>[a,b]</strong>内对应的十进制数值,<strong>n</strong>为染色体长度</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> d = fun_decode(A,n,a,b)</span><br><span class="line">% 解码操作，将二进制基因编码转换为在[a,b]内对应的十进制数值,n为染色体长度</span><br><span class="line">[p,~] = size(A); %p为矩阵行数，q为矩阵列数</span><br><span class="line">d = zeros(p,1);</span><br><span class="line"><span class="keyword">for</span> k = 1:p</span><br><span class="line">    x = A(k,:);</span><br><span class="line">    ss = 0;</span><br><span class="line">    <span class="keyword">for</span> i = 1:n</span><br><span class="line">        ss = ss + x(i)*2^(n-i);</span><br><span class="line">    end</span><br><span class="line">    d(k,1) = a + ss*(b<span class="_">-a</span>)/(2^n-1);</span><br><span class="line">end</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Matlab 算法实现</category>
+      </categories>
+      <tags>
+        <tag>Matlab</tag>
       </tags>
   </entry>
   <entry>
