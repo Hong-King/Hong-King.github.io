@@ -156,6 +156,88 @@
 
 </article>
     
+    <article id="post-python 表格数据合并函数merge()" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/08/09/python%20%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6%E5%87%BD%E6%95%B0merge()/"
+    >python 表格数据合并函数merge()</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/08/09/python%20%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6%E5%87%BD%E6%95%B0merge()/" class="article-date">
+  <time datetime="2020-08-09T00:52:00.000Z" itemprop="datePublished">2020-08-09</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python 问题解决</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>函数merge()的用法有点类似SQL语言</p>
+<h3 id="左右连接键名一样"><a href="#左右连接键名一样" class="headerlink" title="左右连接键名一样"></a>左右连接键名一样</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">df1=pd.DataFrame(&#123;<span class="string">'key'</span>:[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'b'</span>],<span class="string">'value1'</span>:range(5)&#125;)</span><br><span class="line">df2=pd.DataFrame(&#123;<span class="string">'key'</span>:[<span class="string">'a'</span>,<span class="string">'c'</span>,<span class="string">'c'</span>,<span class="string">'c'</span>,<span class="string">'c'</span>],<span class="string">'value2'</span>:range(5)&#125;)</span><br><span class="line">display(df1,df2,pd.merge(df1,df2))</span><br></pre></td></tr></table></figure>
+
+<p>df1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    key  value1          </span><br><span class="line">0 	a		  0</span><br><span class="line">1	  b		  1</span><br><span class="line">2	  a		  2</span><br><span class="line">3	  b		  3</span><br><span class="line">4	  b		  4</span><br></pre></td></tr></table></figure>
+
+<p>df2</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    key  value2</span><br><span class="line">0	  a		  0</span><br><span class="line">1	  c		  1</span><br><span class="line">2	  c		  2</span><br><span class="line">3	  c		  3</span><br><span class="line">4	  c		  4</span><br></pre></td></tr></table></figure>
+
+<p>pd.merge(df1,df2) ##以df1、df2中相同的列名key进行连接,默认how=’inner’, pd.merge(df1,df2,on=’key’,how=’inner’)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   key  value1 value2</span><br><span class="line">0	  a	    0	    0</span><br><span class="line">1	  a	    2	    0</span><br></pre></td></tr></table></figure>
+      
+      <a class="article-more-link" href="/2020/08/09/python%20%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6%E5%87%BD%E6%95%B0merge()/">阅读更多...</a>
+      
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-R语言dgCMatrix稀疏矩阵结构" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -793,88 +875,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="tag">数据结构与算法</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-Pandas在Python语言下的基础使用" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/14/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/"
-    >Pandas在Python语言下的基础使用</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/04/14/Pandas%E5%9C%A8Python%E8%AF%AD%E8%A8%80%E4%B8%8B%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/" class="article-date">
-  <time datetime="2020-04-14T13:53:00.000Z" itemprop="datePublished">2020-04-14</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">Python 基础语法</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <ul>
-<li>Pandas是个强大的结构数据处理包，但依本人经验来看：<strong>强烈建议在保存Pandas的DataFrame数据时，最好转化为numpy数组文件（.npy）进行保存</strong></li>
-</ul>
-<p><em>从实际使用来看，如果将DataFrame数据保存为csv或txt文件，在重新加载数据文件时，数据类型会自动转换成str类型，带来不必要的麻烦</em></p>
-<blockquote>
-<p>以下是我在实际应用&lt;预测关键蛋白&gt;中的实例</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">proteins_interaction_name=list(proteins_interaction_relationship.keys()) </span><br><span class="line"><span class="comment"># 将蛋白质名称列表赋值给对象proteins_interaction_name</span></span><br><span class="line">a = [proteins_interaction_relationship,proteins_labels] </span><br><span class="line"><span class="comment"># proteins_interaction_relationship以及proteins_labelsd都是字典对象</span></span><br><span class="line">data_preprocessing = pd.DataFrame(a,index=[<span class="string">'Proteins_interaction_relationship'</span>,<span class="string">'proteins_labels'</span>]) </span><br><span class="line"><span class="comment"># 通过pd.DataFrame内置函数依照proteins_interaction_relationship以及proteins_labelsd字典对象构建Pandas的DataFrame</span></span><br><span class="line"><span class="comment"># index为pd.DataFrame的内置属性，用于给每行添加索引</span></span><br><span class="line">data_preprocessing = data_preprocessing.dropna(axis=1)  </span><br><span class="line"><span class="comment"># 通过[DataFrame](代指DataFrame类型对象).dropna内置函数删除含有空值的列（axis=0为行） </span></span><br><span class="line">data_preprocessing.loc[2]=proteins_interaction_name</span><br><span class="line"><span class="comment"># 通过[DataFrame].loc[num]将proteins_interaction_name列表插入到第（num+1）行</span></span><br><span class="line">data_preprocessing.to_numpy</span><br><span class="line"><span class="comment"># 将数据转化成numpy数组类型，这样在保存数据时可以避免很多麻烦</span></span><br><span class="line">np.save(<span class="string">'data_preprocessing_DataFrame.npy'</span>,data_preprocessing) <span class="comment"># 保存Pandas结构数据</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<blockquote>
-<p>以下是读取csv时的一些值得注意的操作（不推荐保存为csv，但建议掌握以备不时之需）</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a=pd.read_csv(<span class="string">'data_preprocessing_DataFrame(无索引).csv'</span>,header=None)</span><br><span class="line"><span class="comment"># 注意：如果无列索引，必须添加header=None，否则默认把第一行数据处理成列名导致缺失</span></span><br><span class="line">a.values</span><br><span class="line"><span class="comment"># 通过这个操作，可以将对象a重新转化为DataFrame数据结构&lt;注意：此时数据的类型已经全部转化为str类型&gt;</span></span><br><span class="line">data_preprocessing.to_csv(<span class="string">'data_preprocessing_DataFrame(无索引).csv'</span>,index=False,header=False) </span><br><span class="line"><span class="comment"># 只保存DataFrame的数据，index=False表示无行索引，header=False表示无列索引</span></span><br><span class="line">data_preprocessing.to_csv(<span class="string">'data_preprocessing_DataFrame.csv'</span>) </span><br><span class="line"><span class="comment"># 保存DataFrame的数据及索引</span></span><br></pre></td></tr></table></figure>
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
 
     </footer>
