@@ -393,6 +393,78 @@
 
 </article>
     
+    <article id="post-高幂模求解的Python实现" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2021/05/25/%E9%AB%98%E5%B9%82%E6%A8%A1%E6%B1%82%E8%A7%A3%E7%9A%84Python%E5%AE%9E%E7%8E%B0/"
+    >高幂模求解的Python实现</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2021/05/25/%E9%AB%98%E5%B9%82%E6%A8%A1%E6%B1%82%E8%A7%A3%E7%9A%84Python%E5%AE%9E%E7%8E%B0/" class="article-date">
+  <time datetime="2021-05-25T13:01:00.000Z" itemprop="datePublished">2021-05-25</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python 问题解决</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <blockquote>
+<p>程序说明<br>Reference books: <a href="https://www.cnblogs.com/linyujun/p/5194170.html" target="_blank" rel="noopener">https://www.cnblogs.com/linyujun/p/5194170.html</a><br>Reference books: <a href="https://baike.baidu.com/item/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/1944850?fr=aladdin#3_6" target="_blank" rel="noopener">https://baike.baidu.com/item/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/1944850?fr=aladdin#3_6</a><br>Completion time：2021-5-25<br>Last modification time ：2021-5-25</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">import math</span><br><span class="line"></span><br><span class="line"><span class="comment">#参考文献：https://www.cnblogs.com/linyujun/p/5194170.html</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"************程序功能************"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"求 【X^Y mod Z】 的值"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"********************************"</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Reference books: https://www.cnblogs.com/linyujun/p/5194170.html"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Reference books: https://baike.baidu.com/item/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/1944850?fr=aladdin#3_6"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Completion time：2021-5-25"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Last modification time ：2021-5-25"</span>,<span class="string">'\n'</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"********************博客网址********************"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"欢迎访问：https://hong-king.github.io/"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"************************************************"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"--------------------------------------------------------"</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"请输入X："</span>)</span><br><span class="line">X = input()</span><br><span class="line">X = int(X)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"请输入Y："</span>)</span><br><span class="line">Y = input()</span><br><span class="line">Y = int(Y)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"请输入Z："</span>)</span><br><span class="line">Z = input()</span><br><span class="line">Z = int(Z)</span><br><span class="line"></span><br><span class="line">judge = 0 <span class="comment">#接受Z是否为素数指令,0表示Z为素数，1表示Z不为素数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#判断Z是否为素数,并求出素数个数</span></span><br><span class="line">def judge_sushu(P):</span><br><span class="line">    <span class="keyword">if</span> (P==2 or P==3):</span><br><span class="line">        <span class="built_in">return</span> (0)</span><br><span class="line">    dim = int(P**0.5)+1 <span class="comment">#必须使用+1，不能使用ceil，否则4时出错</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(2,dim):</span><br><span class="line">        <span class="keyword">if</span> (P%i != 0 and i&lt;(dim-1)):</span><br><span class="line">            <span class="built_in">continue</span></span><br><span class="line">        <span class="keyword">elif</span>(P%i!=0 and i==(dim-1)):</span><br><span class="line">            <span class="built_in">return</span> (0)    <span class="comment">#返回1说明P为素数</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">return</span> (i)</span><br><span class="line"></span><br><span class="line">Prime_matrix = []</span><br><span class="line"></span><br><span class="line">P = Z</span><br><span class="line">Factor = judge_sushu(P)</span><br><span class="line"><span class="keyword">if</span> (Factor != 0):</span><br><span class="line">    judge = 1</span><br><span class="line">    <span class="keyword">while</span>(1):</span><br><span class="line">        Prime_matrix.append(int(Factor))</span><br><span class="line">        P = P/Factor</span><br><span class="line">        <span class="keyword">if</span> (judge_sushu(P) == 0):</span><br><span class="line">            Prime_matrix.append(int(P))</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        <span class="keyword">else</span>: </span><br><span class="line">            Factor = judge_sushu(P)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    Prime_matrix.append(int(Z))</span><br><span class="line"></span><br><span class="line"><span class="comment">#求结果</span></span><br><span class="line">Prime_set = list(<span class="built_in">set</span>(Prime_matrix))</span><br><span class="line">phi = Z</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(Prime_set)):</span><br><span class="line">    phi = phi-phi/Prime_set[i] <span class="comment">#欧拉函数值</span></span><br><span class="line"></span><br><span class="line">ans = (int(X%Z)**int(phi+(Y%phi)))%Z <span class="comment">#必须加上int，否则会转换成float类型，超出限制</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"结果为："</span>)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-DES加密算法的Python实现" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -808,76 +880,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Matlab/" rel="tag">Matlab</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-希尔密码(Hill Cipher)的Python实现" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/12/11/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81(Hill%20Cipher)%E7%9A%84Python%E5%AE%9E%E7%8E%B0/"
-    >希尔密码(Hill Cipher)的Python实现</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/12/11/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81(Hill%20Cipher)%E7%9A%84Python%E5%AE%9E%E7%8E%B0/" class="article-date">
-  <time datetime="2020-12-11T13:59:00.000Z" itemprop="datePublished">2020-12-11</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Python 问题解决</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>此程序为希尔密码(Hill Cipher)的Python实现</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">All rights reserved by Liu Junhong</span></span><br><span class="line"><span class="string">Reference books: 《信息论基础》、百度百科-希尔密码 (https://baike.baidu.com/item/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81/2250150?fr=aladdin)</span></span><br><span class="line"><span class="string">Completion time：2020-11-27</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line">import math</span><br><span class="line">import numpy as np</span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line"><span class="comment">#加/解密算法</span></span><br><span class="line">def <span class="keyword">function</span>(matrix):</span><br><span class="line">    List = []</span><br><span class="line">    STR = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> message:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(i)):</span><br><span class="line">            <span class="keyword">for</span> h <span class="keyword">in</span> i[j]:</span><br><span class="line">                List.append(letter_dict[h])</span><br><span class="line">            <span class="keyword">if</span> len(i)- j &gt; 1:</span><br><span class="line">                List.append(letter_dict[<span class="string">' '</span>])</span><br><span class="line">        <span class="keyword">while</span>(not len(List)%4 == 0):</span><br><span class="line">            List.append(letter_dict[<span class="string">' '</span>])</span><br><span class="line">        B = np.array(List).reshape(-1,4)</span><br><span class="line">        C = np.dot(matrix,np.transpose(B))</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> np.transpose(C).reshape(1,-1)[0]:</span><br><span class="line">            STR = STR + num_dict[(round(k))%53]         <span class="comment">#round()确保矩阵计算精度</span></span><br><span class="line">        <span class="built_in">print</span>(STR)</span><br><span class="line">        List = []     </span><br><span class="line">        STR = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#程序说明</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Designed by 刘俊宏：All rights reserved"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Reference books: 《信息论基础》、百度百科-希尔密码 (https://baike.baidu.com/item/%E5%B8%8C%E5%B0%94%E5%AF%86%E7%A0%81/2250150?fr=aladdin)"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Completion time：2020-11-27"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"Last modification time ：2020-11-28"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\n"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------&lt;希尔密码(MOD53)&gt;程序说明-------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"该程序目前只接受大小写英文加密讯息(支持空格)!"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"若要结束输入，请按两次回车"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"每次运行程序，密钥都会改变!"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"为保证解码顺利，密钥矩阵|A|=+/-1!"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\n"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"********************博客网址********************"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"欢迎访问：https://hong-king.github.io/"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"************************************************"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"---------------------------------------------------------------"</span>,<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建码符集</span></span><br><span class="line">letter = [<span class="string">' '</span>]+[chr(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(97, 123)] + [chr(i) <span class="keyword">for</span> i <span class="keyword">in</span> range(65, 91)]</span><br><span class="line">letter_dict = dict(zip(letter,range(len(letter))))</span><br><span class="line">num_dict = dict(zip(range(len(letter)),letter))</span><br><span class="line">                   </span><br><span class="line"><span class="comment">#*******录入数据</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"请输入需要加密的英文讯息:"</span>)</span><br><span class="line">message = []</span><br><span class="line">try:</span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        m = sys.stdin.readline().strip() <span class="comment">#若是多输入，strip()默认是以空格分隔，返回一个包含多个字符串的list。</span></span><br><span class="line">        <span class="keyword">if</span> m == <span class="string">''</span>:</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        m = list(m.split())</span><br><span class="line">        message.append(m)</span><br><span class="line">except:</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"正在加密，请稍后...."</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#生成随机4阶可逆矩阵(密钥)</span></span><br><span class="line"><span class="string">''</span><span class="string">'</span></span><br><span class="line"><span class="string">为减小运算压力，设随机矩阵大小为4*4，随机整数元素区间为[1,10]</span></span><br><span class="line"><span class="string">'</span><span class="string">''</span></span><br><span class="line">A = np.random.randint(1, 10, size=(4,4)) <span class="comment">#生成[1,10]区间的整数随机矩阵(密钥)</span></span><br><span class="line"><span class="keyword">while</span> (not abs(np.linalg.det(A)) == 1 ): <span class="comment">#该条件用于保证密钥的逆矩阵为整数</span></span><br><span class="line">    A = np.random.randint(1, 10, size=(4,4))</span><br><span class="line">A_Inv = np.linalg.inv(A)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------密钥-------------------"</span>)</span><br><span class="line"><span class="built_in">print</span>(A)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------密文-------------------"</span>)</span><br><span class="line"><span class="keyword">function</span>(A)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"\n"</span>,<span class="string">"****************解码****************"</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"请输入密文："</span>)</span><br><span class="line">message = []</span><br><span class="line">try:</span><br><span class="line">    <span class="keyword">while</span> True:</span><br><span class="line">        m = sys.stdin.readline().strip() <span class="comment">#若是多输入，strip()默认是以空格分隔，返回一个包含多个字符串的list。</span></span><br><span class="line">        <span class="keyword">if</span> m == <span class="string">''</span>:</span><br><span class="line">            <span class="built_in">break</span></span><br><span class="line">        m = list(m.split())</span><br><span class="line">        message.append(m)</span><br><span class="line">except:</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">"正在解密，请稍后...."</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">"-------------------原文-------------------"</span>)</span><br><span class="line"><span class="keyword">function</span>(A_Inv)</span><br></pre></td></tr></table></figure>
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
 
     </footer>
