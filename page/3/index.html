@@ -80,6 +80,79 @@
     
     
     
+    <article id="post-解决C++ ifstream 读取文件总多读一次问题" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/10/12/%E8%A7%A3%E5%86%B3C++%20ifstream%20%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E6%80%BB%E5%A4%9A%E8%AF%BB%E4%B8%80%E6%AC%A1%E9%97%AE%E9%A2%98/"
+    >解决C++ ifstream 读取文件总多读一次问题</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/10/12/%E8%A7%A3%E5%86%B3C++%20ifstream%20%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6%E6%80%BB%E5%A4%9A%E8%AF%BB%E4%B8%80%E6%AC%A1%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2020-10-12T11:55:00.000Z" itemprop="datePublished">2020-10-12</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/C-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">C++ 基础语法</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//文件读操作</span><br><span class="line">void readInfoFromFile(struct LNode* headNode,const char* fileName)</span><br><span class="line">&#123;</span><br><span class="line">	struct Ticketing data;</span><br><span class="line">	ifstream fin(fileName);</span><br><span class="line">	<span class="keyword">while</span> (!fin.eof())</span><br><span class="line">	&#123;</span><br><span class="line">		fin &gt;&gt; data.Terminus_Station &gt;&gt; data.Departure_Station &gt;&gt; data.Train_number &gt;&gt; data.Ticketing_number &gt;&gt; data.price;</span><br><span class="line">	//	<span class="keyword">if</span> (fin.fail())</span><br><span class="line">	//		<span class="built_in">break</span>;</span><br><span class="line">		insertNodeByHead(headNode, data);</span><br><span class="line">	&#125;</span><br><span class="line">	fin.close();</span><br><span class="line">	fin.clear();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果按上述原码操作，在读取文件数据时总是会多读取一遍。<br>查阅了<a href="https://www.cnblogs.com/youxin/p/3793814.html" target="_blank" rel="noopener">资料</a>后：<br>发现问题出在，fin对象在读取文件的时候，到末尾后后，再读一次才能判断到eof<br>因此最后一行会被读取两次。<br>解决方法是在while循环中加入判断：<br><strong>对于c风格的字符串可以使用:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(a[0]=<span class="string">'\0'</span>) //其中a是第一个被读入的对象</span><br><span class="line">	<span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>更加通用的形式:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (in.fail())</span><br><span class="line">	<span class="built_in">break</span>;</span><br></pre></td></tr></table></figure>
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C++</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-Python网络爬虫示例（有道词典）" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -785,80 +858,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-利用tf.concat()与np.concatenate来拼接向量" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/23/%E5%88%A9%E7%94%A8tf.concat()%E4%B8%8Enp.concatenate%E6%9D%A5%E6%8B%BC%E6%8E%A5%E5%90%91%E9%87%8F/"
-    >利用tf.concat()与np.concatenate()来拼接向量</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/04/23/%E5%88%A9%E7%94%A8tf.concat()%E4%B8%8Enp.concatenate%E6%9D%A5%E6%8B%BC%E6%8E%A5%E5%90%91%E9%87%8F/" class="article-date">
-  <time datetime="2020-04-23T09:14:00.000Z" itemprop="datePublished">2020-04-23</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">Python 基础语法</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>tf.concat()用法展示</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">tf.concat([tensor1, tensor2, tensor3,...], axis)</span><br><span class="line"><span class="comment"># 使用通式，其中tensor1等表示矩阵对象；axis表示拼接的维度，数值越大，纬度越高</span></span><br><span class="line"><span class="comment">#---------------------------------------------------------</span></span><br><span class="line">t1 = [[1, 2, 3], [4, 5, 6]]  t2 = [[7, 8, 9], [10, 11, 12]]  </span><br><span class="line">tf.concat([t1, t2], 0)  </span><br><span class="line"><span class="comment"># [out] : [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]  </span></span><br><span class="line">tf.concat([t1, t2], 1)  </span><br><span class="line"><span class="comment"># [out] : [[1, 2, 3, 7, 8, 9], [4, 5, 6, 10, 11, 12]]   </span></span><br><span class="line"><span class="comment">#---------------------------------------------------------</span></span><br><span class="line"><span class="comment"># tensor t3 with shape [2, 3]  </span></span><br><span class="line"><span class="comment"># tensor t4 with shape [2, 3]  </span></span><br><span class="line">tf.shape(tf.concat([t3, t4], 0))  <span class="comment"># shape:[4, 3]  </span></span><br><span class="line">tf.shape(tf.concat([t3, t4], 1))  <span class="comment"># shape:[2, 6]</span></span><br></pre></td></tr></table></figure>
-<p>简单来讲，对于形状如[[ ], [ ]]和[[ ], [ ]]的矩阵，低维拼接等于拿掉最外面括号，高维拼接是拿掉里面的括号(保证其他维度不变)。如果axis为负数（-num），则表示倒数第num维度。</p>
-<hr>
-<p>np.concatenate的用法与tf.concat()类似，所以下面只展示示例，不做过多介绍</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">z = np.array([[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12],[13, 14, 15, 16]])</span><br><span class="line">a = np.concatenate(z,axis=1)</span><br><span class="line">[out]:</span><br><span class="line">	a = [ 1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 ]</span><br></pre></td></tr></table></figure>
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
 
 
     </footer>
