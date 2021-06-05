@@ -1438,6 +1438,25 @@
       </tags>
   </entry>
   <entry>
+    <title>关于在Python中利用pandas读取与保存csv文件失败的解决方法(&#39;utf-8&#39;编码格式不对)</title>
+    <url>/2020/08/09/%E5%85%B3%E4%BA%8E%E5%9C%A8Python%E4%B8%AD%E5%88%A9%E7%94%A8pandas%E8%AF%BB%E5%8F%96csv%E6%96%87%E4%BB%B6%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95(&#39;utf-8&#39;%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E4%B8%8D%E5%AF%B9)/</url>
+    <content><![CDATA[<p>在一开始我遇到了这个错误：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(<span class="string">'data1.csv'</span>)</span><br><span class="line"><span class="built_in">print</span>(data)</span><br><span class="line"></span><br><span class="line">[out]:</span><br><span class="line">	UnicodeDecodeError: <span class="string">'utf-8'</span> codec can<span class="string">'t decode byte 0xc4 in position 0: invalid continuation byte</span></span><br></pre></td></tr></table></figure>
+<p>开始不知道如何解决，一直想通过下载csv包来解决，但pip里没有这个包。后来我通过对csv文件进行“只读”操作后，发出现程序可以运行了</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(open(<span class="string">'data1.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line"><span class="built_in">print</span>(data)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>在保存时我也遇到了编码格式不对的错误，我是这样解决的</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">data1 = pd.read_csv(open(<span class="string">'data1.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line">data2 = pd.read_csv(open(<span class="string">'data2.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line">data3 = pd.read_csv(open(<span class="string">'data3.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(data1))</span><br><span class="line">result = pd.merge(data1, data2 ,on=<span class="string">'CardNo'</span>)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line">result.to_csv(<span class="string">'data4.csv'</span>,encoding=<span class="string">"utf_8_sig"</span>) <span class="comment">#用于解决编码错误问题</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>技术笔记</category>
+        <category>Python 问题解决</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python 表格数据合并函数merge()</title>
     <url>/2020/08/09/python%20%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%90%88%E5%B9%B6%E5%87%BD%E6%95%B0merge()/</url>
     <content><![CDATA[<p>函数merge()的用法有点类似SQL语言</p>
@@ -1494,25 +1513,6 @@
 
 <p>pd.merge(df5,df6,left_index=True,right_index=True)</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">	v1	v2	v3	v4	v5	v6	v7	v8</span><br><span class="line">a	0	1	2	3	12	13	14	15</span><br><span class="line">b	4	5	6	7	16	17	18	19</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>技术笔记</category>
-        <category>Python 问题解决</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于在Python中利用pandas读取与保存csv文件失败的解决方法(&#39;utf-8&#39;编码格式不对)</title>
-    <url>/2020/08/09/%E5%85%B3%E4%BA%8E%E5%9C%A8Python%E4%B8%AD%E5%88%A9%E7%94%A8pandas%E8%AF%BB%E5%8F%96csv%E6%96%87%E4%BB%B6%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95(&#39;utf-8&#39;%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E4%B8%8D%E5%AF%B9)/</url>
-    <content><![CDATA[<p>在一开始我遇到了这个错误：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(<span class="string">'data1.csv'</span>)</span><br><span class="line"><span class="built_in">print</span>(data)</span><br><span class="line"></span><br><span class="line">[out]:</span><br><span class="line">	UnicodeDecodeError: <span class="string">'utf-8'</span> codec can<span class="string">'t decode byte 0xc4 in position 0: invalid continuation byte</span></span><br></pre></td></tr></table></figure>
-<p>开始不知道如何解决，一直想通过下载csv包来解决，但pip里没有这个包。后来我通过对csv文件进行“只读”操作后，发出现程序可以运行了</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">data = pd.read_csv(open(<span class="string">'data1.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line"><span class="built_in">print</span>(data)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>在保存时我也遇到了编码格式不对的错误，我是这样解决的</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line"></span><br><span class="line">data1 = pd.read_csv(open(<span class="string">'data1.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line">data2 = pd.read_csv(open(<span class="string">'data2.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line">data3 = pd.read_csv(open(<span class="string">'data3.csv'</span>,<span class="string">'r'</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(data1))</span><br><span class="line">result = pd.merge(data1, data2 ,on=<span class="string">'CardNo'</span>)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line">result.to_csv(<span class="string">'data4.csv'</span>,encoding=<span class="string">"utf_8_sig"</span>) <span class="comment">#用于解决编码错误问题</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>技术笔记</category>
         <category>Python 问题解决</category>
@@ -2174,8 +2174,8 @@
         <category>Matlab 算法实现</category>
       </categories>
       <tags>
-        <tag>Matlab</tag>
         <tag>机器学习</tag>
+        <tag>Matlab</tag>
       </tags>
   </entry>
   <entry>
