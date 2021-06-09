@@ -80,6 +80,99 @@
     
     
     
+    <article id="post-Python中copy与deepcopy的区别" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/05/09/Python%E4%B8%ADcopy%E4%B8%8Edeepcopy%E7%9A%84%E5%8C%BA%E5%88%AB/"
+    >Python中copy与deepcopy的区别</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/05/09/Python%E4%B8%ADcopy%E4%B8%8Edeepcopy%E7%9A%84%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time datetime="2020-05-09T01:12:00.000Z" itemprop="datePublished">2020-05-09</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Python-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">Python 基础语法</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <blockquote>
+<p>copy与deepcopy都在copy模块中，使用的时候需要实现导入copy包,以下为示例：</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line"></span><br><span class="line">a = [1, 2]</span><br><span class="line">b = a</span><br><span class="line">c = copy.copy(a)</span><br><span class="line">d = copy.deepcopy(a)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(b), id(c), id(d))</span><br><span class="line"><span class="comment">#[out]:</span></span><br><span class="line">	2480148669704 2480148669704 2480148617096 2479872285064</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line"></span><br><span class="line">a = 22</span><br><span class="line">b = a</span><br><span class="line">c = copy.copy(a)</span><br><span class="line">d = copy.deepcopy(a)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(b), id(c), id(d))</span><br><span class="line"><span class="comment"># [out]:</span></span><br><span class="line">	140731869655968 140731869655968 140731869655968 140731869655968</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p><strong>赋值语句</strong>：赋值，并不会产生一个独立的对象单独存在，他只是将原有的数据块打上一个新标签，所以当其中一个标签被改变的时候，数据块就会发生变化，另一个标签也会随之改变。</p>
+</li>
+<li><p><strong>对于不可变类型（数值，字符串，元组）</strong>：浅复制、深复制和“等于赋值”的情况一样，对象的id值与原来的值相同，都是将对象指向同一个引用。</p>
+</li>
+</ol>
+<hr>
+<p><strong>对于可变类型（列表和字典）</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line"></span><br><span class="line">a = [1, 2, [1, 2]]</span><br><span class="line">b = a</span><br><span class="line">c = copy.copy(a)</span><br><span class="line">d = copy.deepcopy(a)</span><br><span class="line"><span class="built_in">print</span>(a, b, c, d)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(b), id(c), id(d))</span><br><span class="line"></span><br><span class="line">a[0] = 2</span><br><span class="line"><span class="built_in">print</span>(a, b, c, d)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(b), id(c), id(d))</span><br><span class="line"></span><br><span class="line">a[2][0] = 5</span><br><span class="line"><span class="built_in">print</span>(a, b, c, d)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(b), id(c), id(d))</span><br><span class="line"></span><br><span class="line"><span class="comment">#[out]:</span></span><br><span class="line">[1, 2, [1, 2]] [1, 2, [1, 2]] [1, 2, [1, 2]] [1, 2, [1, 2]]</span><br><span class="line">1292062431112 1292062431112 1291786145352 1291786145608</span><br><span class="line">[2, 2, [1, 2]] [2, 2, [1, 2]] [1, 2, [1, 2]] [1, 2, [1, 2]]</span><br><span class="line">1292062431112 1292062431112 1291786145352 1291786145608</span><br><span class="line">[2, 2, [5, 2]] [2, 2, [5, 2]] [1, 2, [5, 2]] [1, 2, [1, 2]]</span><br><span class="line">1292062431112 1292062431112 1291786145352 1291786145608</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>浅复制copy.copy(): 只拷贝父对象，不会拷贝对象的内部的子对象。</strong></li>
+</ol>
+<ul>
+<li>第一种情况(无复杂子对象):原来值的改变并不会影响浅复制的值，同时浅复制的值改变也并不会影响原来的值。原来值的id值与浅复制原来的值不同。</li>
+<li>第二种情况(有复杂子对象):（例如列表中的一个子元素是一个列表），如果不改变其中复杂子对象，浅复制的值改变并不会影响原来的值。 但是改变原来的值中的复杂子对象的值会影响浅复制的值， 因为他们子对象的引用是一样的。</li>
+</ul>
+<ol start="2">
+<li><strong>深复制deepcopy.copy()：拷贝父对象以及拷贝对象的内部的子对象,索引值都不同。</strong><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import copy</span><br><span class="line"></span><br><span class="line">a = [1, 2, [1, 2]]</span><br><span class="line">c = copy.deepcopy(a)</span><br><span class="line"><span class="built_in">print</span>(id(a), id(c))</span><br><span class="line"><span class="built_in">print</span>(id(a[2]), id(c[2]))</span><br><span class="line"><span class="comment">#[out]:</span></span><br><span class="line">	1828100118472 1827823832200</span><br><span class="line">	1828100146760 1827823754632</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-《python深度学习》笔记" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -785,82 +878,6 @@
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%85%B3%E9%94%AE%E8%9B%8B%E7%99%BD%E9%A2%84%E6%B5%8B/" rel="tag">关键蛋白预测</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-非负矩阵分解（NMF）的Matlab实现" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/08/%E9%9D%9E%E8%B4%9F%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%EF%BC%88NMF%EF%BC%89%E7%9A%84Matlab%E5%AE%9E%E7%8E%B0/"
-    >非负矩阵分解（NMF）的Matlab实现</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/04/08/%E9%9D%9E%E8%B4%9F%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3%EF%BC%88NMF%EF%BC%89%E7%9A%84Matlab%E5%AE%9E%E7%8E%B0/" class="article-date">
-  <time datetime="2020-04-08T08:01:00.000Z" itemprop="datePublished">2020-04-08</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/Matlab-%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0/">Matlab 算法实现</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <blockquote>
-<p>非负矩阵分解(Nonnegative Matrix Factorization),简称NMF,是由Lee和Seung于1999年在自然杂志上提出的一种矩阵分解</p>
-</blockquote>
-<ul>
-<li>它使分解后的所有分量均为非负值(要求纯加性的描述)并且同时实现非线性的维数约减.</li>
-<li>NMF已逐渐成为信号处理、生物医学工程、模式识别、计算机视觉和图像工程等研究领域中最受欢迎的多维数据处理工具之一.<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">V=double(imread(<span class="string">'图片名或路径'</span>));      <span class="comment">#	这里的图片默认为RGB格式（即三通道图片）</span></span><br><span class="line">imshow(mat2gray(V));</span><br><span class="line">V1=V(:,:,1);		<span class="comment"># 将图片的第一通道数值赋值给V1</span></span><br><span class="line">V2=V(:,:,2);		<span class="comment"># 将图片的第二通道数值赋值给V2</span></span><br><span class="line">V3=V(:,:,3);		<span class="comment"># 将图片的第三通道数值赋值给V3</span></span><br><span class="line"></span><br><span class="line">[i,u]=size(V1);		<span class="comment"># 将V1的行数赋值给i，列数赋值给u</span></span><br><span class="line">r=100;				<span class="comment"># 设置分解矩阵的秩</span></span><br><span class="line">W=rand(i,r);		<span class="comment"># 初始化WH，为非负数</span></span><br><span class="line">H=rand(r,u);		<span class="comment"># 初始化WH，为非负数</span></span><br><span class="line">maviter=600;		<span class="comment"># 最大迭代次数</span></span><br><span class="line">-----------------------------------------------------------------------------------</span><br><span class="line"><span class="comment"># 以下为非负矩阵算法公式，V2，V3同上处理，就不重复展示,以'...'代替</span></span><br><span class="line"><span class="keyword">for</span> iter=1:maviter</span><br><span class="line">    W=W.*((V1./(W*H))*H<span class="string">');           	</span></span><br><span class="line"><span class="string">    W=W./(ones(i,1)*sum(W));    </span></span><br><span class="line"><span class="string">    H=H.*(W'</span>*(V1./(W*H)));</span><br><span class="line">end</span><br><span class="line">V1=W*H;</span><br><span class="line">...</span><br><span class="line">-----------------------------------------------------------------------------------</span><br><span class="line"><span class="comment"># 以下程序用于重新拼接图形</span></span><br><span class="line">img_V(:,:,1)=V1(:,:);</span><br><span class="line">img_V(:,:,2)=V2(:,:);</span><br><span class="line">img_V(:,:,3)=V3(:,:);</span><br><span class="line">figure;</span><br><span class="line">imshow(mat2gray(img_V));</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Matlab/" rel="tag">Matlab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li></ul>
 
 
     </footer>
